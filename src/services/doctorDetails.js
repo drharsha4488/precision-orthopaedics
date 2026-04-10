@@ -81,17 +81,17 @@ export const doctorDetails = {
   },
   "prashanth-reddy-a": {
     name: "Dr. Prashanth Reddy A",
-    title: "Consultant Spine, Hip & Knee Surgeon",
-    focus: "UK-Trained Specialist in Spine & Adult Reconstruction",
+    title: "Consultant – Hip & Pelvic Reconstruction",
+    focus: "UK-Trained Specialist in Adult Joint & Pelvic Reconstruction",
     image: "/doctors/doc_prashanth.png",
-    bio: "Dr. Prashanth Reddy A is a multi-specialty surgeon with deep expertise in Spine, Hip, and Knee surgical interventions. Having served as a Senior Clinical Fellow at Wrightington Hospital (UK), he integrates elite Western trauma protocols into complex adult reconstructions, offering a comprehensive solution for patients with combined spine and joint degeneration.",
+    bio: "Dr. Prashanth Reddy A is a specialist surgeon with deep expertise in Hip and Knee surgical interventions. Having served as a Senior Clinical Fellow at Wrightington Hospital (UK), he integrates elite Western trauma protocols into complex adult reconstructions, offering a comprehensive solution for patients with advanced joint degeneration involving the hip and pelvis.",
     experience: "13+ Years in International Orthopaedics.",
-    fellowships: "Senior Clinical Fellow (Wrightington Hospital, UK), Spine Fellow (2024).",
+    fellowships: "Senior Clinical Fellow (Wrightington Hospital, UK), Complex Arthroplasty Fellow.",
     qualifications: "MBBS, DNB Ortho, M.Ch (Hip & Knee Surgery - UK).",
     specialties: [
-      "Integrated Spine Surgery & Care",
       "Complex Hip and Knee Replacement",
-      "Adult Joint Reconstruction",
+      "Pelvic Trauma & Reconstruction",
+      "Adult Joint Revision Arthroplasty",
       "Musculoskeletal Trauma Care"
     ]
   }

@@ -54,10 +54,10 @@ export const doctors = [
   {
     name: "Dr. Prashanth Reddy A",
     slug: "prashanth-reddy-a",
-    title: "Consultant Spine & Joint Specialist",
-    specialty: "Spine, Hip & Knee Surgery",
-    focus: "Integrated Spine care and adult joint reconstruction. Extensive UK clinical fellowship training.",
-    credentials: "MBBS, DNB, M.Ch (Hip & Knee) - UK, Fellow in Spine Surgery",
+    title: "Consultant – Hip & Pelvic Reconstruction",
+    specialty: "Hip & Pelvic Reconstruction",
+    focus: "Specialist in Adult Joint & Pelvic Reconstruction. Extensive UK clinical fellowship training.",
+    credentials: "MBBS, DNB, M.Ch (Hip & Knee) - UK, Complex Arthroplasty Fellow",
     experience: "13+ Years",
     image: "/doctors/doc_prashanth.png"
   }
@@ -69,19 +69,9 @@ export const directories = [
     icon: Activity,
     treatments: [
       { name: "Total Knee Arthroplasty (MAKO/Robotic)", slug: "robotic-knee-arthroplasty" },
-      { name: "Direct Anterior Approach Hip Replacement (DAA)", slug: "daa-hip-replacement" },
-      { name: "Shoulder Resurfacing & Replacement", slug: "shoulder-replacement" },
+      { name: "Mako Robotic Hip Arthroplasty (DAA)", slug: "robotic-hip-arthroplasty" },
+      { name: "Advanced Shoulder Reconstruction", slug: "shoulder-reconstruction" },
       { name: "Small Joint & Finger Replacements", slug: "small-joint-replacement" }
-    ]
-  },
-  {
-    category: "Complex Spine & Deformity",
-    icon: Bone,
-    treatments: [
-      { name: "Minimally Invasive Microdiscectomy", slug: "microdiscectomy" },
-      { name: "Multilevel Spinal Fusion", slug: "spinal-fusion" },
-      { name: "Cervical Disc Replacement", slug: "cervical-disc-replacement" },
-      { name: "Scoliosis Deformity Correction", slug: "scoliosis-correction" }
     ]
   },
   {

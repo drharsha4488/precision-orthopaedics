@@ -18,10 +18,9 @@ const Header = () => {
           <li className="nav-dropdown">
             <span className="dropdown-trigger">Clinical Divisions <ChevronDown size={14} /></span>
             <ul className="dropdown-menu">
-              <li><a href="/silo/knee" onClick={() => setIsMenuOpen(false)}>Lower Limb Arthroplasty</a></li>
-              <li><a href="/silo/hip" onClick={() => setIsMenuOpen(false)}>Pelvic & Hip Reconstruction</a></li>
-              <li><a href="/silo/shoulder" onClick={() => setIsMenuOpen(false)}>Upper Extremity</a></li>
-              <li><a href="/silo/spine" onClick={() => setIsMenuOpen(false)}>Spinal Neuromusculoskeletal</a></li>
+              <li><a href="/specialities/robotic-knee-arthroplasty" onClick={() => setIsMenuOpen(false)}>Lower Limb Arthroplasty</a></li>
+              <li><a href="/specialities/robotic-hip-arthroplasty" onClick={() => setIsMenuOpen(false)}>Pelvic & Hip Reconstruction</a></li>
+              <li><a href="/specialities/shoulder-reconstruction" onClick={() => setIsMenuOpen(false)}>Upper Extremity</a></li>
               <li><a href="/recovery" onClick={() => setIsMenuOpen(false)}>High-Performance Sports Medicine</a></li>
             </ul>
           </li>

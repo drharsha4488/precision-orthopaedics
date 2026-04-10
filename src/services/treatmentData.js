@@ -158,5 +158,88 @@ export const treatmentData = {
       "Instability walking on uneven surfaces",
       "Unable to return to sport despite rest"
     ]
+  },
+  "robotic-hip-arthroplasty": {
+    category: "Robotic Surgery",
+    title: "Mako Robotic-Arm Assisted Total Hip Arthroplasty",
+    subtitle: "Precision component positioning and virtual range-of-motion simulation for zero-compromise hip restoration.",
+    seoKeywords: "robotic hip replacement Hyderabad, Mako hip surgery India, DAA hip replacement Hyderabad, orthopedic hip specialist Hyderabad",
+    stats: { volume: "10,000+", accuracy: "0.01mm", recovery: "Rapid" },
+    videoTarget: "Dr. Nitish Bhan",
+    surgeonName: "Dr. Nitish Bhan",
+    surgeonTitle: "Senior Consultant – Pelvic & Hip Reconstruction",
+    surgeonCredentials: [
+      "18+ years of specialty expertise",
+      "Direct Anterior Approach (DAA) Specialist",
+      "Singapore & China Fellowship Trained",
+      "Master of Robotic Alignment"
+    ],
+    anatomyText: "Utilizing CT-based 3D modeling, the Mako system allows for precise cup orientation and leg-length restoration. This minimizes the risk of dislocation and accelerates functional recovery by preserving muscle integrity.",
+    eligibility: [
+      "Avascular Necrosis (AVN) of the Hip",
+      "Severe Osteoarthritis (Primary or Secondary)",
+      "Ankylosing Spondylitis with Hip Involvement",
+      "Failed conservative therapy"
+    ],
+    comparison: [
+      { feature: "Leg Length Balance", conventional: "Manual Estimation", robotic: "Sub-millimeter Precision" },
+      { feature: "Dislocation Risk", conventional: "Standard", robotic: "Significantly Reduced" },
+      { feature: "Muscle Sparing", conventional: "Moderate", robotic: "Maximum (via DAA)" }
+    ],
+    timeline: [
+      { day: "Day 0", action: "Precision Robotic Implantation", detail: "Muscle-sparing DAA technique" },
+      { day: "Day 1", action: "Full Weight Bearing Mobilization", detail: "Walking with support" },
+      { day: "Week 4", action: "Return to Daily Activity", detail: "Independent mobility" }
+    ],
+    costRange: "₹3.2L – ₹5.0L",
+    costNote: "including premium implants and robotic mapping",
+    infectionSafety: ["Class 100 OT", "Ultra-sterile workflow"],
+    mriWorkflow: [
+      { step: 1, title: "Upload Scans", desc: "MRI/CT for 3D mapping" },
+      { step: 2, title: "Surgical Simulation", desc: "Pre-op virtual range of motion" }
+    ],
+    recoveryChart: { conventional: { label: "Manual", weeks: 10 }, robotic: { label: "Mako Hip", weeks: 4 } },
+    faqs: [
+      { q: "What is DAA?", a: "Direct Anterior Approach is a muscle-sparing technique that allows for faster recovery and less post-op pain." }
+    ],
+    candidateSymptoms: ["Groin pain", "Difficulty putting on socks", "Limping"]
+  },
+  "shoulder-reconstruction": {
+    category: "Upper Extremity",
+    title: "Advanced Shoulder Reconstruction & Arthroplasty",
+    subtitle: "Global-standard restoration for complex rotator cuff tears and gleno-humeral instability.",
+    seoKeywords: "shoulder surgery Hyderabad, rotator cuff repair Hyderabad, shoulder replacement India, Dr. Deepthi Reddy shoulder specialist",
+    stats: { volume: "15,000+", accuracy: "Elite", recovery: "Integrated" },
+    videoTarget: "Dr. Deepthi Reddy",
+    surgeonName: "Dr. Deepthi Nandan Reddy",
+    surgeonTitle: "HOD – Senior Consultant Orthopaedic Surgeon",
+    surgeonCredentials: [
+      "30+ Years International Experience",
+      "Mayo Clinic Travelling Fellow (USA)",
+      "UK NHS Consultant Pedigree",
+      "Master of Complex Revision Arthroplasty"
+    ],
+    anatomyText: "Focusing on structural integrity, our HOD-led unit utilizes Arthrex Synergy UHD4 4K visualization for microscopic precision in tendon repairs and inverse-total shoulder replacements.",
+    eligibility: [
+      "Full-thickness Rotator Cuff Tears",
+      "Recurrent Shoulder Dislocation",
+      "Frozen Shoulder (Refractory cases)",
+      "Severe Shoulder Arthritis"
+    ],
+    comparison: [
+      { feature: "Visualization", conventional: "Standard HD", robotic: "4K UHD4 Imaging" },
+      { feature: "Surgical Lead", conventional: "Standard", robotic: "HOD Collaborative Board" }
+    ],
+    timeline: [
+      { day: "Pre-Op", action: "Dynamic Imaging", detail: "UHD visualization" },
+      { day: "Day 0", action: "Biological Repair", detail: "Arthroscopic procedure" }
+    ],
+    costRange: "₹1.8L – ₹4.0L",
+    costNote: "depending on implant/anchor requirement",
+    infectionSafety: ["Superior Sterility Protocols"],
+    mriWorkflow: [{ step: 1, title: "Upload MRI", desc: "Detailed soft tissue analysis" }],
+    recoveryChart: { conventional: { label: "Standard", weeks: 14 }, robotic: { label: "Precision", weeks: 8 } },
+    faqs: [{ q: "How long is the sling required?", a: "Typically 4–6 weeks depending on repair strength." }],
+    candidateSymptoms: ["Night pain", "Weakness lifting arm", "Shoulder clicking"]
   }
 };
