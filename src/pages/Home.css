@@ -303,6 +303,14 @@
   font-size: 1.2rem;
 }
 
+.hero-actions {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
 /* ══ STATS GLASS ══ */
 .stats-strip {
   display: flex;
