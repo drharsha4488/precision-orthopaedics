@@ -9,7 +9,7 @@ export const doctors = [
     focus: "Complex Shoulder, Elbow and Revision Joint Replacement. Leading the Upper Limb clinical vertical.",
     credentials: "MBBS, MS (Ortho), DNB (Ortho), FRCS (Ortho) - UK",
     experience: "25+ Years",
-    image: `https://ui-avatars.com/api/?name=Deepthi+Nandan+Reddy&background=0A1525&color=00E5FF&size=200`
+    image: "/doctors/doc_deepthi.png"
   },
   {
     name: "Dr. Amith Reddy",
@@ -19,7 +19,7 @@ export const doctors = [
     focus: "Global leader in Mako Robotic Knee & Hip Arthroplasty. Expert in sub-millimeter precision mapping.",
     credentials: "MBBS, MS (Ortho), Fellowship in Robotic Arthroplasty",
     experience: "15+ Years",
-    image: `https://ui-avatars.com/api/?name=Amith+Reddy&background=0A1525&color=00E5FF&size=200`
+    image: "/doctors/doc_amith.png"
   },
   {
     name: "Dr. Nitish Bhan",
@@ -29,7 +29,7 @@ export const doctors = [
     focus: "Minimally invasive Hip Replacement (DAA) and Complex Pelvic & Acetabular Trauma. Pioneer in Tactileless Hip Replacement.",
     credentials: "MBBS, DNB, M.Ch (Ortho), MNAMS",
     experience: "18+ Years",
-    image: `https://ui-avatars.com/api/?name=Nitish+Bhan&background=0A1525&color=00E5FF&size=200`
+    image: "/doctors/doc_nitish.png"
   },
   {
     name: "Dr. Ravi Teja Rudraraju",
@@ -39,7 +39,7 @@ export const doctors = [
     focus: "Leading the unit for Joint Preservation using PRP, Stem Cell therapies and biological grafting techniques. Specialist in Arthrex Synergy UHD4 4K Imaging.",
     credentials: "MBBS, MS (Ortho), Fellowship in Sports Medicine, Arthrex Tech Certified",
     experience: "12+ Years",
-    image: `https://ui-avatars.com/api/?name=Ravi+Teja+Rudraraju&background=0A1525&color=00E5FF&size=200`
+    image: "/doctors/doc_ravi.png"
   },
   {
     name: "Dr. B Harsha Vardhana Reddy",
@@ -49,7 +49,7 @@ export const doctors = [
     focus: "Sports injuries of the Shoulder & Elbow. Specialist in VALD Performance ForceDecks for high-velocity Return-to-Sport clearance.",
     credentials: "MBBS, MS (Ortho), Fellowship in Sports Traumatology, VALD Performance Lead",
     experience: "10+ Years",
-    image: `https://ui-avatars.com/api/?name=Harsha+Vardhana+Reddy&background=0A1525&color=00E5FF&size=200`
+    image: "/doctors/doc_harsha.png"
   },
   {
     name: "Dr. Prashanth Reddy A",
@@ -59,7 +59,7 @@ export const doctors = [
     focus: "Integrated Spine care and adult joint reconstruction. Extensive UK clinical fellowship training.",
     credentials: "MBBS, DNB, M.Ch (Hip & Knee) - UK, Fellow in Spine Surgery",
     experience: "13+ Years",
-    image: `https://ui-avatars.com/api/?name=Prashanth+Reddy&background=0A1525&color=00E5FF&size=200`
+    image: "/doctors/doc_prashanth.png"
   }
 ];
 
