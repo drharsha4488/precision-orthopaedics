@@ -3,7 +3,7 @@ export const doctorDetails = {
     name: "Dr. Deepthi Nandan Reddy",
     title: "HOD - Senior Consultant Orthopaedic Surgeon",
     focus: "Global Expert in Upper Limb & Revision Arthroplasty",
-    image: "/doctors/doc_deepthi.png",
+    image: "https://ui-avatars.com/api/?name=Dr+Deepthi+Reddy&background=0D8ABC&color=fff&size=512",
     bio: "Dr. Deepthi Nandan Reddy is the Head of the Department and a clinical powerhouse with over three decades of international experience. As one of the most decorated upper limb surgeons globally and a former NHS Consultant, he sets the international standard for complex Shoulder and Elbow reconstructions. He was awarded the prestigious Mayo Clinic Travelling Fellowship, marking him as a leader in structural joint repairs.",
     experience: "30+ Years | 15,000+ Patients",
     fellowships: "Mayo Clinic Travelling Fellowship (USA), FRCS (UK).",

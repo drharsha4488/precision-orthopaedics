@@ -9,7 +9,7 @@ export const doctors = [
     focus: "Complex Shoulder, Elbow and Revision Joint Replacement. Leading the Upper Limb clinical vertical.",
     credentials: "MBBS, MS (Ortho), DNB (Ortho), FRCS (Ortho) - UK",
     experience: "25+ Years",
-    image: "/doctors/doc_deepthi.png"
+    image: "https://ui-avatars.com/api/?name=Dr+Deepthi+Reddy&background=0D8ABC&color=fff&size=512"
   },
   {
     name: "Dr. Amith Reddy",
