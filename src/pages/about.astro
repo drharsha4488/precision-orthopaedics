@@ -1,52 +1,121 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { ShieldCheck, Award } from 'lucide-react';
+import { ShieldCheck, ClipboardCheck, Award } from 'lucide-react';
 import './About.css';
 
 const schemaData = {
   "@context": "https://schema.org",
   "@type": "MedicalOrganization",
   "name": "Precision Orthopaedics",
-  "description": "Hyderabad's Premier Robotic & Minimally Invasive Orthopaedic Team."
+  "description": "Engineering Excellence in Musculoskeletal Restoration. UK-trained HOD leadership and robotic surgical board oversight.",
+  "logo": "https://precisionortho.in/logo.png"
 };
 ---
 
 <Layout 
-  title="Excellence in Motion | About Us" 
-  description="Establishing the global standard for complex musculoskeletal reconstruction in India through relentless technological integration."
+  title="About Precision Ortho | Engineering Excellence in Musculoskeletal Restoration" 
+  description="Learn about the institutional model of Precision Orthopaedics. Global fellowship-trained leadership, robotic surgical board oversight, and program-based care."
 >
   <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
 
   <div class="about-page">
-    <section class="about-hero">
-      <div class="container text-center">
-        <h1>Excellence in Motion</h1>
-        <p class="hero-subtext">Establishing the global standard for complex musculoskeletal reconstruction in India through relentless technological integration and uncompromised surgical discipline.</p>
+    {/* ══ INSTITUTIONAL HERO ══ */}
+    <section class="about-hero animate-reveal">
+      <div class="container">
+        <h1>Engineering Excellence in <br/> Musculoskeletal Restoration</h1>
+        <p class="hero-subtext">
+          Precision Orthopaedics was established to eliminate the compromise between advanced surgical technology and individualized patient care. Our institutional model integrates global fellowship-trained leadership, robotics-enabled planning systems, collaborative surgical board oversight, and program-based subspecialty delivery.
+        </p>
       </div>
     </section>
 
+    {/* ══ GENESIS & PHILOSOPHY ══ */}
     <section class="container mt-xl mb-xl">
       <div class="about-grid">
-         <div class="about-text">
-           <h2 style="color: var(--primary); margin-bottom: 1.5rem">Our Genesis</h2>
-           <p style="font-size: 1.15rem; color: var(--text-main); line-height: 1.8; margin-bottom: 1.5rem">
-             Led by the President of the Shoulder and Elbow Society of India, Precision Orthopaedics was founded explicitly to eliminate the compromise between advanced technological care and deeply personalized patient mapping.
-           </p>
-           <p style="font-size: 1.15rem; color: var(--text-main); line-height: 1.8">
-             Every surgeon on our board carries high-level international certifications—ranging from Swiss Olympic Fellowships to rigorous training protocols from the Mayo Clinic. We are not just surgeons; we are architects of joint preservation.
-           </p>
+         <div class="about-text animate-reveal">
+            <h2 class="institutional-heading">Why Precision Ortho Was Founded</h2>
+            <p class="institutional-text">
+              Precision Orthopaedics was founded under the leadership of the President of the Shoulder and Elbow Society of India to create a subspecialty-driven surgical platform capable of delivering predictable outcomes in complex musculoskeletal reconstruction.
+            </p>
+            <p class="institutional-text">
+              Each clinical pathway is structured around internationally benchmarked training frameworks—from Swiss Olympic sports systems to Mayo Clinic–aligned reconstruction protocols—ensuring that treatment planning reflects global surgical standards rather than generalized orthopaedic practice models.
+            </p>
 
-           <ul class="accreditation-list mt-lg" style="list-style: none; padding: 0">
-             <li style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem"><ShieldCheck size={24} style={{ color: 'var(--secondary)' }}/> <strong>JCI & NABH Accredited Protocols</strong></li>
-             <li style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem"><Award size={24} style={{ color: 'var(--secondary)' }}/> <strong>Top Ranked Robotic Ortho Center (2025)</strong></li>
-           </ul>
+            <div class="governance-badges mt-lg">
+              <div class="accreditation-badge">
+                <ShieldCheck size={18} strokeWidth={1.5} style={{ color: 'var(--secondary)', opacity: 0.7 }}/>
+                <span>JCI-Standard Surgical Protocol Alignment</span>
+              </div>
+              <div class="accreditation-badge">
+                <ClipboardCheck size={18} strokeWidth={1.5} style={{ color: 'var(--secondary)', opacity: 0.7 }}/>
+                <span>NABH-Compliant Clinical Governance Systems</span>
+              </div>
+              <div class="accreditation-badge">
+                <Award size={18} strokeWidth={1.5} style={{ color: 'var(--secondary)', opacity: 0.7 }}/>
+                <span>Recognized Robotic Arthroplasty Leadership Program (2025)</span>
+              </div>
+            </div>
          </div>
          
-         <div class="about-image-placeholder">
-           <div style="background: #EBEBEB; width: 100%; height: 100%; min-height: 400px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-lg); color: #999; font-weight: bold">
-              [Surgical Team / Facility Image Placeholder]
-           </div>
+         <div class="about-image-frame animate-reveal">
+            <img src="/robotic_surgery_hero_1775752719796.png" alt="Institutional Robotic Surgical Planning" />
          </div>
+      </div>
+    </section>
+
+    {/* ══ CLINICAL MODEL & BOARD PROTOCOL ══ */}
+    <section class="clinical-model-section">
+      <div class="container">
+        <h2 class="institutional-heading">Our Clinical Model</h2>
+        <p class="institutional-text" style="max-width: 800px;">
+          Precision Ortho operates through a structured, program-based framework designed to ensure specialized expertise is applied to every body region.
+        </p>
+
+        <div class="model-grid">
+          <div class="model-unit">
+            <h4>Robotic Arthroplasty Unit</h4>
+            <p>Sub-millimeter precision in primary and revision joint reconstruction using Mako SmartRobotics™.</p>
+          </div>
+          <div class="model-unit">
+            <h4>Pelvic & Hip Reconstruction Program</h4>
+            <p>Anterior Supine Arthroplasty and complex trauma management led by fellowship faculty.</p>
+          </div>
+          <div class="model-unit">
+            <h4>Upper Limb Reconstruction Unit</h4>
+            <p>Advanced shoulder and elbow restoration utilizing the Arthrex Synergy 4K imaging ecosystem.</p>
+          </div>
+          <div class="model-unit">
+            <h4>High-Performance Sports Medicine</h4>
+            <p>Data-driven recovery and return-to-sport clearance via the VALD Performance Centre.</p>
+          </div>
+        </div>
+
+        <div class="board-protocol-block animate-reveal">
+          <p>
+            <strong>The Surgical Board Protocol:</strong> Every complex reconstruction pathway at Precision Ortho undergoes structured review through our Collaborative Surgical Board prior to final treatment planning. This ensures implant selection accuracy, biomechanical alignment optimization, and predictable rehabilitation sequencing across subspecialty programs.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    {/* ══ TRAINING PATHWAYS ══ */}
+    <section class="container mb-xl">
+      <span class="pathway-tag">International Training Pathways</span>
+      <h3 style="color: #fff; margin-bottom: 24px;">Globally Benchmarked Expertise</h3>
+      <div class="pathway-grid">
+        <div class="pathway-item">UK Fellowship Arthroplasty Programs</div>
+        <div class="pathway-item">Swiss Olympic Sports Systems</div>
+        <div class="pathway-item">Mayo Clinic Reconstruction Alignment</div>
+        <div class="pathway-item">Arthrex Global Upper Limb Training</div>
+      </div>
+    </section>
+
+    {/* ══ AUTHORITY CLOSING ══ */}
+    <section class="authority-closure">
+      <div class="container">
+        <p>
+          "Precision Orthopaedics combines UK fellowship-trained leadership, USA-engineered surgical platforms, and board-reviewed treatment pathways to deliver predictable outcomes in advanced musculoskeletal reconstruction."
+        </p>
       </div>
     </section>
   </div>

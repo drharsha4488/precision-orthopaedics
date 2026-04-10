@@ -14,7 +14,7 @@ const Header = () => {
         </a>
 
         <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
-          <li><a href="/about" onClick={() => setIsMenuOpen(false)}>Leadership</a></li>
+          <li><a href="/about" onClick={() => setIsMenuOpen(false)}>About Precision Ortho</a></li>
           <li className="nav-dropdown">
             <span className="dropdown-trigger">Clinical Divisions <ChevronDown size={14} /></span>
             <ul className="dropdown-menu">
