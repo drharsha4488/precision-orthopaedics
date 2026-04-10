@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { Award, Briefcase, GraduationCap, MapPin, CheckCircle, Calendar, ChevronLeft, Globe, Activity } from 'lucide-react';
+import { Award, Briefcase, GraduationCap, MapPin, CheckCircle, Calendar, ChevronLeft, Globe, Activity, MessageSquare } from 'lucide-react';
 import { doctorDetails } from '../../services/doctorDetails';
 import '../DoctorProfile.css';
 
@@ -18,10 +18,21 @@ const schemaData = {
   "@context": "https://schema.org",
   "@type": "Physician",
   "name": doctor.name,
-  "medicalSpecialty": doctor.focus,
+  "medicalSpecialty": "Orthopedic Surgery",
+  "description": doctor.bio,
+  "knowsAbout": doctor.specialties,
+  "image": `https://precisionortho.com${doctor.image}`,
   "affiliation": {
-    "@type": "MedicalClinic",
-    "name": "Precision Orthopaedics"
+    "@type": "Hospital",
+    "name": "Apollo Hospitals Financial District",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Nanakramguda",
+      "addressLocality": "Hyderabad",
+      "addressRegion": "Telangana",
+      "postalCode": "500032",
+      "addressCountry": "IN"
+    }
   },
   "telephone": "+91 40 2360 7777"
 };
@@ -40,18 +51,23 @@ const schemaData = {
           <ChevronLeft size={16} /> Back to Directory
         </a>
         <div class="profile-avatar-card">
+          <div class="unit-tag">{doctor.unitName}</div>
           <div class="avatar-large">
              <img src={doctor.image} alt={doctor.name} />
           </div>
           <h2>{doctor.name}</h2>
           <p class="profile-subtitle">{doctor.role}</p>
+          <p class="platform-tag">{doctor.platform}</p>
           <p class="profile-focus">{doctor.focus}</p>
           
           <div class="profile-ctas">
             <a href="/symptoms" class="btn btn-primary w-100 mb-sm" style="text-decoration: none; justify-content: center;">
               <Calendar size={16} /> Book Appointment
             </a>
-            <button class="btn btn-outline w-100">
+            <a href="https://wa.me/914023607777" class="btn btn-outline w-100 mb-sm" style="text-decoration: none; justify-content: center;">
+              <MessageSquare size={16} /> Talk to Coordinator
+            </a>
+            <button class="btn btn-text w-100">
               Request Second Opinion
             </button>
           </div>
@@ -79,12 +95,12 @@ const schemaData = {
           <div class="cred-card">
             <Briefcase class="cred-icon" />
             <h4>Seniority</h4>
-            <p>{doctor.experience}</p>
+            <p>{doctor.experience} Expertise</p>
           </div>
           <div class="cred-card">
             <Activity size={24} class="cred-icon" />
             <h4>Volume</h4>
-            <p>{doctor.procedures} Procedures</p>
+            <p>{doctor.specificVolume}</p>
           </div>
           <div class="cred-card">
             <Award class="cred-icon" />
@@ -108,5 +124,14 @@ const schemaData = {
         </section>
       </div>
     </div>
+  </div>
+
+  <div class="sticky-cta-bar">
+    <a href="/symptoms" class="btn btn-primary">
+      <Calendar size={18} /> Book Appointment
+    </a>
+    <a href="https://wa.me/914023607777" class="btn btn-outline" target="_blank">
+      <MessageSquare size={18} /> Talk to Coordinator
+    </a>
   </div>
 </Layout>

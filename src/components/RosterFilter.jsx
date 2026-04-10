@@ -1,48 +1,103 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Award, 
-  GraduationCap, 
-  Microscope, 
-  Activity, 
-  ShieldCheck, 
-  Trophy, 
   ChevronRight, 
   Clock, 
   MapPin, 
-  BriefcaseMedical,
+  Activity,
+  MessageSquare,
+  Filter,
   Stethoscope
 } from 'lucide-react';
 
-const categories = [
-  { id: 'all', label: 'All Specialities' },
-  { id: 'Robotic Arthroplasty', label: 'Robotic Arthroplasty' },
+const specialties = [
+  { id: 'all', label: 'All Units' },
+  { id: 'Robotic Arthroplasty', label: 'Robotic Unit' },
   { id: 'Hip Replacement', label: 'Hip & Pelvic' },
   { id: 'Sports Medicine', label: 'Sports Medicine' },
   { id: 'Joint Preservation', label: 'Joint Preservation' },
   { id: 'Upper Extremity', label: 'Shoulder & Elbow' }
 ];
 
+const conditions = [
+  { id: 'Knee Arthritis', label: 'Knee Arthritis' },
+  { id: 'Hip Replacement', label: 'Hip Replacement' },
+  { id: 'Sports Injury', label: 'Sports Injury' },
+  { id: 'Shoulder Pain', label: 'Shoulder Pain' },
+  { id: 'Revision Surgery', label: 'Revision Surgery' }
+];
+
 const RosterFilter = ({ doctors }) => {
-  const [activeFilter, setActiveFilter] = useState('all');
+  const [activeSpecialty, setActiveSpecialty] = useState('all');
+  const [activeCondition, setActiveCondition] = useState(null);
+
+  // ══ URL PARAM SYNCING ══
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const spec = params.get('specialty');
+    const cond = params.get('condition');
+    
+    if (spec) {
+      const found = specialties.find(s => s.id.toLowerCase().includes(spec.toLowerCase()));
+      if (found) setActiveSpecialty(found.id);
+    }
+    if (cond) {
+      const found = conditions.find(c => c.id.toLowerCase().includes(cond.toLowerCase()));
+      if (found) setActiveCondition(found.id);
+    }
+  }, []);
 
   const filteredDoctors = useMemo(() => {
-    if (activeFilter === 'all') return doctors;
-    return doctors.filter(doc => 
-      doc.specialty === activeFilter || 
-      (doc.filterTags && doc.filterTags.includes(activeFilter))
-    );
-  }, [activeFilter, doctors]);
+    let list = doctors;
+    if (activeSpecialty !== 'all') {
+      list = list.filter(doc => 
+        doc.specialty === activeSpecialty || 
+        (doc.filterTags && doc.filterTags.includes(activeSpecialty))
+      );
+    }
+    if (activeCondition) {
+      list = list.filter(doc => 
+        doc.conditions && doc.conditions.includes(activeCondition)
+      );
+    }
+    return list;
+  }, [activeSpecialty, activeCondition, doctors]);
 
   return (
     <div className="roster-hub">
-      {/* ══ FILTER TABS ══ */}
+      {/* ══ CONDITION ROUTING (Priority Filter) ══ */}
+      <div class="condition-routing-box mb-lg">
+        <div class="filter-label"><Filter size={14}/> Identify Your Condition</div>
+        <div className="condition-chips mt-sm">
+          <button 
+            onClick={() => setActiveCondition(null)}
+            className={`condition-chip ${!activeCondition ? 'active' : ''}`}
+          >
+            All Conditions
+          </button>
+          {conditions.map((cond) => (
+            <button
+              key={cond.id}
+              onClick={() => setActiveCondition(cond.id)}
+              className={`condition-chip ${activeCondition === cond.id ? 'active' : ''}`}
+            >
+              {cond.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* ══ SPECIALTY TABS ══ */}
       <div className="filter-tabs-container">
-        {categories.map((cat) => (
+        {specialties.map((cat) => (
           <button
             key={cat.id}
-            onClick={() => setActiveFilter(cat.id)}
-            className={`filter-tab ${activeFilter === cat.id ? 'active' : ''}`}
+            onClick={() => {
+              setActiveSpecialty(cat.id);
+              setActiveCondition(null); // Clear condition if changing unit
+            }}
+            className={`filter-tab ${activeSpecialty === cat.id ? 'active' : ''}`}
           >
             {cat.label}
           </button>
@@ -67,28 +122,29 @@ const RosterFilter = ({ doctors }) => {
                 <div className="doctor-visual">
                   <img src={doc.image} alt={doc.name} className="surgeon-portrait" />
                   <div className="overlay-stats">
-                    <span className="stat-pill"><Activity size={12}/> {doc.procedures} Procedures</span>
+                    <span className="stat-pill"><Activity size={12}/> {doc.specificVolume}</span>
                   </div>
                 </div>
 
                 {/* Content Section */}
                 <div className="doctor-data">
                   <div className="card-header-main">
+                    <div className="unit-label">{doc.unitName}</div>
                     <div className="role-badge">{doc.role}</div>
                     <h3>{doc.name}</h3>
-                    <p className="designation-text">{doc.title}</p>
+                    <p className="platform-association text-secondary">{doc.platform}</p>
                   </div>
 
                   <div className="badges-row">
                     <div className="badge-item" title="Experience">
                        <Clock size={16} className="text-secondary" />
-                       <span>{doc.experience} Experience</span>
+                       <span>{doc.experience} Expertise</span>
                     </div>
                     <div className="badge-item" title="Fellowship">
                        <Award size={16} className="text-secondary" />
                        <span>{doc.fellowships}</span>
                     </div>
-                    <div className="badge-item" title="Location">
+                    <div className="badge-item" title="Affiliation">
                        <MapPin size={16} className="text-secondary" />
                        <span>Apollo Hospitals</span>
                     </div>
@@ -100,8 +156,11 @@ const RosterFilter = ({ doctors }) => {
                     <a href="/symptoms" className="btn btn-primary">
                       Book Appointment <ChevronRight size={16} />
                     </a>
-                    <a href={`/doctor/${doc.slug}`} className="btn btn-outline">
-                      View Profile
+                    <a href="https://wa.me/914023607777" className="btn btn-outline" target="_blank">
+                      <MessageSquare size={16} /> Talk to Coordinator
+                    </a>
+                    <a href={`/doctor/${doc.slug}`} className="view-profile-link">
+                      View Clinical Profile
                     </a>
                   </div>
                 </div>

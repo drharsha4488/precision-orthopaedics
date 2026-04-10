@@ -58,6 +58,53 @@
   font-weight: 600;
 }
 
+/* ══ CONDITION ROUTING ══ */
+.condition-routing-box {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--surface-border);
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+}
+
+.filter-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.condition-chips {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.condition-chip {
+  background: transparent;
+  border: 1px dashed var(--surface-border);
+  color: var(--text-muted);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.condition-chip:hover {
+  border-color: var(--secondary);
+  color: var(--white);
+}
+
+.condition-chip.active {
+  background: rgba(0, 229, 255, 0.1);
+  border: 1px solid var(--secondary);
+  color: var(--secondary);
+}
+
 /* ══ FILTER HUB ══ */
 .filter-tabs-container {
   display: flex;
@@ -167,13 +214,34 @@
   flex-direction: column;
 }
 
+.unit-label {
+  background: var(--secondary);
+  color: var(--primary);
+  display: inline-block;
+  align-self: flex-start;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 2px;
+  margin-bottom: 1rem;
+}
+
 .role-badge {
-  color: var(--secondary);
-  font-size: 0.75rem;
+  color: var(--text-main);
+  font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+  margin-bottom: 0.25rem;
+}
+
+.platform-association {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--secondary);
+  margin-bottom: 1rem;
 }
 
 .doctor-data h3 {
@@ -216,7 +284,21 @@
 
 .cta-group {
   display: flex;
-  gap: 1rem;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.view-profile-link {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.view-profile-link:hover {
+  color: var(--secondary);
+  border-bottom-color: var(--secondary);
 }
 
 /* ══ COLLABORATIVE BOARD ══ */
