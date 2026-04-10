@@ -1,0 +1,183 @@
+---
+import { Cpu, Monitor, Activity, Dna, ArrowUpRight } from 'lucide-react';
+
+interface Props {
+  category: "Signature Technology" | "Visual Superiority" | "Performance Data" | "Joint Restoration";
+  title: string;
+  description: string;
+  buttonText?: string;
+  buttonLink?: string;
+  image?: string;
+  highlight?: boolean;
+  index: number;
+}
+
+const { category, title, description, buttonText, buttonLink, image, highlight, index } = Astro.props;
+
+// Mapping icons as "Instrument Glyphs"
+const IconMap = {
+  "Signature Technology": Cpu,
+  "Visual Superiority": Monitor,
+  "Performance Data": Activity,
+  "Joint Restoration": Dna,
+};
+
+const Glyph = IconMap[category];
+---
+
+<div class={`tech-card ${highlight ? 'highlight' : ''}`} style={`--index: ${index}`}>
+  <div class="tech-card-header">
+     <div class="glyph-container">
+        {Glyph && <Glyph size={18} strokeWidth={1.5} class="tech-glyph" />}
+     </div>
+     <span class="tech-label">{category}</span>
+  </div>
+
+  <div class="tech-card-body">
+    <h3>{title}</h3>
+    <p class="tech-desc">{description}</p>
+  </div>
+
+  <div class="tech-card-footer">
+    {buttonText && (
+      <a href={buttonLink || "#"} class="tech-link">
+        {buttonText} <ArrowUpRight size={14} />
+      </a>
+    )}
+    {image && (
+      <div class="tech-card-img-frame">
+         <img src={image} alt={title} loading="lazy" />
+      </div>
+    )}
+  </div>
+</div>
+
+<style>
+  .tech-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(0, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 32px;
+    backdrop-filter: blur(8px);
+    transition: all 400ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: bootSequence 600ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation-delay: calc(var(--index) * 80ms);
+  }
+
+  @keyframes bootSequence {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .tech-card.highlight {
+    border-color: rgba(0, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .tech-card:hover {
+    border-color: rgba(0, 255, 255, 0.22);
+    box-shadow: 
+      0 0 40px rgba(0, 255, 255, 0.08),
+      inset 0 0 12px rgba(0, 255, 255, 0.04);
+  }
+
+  .tech-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .glyph-container {
+    color: rgba(0, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
+  }
+
+  .tech-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--secondary);
+    text-transform: uppercase;
+    opacity: 0.9;
+  }
+
+  .tech-card-body h3 {
+    font-size: 1.5rem;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    color: #fff;
+  }
+
+  .tech-desc {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+    opacity: 0.8;
+  }
+
+  .tech-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: auto;
+    transition: all 0.2s ease;
+  }
+
+  .tech-link:hover {
+    color: #fff;
+    transform: translateX(4px);
+  }
+
+  .tech-card-img-frame {
+    margin-top: 20px;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 120px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .tech-card-img-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+    transition: transform 0.3s ease;
+  }
+
+  .tech-card:hover .tech-card-img-frame img {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+
+  /* Vertical Stagger Offsets - Desktop only */
+  @media (min-width: 1101px) {
+    .tech-card:nth-child(2) { transform: translateY(24px); }
+    .tech-card:nth-child(4) { transform: translateY(48px); }
+    
+    /* Animation adjustment to respect offset */
+    @keyframes bootSequence {
+      to { opacity: 1; transform: translateY(var(--offset, 0)); }
+    }
+  }
+
+  @media (max-width: 1100px) {
+    .tech-card {
+      transform: none !important;
+      animation: bootSequenceSimple 600ms ease forwards;
+    }
+    @keyframes bootSequenceSimple {
+      to { opacity: 1; transform: translateY(0); }
+    }
+  }
+</style>
