@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import CustomCursor from '../components/CustomCursor';
 import IntegrityShield from '../components/IntegrityShield';
+import SpeedInsights from '@vercel/speed-insights/astro';
 import '../index.css';
 
 interface Props {
@@ -40,12 +41,12 @@ const { title, description = "Precision Orthopaedics - Establishing the global s
 		<IntegrityShield client:visible />
 		<Footer client:visible />
 
+		<SpeedInsights />
+
 		<script>
 			import { inject } from '@vercel/analytics';
-			import { injectSpeedInsights } from '@vercel/speed-insights';
 			
 			inject();
-			injectSpeedInsights();
 		</script>
 	</body>
 </html>
