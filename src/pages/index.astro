@@ -9,6 +9,8 @@ import BlueprintArm from '../components/BlueprintArm';
 import TechStackSection from '../components/TechStackSection.astro';
 import TechCard from '../components/TechCard.astro';
 import RoboticArmSVG from '../components/RoboticArmSVG.jsx';
+import DivisionSection from '../components/DivisionSection.astro';
+import DivisionCard from '../components/DivisionCard.astro';
 import './Home.css';
 
 // We can still use React components inside Astro!
@@ -145,88 +147,52 @@ import './Home.css';
       />
     </TechStackSection>
 
-    {/* ══ THE SPECIALIST SILOS ══ */}
-    <section class="silo-entry-section container mt-xl mb-xl">
-      <div class="section-header text-center mb-lg">
-         <span class="tech-tag">Targeted Clinical Authority</span>
-         <h2 class="section-title">Anatomical Divisions</h2>
-      </div>
+    {/* ══ ANATOMICAL DIVISIONS & GOVERNANCE ══ */}
+    <DivisionSection
+      eyebrow="Targeted Clinical Authority"
+      title="Anatomical Divisions"
+    >
+      <DivisionCard
+        title="Lower Limb Arthroplasty"
+        description="Mako Robotics & Joint Preservation"
+        scope="Robotic Knee Replacement · Revision Arthroplasty · Joint Preservation"
+        doctors={["Dr. Amith", "Dr. Ravi Teja"]}
+        image="/anatomical_knee_schematic_1775754592483.png"
+        href="/clinical-divisions/lower-limb-arthroplasty"
+        iconName="activity"
+        highlight={true}
+      />
 
-      <div class="directory-bento-grid">
-         <Magnetic client:visible pull={0.1}>
-           <a href="/specialities/robotic-knee-arthroplasty" class="silo-card animate-reveal">
-              <div class="chasing-border"></div>
-              <img src="/anatomical_knee_schematic_1775754592483.png" class="silo-schematic" alt="" />
-              <div class="silo-card-content">
-                <Activity size={32} class="text-secondary mb-sm" />
-                <h4>Lower Limb Arthroplasty</h4>
-                <p>Mako Robotics & Joint Preservation</p>
-                <div class="silo-lead-tag">Dr. Amith | Dr. Ravi Teja</div>
-              </div>
-           </a>
-         </Magnetic>
+      <DivisionCard
+        title="Pelvic & Hip Reconstruction"
+        description="DAA Arthroplasty & Complex Trauma"
+        scope="Anterior Supine Hip · Pelvic Trauma · Revision Hip"
+        doctors={["Dr. Nitish Bhan", "Dr. Prashanth"]}
+        image="/anatomical_hip_schematic_1775754608460.png"
+        href="/clinical-divisions/pelvic-hip-reconstruction"
+        iconName="layers"
+      />
 
-         <Magnetic client:visible pull={0.1}>
-           <a href="/specialities/robotic-hip-arthroplasty" class="silo-card animate-reveal">
-              <div class="chasing-border"></div>
-              <img src="/anatomical_hip_schematic_1775754608460.png" class="silo-schematic" alt="" />
-              <div class="silo-card-content">
-                <Layers size={32} class="text-secondary mb-sm" />
-                <h4>Pelvic & Hip Reconstruction</h4>
-                <p>DAA Arthroplasty & Complex Trauma</p>
-                <div class="silo-lead-tag">Dr. Nitish Bhan | Dr. Prashanth</div>
-              </div>
-           </a>
-         </Magnetic>
+      <DivisionCard
+        title="Upper Extremity"
+        description="Arthrex 4K Hub & VALD Athletics"
+        scope="Shoulder Arthroplasty · Rotator Cuff · Elbow Restoration"
+        doctors={["Dr. Deepthi (HOD)", "Dr. Harsha"]}
+        image="/anatomical_shoulder_schematic_1775754624021.png"
+        href="/clinical-divisions/upper-extremity"
+        iconName="zap"
+      />
 
-         <Magnetic client:visible pull={0.1}>
-           <a href="/specialities/shoulder-reconstruction" class="silo-card animate-reveal">
-              <div class="chasing-border"></div>
-              <img src="/anatomical_shoulder_schematic_1775754624021.png" class="silo-schematic" alt="" />
-              <div class="silo-card-content">
-                <Zap size={32} class="text-secondary mb-sm" />
-                <h4>Upper Extremity</h4>
-                <p>Arthrex 4K Hub & VALD Athletics</p>
-                <div class="silo-lead-tag">Dr. Deepthi (HOD) | Dr. Harsha</div>
-              </div>
-           </a>
-         </Magnetic>
-
-
-         <Magnetic client:visible pull={0.1}>
-           <a href="/recovery" class="silo-card animate-reveal">
-              <div class="chasing-border"></div>
-              <img src="/sports_performance_lab_1775752734674.png" class="silo-schematic" alt="" style={{ opacity: 0.15, filter: 'grayscale(100%) blur(1px)' }} />
-              <div class="silo-card-content">
-                <Target size={32} class="text-secondary mb-sm" />
-                <h4>High-Performance Sports</h4>
-                <p>VALD Intelligence & Return-to-Play</p>
-                <div class="silo-lead-tag">Dr. Harsha | Dr. Ravi Teja</div>
-              </div>
-           </a>
-         </Magnetic>
-      </div>
-    </section>
-
-    {/* ══ GLOBAL LEADERSHIP BLOCK ══ */}
-    <section class="tech-trust-banner container mt-xl mb-xl text-center">
-       <div class="bento-card bento-dark p-xl">
-          <ShieldCheck size={48} class="text-secondary mb-md" style={{ margin: '0 auto' }} />
-          <h2>Zero Compromise Sterility</h2>
-         <p class="mt-sm body-text" style={{ maxWidth: '800px', margin: '0 auto' }}>
-           Every patient at Precision Orthopaedics benefits from our Collaborative Surgical Board. We merge UK-trained HOD leadership with the absolute latest in USA-engineered surgical technology.
-         </p>
-         
-         <div class="clinical-authority-badge mt-md">
-           <span class="text-secondary">Clinical Board:</span> Dr. Deepthi Reddy (HOD) | Dr. Amith Reddy | Dr. Nitish Bhan | Dr. Ravi Teja | Dr. Prashanth | Dr. Harsha
-         </div>
-
-         <div class="hero-actions mt-lg">
-            <a href="/doctors" class="btn btn-primary">Meet the Surgical Board</a>
-            <a href="/symptoms" class="btn btn-outline">Check Your Symptoms</a>
-         </div>
-      </div>
-    </section>
+      <DivisionCard
+        title="High-Performance Sports"
+        description="VALD Intelligence & Return-to-Play"
+        scope="ForceDecks Analysis · ACL Recovery · Athlete Optimization"
+        doctors={["Dr. Harsha", "Dr. Ravi Teja"]}
+        image="/sports_performance_lab_1775752734674.png"
+        href="/clinical-divisions/sports-medicine"
+        iconName="target"
+      />
+    </DivisionSection>
   </div>
 </Layout>
 

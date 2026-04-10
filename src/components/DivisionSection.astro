@@ -1,0 +1,175 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+}
+
+const { eyebrow, title } = Astro.props;
+---
+
+<section class="division-section">
+  <div class="container container-divisions">
+    <div class="section-header text-center mb-xl">
+      <span class="tech-tag animate-reveal">{eyebrow}</span>
+      <h2 class="section-title animate-reveal">{title}</h2>
+    </div>
+
+    <div class="division-grid">
+      <slot />
+    </div>
+
+    {/* ══ INSTITUTIONAL DIVIDER ══ */}
+    <div class="section-divider mt-xl mb-xl"></div>
+
+    {/* ══ GOVERNANCE LAYER ══ */}
+    <div class="governance-block animate-reveal">
+      <div class="governance-shield">
+         <span class="shield-icon">🛡️</span>
+      </div>
+      
+      <div class="governance-content">
+        <h3 class="governance-title">Collaborative Surgical Governance</h3>
+        <p class="governance-text">
+          Every complex case is reviewed by our multi-specialty surgical board before treatment planning. We merge UK-trained HOD leadership with the absolute latest in USA-engineered surgical technology to ensure zero-compromise precision.
+        </p>
+
+        <div class="board-governance-pill">
+           <span class="board-label">Surgical Board:</span>
+           DR. DEEPTHI REDDY (HOD) · DR. AMITH REDDY · DR. NITISH BHAN · DR. RAVI TEJA · DR. PRASHANTH · DR. HARSHA
+        </div>
+
+        <div class="governance-actions mt-lg">
+           <a href="/symptoms" class="btn btn-primary">Check Your Symptoms</a>
+           <a href="/doctors#surgical-board" class="btn btn-outline">Meet the Surgical Board</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .division-section {
+    position: relative;
+    padding: 100px 0;
+    background: #09090B;
+  }
+
+  .container-divisions {
+    max-width: 1400px;
+  }
+
+  .tech-tag {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--secondary);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-size: 3.5rem;
+    color: #fff;
+  }
+
+  .division-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 1100px) {
+    .division-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .section-title { font-size: 2.5rem; }
+  }
+
+  @media (max-width: 640px) {
+    .division-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ══ SECTION DIVIDER ══ */
+  .section-divider {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.25), transparent);
+  }
+
+  /* ══ GOVERNANCE BLOCK ══ */
+  .governance-block {
+    display: flex;
+    gap: 40px;
+    padding: 60px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    align-items: center;
+  }
+
+  .governance-shield {
+    font-size: 4rem;
+    filter: drop-shadow(0 0 20px rgba(0, 229, 255, 0.2));
+  }
+
+  .governance-content {
+    flex: 1;
+  }
+
+  .governance-title {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 15px;
+  }
+
+  .governance-text {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    max-width: 900px;
+    margin-bottom: 25px;
+  }
+
+  .board-governance-pill {
+    padding: 14px 28px;
+    background: rgba(0, 229, 255, 0.05);
+    border: 1px solid rgba(0, 229, 255, 0.1);
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    display: inline-block;
+  }
+
+  .board-label {
+    color: var(--secondary);
+    margin-right: 8px;
+  }
+
+  .governance-actions {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 1024px) {
+    .governance-block {
+      flex-direction: column;
+      text-align: center;
+      padding: 40px;
+    }
+    .governance-text {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .governance-actions {
+      justify-content: center;
+    }
+  }
+</style>
