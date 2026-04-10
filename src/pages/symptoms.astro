@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SymptomExplorer from '../components/SymptomExplorer';
+import { AlertCircle } from 'lucide-react';
+import './Symptoms.css';
+---
+
+<Layout 
+  title="Symptom Checker | Precision Discovery" 
+  description="Start your journey to recovery by identifying your specific symptoms. Our clinicians use these markers to architect your custom surgical roadmap."
+>
+  <div class="symptoms-page">
+    <section class="symptoms-hero animate-reveal">
+      <div class="container">
+        <div class="hero-badge">Medical Authority Hub</div>
+        <h1>Where does it <span>hurt?</span></h1>
+        <p class="hero-subtext">
+          Start your journey to precision recovery by identifying your specific symptoms. Our clinicians use these markers to architect your custom surgical or conservative roadmap.
+        </p>
+      </div>
+    </section>
+
+    <SymptomExplorer client:load />
+
+    <section class="triage-cta-section container animate-reveal" style="animation-delay: 0.4s">
+      <div class="triage-banner-box">
+        <div class="banner-content">
+          <AlertCircle class="banner-icon" size={32} />
+          <div>
+            <h3>Experiencing Acute Trauma?</h3>
+            <p>Skip the research. Our Level 1 Trauma center at Apollo Financial District is available 24/7 for emergency surgical intervention.</p>
+          </div>
+        </div>
+        <button class="btn btn-primary" id="triage-trigger">
+          Priority Triage Booking
+        </button>
+      </div>
+    </section>
+
+    <section class="seo-educational container">
+      <div class="aeo-answer-block">
+        <h2>When should I see an Orthopedic Surgeon?</h2>
+        <div class="answer-text">
+          <p>
+            Orthopedic symptoms generally warrant a specialist consultation when they interfere with daily activities or sleep. <strong>Clinical "Red Flags"</strong> include persistent night pain, night sweats, inability to bear weight, joint locking (mechanical blocking), or radiating numbness. At Precision Orthopaedics, we prioritize early symptom intervention through advanced 3D diagnostics (CT/MRI) before symptoms progress to irreversible joint degeneration.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<script>
+  // Script to trigger the triage form (which is a global React component)
+  document.getElementById('triage-trigger')?.addEventListener('click', () => {
+    // This assumes we have a way to open the TriageForm global state.
+    // For now, we can use a custom event.
+    window.dispatchEvent(new CustomEvent('open-triage'));
+  });
+</script>

@@ -1,0 +1,227 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { ArrowRight, Crosshair, Target, ShieldCheck, PlayCircle, Cpu, Activity, Zap, Shield, Microscope, Layers } from 'lucide-react';
+import BackgroundWaves from '../components/BackgroundWaves';
+import GlowOrbs from '../components/GlowOrbs';
+import PerspectiveGrid from '../components/PerspectiveGrid';
+import Magnetic from '../components/Magnetic';
+import BlueprintArm from '../components/BlueprintArm';
+import './Home.css';
+
+// We can still use React components inside Astro!
+---
+
+<Layout title="The Science of Human Restoration" description="Establishing the global standard for Joint Preservation and Robotic Arthroplasty. Led by UK-trained HOD Dr. Deepthi Reddy.">
+  <div class="home-container">
+    <GlowOrbs client:load />
+    <PerspectiveGrid client:load />
+    
+    {/* ══ CINEMATIC HERO ══ */}
+    <section class="hero-cinematic">
+      <img 
+        src="/robotic_surgery_hero_1775752719796.png" 
+        class="hero-bg-visual" 
+        alt="Precision Robotic Surgery Environment" 
+      />
+      <div class="hero-overlay"></div>
+      <div class="hero-particles"></div>
+      <div class="editorial-text">PRECISION</div>
+      
+      <div class="container hero-content animate-reveal">
+        <div class="elite-badge">
+          <span class="live-dot"></span>
+          Unrivaled Clinical Mastery
+        </div>
+        
+        <h1 class="hero-title kinetic-text">
+          The Science of<br />
+          <span class="text-gradient">Human Restoration.</span>
+        </h1>
+        
+        <p class="hero-subtitle">
+          Establishing the global standard for Joint Preservation and Robotic Arthroplasty. We merge UK-trained HOD leadership with the absolute latest in USA-engineered surgical technology.
+        </p>
+        
+        <div class="hero-actions">
+          <a href="/symptoms" class="btn btn-primary lg">
+            Symptom Checker <Zap size={18} />
+          </a>
+          <button class="btn btn-outline lg">
+            <PlayCircle size={18} /> Watch Surgery Tech
+          </button>
+        </div>
+
+        <div class="stats-strip">
+          <div class="stat-glass-bubble">
+            <h4>15k+</h4>
+            <span>Elite Procedures</span>
+          </div>
+          <div class="stat-glass-bubble">
+            <h4>0.01mm</h4>
+            <span>Robotic Mapping</span>
+          </div>
+          <div class="stat-glass-bubble">
+            <h4>UK/US</h4>
+            <span>Trained Faculty</span>
+          </div>
+        </div>
+      </div>
+
+      <BackgroundWaves client:load />
+    </section>
+
+    {/* ══ THE ELITE TECH STACK ══ */}
+    <section class="tech-bento-section">
+      <div class="container">
+        <div class="section-header text-center mb-lg" style={{ position: 'relative' }}>
+           <span class="tech-tag">Engineering Clinical Outcomes</span>
+            <h2 class="section-title">The Internal Tech Stack</h2>
+            <p class="body-text" style={{ maxWidth: '700px', margin: '1rem auto' }}>We utilize the world's most advanced surgical and diagnostic platforms to ensure zero-compromise precision.</p>
+            <div class="blueprint-overlay">
+              <BlueprintArm client:visible />
+            </div>
+         </div>
+
+        <div class="tech-grid">
+          <Magnetic client:visible pull={0.15}>
+            <div class="tech-card col-span-8 animate-reveal">
+              <div class="chasing-border"></div>
+              <span class="tech-tag">Signature Technology</span>
+              <h3><Cpu size={24} class="text-secondary" /> Stryker Mako 4.0® SmartRobotics</h3>
+              <p>Sub-millimeter 3D mapping and haptic boundary protection for the most accurate joint replacements in India.</p>
+              <img src="/precision_mri_visual_1775752750316.png" class="tech-img-preview" alt="Mako Robotic Precision" />
+            </div>
+          </Magnetic>
+
+          <Magnetic client:visible pull={0.2}>
+            <div class="tech-card col-span-4 animate-reveal">
+              <div class="chasing-border"></div>
+              <span class="tech-tag">Visual Superiority</span>
+              <h3><Microscope size={24} class="text-secondary" /> Arthrex Synergy UHD4</h3>
+              <p>Native 4K HDR visualization for complex shoulder and ligament reconstructions, providing 58x more color depth than standard HD.</p>
+              <a href="/silo/shoulder" class="btn btn-outline w-100 mt-md">Explore Upper Limb</a>
+            </div>
+          </Magnetic>
+
+          <Magnetic client:visible pull={0.2}>
+            <div class="tech-card col-span-4 animate-reveal">
+              <div class="chasing-border"></div>
+              <span class="tech-tag">Performance Data</span>
+              <h3><Activity size={24} class="text-secondary" /> VALD Performance Centre</h3>
+              <p>Utilizing ForceDecks and DynaMo to provide objective, data-driven return-to-sport clearance for elite athletes.</p>
+              <a href="/recovery" class="btn btn-primary w-100 mt-md">Sports Centre</a>
+            </div>
+          </Magnetic>
+
+          <Magnetic client:visible pull={0.15}>
+            <div class="tech-card col-span-8 animate-reveal">
+              <div class="chasing-border"></div>
+              <span class="tech-tag">Joint Restoration</span>
+              <h3><Zap size={24} class="text-secondary" /> Precision Biocentrics Unit</h3>
+              <p>Molecular-level regeneration using Exosome therapy and BMAC to preserve your natural joints. Led by Dr. Ravi Teja.</p>
+              <img src="/sports_performance_lab_1775752734674.png" class="tech-img-preview" alt="VALD Performance Lab" />
+            </div>
+          </Magnetic>
+        </div>
+      </div>
+    </section>
+
+    {/* ══ THE SPECIALIST SILOS ══ */}
+    <section class="silo-entry-section container mt-xl mb-xl">
+      <div class="section-header text-center mb-lg">
+         <span class="tech-tag">Targeted Clinical Authority</span>
+         <h2 class="section-title">Anatomical Divisions</h2>
+      </div>
+
+      <div class="directory-bento-grid">
+         <Magnetic client:visible pull={0.1}>
+           <a href="/silo/knee" class="silo-card animate-reveal">
+              <div class="chasing-border"></div>
+              <img src="/anatomical_knee_schematic_1775754592483.png" class="silo-schematic" alt="" />
+              <div class="silo-card-content">
+                <Activity size={32} class="text-secondary mb-sm" />
+                <h4>Lower Limb Arthroplasty</h4>
+                <p>Mako Robotics & Joint Preservation</p>
+                <div class="silo-lead-tag">Dr. Amith | Dr. Ravi Teja</div>
+              </div>
+           </a>
+         </Magnetic>
+
+         <Magnetic client:visible pull={0.1}>
+           <a href="/silo/hip" class="silo-card animate-reveal">
+              <div class="chasing-border"></div>
+              <img src="/anatomical_hip_schematic_1775754608460.png" class="silo-schematic" alt="" />
+              <div class="silo-card-content">
+                <Layers size={32} class="text-secondary mb-sm" />
+                <h4>Pelvic & Hip Reconstruction</h4>
+                <p>DAA Arthroplasty & Complex Trauma</p>
+                <div class="silo-lead-tag">Dr. Nitish Bhan</div>
+              </div>
+           </a>
+         </Magnetic>
+
+         <Magnetic client:visible pull={0.1}>
+           <a href="/silo/shoulder" class="silo-card animate-reveal">
+              <div class="chasing-border"></div>
+              <img src="/anatomical_shoulder_schematic_1775754624021.png" class="silo-schematic" alt="" />
+              <div class="silo-card-content">
+                <Zap size={32} class="text-secondary mb-sm" />
+                <h4>Upper Extremity</h4>
+                <p>Arthrex 4K Hub & VALD Athletics</p>
+                <div class="silo-lead-tag">Dr. Deepthi | Dr. Harsha</div>
+              </div>
+           </a>
+         </Magnetic>
+
+         <Magnetic client:visible pull={0.1}>
+           <a href="/silo/spine" class="silo-card animate-reveal">
+              <div class="chasing-border"></div>
+              <div class="silo-card-content">
+                <Shield size={32} class="text-secondary mb-sm" />
+                <h4>Spinal Neuromusculoskeletal</h4>
+                <p>Minimally Invasive Disc Care</p>
+                <div class="silo-lead-tag">Dr. Prashanth Reddy</div>
+              </div>
+           </a>
+         </Magnetic>
+
+         <Magnetic client:visible pull={0.1}>
+           <a href="/recovery" class="silo-card animate-reveal">
+              <div class="chasing-border"></div>
+              <img src="/sports_performance_lab_1775752734674.png" class="silo-schematic" alt="" style={{ opacity: 0.15, filter: 'grayscale(100%) blur(1px)' }} />
+              <div class="silo-card-content">
+                <Target size={32} class="text-secondary mb-sm" />
+                <h4>High-Performance Sports</h4>
+                <p>VALD Intelligence & Return-to-Play</p>
+                <div class="silo-lead-tag">Dr. Harsha | Dr. Ravi Teja</div>
+              </div>
+           </a>
+         </Magnetic>
+      </div>
+    </section>
+
+    {/* ══ GLOBAL LEADERSHIP BLOCK ══ */}
+    <section class="tech-trust-banner container mt-xl mb-xl text-center">
+       <div class="bento-card bento-dark p-xl">
+          <ShieldCheck size={48} class="text-secondary mb-md" style={{ margin: '0 auto' }} />
+          <h2>Zero Compromise Sterility</h2>
+         <p class="mt-sm body-text" style={{ maxWidth: '800px', margin: '0 auto' }}>
+           Every patient at Precision Orthopaedics benefits from our Collaborative Surgical Board. We merge UK-trained HOD leadership with the absolute latest in USA-engineered surgical technology.
+         </p>
+         
+         <div class="clinical-authority-badge mt-md">
+           <span class="text-secondary">Clinical Board:</span> Dr. Deepthi Reddy (HOD) | Dr. Amith Reddy | Dr. Nitish Bhan | Dr. Ravi Teja | Dr. Prashanth | Dr. Harsha
+         </div>
+
+         <div class="hero-actions mt-lg">
+            <a href="/doctors" class="btn btn-primary">Meet the Surgical Board</a>
+            <a href="/symptoms" class="btn btn-outline">Check Your Symptoms</a>
+         </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  /* Local Home-specific styles can go here or remain in Home.css */
+</style>

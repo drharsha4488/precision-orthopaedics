@@ -1,0 +1,98 @@
+/* IntegrityShield.css */
+.integrity-shield-wrap {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 10000;
+  transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  font-family: var(--font-main);
+}
+
+.shield-trigger {
+  background: rgba(10, 21, 37, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 10px 20px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.shield-score {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Status States */
+.status-perfect .shield-trigger { border-color: var(--secondary); }
+.status-perfect .shield-score { color: var(--secondary); }
+.status-warning .shield-trigger { border-color: #FACC15; }
+.status-warning .shield-score { color: #FACC15; }
+
+/* PANEL */
+.audit-panel {
+  position: absolute;
+  bottom: 60px;
+  left: 0;
+  width: 350px;
+  background: rgba(10, 21, 37, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+}
+
+.panel-header {
+  padding: 15px 20px;
+  background: rgba(255,255,255,0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.panel-header h3 { font-size: 0.9rem; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+.panel-header button { background: none; border: none; color: var(--text-muted); cursor: pointer; }
+
+.scroll-content {
+  max-height: 450px;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.score-banner {
+  text-align: center;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.score-banner.status-perfect { background: rgba(0, 229, 255, 0.1); }
+.score-banner.status-warning { background: rgba(250, 204, 21, 0.1); }
+
+.score-main { font-size: 3rem; font-weight: 800; line-height: 1; color: var(--secondary); }
+.score-main span { font-size: 1.2rem; }
+.score-banner p { font-size: 0.8rem; margin-top: 8px; opacity: 0.8; }
+
+.audit-item {
+  padding: 15px;
+  background: rgba(255,255,255,0.02);
+  border-left: 3px solid #FACC15;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.cat-badge { font-size: 0.65rem; text-transform: uppercase; color: var(--secondary); letter-spacing: 1px; }
+.audit-item h4 { font-size: 0.9rem; margin: 4px 0; }
+.audit-item p { font-size: 0.75rem; color: var(--text-muted); line-height: 1.4; }
+
+.audit-perfect { text-align: center; padding: 40px 0; opacity: 0.7; }
+
+/* Custom Scrollbar */
+.scroll-content::-webkit-scrollbar { width: 4px; }
+.scroll-content::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }

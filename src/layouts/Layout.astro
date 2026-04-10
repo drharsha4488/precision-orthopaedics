@@ -1,0 +1,49 @@
+---
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import CustomCursor from '../components/CustomCursor';
+import IntegrityShield from '../components/IntegrityShield';
+import '../index.css';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "Precision Orthopaedics - Establishing the global standard for Joint Preservation and Robotic Arthroplasty." } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title} | Precision Orthopaedics</title>
+		<meta name="description" content={description} />
+		
+		<!-- Open Graph / SEO -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	</head>
+	<body>
+		<CustomCursor client:load />
+		<Header client:load />
+		
+		<slot />
+		
+		<IntegrityShield client:visible />
+		<Footer />
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		scroll-behavior: smooth;
+	}
+</style>

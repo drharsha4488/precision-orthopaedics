@@ -1,0 +1,234 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Activity, Beaker, CheckCircle, Clock, Crosshair, ArrowRight, ActivitySquare, UserCheck, BarChart3, Upload, Syringe, MessageCircle, ChevronRight, Video, HelpCircle, IndianRupee, Cpu, ShieldCheck, PlayCircle } from 'lucide-react';
+import { treatmentData } from '../../services/treatmentData';
+import RadiologySlider from '../../components/RadiologySlider';
+import CandidateTriage from '../../components/CandidateTriage';
+import RecoveryChart from '../../components/RecoveryChart';
+import '../TreatmentTemplate.css';
+
+export async function getStaticPaths() {
+  return Object.keys(treatmentData).map((slug) => ({
+    params: { slug },
+    props: { data: treatmentData[slug] },
+  }));
+}
+
+const { data } = Astro.props;
+const { slug } = Astro.params;
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": data.faqs.map(item => ({
+    "@type": "Question",
+    "name": item.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.a
+    }
+  }))
+};
+
+const physicianSchema = {
+  "@context": "https://schema.org",
+  "@type": "Physician",
+  "name": data.surgeonName,
+  "medicalSpecialty": data.category,
+  "description": `${data.surgeonName} is a ${data.surgeonTitle} specialized in ${data.title}.`,
+  "hospitalAffiliation": "Apollo Hospitals, Financial District, Hyderabad"
+};
+---
+
+<Layout title={data.title} description={data.subtitle}>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(physicianSchema)} />
+
+  <div class="treatment-page">
+    {/* ══ SECTION 1: CINEMATIC HERO ══ */}
+    <section id="hero" class="treatment-hero animate-reveal">
+      <div class="hero-grid container">
+        <div class="hero-text">
+          <span class="category-badge">{data.category}</span>
+          <h1>{data.title}</h1>
+          <p class="subtitle">{data.subtitle}</p>
+          <div class="hero-stats">
+            <div class="stat-pill"><Activity size={16}/> {data.stats.volume} Procedures</div>
+            <div class="stat-pill"><Crosshair size={16}/> {data.stats.accuracy} Precision</div>
+            <div class="stat-pill"><Clock size={16}/> {data.stats.recovery} Recovery</div>
+          </div>
+          <button class="btn btn-primary mt-lg">
+            Request Priority Evaluation <ArrowRight size={16}/>
+          </button>
+        </div>
+        <div class="hero-visual">
+          <div class="video-card border-glow">
+            <div class="video-overlay text-center">
+              <PlayCircle size={48} class="text-secondary mb-sm" />
+              <h3>"The Surgeon's Eye"</h3>
+              <p>{data.videoTarget} explains the procedure.</p>
+            </div>
+          </div>
+          <div class="surgeon-strip mt-md">
+            {data.surgeonCredentials.map((c) => (
+              <span class="cred-tag"><CheckCircle size={12}/> {c}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ══ SECTION 2: ANATOMY DIAGNOSTIC ══ */}
+    <section id="anatomy" class="container section-block">
+      <div class="bento-card col-span-full">
+        <div class="anatomy-layout">
+          <div class="anatomy-text">
+            <h2><ActivitySquare size={24} class="text-secondary"/> Anatomical Pathology</h2>
+            <p class="mt-md body-text">{data.anatomyText}</p>
+          </div>
+          <div class="anatomy-visualizer">
+            <div class="wireframe-mesh">
+              <div class="scan-line"></div>
+              <Crosshair size={64} class="target-reticle" />
+              <p class="mt-sm" style="color: var(--secondary); font-weight: 600">Scanning Kinetic Topography...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ══ SECTION 3: ELIGIBILITY ══ */}
+    <section id="eligibility" class="container section-block">
+      <h2 class="section-title text-center">Are You a Candidate?</h2>
+      <CandidateTriage client:visible symptoms={data.candidateSymptoms} />
+
+      <div class="eligibility-grid mt-xl">
+        <h3 class="mb-md"><UserCheck size={20} class="text-secondary"/> Ideal Candidate Profile</h3>
+        <div class="elig-list">
+          {data.eligibility.map((e) => (
+            <div class="elig-item">
+              <CheckCircle size={18} class="text-secondary" />
+              <span>{e}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* ══ SECTION 4: COMPARISON ══ */}
+    <section id="comparison" class="container section-block">
+      <h2 class="section-title text-center">Why Robotic vs Conventional?</h2>
+      <div class="comparison-table mt-lg">
+        <div class="comp-header">
+          <span>Feature</span>
+          <span>Conventional</span>
+          <span class="text-secondary">Precision Robotic</span>
+        </div>
+        {data.comparison.map((row) => (
+          <div class="comp-row">
+            <span class="comp-feature">{row.feature}</span>
+            <span class="comp-conventional">{row.conventional}</span>
+            <span class="comp-robotic">{row.robotic}</span>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-xl">
+        <h3 class="mb-md text-center"><BarChart3 size={20} class="text-secondary"/> Recovery Timeline Comparison</h3>
+        <RecoveryChart client:visible data={data.recoveryChart} />
+      </div>
+    </section>
+
+    {/* ══ SECTION 5: RADIOLOGY SLIDER ══ */}
+    <section id="radiology" class="container section-block">
+      <h2 class="section-title text-center">Proof of Precision</h2>
+      <RadiologySlider client:load />
+    </section>
+
+    {/* ══ SECTION 6: CLINICAL PIPELINE ══ */}
+    <section id="pipeline" class="container section-block">
+      <div class="timeline-section">
+        <h2 class="section-title text-center">The Clinical Pipeline</h2>
+        <div class="timeline-track mt-lg">
+          {data.timeline.map((step) => (
+            <div class="timeline-node">
+              <div class="node-marker"><CheckCircle size={20}/></div>
+              <div class="node-content">
+                <h4>{step.day}</h4>
+                <p class="node-action">{step.action}</p>
+                <p class="node-detail">{step.detail}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* ══ SECTION 7: COST TRANSPARENCY ══ */}
+    <section id="cost" class="container section-block">
+      <div class="cost-anchor-card">
+        <div class="cost-top">
+          <IndianRupee size={32} class="text-secondary"/>
+          <div>
+            <h2>Cost Transparency</h2>
+            <p class="body-text">We believe in complete upfront pricing clarity.</p>
+          </div>
+        </div>
+        <div class="cost-range-display">
+          <span class="cost-value">{data.costRange}</span>
+          <span class="cost-note">{data.costNote}</span>
+        </div>
+      </div>
+    </section>
+
+    {/* ══ SECTION 8: TRUST MATRIX ══ */}
+    <section id="trust" class="container section-block">
+      <div class="bento-grid mt-lg">
+        <div class="bento-card col-span-2">
+          <ShieldCheck size={32} class="text-secondary mb-sm"/>
+          <h3>Infection Prevention Protocol</h3>
+          <div class="safety-list mt-md">
+            {data.infectionSafety.map((s) => (
+              <div class="safety-item"><Syringe size={14}/> {s}</div>
+            ))}
+          </div>
+        </div>
+
+        <div class="bento-card">
+          <Upload size={28} class="text-secondary mb-sm"/>
+          <h3>MRI Upload Workflow</h3>
+          <div class="mri-steps mt-md">
+            {data.mriWorkflow.map((s) => (
+              <div class="mri-step">
+                <div class="mri-step-num">{s.step}</div>
+                <div>
+                  <strong>{s.title}</strong>
+                  <p>{s.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="bento-card col-span-full">
+          <h2 class="section-title text-center">Common Patient Queries</h2>
+          <div class="faq-nuclear-grid">
+            {data.faqs.map((f) => (
+              <div class="faq-item-premium">
+                <div class="faq-header">
+                  <h4><HelpCircle size={18} class="text-secondary" /> {f.q}</h4>
+                </div>
+                <p class="faq-ans">{f.a}</p>
+                <div class="faq-footer">
+                  <span class="authority-byline">
+                    <ShieldCheck size={12} /> Medically Verified by <strong>{data.surgeonName}</strong>
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>

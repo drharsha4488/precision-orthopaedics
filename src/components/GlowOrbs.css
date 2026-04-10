@@ -1,0 +1,49 @@
+/* GlowOrbs.css */
+.glow-orbs-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  overflow: hidden;
+  background: #09090B;
+  pointer-events: none;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.15;
+  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.orb-primary {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
+}
+
+.orb-secondary {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #4c1d95 0%, transparent 70%); /* Soft Violet */
+  opacity: 0.1;
+}
+
+.orb-tertiary {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #22d3ee 0%, transparent 70%);
+}
+
+@keyframes drift {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(50px, 30px); }
+  100% { transform: translate(0, 0); }
+}
+
+@media (max-width: 768px) {
+  .orb { filter: blur(80px); opacity: 0.1; }
+}

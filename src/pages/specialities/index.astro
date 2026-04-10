@@ -1,0 +1,122 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Activity, Bone, Crosshair, Baby, ShieldAlert, Thermometer, ChevronRight } from 'lucide-react';
+import '../Specialities.css';
+
+const directories = [
+  {
+    category: "Joint Replacement & Resurfacing",
+    icon: Activity,
+    treatments: [
+      { name: "Total Knee Arthroplasty (MAKO/Robotic)", slug: "robotic-knee-arthroplasty" },
+      { name: "Direct Anterior Approach Hip Replacement (DAA)", slug: "daa-hip-replacement" },
+      { name: "Shoulder Resurfacing & Replacement", slug: "shoulder-replacement" },
+      { name: "Small Joint & Finger Replacements", slug: "small-joint-replacement" }
+    ]
+  },
+  {
+    category: "Complex Spine & Deformity",
+    icon: Bone,
+    treatments: [
+      { name: "Minimally Invasive Microdiscectomy", slug: "microdiscectomy" },
+      { name: "Multilevel Spinal Fusion", slug: "spinal-fusion" },
+      { name: "Cervical Disc Replacement", slug: "cervical-disc-replacement" },
+      { name: "Scoliosis Deformity Correction", slug: "scoliosis-correction" }
+    ]
+  },
+  {
+    category: "Sports Traumatology & Arthroscopy",
+    icon: Activity,
+    treatments: [
+      { name: "Accelerated ACL/PCL Ligament Reconstruction", slug: "acl-pcl-reconstruction" },
+      { name: "Meniscal Repair & Cartilage Vaulting", slug: "meniscal-repair" },
+      { name: "Latarjet Shoulder Stabilization", slug: "latarjet-procedure" }
+    ]
+  },
+  {
+    category: "Extremity Microsurgery",
+    icon: Crosshair,
+    treatments: [
+      { name: "Hand: Carpal Tunnel & Trigger Finger", slug: "hand-microsurgery" },
+      { name: "Hand: Severe Tendon Reconstruction", slug: "tendon-reconstruction" },
+      { name: "Foot/Ankle: Complete Ankle Replacement", slug: "ankle-replacement" },
+      { name: "Foot/Ankle: Achilles Rupture Repair", slug: "achilles-repair" }
+    ]
+  },
+  {
+    category: "Pediatric Orthopedics",
+    icon: Baby,
+    treatments: [
+      { name: "Congenital Limb Deformity Correction", slug: "pediatric-limb-deformity" },
+      { name: "Pediatric Scoliosis Monitoring & Care", slug: "pediatric-scoliosis" }
+    ]
+  },
+  {
+    category: "Orthopedic Oncology",
+    icon: ShieldAlert,
+    treatments: [
+      { name: "Benign & Malignant Bone Tumor Excision", slug: "bone-tumor-excision" },
+      { name: "Limb Salvage Surgeries", slug: "limb-salvage" }
+    ]
+  },
+  {
+    category: "Rheumatology & Advanced Diagnostics",
+    icon: Thermometer,
+    treatments: [
+      { name: "DEXA Scans & Bone Densitometry", slug: "dexa-scans" },
+      { name: "Nerve Conduction Velocity (NCV) Testing", slug: "ncv-testing" },
+      { name: "Non-Operative Arthritis Therapies", slug: "arthritis-management" }
+    ]
+  }
+];
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "MedicalOrganization",
+  "name": "Precision Orthopaedics Clinical Directory",
+  "department": directories.map(dir => ({
+    "@type": "MedicalSpecialty",
+    "name": dir.category
+  }))
+};
+---
+
+<Layout 
+  title="Directory of Precision Care" 
+  description="Explore our hyper-specialized clinical verticals in Joint Replacement, Spine Care, Sports Traumatology, and more."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+
+  <div class="directory-page">
+    <section class="directory-header">
+      <div class="container text-center">
+        <h1>Directory of Precision Care</h1>
+        <p class="header-subtext">
+          Explore our world-class, hyper-specialized clinical verticals. Precision Orthopaedics delivers uncompromising surgical excellence across the entire musculoskeletal spectrum.
+        </p>
+      </div>
+    </section>
+
+    <section class="directory-content container">
+      <div class="directory-grid">
+        {directories.map((dir) => (
+          <div class="directory-card">
+            <div class="card-top">
+              <div class="dir-icon"><dir.icon size={32} /></div>
+              <h2>{dir.category}</h2>
+            </div>
+            <ul class="treatment-list">
+              {dir.treatments.map((treatment) => (
+                <li>
+                  <a href={`/specialities/${treatment.slug}`} class="treatment-link">
+                    {treatment.name} <ChevronRight size={16} class="t-icon"/>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+</Layout>

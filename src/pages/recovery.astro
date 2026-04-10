@@ -1,0 +1,82 @@
+---
+import Layout from '../layouts/Layout.astro';
+import RecoveryMetrics from '../components/RecoveryMetrics';
+import { Activity, Zap, ShieldCheck, ArrowRight, BarChart3, Target, Gauge, Clock, UserCheck } from 'lucide-react';
+import './EliteRecovery.css';
+---
+
+<Layout 
+  title="Elite Recovery | Accelerated Velocity Pipeline" 
+  description="Where Precision Arthroplasty meets World-Class Athletic Performance. Utilizing the VALD Intelligence stack for elite return-to-sport clearance."
+>
+  <div class="recovery-page">
+    {/* ══ HERO: ACCELERATED PIPELINE ══ */}
+    <section class="recovery-hero container animate-reveal">
+      <div class="hero-content">
+        <span class="tech-tag">Performance Lab 4.0</span>
+        <h1>Accelerated <span class="text-secondary">Velocity</span> Recovery.</h1>
+        <p class="subtitle">
+          Where Precision Arthroplasty meets World-Class Athletic Performance. Utilizing the VALD Intelligence stack to secure sub-millimeter data for elite return-to-sport clearance.
+        </p>
+        <div class="hero-stats">
+          <div class="stat-pill"><Gauge size={18}/> 40% Faster Mobilization</div>
+          <div class="stat-pill"><Target size={18}/> 100% Symmetry Recovery</div>
+        </div>
+      </div>
+    </section>
+
+    {/* ══ THE VALD COMMAND CENTRE ══ */}
+    <section class="container section-block">
+      <div class="vald-dashboard bento-card col-span-full">
+        <div class="dashboard-overlay"></div>
+        <div class="case-study-header">
+          <div class="player-profile">
+            <div class="player-avatar">RD</div>
+            <div>
+              <h3>Case Study: Professional Cricketer (IPL)</h3>
+              <span class="status-label live">Live Recovery Tracking</span>
+            </div>
+          </div>
+          <div class="case-meta">
+            <span>Goal: Return to Pivoting & Bowling</span>
+            <span>Surgery: Robotic ACL-R (Internal Brace)</span>
+          </div>
+        </div>
+
+        <RecoveryMetrics client:visible />
+
+        <div class="clearance-tag mt-md">
+          <UserCheck size={18} /> **Stage 3 Cleared:** Functional Linear Running Started
+        </div>
+      </div>
+    </section>
+
+    {/* ══ PERFORMANCE TRACKS ══ */}
+    <section class="container section-block grid-3">
+      <div class="bento-card">
+        <Zap size={32} class="text-secondary mb-md" />
+        <h3>Neural-Dynamic Rehab</h3>
+        <p>Proprioceptive re-education using high-frame-rate biofeedback to prevent re-injury.</p>
+      </div>
+      <div class="bento-card">
+        <BarChart3 size={32} class="text-secondary mb-md" />
+        <h3>VALD ForceDecks</h3>
+        <p>Objective strength mapping to identify micro-deficits invisible to the human eye.</p>
+      </div>
+      <div class="bento-card">
+        <Clock size={32} class="text-secondary mb-md" />
+        <h3>24/7 Concierge Support</h3>
+        <p>Direct communication with your surgical board for real-time recovery adjustments.</p>
+      </div>
+    </section>
+
+    {/* ══ CALL TO ACTION ══ */}
+    <section class="container mb-xl">
+      <div class="bento-card bento-dark text-center p-xl">
+         <h2>Reclaim Your Peak Performance.</h2>
+         <p class="mt-sm">Elite recovery planning for professional athletes and high-performance individuals.</p>
+         <button class="btn btn-primary mt-lg">Request Athlete Triage <ArrowRight size={18}/></button>
+      </div>
+    </section>
+  </div>
+</Layout>

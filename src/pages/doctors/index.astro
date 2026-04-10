@@ -1,0 +1,68 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Award, GraduationCap, Microscope, Stethoscope, ChevronRight, Activity, ShieldCheck, Trophy } from 'lucide-react';
+import { doctors } from '../../services/data';
+import '../Doctors.css';
+---
+
+<Layout 
+  title="The Precision Roster | Our Specialists" 
+  description="Meet our team of UK-trained fellowship specialists at Precision Orthopaedics. Expert care in Joint Replacement, Spine, and Sports Medicine."
+>
+  <div class="doctors-page">
+    <section class="doctors-hero animate-reveal">
+      <div class="container text-center">
+        <div class="hero-badge">Medical Board of Excellence</div>
+        <h1>The <span>Precision</span> Roster</h1>
+        <p class="header-subtext">
+          Our team consists of fellowship-trained specialists from top UK and Global institutes, organized into sub-specialty units to ensure hyper-specialized care.
+        </p>
+      </div>
+    </section>
+
+    <section class="doctors-grid container">
+      {doctors.map((doctor) => (
+        <div class="doctor-card metallic-card">
+          <div class="card-top">
+            <div class="doctor-image">
+              <img src={doctor.image} alt={doctor.name} />
+            </div>
+            <div class="doctor-meta">
+              <span class="niche-badge">{doctor.specialty}</span>
+              <h2>{doctor.name}</h2>
+              <p class="doctor-title">{doctor.title}</p>
+            </div>
+          </div>
+          
+          <div class="card-body">
+            <p class="doctor-focus">{doctor.focus}</p>
+            <div class="doctor-stats">
+              <div class="doc-stat"><Activity size={14}/> {doctor.experience} Exp.</div>
+              <div class="doc-stat"><GraduationCap size={14}/> {doctor.credentials.split(',')[0]}</div>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <a href={`/doctor/${doctor.slug}`} class="btn btn-outline w-100">
+              View Credentials <ChevronRight size={16}/>
+            </a>
+          </div>
+        </div>
+      ))}
+    </section>
+
+    <section class="team-trust-banner container mt-xl mb-xl">
+      <div class="bento-card col-span-full border-glow text-center p-xl">
+        <div class="trust-icons-row mb-md">
+          <ShieldCheck size={40} class="text-secondary" />
+          <Activity size={40} class="text-secondary" />
+          <Trophy size={40} class="text-secondary" />
+        </div>
+        <h2>Collaborative Surgical Board</h2>
+        <p class="mt-sm body-text" style="max-width: 800px; margin: 0 auto">
+          Every complex revision or multi-trauma case is reviewed by our entire surgical board. This collective clinical intelligence ensures we maintain the lowest revision rates in the Financial District ecosystem.
+        </p>
+      </div>
+    </section>
+  </div>
+</Layout>

@@ -1,0 +1,51 @@
+/* CustomCursor.css */
+.custom-cursor {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  margin-left: -20px;
+  margin-top: -20px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  pointer-events: none;
+  z-index: 99999;
+  transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-cursor.visible { opacity: 1; }
+
+.custom-cursor .inner-dot {
+  width: 4px;
+  height: 4px;
+  background: var(--secondary);
+  border-radius: 50%;
+}
+
+.custom-cursor .crosshair-h,
+.custom-cursor .crosshair-v {
+  position: absolute;
+  background: var(--secondary);
+  opacity: 0.5;
+}
+
+.custom-cursor .crosshair-h { width: 10px; height: 1px; }
+.custom-cursor .crosshair-v { width: 1px; height: 10px; }
+
+/* Hover States */
+.custom-cursor.hover {
+  transform: scale(1.5);
+  background: rgba(0, 229, 255, 0.1);
+  border-color: var(--secondary);
+}
+
+.custom-cursor.hover .inner-dot {
+  transform: scale(0.5);
+}
+
+@media (max-width: 1024px) {
+  .custom-cursor { display: none !important; }
+}
