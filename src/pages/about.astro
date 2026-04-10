@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { ShieldCheck, ClipboardCheck, Award } from 'lucide-react';
+import { ShieldCheck, ClipboardCheck, Award, Search, Cpu, Users, Target, Activity } from 'lucide-react';
 import './About.css';
 
 const schemaData = {
@@ -19,7 +19,7 @@ const schemaData = {
   <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
 
   <div class="about-page">
-    {/* ══ INSTITUTIONAL HERO ══ */}
+    {/* ══ 01: INSTITUTIONAL HERO ══ */}
     <section class="about-hero animate-reveal">
       <div class="container">
         <h1>Engineering Excellence in <br/> Musculoskeletal Restoration</h1>
@@ -29,7 +29,7 @@ const schemaData = {
       </div>
     </section>
 
-    {/* ══ GENESIS & PHILOSOPHY ══ */}
+    {/* ══ 02: GENESIS & PHILOSOPHY ══ */}
     <section class="container mt-xl mb-xl">
       <div class="about-grid">
          <div class="about-text animate-reveal">
@@ -41,6 +41,7 @@ const schemaData = {
               Each clinical pathway is structured around internationally benchmarked training frameworks—from Swiss Olympic sports systems to Mayo Clinic–aligned reconstruction protocols—ensuring that treatment planning reflects global surgical standards rather than generalized orthopaedic practice models.
             </p>
 
+            {/* ══ 03: GOVERNANCE BADGES ══ */}
             <div class="governance-badges mt-lg">
               <div class="accreditation-badge">
                 <ShieldCheck size={18} strokeWidth={1.5} style={{ color: 'var(--secondary)', opacity: 0.7 }}/>
@@ -63,7 +64,19 @@ const schemaData = {
       </div>
     </section>
 
-    {/* ══ CLINICAL MODEL & BOARD PROTOCOL ══ */}
+    {/* ══ 04: TRAINING PATHWAYS (Moved Up) ══ */}
+    <section class="container mb-xl">
+      <span class="pathway-tag">International Training Pathways</span>
+      <h3 style="color: #fff; margin-bottom: 24px;">Globally Benchmarked Expertise</h3>
+      <div class="pathway-grid">
+        <div class="pathway-item">UK Fellowship Arthroplasty Programs</div>
+        <div class="pathway-item">Swiss Olympic Sports Systems</div>
+        <div class="pathway-item">Mayo Clinic Reconstruction Alignment</div>
+        <div class="pathway-item">Arthrex Global Upper Limb Training</div>
+      </div>
+    </section>
+
+    {/* ══ 05: CLINICAL MODEL CONTENT ══ */}
     <section class="clinical-model-section">
       <div class="container">
         <h2 class="institutional-heading">Our Clinical Model</h2>
@@ -89,28 +102,74 @@ const schemaData = {
             <p>Data-driven recovery and return-to-sport clearance via the VALD Performance Centre.</p>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="board-protocol-block animate-reveal">
-          <p>
-            <strong>The Surgical Board Protocol:</strong> Every complex reconstruction pathway at Precision Ortho undergoes structured review through our Collaborative Surgical Board prior to final treatment planning. This ensures implant selection accuracy, biomechanical alignment optimization, and predictable rehabilitation sequencing across subspecialty programs.
-          </p>
+    {/* ══ 06: CASE PLANNING WORKFLOW (NEW) ══ */}
+    <section class="workflow-section">
+      <div class="container">
+        <span class="planning-protocol-eyebrow">Planning Protocol</span>
+        <h2 class="institutional-heading text-center">Structured Case Planning Workflow</h2>
+        <p class="institutional-text text-center" style="max-width: 800px; margin: 0 auto;">
+          Every reconstruction pathway follows a defined institutional planning sequence designed to maximize biomechanical accuracy and recovery predictability.
+        </p>
+
+        <div class="workflow-stepper">
+          <div class="workflow-connector"></div>
+          
+          <div class="workflow-node">
+            <div class="node-marker"><Search size={22} /></div>
+            <div class="node-label">Clinical Evaluation</div>
+          </div>
+          
+          <div class="workflow-node">
+            <div class="node-marker"><Cpu size={22} /></div>
+            <div class="node-label">Robotic Mapping (where indicated)</div>
+          </div>
+
+          <div class="workflow-node">
+            <div class="node-marker"><Users size={22} /></div>
+            <div class="node-label">Collaborative Surgical Board Review</div>
+          </div>
+
+          <div class="workflow-node">
+            <div class="node-marker"><Target size={22} /></div>
+            <div class="node-label">Program-Level Execution</div>
+          </div>
+
+          <div class="workflow-node">
+            <div class="node-marker"><Activity size={22} /></div>
+            <div class="node-label">Protocol-Based Rehabilitation Sequencing</div>
+          </div>
         </div>
       </div>
     </section>
 
-    {/* ══ TRAINING PATHWAYS ══ */}
-    <section class="container mb-xl">
-      <span class="pathway-tag">International Training Pathways</span>
-      <h3 style="color: #fff; margin-bottom: 24px;">Globally Benchmarked Expertise</h3>
-      <div class="pathway-grid">
-        <div class="pathway-item">UK Fellowship Arthroplasty Programs</div>
-        <div class="pathway-item">Swiss Olympic Sports Systems</div>
-        <div class="pathway-item">Mayo Clinic Reconstruction Alignment</div>
-        <div class="pathway-item">Arthrex Global Upper Limb Training</div>
+    {/* ══ 07: BOARD PROTOCOL BLOCK ══ */}
+    <section class="container pb-xl">
+      <div class="board-protocol-block animate-reveal">
+        <p>
+          <strong>The Surgical Board Protocol:</strong> Every complex reconstruction pathway at Precision Ortho undergoes structured review through our Collaborative Surgical Board prior to final treatment planning. This ensures implant selection accuracy, biomechanical alignment optimization, and predictable rehabilitation sequencing across subspecialty programs.
+        </p>
+      </div>
+
+      {/* ══ 08: OUTCOME PHILOSOPHY (NEW) ══ */}
+      <div class="outcome-philosophy-divider">
+        <h4>Outcome Philosophy</h4>
+        <p>
+          "Our objective is not procedural volume, but biomechanical accuracy, implant longevity, and return-to-function predictability across every reconstruction pathway."
+        </p>
+      </div>
+
+      {/* ══ 09: TREATMENT PHILOSOPHY (NEW) ══ */}
+      <div class="treatment-philosophy-statement">
+        <p>
+          Treatment planning begins with preservation whenever possible, reconstruction when necessary, and robotics-assisted replacement only when biomechanically indicated.
+        </p>
       </div>
     </section>
 
-    {/* ══ AUTHORITY CLOSING ══ */}
+    {/* ══ 10: AUTHORITY CLOSING ══ */}
     <section class="authority-closure">
       <div class="container">
         <p>

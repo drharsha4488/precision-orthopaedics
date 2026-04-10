@@ -60,6 +60,132 @@
   margin-bottom: 2rem;
 }
 
+.planning-protocol-eyebrow {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--secondary);
+  opacity: 0.7;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+/* ══ CASE PLANNING WORKFLOW ══ */
+.workflow-section {
+  padding: 100px 0;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.workflow-stepper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  margin-top: 60px;
+  padding: 0 40px;
+}
+
+.workflow-connector {
+  position: absolute;
+  top: 35px;
+  left: 100px;
+  right: 100px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(0, 255, 255, 0) 0%, rgba(0, 255, 255, 0.2) 50%, rgba(0, 255, 255, 0) 100%);
+  z-index: 0;
+}
+
+.workflow-node {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.workflow-node:hover {
+  transform: scale(1.04);
+}
+
+.node-marker {
+  width: 70px;
+  height: 70px;
+  background: #09090B;
+  border: 1px solid rgba(0, 255, 255, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary);
+  margin-bottom: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.workflow-node:hover .node-marker {
+  border-color: rgba(0, 255, 255, 0.5);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.15);
+  color: #fff;
+}
+
+.node-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.3;
+  max-width: 140px;
+}
+
+/* ══ OUTCOME PHILOSOPHY ══ */
+.outcome-philosophy-divider {
+  margin: 100px auto;
+  max-width: 720px;
+  text-align: center;
+  padding-top: 50px;
+  border-top: 1px solid transparent;
+  border-image: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.25), transparent) 1;
+}
+
+.outcome-philosophy-divider h4 {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--secondary);
+  letter-spacing: 0.2em;
+  margin-bottom: 20px;
+  opacity: 0.8;
+}
+
+.outcome-philosophy-divider p {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  line-height: 1.6;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+/* ══ TREATMENT PHILOSOPHY ══ */
+.treatment-philosophy-statement {
+  max-width: 720px;
+  margin: 0 auto 80px;
+  text-align: center;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 24px;
+}
+
+.treatment-philosophy-statement p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
 .accreditation-badge {
   display: flex;
   gap: 1rem;
