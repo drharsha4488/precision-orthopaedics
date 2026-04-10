@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import CustomCursor from '../components/CustomCursor';
 import IntegrityShield from '../components/IntegrityShield';
 import { SpeedInsights } from "@vercel/speed-insights/astro";
+import { Analytics } from "@vercel/analytics/astro";
 import '../index.css';
 
 interface Props {
@@ -41,6 +42,7 @@ const { title, description = "Precision Orthopaedics - Establishing the global s
 		<IntegrityShield client:visible />
 		<Footer client:visible />
 		<SpeedInsights />
+		<Analytics />
 	</body>
 </html>
 
