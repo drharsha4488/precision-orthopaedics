@@ -1,67 +1,100 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { Award, GraduationCap, Microscope, Stethoscope, ChevronRight, Activity, ShieldCheck, Trophy } from 'lucide-react';
+import { ShieldCheck, Activity, Trophy, Crosshair, Users, Microscope } from 'lucide-react';
 import { doctors } from '../../services/data';
+import RosterFilter from '../../components/RosterFilter';
 import '../Doctors.css';
 ---
 
 <Layout 
-  title="The Precision Roster | Our Specialists" 
-  description="Meet our team of UK-trained fellowship specialists at Precision Orthopaedics. Expert care in Joint Replacement, Spine, and Sports Medicine."
+  title="Our Orthopaedic Specialists | The Precision Roster" 
+  description="Fellowship-trained surgeons delivering sub-specialty care across robotic arthroplasty, sports medicine, and joint preservation. Meet the Medical Board of Excellence."
 >
   <div class="doctors-page">
+    {/* ══ HEADER ══ */}
     <section class="doctors-hero animate-reveal">
       <div class="container text-center">
         <div class="hero-badge">Medical Board of Excellence</div>
-        <h1>The <span>Precision</span> Roster</h1>
+        <h1>Meet Our <span>Orthopaedic</span> Specialists</h1>
         <p class="header-subtext">
-          Our team consists of fellowship-trained specialists from top UK and Global institutes, organized into sub-specialty units to ensure hyper-specialized care.
+          Fellowship-trained surgeons delivering sub-specialty care across robotic arthroplasty, sports medicine, and joint preservation. Every complex case is reviewed by our Collaborative Surgical Board.
         </p>
       </div>
     </section>
 
-    <section class="doctors-grid container">
-      {doctors.map((doctor) => (
-        <div class="doctor-card metallic-card">
-          <div class="card-top">
-            <div class="doctor-image">
-              <img src={doctor.image} alt={doctor.name} />
-            </div>
-            <div class="doctor-meta">
-              <span class="niche-badge">{doctor.specialty}</span>
-              <h2>{doctor.name}</h2>
-              <p class="doctor-title">{doctor.title}</p>
-            </div>
-          </div>
-          
-          <div class="card-body">
-            <p class="doctor-focus">{doctor.focus}</p>
-            <div class="doctor-stats">
-              <div class="doc-stat"><Activity size={14}/> {doctor.experience} Exp.</div>
-              <div class="doc-stat"><GraduationCap size={14}/> {doctor.credentials.split(',')[0]}</div>
-            </div>
-          </div>
-
-          <div class="card-footer">
-            <a href={`/doctor/${doctor.slug}`} class="btn btn-outline w-100">
-              View Credentials <ChevronRight size={16}/>
-            </a>
+    {/* ══ AUTHORITY BANNER ══ */}
+    <section class="authority-prime-banner container">
+      <div class="prime-grid">
+        <div class="prime-item">
+          <Activity size={24} class="text-secondary" />
+          <div class="prime-text">
+            <h4>15,000+</h4>
+            <span>Elite Procedures</span>
           </div>
         </div>
-      ))}
+        <div class="prime-item">
+          <Crosshair size={24} class="text-secondary" />
+          <div class="prime-text">
+            <h4>0.01mm</h4>
+            <span>Robotic Accuracy</span>
+          </div>
+        </div>
+        <div class="prime-item">
+          <Users size={24} class="text-secondary" />
+          <div class="prime-text">
+            <h4>Global</h4>
+            <span>Fellowship Faculty</span>
+          </div>
+        </div>
+        <div class="prime-item">
+          <ShieldCheck size={24} class="text-secondary" />
+          <div class="prime-text">
+            <h4>Lowest</h4>
+            <span>Revision Rates</span>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="team-trust-banner container mt-xl mb-xl">
-      <div class="bento-card col-span-full border-glow text-center p-xl">
-        <div class="trust-icons-row mb-md">
-          <ShieldCheck size={40} class="text-secondary" />
-          <Activity size={40} class="text-secondary" />
-          <Trophy size={40} class="text-secondary" />
-        </div>
-        <h2>Collaborative Surgical Board</h2>
-        <p class="mt-sm body-text" style="max-width: 800px; margin: 0 auto">
-          Every complex revision or multi-trauma case is reviewed by our entire surgical board. This collective clinical intelligence ensures we maintain the lowest revision rates in the Financial District ecosystem.
-        </p>
+    {/* ══ ROSTER HUB (React) ══ */}
+    <section class="container mb-xl">
+       <RosterFilter client:load doctors={doctors} />
+    </section>
+
+    {/* ══ COLLABORATIVE BOARD UPGRADE ══ */}
+    <section class="board-excellence-section container mb-xl">
+      <div class="bento-card border-glow p-xl">
+         <div class="board-header">
+            <Microscope size={40} class="text-secondary" />
+            <div>
+              <h2>Collaborative Surgical Board</h2>
+              <p>Collective Clinical Intelligence for Complex Restoration</p>
+            </div>
+         </div>
+         
+         <div class="board-bullets mt-lg">
+            <div class="bullet-item">
+              <ShieldCheck size={20} class="text-secondary" />
+              <div>
+                <strong>Eliminating Revision Risk</strong>
+                <p>Pre-operative review of all complex primary and revision cases to optimize outcomes.</p>
+              </div>
+            </div>
+            <div class="bullet-item">
+              <Activity size={20} class="text-secondary" />
+              <div>
+                <strong>Optimized Implant Selection</strong>
+                <p>Ensuring the exact technology (Mako, Arthrex, VALD) is matched to patient anatomy.</p>
+              </div>
+            </div>
+            <div class="bullet-item">
+              <Trophy size={20} class="text-secondary" />
+              <div>
+                <strong>Precision Rehabilitation Strategy</strong>
+                <p>Unified board-led protocol for post-surgical physical restoration.</p>
+              </div>
+            </div>
+         </div>
       </div>
     </section>
   </div>

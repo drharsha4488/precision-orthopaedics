@@ -44,13 +44,13 @@ const schemaData = {
              <img src={doctor.image} alt={doctor.name} />
           </div>
           <h2>{doctor.name}</h2>
-          <p class="profile-subtitle">{doctor.title}</p>
+          <p class="profile-subtitle">{doctor.role}</p>
           <p class="profile-focus">{doctor.focus}</p>
           
           <div class="profile-ctas">
-            <button class="btn btn-primary w-100 mb-sm">
+            <a href="/symptoms" class="btn btn-primary w-100 mb-sm" style="text-decoration: none; justify-content: center;">
               <Calendar size={16} /> Book Appointment
-            </button>
+            </a>
             <button class="btn btn-outline w-100">
               Request Second Opinion
             </button>
@@ -80,6 +80,11 @@ const schemaData = {
             <Briefcase class="cred-icon" />
             <h4>Seniority</h4>
             <p>{doctor.experience}</p>
+          </div>
+          <div class="cred-card">
+            <Activity size={24} class="cred-icon" />
+            <h4>Volume</h4>
+            <p>{doctor.procedures} Procedures</p>
           </div>
           <div class="cred-card">
             <Award class="cred-icon" />
