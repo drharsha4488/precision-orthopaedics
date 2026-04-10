@@ -13,8 +13,16 @@
   justify-content: center;
   align-items: center;
   padding: 100px 0;
-  background: radial-gradient(circle at 50% 50%, rgba(0, 229, 255, 0.05) 0%, transparent 70%);
+  background: radial-gradient(circle at 50% 50%, rgba(0, 229, 255, 0.08) 0%, transparent 80%);
+  background-size: 180% 180%;
+  animation: slowGradient 90s ease-in-out infinite alternate;
   overflow: hidden;
+  z-index: 0;
+}
+
+@keyframes slowGradient {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
 }
 
 .hero-bg-visual {
@@ -35,8 +43,97 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(9, 9, 11, 0.6), rgba(9, 9, 11, 0.2), #09090B);
-  z-index: 0;
+  background: linear-gradient(to bottom, 
+    rgba(9, 9, 11, 0.7) 0%, 
+    rgba(9, 9, 11, 0.3) 50%, 
+    #09090B 100%);
+  z-index: 1; /* Above base gradient */
+}
+
+/* ══ NAVIGATION GRID & AXIS ══ */
+.hero-nav-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(0,255,255,0.06) 1px, transparent 0),
+    linear-gradient(90deg, rgba(0,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(0,255,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px, 100% 100%, 100% 100%;
+  background-position: center center;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-axis-marker {
+  position: absolute;
+  font-size: 0.65rem;
+  color: rgba(0,255,255,0.15);
+  font-family: monospace;
+  letter-spacing: 1px;
+}
+
+/* ══ AMBIENT SPECIALTY ROTATION ══ */
+.hero-ambient-rotation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.specialty-visual {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.2);
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+  opacity: 0;
+  filter: blur(3px) grayscale(1) brightness(1.5);
+  animation: presenceShift 56s linear infinite; /* 14s * 4 visuals */
+}
+
+/* 14s per visual: 2s fade in, 10s visible, 2s fade out */
+.specialty-visual:nth-child(1) { animation-delay: 0s; }
+.specialty-visual:nth-child(2) { animation-delay: 14s; }
+.specialty-visual:nth-child(3) { animation-delay: 28s; }
+.specialty-visual:nth-child(4) { animation-delay: 42s; }
+
+@keyframes presenceShift {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(1.15) translateY(10px); }
+  3.5% { opacity: 0.05; transform: translate(-50%, -50%) scale(1.2) translateY(0); } /* 2s fade in (2/56 = 3.5%) */
+  21.4% { opacity: 0.05; transform: translate(-50%, -50%) scale(1.25) translateY(-10px); } /* 12s mark (12/56 = 21.4%) */
+  25% { opacity: 0; transform: translate(-50%, -50%) scale(1.3) translateY(-20px); } /* 14s mark (14/56 = 25%) */
+  100% { opacity: 0; }
+}
+
+/* ══ INSTITUTIONAL SIGNATURE ══ */
+.signature-arc-container {
+  position: absolute;
+  bottom: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 200px;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.04;
+}
+
+.signature-arc {
+   stroke-dasharray: 1000;
+   stroke-dashoffset: 1000;
+   animation: drawArc 4s ease forwards;
+}
+
+@keyframes drawArc {
+  to { stroke-dashoffset: 0; }
 }
 
 .hero-particles {
@@ -234,6 +331,20 @@
 .stat-glass-bubble span {
   font-size: 0.8rem;
   color: var(--text-muted);
+}
+
+/* ══ MICRO PARALLAX ══ */
+.parallax-bubble {
+  transition: transform 0.2s cubic-bezier(0.2, 0, 0.2, 1);
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-cinematic, .specialty-visual, .signature-arc, .parallax-bubble {
+    animation: none !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
 
 .clinical-authority-badge {

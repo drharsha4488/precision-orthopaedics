@@ -24,6 +24,34 @@ import './Home.css';
         alt="Precision Robotic Surgery Environment" 
       />
       <div class="hero-overlay"></div>
+      
+      {/* ══ ELITE AMBIENT LAYERS ══ */}
+      <div class="hero-nav-grid">
+         <div class="hero-axis-marker" style="top: 10%; left: 5%;">0°</div>
+         <div class="hero-axis-marker" style="top: 50%; left: 2%;">90° MECHANICAL AXIS</div>
+         <div class="hero-axis-marker" style="bottom: 10%; left: 5%;">MARKER_V_01</div>
+      </div>
+
+      <div class="hero-ambient-rotation">
+         <img src="/anatomical_knee_schematic_1775754592483.png" class="specialty-visual" alt="Knee Anatomy" />
+         <img src="/anatomical_hip_schematic_1775754608460.png" class="specialty-visual" alt="Hip Implant" />
+         <img src="/anatomical_shoulder_schematic_1775754624021.png" class="specialty-visual" alt="Shoulder Reconstruction" />
+         <img src="/robotic_planning_arc_1775838430086.png" class="specialty-visual" alt="Robotic Planning" />
+      </div>
+
+      <div class="signature-arc-container">
+         <svg width="800" height="200" viewBox="0 0 800 200" fill="none">
+            <path d="M50 180C150 50 650 50 750 180" stroke="url(#cyan-grad)" stroke-width="2" class="signature-arc" />
+            <defs>
+               <linearGradient id="cyan-grad" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="var(--secondary)" stop-opacity="0" />
+                  <stop offset="50%" stop-color="var(--secondary)" />
+                  <stop offset="100%" stop-color="var(--secondary)" stop-opacity="0" />
+               </linearGradient>
+            </defs>
+         </svg>
+      </div>
+
       <div class="hero-particles"></div>
       <div class="editorial-text">PRECISION</div>
       
@@ -52,15 +80,15 @@ import './Home.css';
         </div>
 
         <div class="stats-strip">
-          <div class="stat-glass-bubble">
+          <div class="stat-glass-bubble parallax-bubble" data-parallax="0.1">
             <h4>15k+</h4>
             <span>Elite Procedures</span>
           </div>
-          <div class="stat-glass-bubble">
+          <div class="stat-glass-bubble parallax-bubble" data-parallax="0.15">
             <h4>0.01mm</h4>
             <span>Robotic Mapping</span>
           </div>
-          <div class="stat-glass-bubble">
+          <div class="stat-glass-bubble parallax-bubble" data-parallax="0.1">
             <h4>UK/US</h4>
             <span>Trained Faculty</span>
           </div>
@@ -214,3 +242,24 @@ import './Home.css';
 <style>
   /* Local Home-specific styles can go here or remain in Home.css */
 </style>
+
+<script>
+  // ══ MICRO PARALLAX LOGIC ══
+  const bubbles = document.querySelectorAll('.parallax-bubble');
+  
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    window.addEventListener('mousemove', (e) => {
+      const { clientX, clientY } = e;
+      const x = (clientX - window.innerWidth / 2) / 100;
+      const y = (clientY - window.innerHeight / 2) / 100;
+      
+      bubbles.forEach(bubble => {
+        const factor = bubble.getAttribute('data-parallax') || 0.1;
+        // Cap transforms at 2px as per Executive Verdict
+        const tx = Math.min(Math.max(x * factor, -2), 2);
+        const ty = Math.min(Math.max(y * factor, -2), 2);
+        bubble.style.transform = `translate(${tx}px, ${ty}px) scale(${1 + (Math.abs(tx)/200)})`;
+      });
+    });
+  }
+</script>

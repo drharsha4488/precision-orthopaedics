@@ -1,15 +1,13 @@
-/* CustomCursor.css */
+/* CustomCursor.css - Surgical Targeting Reticle */
 .custom-cursor {
   position: fixed;
   width: 40px;
   height: 40px;
   margin-left: -20px;
   margin-top: -20px;
-  border-radius: 50%;
-  border: 1px solid rgba(0, 229, 255, 0.3);
   pointer-events: none;
   z-index: 99999;
-  transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
   opacity: 0;
   display: flex;
   align-items: center;
@@ -23,28 +21,101 @@
   height: 4px;
   background: var(--secondary);
   border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+  transition: all 0.3s ease;
 }
 
-.custom-cursor .crosshair-h,
-.custom-cursor .crosshair-v {
+.reticle-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(0, 229, 255, 0.15);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  animation: instrumentationDrift 60s linear infinite;
+}
+
+@keyframes instrumentationDrift {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(12deg); } /* 0.2deg per second * 60s = 12deg */
+}
+
+.reticle-crosshair-h,
+.reticle-crosshair-v {
   position: absolute;
   background: var(--secondary);
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+
+.reticle-crosshair-h { width: 12px; height: 1px; }
+.reticle-crosshair-v { width: 1px; height: 12px; }
+
+/* ══ STATES ══ */
+
+/* Precision State (Stats Bubbles) */
+.state-precision .reticle-crosshair-h,
+.state-precision .reticle-crosshair-v {
+  opacity: 0.6;
+}
+
+.state-precision .reticle-ring {
+  width: 70%;
+  height: 70%;
+  border-color: rgba(0, 229, 255, 0.4);
+}
+
+/* Lock State (CTAs) */
+.state-lock .reticle-ring {
+  width: 120%;
+  height: 120%;
+  border-color: var(--secondary);
+  border-width: 2px;
+  border-style: double;
+}
+
+.state-lock .inner-dot {
+  transform: scale(1.5);
+  background: #fff;
+}
+
+/* Hover State (General Links) */
+.state-hover .reticle-ring {
+  transform: scale(1.2);
+  border-color: var(--secondary);
   opacity: 0.5;
 }
 
-.custom-cursor .crosshair-h { width: 10px; height: 1px; }
-.custom-cursor .crosshair-v { width: 1px; height: 10px; }
-
-/* Hover States */
-.custom-cursor.hover {
-  transform: scale(1.5);
-  background: rgba(0, 229, 255, 0.1);
-  border-color: var(--secondary);
+/* Convergence State (0.01mm) */
+.state-convergence .reticle-ring {
+  width: 45%;
+  height: 45%;
+  border-color: #fff;
+  border-width: 2px;
+  transition-duration: 120ms;
 }
 
-.custom-cursor.hover .inner-dot {
+.state-convergence .inner-dot {
   transform: scale(0.5);
+  box-shadow: 0 0 15px #fff;
 }
+
+/* Lock Corner Markers */
+.reticle-lock-corners {
+  position: absolute;
+  width: 140%;
+  height: 140%;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.state-lock .reticle-lock-corners {
+  opacity: 1;
+  width: 110%;
+  height: 110%;
+}
+
+/* ════════════ */
 
 @media (max-width: 1024px) {
   .custom-cursor { display: none !important; }
