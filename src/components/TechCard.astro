@@ -2,7 +2,7 @@
 import { Cpu, Monitor, Activity, Dna, ArrowUpRight } from 'lucide-react';
 
 interface Props {
-  category: "Signature Technology" | "Visual Superiority" | "Performance Data" | "Joint Restoration";
+  category: "Signature Technology" | "Arthroscopic Visualization" | "Performance Analytics" | "Biologic Restoration";
   title: string;
   description: string;
   buttonText?: string;
@@ -10,16 +10,17 @@ interface Props {
   image?: string;
   highlight?: boolean;
   index: number;
+  supports?: string[];
 }
 
-const { category, title, description, buttonText, buttonLink, image, highlight, index } = Astro.props;
+const { category, title, description, buttonText, buttonLink, image, highlight, index, supports } = Astro.props;
 
 // Mapping icons as "Instrument Glyphs"
 const IconMap = {
   "Signature Technology": Cpu,
-  "Visual Superiority": Monitor,
-  "Performance Data": Activity,
-  "Joint Restoration": Dna,
+  "Arthroscopic Visualization": Monitor,
+  "Performance Analytics": Activity,
+  "Biologic Restoration": Dna,
 };
 
 const Glyph = IconMap[category];
@@ -36,6 +37,15 @@ const Glyph = IconMap[category];
   <div class="tech-card-body">
     <h3>{title}</h3>
     <p class="tech-desc">{description}</p>
+    
+    {supports && (
+      <div class="tech-supports mt-md">
+        <span class="supports-label">Supported Programs:</span>
+        <ul class="supports-list">
+          {supports.map(s => <li>{s}</li>)}
+        </ul>
+      </div>
+    )}
   </div>
 
   <div class="tech-card-footer">
@@ -122,21 +132,43 @@ const Glyph = IconMap[category];
     opacity: 0.8;
   }
 
-  .tech-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    color: var(--secondary);
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-top: auto;
-    transition: all 0.2s ease;
-  }
-
   .tech-link:hover {
     color: #fff;
     transform: translateX(4px);
+  }
+
+  /* Supports List V3 */
+  .tech-supports {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 16px;
+  }
+
+  .supports-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .supports-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .supports-list li {
+    font-size: 11px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 3px 8px;
+    border-radius: 4px;
+    color: var(--secondary);
+    border: 1px solid rgba(0, 255, 255, 0.1);
   }
 
   .tech-card-img-frame {
