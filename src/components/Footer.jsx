@@ -51,10 +51,17 @@ const Footer = () => {
           <div className="footer-section contact">
             <h4>Coordination</h4>
             <div className="contact-stack">
+              <a href="tel:+917842932051" className="contact-item">
+                <div className="icon-box"><Phone size={16} /></div>
+                <div>
+                   <span className="label">Official Booking</span>
+                   <span className="val">+91 78429 32051</span>
+                </div>
+              </a>
               <a href="tel:+914023607777" className="contact-item">
                 <div className="icon-box"><Phone size={16} /></div>
                 <div>
-                   <span className="label">Apollo General</span>
+                   <span className="label">Hospital Desk</span>
                    <span className="val">+91 40 2360 7777</span>
                 </div>
               </a>

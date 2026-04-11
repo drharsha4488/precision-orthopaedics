@@ -153,10 +153,10 @@ const RosterFilter = ({ doctors }) => {
                   <p className="clinical-focus">{doc.focus}</p>
 
                   <div className="cta-group">
-                    <a href="/symptoms" className="btn btn-primary">
+                    <a href={doc.appointmentLink} className="btn btn-primary" target="_blank">
                       Book Appointment <ChevronRight size={16} />
                     </a>
-                    <a href="https://wa.me/914023607777" className="btn btn-outline" target="_blank">
+                    <a href="https://wa.me/917842932051" className="btn btn-outline" target="_blank">
                       <MessageSquare size={16} /> Talk to Coordinator
                     </a>
                     <a href={`/doctor/${doc.slug}`} className="view-profile-link">

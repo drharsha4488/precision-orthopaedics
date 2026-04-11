@@ -18,10 +18,10 @@ const Header = () => {
           <li className="nav-dropdown">
             <span className="dropdown-trigger">Clinical Divisions <ChevronDown size={14} /></span>
             <ul className="dropdown-menu">
-              <li><a href="/specialities/robotic-knee-arthroplasty" onClick={() => setIsMenuOpen(false)}>Lower Limb Arthroplasty</a></li>
-              <li><a href="/specialities/robotic-hip-arthroplasty" onClick={() => setIsMenuOpen(false)}>Pelvic & Hip Reconstruction</a></li>
-              <li><a href="/specialities/shoulder-reconstruction" onClick={() => setIsMenuOpen(false)}>Upper Extremity</a></li>
-              <li><a href="/recovery" onClick={() => setIsMenuOpen(false)}>High-Performance Sports Medicine</a></li>
+              <li><a href="/clinical-divisions/lower-extremity" onClick={() => setIsMenuOpen(false)}>Lower Extremity</a></li>
+              <li><a href="/clinical-divisions/pelvic-hip-reconstruction" onClick={() => setIsMenuOpen(false)}>Pelvic & Hip Reconstruction</a></li>
+              <li><a href="/clinical-divisions/upper-extremity" onClick={() => setIsMenuOpen(false)}>Upper Extremity</a></li>
+              <li><a href="/clinical-divisions/sports-medicine" onClick={() => setIsMenuOpen(false)}>High-Performance Sports Medicine</a></li>
             </ul>
           </li>
           <li><a href="/symptoms" className="nav-highlight" onClick={() => setIsMenuOpen(false)}>Symptom Checker</a></li>
@@ -30,8 +30,8 @@ const Header = () => {
         </ul>
 
         <div className="header-actions">
-           <a href="tel:+914023607777" className="contact-pill" style={{textDecoration: 'none'}}>
-             <Phone size={14} style={{color: 'var(--secondary)'}}/> +91 40 2360 7777
+           <a href="tel:+917842932051" className="contact-pill" style={{textDecoration: 'none'}}>
+             <Phone size={14} style={{color: 'var(--secondary)'}}/> +91 78429 32051
            </a>
         </div>
 

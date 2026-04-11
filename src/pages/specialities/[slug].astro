@@ -2,9 +2,11 @@
 import Layout from '../../layouts/Layout.astro';
 import { Activity, Beaker, CheckCircle, Clock, Crosshair, ArrowRight, ActivitySquare, UserCheck, BarChart3, Upload, Syringe, MessageCircle, ChevronRight, Video, HelpCircle, IndianRupee, Cpu, ShieldCheck, PlayCircle } from 'lucide-react';
 import { treatmentData } from '../../services/treatmentData';
+import { divisions } from '../../services/divisionData';
 import RadiologySlider from '../../components/RadiologySlider';
 import CandidateTriage from '../../components/CandidateTriage';
 import RecoveryChart from '../../components/RecoveryChart';
+import SchemaOrg from '../../components/SchemaOrg.astro';
 import '../TreatmentTemplate.css';
 
 export async function getStaticPaths() {
@@ -17,38 +19,39 @@ export async function getStaticPaths() {
 const { data } = Astro.props;
 const { slug } = Astro.params;
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": data.faqs.map(item => ({
-    "@type": "Question",
-    "name": item.q,
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": item.a
-    }
-  }))
-};
-
-const physicianSchema = {
-  "@context": "https://schema.org",
-  "@type": "Physician",
-  "name": data.surgeonName,
-  "medicalSpecialty": data.category,
-  "description": `${data.surgeonName} is a ${data.surgeonTitle} specialized in ${data.title}.`,
-  "hospitalAffiliation": "Apollo Hospitals, Financial District, Hyderabad"
-};
+// Inherit Parent Program Logic
+const parentDiv = divisions[data.parentDivision];
+const parentProg = parentDiv.programs.find(p => p.id === data.parentProgram);
 ---
 
 <Layout title={data.title} description={data.subtitle}>
-  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(physicianSchema)} />
+  <SchemaOrg type="treatment" data={data} slug={slug} />
 
   <div class="treatment-page">
+    {/* ══ INSTITUTIONAL HIERARCHY STRIP ══ */}
+    <section class="institutional-hierarchy-strip bg-dark-alt">
+       <div class="container hierarchy-flex">
+          <div class="h-parent">
+             <a href={`/clinical-divisions/${data.parentDivision}`}>{parentDiv.h1}</a>
+             <ChevronRight size={14} />
+             <span>{parentProg.name}</span>
+          </div>
+          <div class="h-ladder">
+             {parentDiv.pathwayLogic.steps.map((step, idx) => (
+               <div class={`h-step ${step.label.toLowerCase().includes(data.parentProgram) ? 'active' : ''}`} style={`--step-color: ${step.color}`}>
+                  <span class="h-idx">{idx + 1}</span>
+                  <span class="h-lab">{step.label}</span>
+               </div>
+             ))}
+          </div>
+       </div>
+    </section>
+
     {/* ══ SECTION 1: CINEMATIC HERO ══ */}
     <section id="hero" class="treatment-hero animate-reveal">
       <div class="hero-grid container">
         <div class="hero-text">
+          <div class="institutional-marker"><Shield size={14}/> Precision Surgical Board Governance</div>
           <span class="category-badge">{data.category}</span>
           <h1>{data.title}</h1>
           <p class="subtitle">{data.subtitle}</p>
@@ -57,9 +60,10 @@ const physicianSchema = {
             <div class="stat-pill"><Crosshair size={16}/> {data.stats.accuracy} Precision</div>
             <div class="stat-pill"><Clock size={16}/> {data.stats.recovery} Recovery</div>
           </div>
-          <button class="btn btn-primary mt-lg">
-            Request Priority Evaluation <ArrowRight size={16}/>
-          </button>
+          <a href="tel:+917842932051" class="btn btn-primary mt-lg">
+            Request Board Evaluation <ArrowRight size={16}/>
+          </a>
+          <p class="cta-subtext mt-sm">Program Coordinator: +91 78429 32051</p>
         </div>
         <div class="hero-visual">
           <div class="video-card border-glow">
@@ -69,18 +73,31 @@ const physicianSchema = {
               <p>{data.videoTarget} explains the procedure.</p>
             </div>
           </div>
-          <div class="surgeon-strip mt-md">
-            {data.surgeonCredentials.map((c) => (
-              <span class="cred-tag"><CheckCircle size={12}/> {c}</span>
-            ))}
+          <div class="program-theme-card mt-md">
+             <span class="theme-tag">Internal Doctrine</span>
+             <p>"{data.programTheme}"</p>
           </div>
         </div>
       </div>
     </section>
 
+    {/* ══ PROGRAM OUTCOME EVIDENCE STRIP ══ */}
+    <section class="outcome-evidence-bar">
+       <div class="container bar-flex">
+          <div class="bar-item">
+             <Target size={18} class="text-secondary" />
+             <span><strong>Precision Strategy:</strong> {parentDiv.outcomeEvidence.strategy}</span>
+          </div>
+          <div class="bar-item">
+             <ShieldCheck size={18} class="text-secondary" />
+             <span><strong>Clinical Standard:</strong> {parentDiv.outcomeEvidence.standard}</span>
+          </div>
+       </div>
+    </section>
+
     {/* ══ SECTION 2: ANATOMY DIAGNOSTIC ══ */}
     <section id="anatomy" class="container section-block">
-      <div class="bento-card col-span-full">
+      <div class="bento-card col-span-full bg-dark-alt">
         <div class="anatomy-layout">
           <div class="anatomy-text">
             <h2><ActivitySquare size={24} class="text-secondary"/> Anatomical Pathology</h2>
@@ -97,58 +114,76 @@ const physicianSchema = {
       </div>
     </section>
 
-    {/* ══ SECTION 3: ELIGIBILITY ══ */}
+    {/* ══ SECTION 3: ELIGIBILITY & SELECTION ══ */}
     <section id="eligibility" class="container section-block">
-      <h2 class="section-title text-center">Are You a Candidate?</h2>
+      <h2 class="section-title text-center">Institutional Candidacy Profile</h2>
       <CandidateTriage client:visible symptoms={data.candidateSymptoms} />
 
-      <div class="eligibility-grid mt-xl">
-        <h3 class="mb-md"><UserCheck size={20} class="text-secondary"/> Ideal Candidate Profile</h3>
-        <div class="elig-list">
-          {data.eligibility.map((e) => (
-            <div class="elig-item">
-              <CheckCircle size={18} class="text-secondary" />
-              <span>{e}</span>
-            </div>
-          ))}
+      <div class="bento-grid-institutional mt-xl">
+        <div class="bento-card">
+           <h3 class="mb-md"><UserCheck size={20} class="text-secondary"/> Ideal Program Candidate</h3>
+           <div class="elig-list">
+             {data.eligibility.map((e) => (
+               <div class="elig-item">
+                 <CheckCircle size={18} class="text-secondary" />
+                 <span>{e}</span>
+               </div>
+             ))}
+           </div>
+        </div>
+        <div class="bento-card">
+           <h3 class="mb-md"><Activity size={20} class="text-secondary"/> Case Complexity Tier</h3>
+           <div class="comp-spectrum-mini">
+              {parentDiv.caseComplexity.map(item => (
+                <div class="spectrum-node">
+                   <div class="s-dot"></div>
+                   <div class="s-info">
+                      <strong>{item.level}</strong>
+                      <span>{item.case}</span>
+                   </div>
+                </div>
+              ))}
+           </div>
         </div>
       </div>
     </section>
 
     {/* ══ SECTION 4: COMPARISON ══ */}
     <section id="comparison" class="container section-block">
-      <h2 class="section-title text-center">Why Robotic vs Conventional?</h2>
-      <div class="comparison-table mt-lg">
-        <div class="comp-header">
+      <h2 class="section-title text-center">Program Precision Benchmarks</h2>
+      <div class="comparison-table mt-lg bento-card p-0 overflow-hidden dark-glass">
+        <div class="comp-header p-xl">
           <span>Feature</span>
           <span>Conventional</span>
-          <span class="text-secondary">Precision Robotic</span>
+          <span class="text-secondary">Precision Robotic System</span>
         </div>
-        {data.comparison.map((row) => (
-          <div class="comp-row">
-            <span class="comp-feature">{row.feature}</span>
-            <span class="comp-conventional">{row.conventional}</span>
-            <span class="comp-robotic">{row.robotic}</span>
-          </div>
-        ))}
+        <div class="comp-rows px-xl pb-xl">
+           {data.comparison.map((row) => (
+             <div class="comp-row">
+               <span class="comp-feature">{row.feature}</span>
+               <span class="comp-conventional">{row.conventional}</span>
+               <span class="comp-robotic">{row.robotic}</span>
+             </div>
+           ))}
+        </div>
       </div>
 
-      <div class="mt-xl">
-        <h3 class="mb-md text-center"><BarChart3 size={20} class="text-secondary"/> Recovery Timeline Comparison</h3>
+      <div class="mt-xl bento-card p-xl bg-dark-alt">
+        <h3 class="mb-lg text-center"><BarChart3 size={20} class="text-secondary"/> Kinetic Recovery Analytics</h3>
         <RecoveryChart client:visible data={data.recoveryChart} />
       </div>
     </section>
 
     {/* ══ SECTION 5: RADIOLOGY SLIDER ══ */}
     <section id="radiology" class="container section-block">
-      <h2 class="section-title text-center">Proof of Precision</h2>
+      <h2 class="section-title text-center">Proof of Precision Metrics</h2>
       <RadiologySlider client:load />
     </section>
 
     {/* ══ SECTION 6: CLINICAL PIPELINE ══ */}
     <section id="pipeline" class="container section-block">
       <div class="timeline-section">
-        <h2 class="section-title text-center">The Clinical Pipeline</h2>
+        <h2 class="section-title text-center">Institutional Surgical Pipeline</h2>
         <div class="timeline-track mt-lg">
           {data.timeline.map((step) => (
             <div class="timeline-node">
@@ -164,20 +199,27 @@ const physicianSchema = {
       </div>
     </section>
 
-    {/* ══ SECTION 7: COST TRANSPARENCY ══ */}
+    {/* ══ SECTION 7: COST & GOVERNANCE ══ */}
     <section id="cost" class="container section-block">
-      <div class="cost-anchor-card">
-        <div class="cost-top">
-          <IndianRupee size={32} class="text-secondary"/>
-          <div>
-            <h2>Cost Transparency</h2>
-            <p class="body-text">We believe in complete upfront pricing clarity.</p>
-          </div>
-        </div>
-        <div class="cost-range-display">
-          <span class="cost-value">{data.costRange}</span>
-          <span class="cost-note">{data.costNote}</span>
-        </div>
+      <div class="bento-grid-institutional">
+         <div class="cost-anchor-card bento-card p-xl">
+           <div class="cost-top">
+             <IndianRupee size={32} class="text-secondary"/>
+             <div>
+               <h2>Fee Transparency</h2>
+               <p class="body-text">Total institutional package pricing.</p>
+             </div>
+           </div>
+           <div class="cost-range-display mt-lg">
+             <span class="cost-value">{data.costRange}</span>
+             <span class="cost-note">{data.costNote}</span>
+           </div>
+         </div>
+         <div class="bento-card p-xl bg-dark-alt">
+            <ShieldCheck size={32} class="text-secondary mb-sm"/>
+            <h3>Surgical Board Oversight</h3>
+            <p class="text-muted">This procedure is strictly governed by our multi-fellowship board protocol.</p>
+         </div>
       </div>
     </section>
 
@@ -196,7 +238,7 @@ const physicianSchema = {
 
         <div class="bento-card">
           <Upload size={28} class="text-secondary mb-sm"/>
-          <h3>MRI Upload Workflow</h3>
+          <h3>Board Evaluation Workflow</h3>
           <div class="mri-steps mt-md">
             {data.mriWorkflow.map((s) => (
               <div class="mri-step">
@@ -211,7 +253,7 @@ const physicianSchema = {
         </div>
 
         <div class="bento-card col-span-full">
-          <h2 class="section-title text-center">Common Patient Queries</h2>
+          <h2 class="section-title text-center">Institutional Inquiry Clearing</h2>
           <div class="faq-nuclear-grid">
             {data.faqs.map((f) => (
               <div class="faq-item-premium">
@@ -221,7 +263,7 @@ const physicianSchema = {
                 <p class="faq-ans">{f.a}</p>
                 <div class="faq-footer">
                   <span class="authority-byline">
-                    <ShieldCheck size={12} /> Medically Verified by <strong>{data.surgeonName}</strong>
+                    <ShieldCheck size={12} /> Board Verified by <strong>{data.surgeonName}</strong>
                   </span>
                 </div>
               </div>
@@ -230,5 +272,7 @@ const physicianSchema = {
         </div>
       </div>
     </section>
+  </div>
+</Layout>
   </div>
 </Layout>

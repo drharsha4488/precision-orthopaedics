@@ -1,5 +1,8 @@
 export const treatmentData = {
   "robotic-knee-arthroplasty": {
+    parentDivision: "lower-extremity",
+    parentProgram: "arthroplasty",
+    programTheme: "Delivering sub-millimeter implant positioning through CT-based robotic planning for predictable long-term joint outcomes.",
     category: "Robotic Surgery",
     title: "Stryker Mako 4.0 Robotic Knee Arthroplasty",
     subtitle: "Absolute sub-millimeter precision mapping for zero-compromise joint preservation.",
@@ -89,6 +92,9 @@ export const treatmentData = {
     ]
   },
   "acl-pcl-reconstruction": {
+    parentDivision: "sports-medicine",
+    parentProgram: "reconstruction",
+    programTheme: "Elite biological grafting combined with aggressive rehabilitation pipelines to return athletes to peak velocity.",
     category: "Sports Traumatology",
     title: "Accelerated ACL/PCL Ligament Reconstruction",
     subtitle: "Elite biological grafting combined with aggressive rehabilitation pipelines to return athletes to peak velocity.",
@@ -160,6 +166,9 @@ export const treatmentData = {
     ]
   },
   "robotic-hip-arthroplasty": {
+    parentDivision: "pelvic-hip-reconstruction",
+    parentProgram: "arthroplasty",
+    programTheme: "Integrated robotic positioning to eliminate leg-length discrepancy and minimize dislocation risks for lifelong joint performance.",
     category: "Robotic Surgery",
     title: "Mako Robotic-Arm Assisted Total Hip Arthroplasty",
     subtitle: "Precision component positioning and virtual range-of-motion simulation for zero-compromise hip restoration.",
@@ -205,6 +214,9 @@ export const treatmentData = {
     candidateSymptoms: ["Groin pain", "Difficulty putting on socks", "Limping"]
   },
   "shoulder-reconstruction": {
+    parentDivision: "upper-extremity",
+    parentProgram: "reconstruction",
+    programTheme: "Utilizing native 4K visualization for microscopic precision in tendon repairs and inverse-total shoulder replacements.",
     category: "Upper Extremity",
     title: "Advanced Shoulder Reconstruction & Arthroplasty",
     subtitle: "Global-standard restoration for complex rotator cuff tears and gleno-humeral instability.",

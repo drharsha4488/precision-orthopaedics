@@ -34,7 +34,7 @@ const schemaData = {
       "addressCountry": "IN"
     }
   },
-  "telephone": "+91 40 2360 7777"
+  "telephone": "+91 78429 32051"
 };
 ---
 
@@ -61,10 +61,10 @@ const schemaData = {
           <p class="profile-focus">{doctor.focus}</p>
           
           <div class="profile-ctas">
-            <a href="/symptoms" class="btn btn-primary w-100 mb-sm" style="text-decoration: none; justify-content: center;">
+            <a href={doctor.appointmentLink} class="btn btn-primary w-100 mb-sm" style="text-decoration: none; justify-content: center;" target="_blank">
               <Calendar size={16} /> Book Appointment
             </a>
-            <a href="https://wa.me/914023607777" class="btn btn-outline w-100 mb-sm" style="text-decoration: none; justify-content: center;">
+            <a href="https://wa.me/917842932051" class="btn btn-outline w-100 mb-sm" style="text-decoration: none; justify-content: center;" target="_blank">
               <MessageSquare size={16} /> Talk to Coordinator
             </a>
             <button class="btn btn-text w-100">
@@ -127,10 +127,10 @@ const schemaData = {
   </div>
 
   <div class="sticky-cta-bar">
-    <a href="/symptoms" class="btn btn-primary">
+    <a href={doctor.appointmentLink} class="btn btn-primary" target="_blank">
       <Calendar size={18} /> Book Appointment
     </a>
-    <a href="https://wa.me/914023607777" class="btn btn-outline" target="_blank">
+    <a href="https://wa.me/917842932051" class="btn btn-outline" target="_blank">
       <MessageSquare size={18} /> Talk to Coordinator
     </a>
   </div>
