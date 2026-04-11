@@ -154,7 +154,7 @@ export const directories = [
     ]
   },
   {
-    category: "Pediatric Orthopedics",
+    category: "Pediatric Orthopaedics",
     icon: Baby,
     treatments: [
       { name: "Congenital Limb Deformity Correction", slug: "pediatric-limb-deformity" },
@@ -162,7 +162,7 @@ export const directories = [
     ]
   },
   {
-    category: "Orthopedic Oncology",
+    category: "Orthopaedic Oncology",
     icon: ShieldAlert,
     treatments: [
       { name: "Benign & Malignant Bone Tumor Excision", slug: "bone-tumor-excision" },

@@ -83,7 +83,7 @@ export const doctorDetails = {
     procedures: "5,000+",
     conditions: ["Sports Injury", "Knee Pain", "Joint Preservation"],
     fellowships: "Sports Medicine Fellow (Geisinger, USA), Arthrex Technology Lead.",
-    qualifications: "MBBS, MS (Orthopedics), Arthrex Synergy SDK Specialist.",
+    qualifications: "MBBS, MS (Orthopaedics), Arthrex Synergy SDK Specialist.",
     specialties: [
       "Arthrex Synergy UHD4 4K Visualization",
       "Ortho-Biologics (PRP, BMAC & Stem Cell Therapy)",

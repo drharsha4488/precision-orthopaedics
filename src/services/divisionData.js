@@ -96,7 +96,7 @@ export const divisions = {
         ]
       }
     ],
-    boardMembers: ["Dr. Amith Reddy (Program Lead)", "Dr. Ravi Teja", "Dr. Deepthi Reddy (HOD)", "Precision Surgical Board"],
+    boardMembers: ["Dr. Amith Reddy (Program Lead)", "Dr. Ravi Teja", "Dr. Deepthi Nandan Reddy (HOD)", "Precision Surgical Board"],
     faqs: [
       { q: "What is the difference between Arthroplasty and Preservation?", a: "Arthroplasty involves replacing the joint surface with an implant, while Joint Preservation focuses on biological repairs to save the natural joint and delay or avoid replacement." }
     ]
@@ -266,7 +266,7 @@ export const divisions = {
         ]
       }
     ],
-    boardMembers: ["Dr. Deepthi Reddy (HOD / Program Lead)", "Dr. Harsha Vardhana", "Dr. Ravi Teja", "Precision Surgical Board"],
+    boardMembers: ["Dr. Deepthi Nandan Reddy (HOD / Program Lead)", "Dr. Harsha Vardhana", "Dr. Ravi Teja", "Precision Surgical Board"],
     faqs: [
       { q: "What is 4K visualization?", a: "It provides 58 times more color data than standard HD, allowing for unprecedented tissue differentiation in complex shoulder repairs." }
     ]
@@ -358,7 +358,7 @@ export const divisions = {
         ]
       }
     ],
-    boardMembers: ["Dr. Harsha Vardhana (Program Lead)", "Dr. Ravi Teja", "Dr. Deepthi Reddy (HOD)", "Precision Surgical Board"],
+    boardMembers: ["Dr. Harsha Vardhana (Program Lead)", "Dr. Ravi Teja", "Dr. Deepthi Nandan Reddy (HOD)", "Precision Surgical Board"],
     faqs: [
       { q: "How long does ACL recovery take?", a: "Typically 6-9 months, guided by objective VALD data symmetry clearance." }
     ]
