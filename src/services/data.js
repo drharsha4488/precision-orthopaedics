@@ -121,7 +121,6 @@ export const doctors = [
     image: "/doctors/doc_prashanth.png",
     appointmentLink: "https://www.apollo247.com/doctors/dr-prashanth-reddy-a-3d44af2a-78a0-4980-a3ce-f504d0b818d3?source=Listing_Page"
   }
-  }
 ];
 
 export const directories = [
