@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Shield, ShieldAlert, ShieldCheck, Info, X, ChevronRight, Activity } from 'lucide-react';
+import { ShieldAlert, ShieldCheck, Info, X, ChevronRight, Activity } from 'lucide-react';
 import useClinicalAuditor from '../services/ClinicalAuditor';
 import './IntegrityShield.css';
 

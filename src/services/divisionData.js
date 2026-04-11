@@ -1,4 +1,4 @@
-import { Activity, Layers, Zap, Target, ShieldCheck, Microscope, Cpu, BarChart3, Clock, UserCheck, Settings, Crosshair, Video, Gauge, Shapes, ActivitySquare, Shield } from 'lucide-react';
+import { Activity, Layers, Zap, Target, ShieldCheck, Microscope, Cpu, BarChart3, Clock, UserCheck, Settings, Crosshair, Video, Gauge, Shapes, ActivitySquare } from 'lucide-react';
 
 export const commonStats = [
   { label: "Program Procedures", value: "15,000+" },
