@@ -28,7 +28,7 @@ export const treatmentData = {
       "Persistent night pain disrupting sleep"
     ],
     comparison: [
-      { feature: "Imaging Precision", conventional: "HD Arthrocopy", robotic: "Arthrex Synergy UHD4 (4K)" },
+      { feature: "Imaging Precision", conventional: "HD Arthroscopy", robotic: "Arthrex Panoscope HD" },
       { feature: "Bone Preservation", conventional: "Moderate resection", robotic: "Maximum preservation" },
       { feature: "Recovery Timeline", conventional: "8–12 weeks standard", robotic: "4–6 weeks accelerated" },
       { feature: "Alignment Accuracy", conventional: "Surgeon-dependent", robotic: "Software-assisted haptics" },
@@ -117,7 +117,7 @@ export const treatmentData = {
       "Associated meniscal tears requiring repair"
     ],
     comparison: [
-      { feature: "Imaging Fidelity", conventional: "Standard 1080p", robotic: "Arthrex Synergy UHD4 (4K)" },
+      { feature: "Imaging Fidelity", conventional: "Standard 1080p", robotic: "Arthrex Panoscope HD" },
       { feature: "Functional Readiness", conventional: "Subjective testing", robotic: "VALD Performance ForceDecks" },
       { feature: "Return to Sport", conventional: "9–12 months", robotic: "6–9 months accelerated" },
       { feature: "Re-tear Rate", conventional: "8–12%", robotic: "<5% with rehab compliance" },
@@ -231,7 +231,7 @@ export const treatmentData = {
       "UK NHS Consultant Pedigree",
       "Master of Complex Revision Arthroplasty"
     ],
-    anatomyText: "Focusing on structural integrity, our HOD-led unit utilizes Arthrex Synergy UHD4 4K visualization for microscopic precision in tendon repairs and inverse-total shoulder replacements.",
+    anatomyText: "Focusing on structural integrity, our HOD-led unit utilizes the Arthrex Panoscope visualization platform for high-definition precision in tendon repairs and inverse-total shoulder replacements.",
     eligibility: [
       "Full-thickness Rotator Cuff Tears",
       "Recurrent Shoulder Dislocation",
@@ -239,7 +239,7 @@ export const treatmentData = {
       "Severe Shoulder Arthritis"
     ],
     comparison: [
-      { feature: "Visualization", conventional: "Standard HD", robotic: "4K UHD4 Imaging" },
+      { feature: "Visualization", conventional: "Standard HD", robotic: "Panoscope HD Imaging" },
       { feature: "Surgical Lead", conventional: "Standard", robotic: "HOD Collaborative Board" }
     ],
     timeline: [

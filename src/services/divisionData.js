@@ -59,7 +59,7 @@ export const divisions = {
         name: "Joint Preservation & Biologic Restoration Program",
         doctrine: "Focused on restoring native joint biomechanics through cartilage repair, biologic augmentation, and alignment correction before implant-based reconstruction becomes necessary.",
         techMapping: [
-          { name: "Precision Biocentrics", icon: Microscope, desc: "BMAC & Exosome augmentation." },
+          { name: "Precision Biologic Restoration", icon: Microscope, desc: "BMAC & Exosome augmentation." },
           { name: "Cartilage Scaffolds", icon: Activity, desc: "Advanced biological tissue engineering." }
         ],
         procedures: [
@@ -73,7 +73,7 @@ export const divisions = {
         name: "Complex Reconstruction Program",
         doctrine: "Designed to stabilize structurally compromised joints using ligament reconstruction, osteotomy planning, and revision pathway optimization.",
         techMapping: [
-          { name: "Arthrex Synegery UHD4", icon: Video, desc: "4K visualization for complex ligament repairs." },
+          { name: "Arthrex Panoscope Platform", icon: Video, desc: "High-definition arthroscopic visualization for complex reconstructions." },
           { name: "Navigation Planning", icon: Crosshair, desc: "Precision alignment correction." }
         ],
         procedures: [
@@ -240,7 +240,7 @@ export const divisions = {
         name: "Ligament & Tendon Reconstruction Program",
         doctrine: "Micro-surgical clarity using native 4K visualization for elite restoration of rotator cuff, labrum, and elbow stability.",
         techMapping: [
-          { name: "Arthrex Synergy UHD4", icon: Video, desc: "Native 4K arthroscopic visualization." },
+          { name: "Arthrex Panoscope Platform", icon: Video, desc: "Native HD arthroscopic visualization." },
           { name: "SCR Reconstruction", icon: Layers, desc: "Superior Capsular Reconstruction." }
         ],
         procedures: [
@@ -331,7 +331,7 @@ export const divisions = {
         name: "Primary Reconstruction Program",
         doctrine: "Elite biological grafting and ligament reconstruction using USA-standard Arthrex visualization for microscopic repair precision.",
         techMapping: [
-          { name: "Arthrex Synergy UHD4", icon: Video, desc: "Native 4K sports surgery stack." },
+          { name: "Arthrex Panoscope Platform", icon: Video, desc: "Precision surgical visualization stack." },
           { name: "Biological Fixation", icon: ShieldCheck, desc: "Knotless high-strength repair." }
         ],
         procedures: [
