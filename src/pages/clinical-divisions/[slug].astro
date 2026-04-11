@@ -224,7 +224,7 @@ const { slug } = Astro.params;
              </div>
              <p class="mb-lg">Every complex restoration is reviewed by the full board to ensure regional best-practice alignment.</p>
              <div class="board-members-strip">
-                {data.boardMembers.map(member => (
+                {data.boardMembers && data.boardMembers.map(member => (
                   <div class="board-member-tag">
                      <div class="dot active"></div>
                      <span>{member}</span>
