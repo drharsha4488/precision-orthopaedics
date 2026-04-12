@@ -70,32 +70,32 @@ const errorStyle = `
   
   <Header client:load />
   
-  <div className="error-page-root">
-    <div className="error-bg-graphic">
+  <div class="error-page-root">
+    <div class="error-bg-graphic">
       <AlertTriangle size={800} strokeWidth={0.5} color="#00b4d8" />
     </div>
 
-    <div className="error-diagnostic-vessel">
-      <div className="error-code">404</div>
-      <h1 className="error-title">Anatomic Path Integrity Violation</h1>
+    <div class="error-diagnostic-vessel">
+      <div class="error-code">404</div>
+      <h1 class="error-title">Anatomic Path Integrity Violation</h1>
       
-      <p className="error-desc">
+      <p class="error-desc">
         The requested clinical route is not currently mapped within our institutional knowledge graph. 
         This may be due to a legacy link relocation or an unindexed surgical directive.
       </p>
 
-      <div className="error-actions">
-        <a href="/" className="btn btn-primary">
-          <Home size={18} className="mr-sm" /> Institutional Base
+      <div class="error-actions">
+        <a href="/" class="btn btn-primary">
+          <Home size={18} class="mr-sm" /> Institutional Base
         </a>
-        <a href="/locations" className="btn btn-outline">
-          <MessageSquare size={18} className="mr-sm" /> Clinical Inquiry
+        <a href="/locations" class="btn btn-outline">
+          <MessageSquare size={18} class="mr-sm" /> Clinical Inquiry
         </a>
       </div>
 
-      <div className="mt-xl">
-        <button onClick="history.back()" className="btn-text" style="color: #00b4d8; opacity: 0.7; cursor: pointer;">
-           <ArrowLeft size={16} className="mr-sm" /> Return to Previous Diagnostic
+      <div class="mt-xl">
+        <button onclick="history.back()" class="btn-text" style="color: #00b4d8; opacity: 0.7; cursor: pointer;">
+           <ArrowLeft size={16} class="mr-sm" /> Return to Previous Diagnostic
         </button>
       </div>
     </div>
