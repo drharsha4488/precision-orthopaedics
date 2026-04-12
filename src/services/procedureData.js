@@ -1,4 +1,5 @@
 export const procedureData = {
+  "osteotomy": { aliasOf: "high-tibial-osteotomy" },
   "rotator-cuff-repair": {
     parentDivision: "upper-extremity",
     parentProgram: "reconstruction",

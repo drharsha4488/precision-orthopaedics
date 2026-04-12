@@ -2,7 +2,7 @@
 .integrity-shield-wrap {
   position: fixed;
   bottom: 2rem;
-  left: 2rem;
+  right: 2rem;
   z-index: 10000;
   transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
   font-family: var(--font-main);

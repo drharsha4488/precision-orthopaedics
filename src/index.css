@@ -34,6 +34,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 100px;
   background-color: var(--bg-color);
 }
 
@@ -140,4 +141,22 @@ h1, h2, h3, h4, h5, h6 {
 .w-100 {
   width: 100%;
   display: block;
+}
+
+/* Institutional Design Layout Utilities */
+.section-block {
+  padding: 12rem 0;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .section-block {
+    padding: 6rem 0;
+  }
+}
+
+.dark-glass {
+  background: var(--surface-glass);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--surface-border);
 }

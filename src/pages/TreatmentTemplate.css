@@ -4,7 +4,7 @@
 }
 
 .section-block {
-  padding: 5rem 1.5rem;
+  padding: 12rem 0;
 }
 
 .section-subtitle {
@@ -34,7 +34,7 @@
    ═══════════════════════════════════════════════════════ */
 .scrollspy-nav {
   position: fixed;
-  top: 5rem;
+  top: 100px;
   left: 0; right: 0;
   z-index: 999;
   display: flex;
@@ -91,7 +91,7 @@
    CINEMATIC HERO
    ═══════════════════════════════════════════════════════ */
 .treatment-hero {
-  padding: 4rem 0 6rem;
+  padding: 8rem 0 10rem;
   background: radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.06) 0%, transparent 50%);
 }
 
@@ -100,6 +100,15 @@
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
+}
+
+@media (max-width: 991px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+  .hero-stats, .surgeon-strip { justify-content: center; }
 }
 
 .category-badge {
@@ -473,18 +482,32 @@
 }
 
 .chart-bar.conventional {
-  background: linear-gradient(90deg, #374151, #4B5563);
-  color: var(--text-muted);
+  background: linear-gradient(90deg, #f59e0b, #fbbf24); /* Institutional Amber */
+  color: #000;
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.2);
 }
 
 .chart-bar.robotic {
-  background: linear-gradient(90deg, var(--secondary), #22d3ee);
+  background: linear-gradient(90deg, #10b981, #34d399); /* Clinical Emerald */
   color: #000;
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
 }
 
-@keyframes growBar {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
+@keyframes floatY {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-on-scroll.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -683,21 +706,23 @@
    ═══════════════════════════════════════════════════════ */
 .bento-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
 }
 
 .bento-card {
   background: var(--primary-light);
-  border: 1px solid var(--surface-border);
+  border: 1px solid rgba(255,255,255,0.03);
   border-radius: var(--radius-lg);
   padding: 2.5rem;
-  transition: all 0.4s ease;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
 }
 
 .bento-card:hover {
-  border-color: rgba(6, 182, 212, 0.4);
-  box-shadow: 0 0 20px rgba(6, 182, 212, 0.1);
+  transform: translateY(-8px);
+  border-color: rgba(6, 182, 212, 0.3);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.7), 0 0 20px rgba(6, 182, 212, 0.1);
 }
 
 .col-span-2 { grid-column: span 2; }
