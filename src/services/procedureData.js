@@ -957,7 +957,7 @@ export const procedureData = {
     ],
     candidateSymptoms: ["Radiating leg pain", "Numbness in the feet", "Difficulty bending forward"],
     canonicalParent: { division: "pelvic-hip-reconstruction", program: "complex-trauma-reconstruction" }
-  }
+  },
   "microdiscectomy": {
     parentDivision: "lower-extremity",
     parentProgram: "spine-care",
