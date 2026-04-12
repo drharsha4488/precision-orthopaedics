@@ -17,6 +17,7 @@ export default defineConfig({
     '/procedures/osteotomy': '/procedures/high-tibial-osteotomy',
     '/procedures/revision-surgery': '/procedures/revision-knee-replacement',
     '/procedures/pelvic-trauma': '/procedures/pelvic-trauma-care',
-    '/procedures/joint-preservation': '/procedures/cartilage-restoration'
+    '/procedures/joint-preservation': '/procedures/cartilage-restoration',
+    '/facilities': '/locations'
   }
 });

@@ -23,9 +23,14 @@ const parentDiv = divisions[data.canonicalParent.division];
     <section class="institutional-hierarchy-strip bg-dark-alt border-b border-light/10">
        <div class="container hierarchy-flex">
           <div class="h-parent">
+             <span class="h-label">Division</span>
              <a href={`/clinical-divisions/${data.canonicalParent.division}`}>{parentDiv.h1.split(' | ')[0]}</a>
-             <ChevronRight size={14} />
-             <span>Institutional Workflow</span>
+             <span class="h-separator">/</span>
+             <span class="h-label">Institutional Program</span>
+             <a href={`/clinical-programs/${data.canonicalParent.program}`}>{data.canonicalParent.program.replace(/-/g, ' ')}</a>
+             <span class="h-separator">/</span>
+             <span class="h-label">Clinical Workflow</span>
+             <span class="h-active">{data.h1.split(' | ')[0]}</span>
           </div>
        </div>
     </section>
