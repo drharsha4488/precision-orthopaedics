@@ -1,10 +1,16 @@
-/* NAV ISLAND CONTAINER */
+/* UNIVERSAL HEADER STABILIZATION PATCH */
+
+.header-wrapper {
+  position: relative;
+  z-index: 6000;
+}
+
 .global-header {
-  position: fixed;
+  position: fixed; /* Retaining fixed behavior for navigation island */
   top: 1.5rem;
   left: 0;
   right: 0;
-  z-index: 4000;
+  z-index: 6000;
   padding: 0 1.5rem;
   display: flex;
   flex-direction: column;
@@ -26,7 +32,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  max-width: 1350px;
+  max-width: 1400px; /* Expanded for high-density navigation */
   box-shadow: 0 10px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
 }
 
@@ -35,6 +41,7 @@
   align-items: center;
   gap: 0.75rem;
   text-decoration: none;
+  flex-shrink: 0;
 }
 
 .logo-text {
@@ -50,7 +57,7 @@
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 1.75rem;
+  gap: 1.5rem;
   align-items: center;
   margin: 0;
   padding: 0;
@@ -59,9 +66,24 @@
 .nav-item {
   position: relative;
   padding: 1rem 0;
+  padding-bottom: 18px; /* High-stability hover bridge primary */
 }
 
-.nav-label, .nav-item > .menu-item {
+/* Hover Persistence Buffer (Critical Bridge) */
+.nav-item::after {
+  content: "";
+  position: absolute;
+  height: 22px;
+  width: 100%;
+  bottom: -22px;
+  left: 0;
+  z-index: 10;
+}
+
+.nav-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   color: var(--text-main);
   text-decoration: none;
   font-weight: 500;
@@ -69,9 +91,6 @@
   transition: all 0.3s ease;
   font-family: var(--font-display);
   white-space: nowrap;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
   cursor: pointer;
 }
 
@@ -80,49 +99,35 @@
 /* MEGA MENU BASE */
 .mega-menu {
   position: absolute;
-  top: 78px;
+  top: 100%; /* Anchored to bottom of hover bridge */
   left: 50%;
-  transform: translateX(-50%) translateY(8px);
+  transform: translate(-50%, 8px);
   width: min(1180px, 94vw);
-
   background: rgba(6, 14, 18, 0.96);
   backdrop-filter: blur(18px);
-
   border-radius: 18px;
   border: 1px solid rgba(0, 212, 255, 0.08);
-
   padding: 36px 42px;
-
-  box-shadow:
-    0 40px 90px rgba(0,0,0,0.55),
-    inset 0 0 0 1px rgba(0,212,255,0.04);
-
+  box-shadow: 0 40px 90px rgba(0,0,0,0.55), inset 0 0 0 1px rgba(0,212,255,0.04);
   opacity: 0;
   visibility: hidden;
-
-  transition:
-    opacity .22s ease,
-    transform .22s ease,
-    visibility .22s ease;
-
-  z-index: 5000;
+  transition: opacity .22s ease, transform .22s ease, visibility .22s ease;
+  z-index: 7000;
   pointer-events: auto;
 }
 
 .nav-item:hover .mega-menu {
   opacity: 1;
   visibility: visible;
-  transform: translateX(-50%) translateY(0);
+  transform: translate(-50%, 0);
 }
 
-/* Multi-column grid system */
 .mega-menu-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
   gap: 42px;
 }
 
-/* Section label styling */
 .menu-section-label {
   font-size: 10px;
   text-transform: uppercase;
@@ -133,7 +138,6 @@
   font-weight: 900;
 }
 
-/* Menu link typography hierarchy */
 .menu-item {
   display: block;
   font-size: 14px;
@@ -149,7 +153,6 @@
   transform: translateX(4px);
 }
 
-/* Footer link inside dropdown */
 .menu-footer-link {
   display: block;
   margin-top: 16px;
@@ -158,14 +161,8 @@
   opacity: .6;
   color: var(--secondary);
   text-decoration: none;
-  transition: opacity 0.2s ease;
 }
 
-.menu-footer-link:hover {
-  opacity: 1;
-}
-
-/* Authority Strip styling */
 .authority-strip {
   width: 100%;
   text-align: center;
@@ -194,9 +191,14 @@
   gap: 0.5rem;
 }
 
-.strip-item svg { color: var(--secondary); }
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
 
-/* Symptom checker CTA styling */
 .symptom-checker-cta {
   background: linear-gradient(135deg, #00d4ff, #00a8cc);
   color: #001418 !important;
@@ -207,19 +209,6 @@
   letter-spacing: .04em;
   transition: all .18s ease;
   text-decoration: none;
-}
-
-.symptom-checker-cta:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 0 18px rgba(0,212,255,.45);
-}
-
-/* Header Actions */
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  flex-shrink: 0;
 }
 
 .contact-pill {
@@ -234,7 +223,6 @@
   text-transform: uppercase;
   color: var(--secondary);
   font-weight: 800;
-  letter-spacing: 0.05em;
 }
 
 .contact-num {
@@ -248,58 +236,39 @@
   background: transparent;
   border: none;
   color: var(--white);
-  cursor: pointer;
 }
 
-@media (max-width: 960px) {
-  .nav-island {
-    padding: 0.75rem 1.25rem;
-    border-radius: 12px;
-  }
+@media (max-width: 1240px) {
+  .nav-island { padding: 0.75rem 1.25rem; border-radius: 12px; }
   .mobile-menu-btn { display: block; }
-  .header-actions, .authority-strip { display: none; }
-
-  .nav-links {
-    display: none;
+  .header-actions, .authority-strip, .nav-links { display: none; }
+  
+  .nav-links.active {
+    display: flex;
     flex-direction: column;
     position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
+    top: 100%; left: 0; right: 0;
     background: rgba(12, 12, 12, 0.98);
     backdrop-filter: blur(20px);
     padding: 2rem;
+    gap: 1rem;
     border-radius: 0 0 12px 12px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    margin-top: 0.5rem;
-    gap: 1rem;
-    align-items: flex-start;
   }
 
-  .nav-links.active { display: flex; }
-
   .nav-item { width: 100%; padding: 0.5rem 0; }
-
   .mega-menu {
     position: static;
     transform: none;
     width: 100%;
-    border-radius: 0;
-    padding: 18px 0;
     opacity: 1;
     visibility: visible;
     background: transparent;
     border: none;
     box-shadow: none;
-    display: none; /* Initially hidden on mobile until parent interaction */
+    display: none;
+    padding: 1rem 0;
   }
-
-  .nav-item:hover .mega-menu, .nav-item.active .mega-menu {
-    display: block;
-  }
-
-  .mega-menu-grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
+  .nav-item:hover .mega-menu { display: block; }
+  .mega-menu-grid { grid-template-columns: 1fr; gap: 1rem; }
 }

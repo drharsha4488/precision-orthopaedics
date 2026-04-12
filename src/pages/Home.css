@@ -18,6 +18,7 @@
   animation: slowGradient 90s ease-in-out infinite alternate;
   z-index: 0;
   isolation: isolate;
+  overflow: visible;
 }
 
 @keyframes slowGradient {
