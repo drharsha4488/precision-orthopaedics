@@ -1,5 +1,4 @@
 .treatment-page {
-  padding-top: 6rem;
   padding-bottom: 5rem;
 }
 
@@ -34,7 +33,7 @@
    ═══════════════════════════════════════════════════════ */
 .scrollspy-nav {
   position: fixed;
-  top: 100px;
+  top: 140px;
   left: 0; right: 0;
   z-index: 999;
   display: flex;

@@ -1,0 +1,108 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Shield, ChevronRight, MapPin, Phone, Mail, Activity, Target, Zap } from 'lucide-react';
+---
+
+<Layout title="Clinical Sitemap | Institutional Knowledge Graph">
+  <div class="sitemap-page py-xxl bg-dark">
+    <div class="container">
+      <div class="institutional-marker mb-md"><Shield size={14}/> Surgical Path Integrity Map</div>
+      <h1 class="text-white mb-xl">Institutional Sitemap</h1>
+
+      <div class="sitemap-grid">
+        {/* SECTION: DIVISIONS */}
+        <section class="sitemap-node">
+          <h3><Activity size={20} class="text-secondary"/> Clinical Divisions</h3>
+          <ul class="sitemap-links">
+            <li><a href="/clinical-divisions/lower-extremity">Lower Extremity (Knee & Hip)</a></li>
+            <li><a href="/clinical-divisions/pelvic-hip-reconstruction">Pelvic Architecture & Hip Recon</a></li>
+            <li><a href="/clinical-divisions/upper-extremity">Upper Extremity (Shoulder & Elbow)</a></li>
+            <li><a href="/clinical-divisions/sports-medicine">Athletic Performance & Joint Preservation</a></li>
+          </ul>
+        </section>
+
+        {/* SECTION: PROGRAMS */}
+        <section class="sitemap-node">
+          <h3><Target size={20} class="text-secondary"/> Institutional Programs</h3>
+          <ul class="sitemap-links">
+            <li><a href="/clinical-programs/joint-preservation">Joint Preservation & Biologics</a></li>
+            <li><a href="/clinical-programs/revision-arthroplasty">Tertiary Revision Hub</a></li>
+            <li><a href="/clinical-programs/complex-trauma-reconstruction">Complex Trauma Unit</a></li>
+            <li><a href="/clinical-programs/musculoskeletal-oncology">Musculoskeletal Oncology</a></li>
+            <li><a href="/clinical-programs/spine-care">Spine & Neural Restoration</a></li>
+            <li><a href="/clinical-programs/diagnostics">Performance Diagnostics Lab</a></li>
+          </ul>
+        </section>
+
+        {/* SECTION: PROCEDURES */}
+        <section class="sitemap-node">
+          <h3><Zap size={20} class="text-secondary"/> Procedural Library</h3>
+          <ul class="sitemap-links">
+            <li><a href="/procedures/robotic-knee-arthroplasty">Robotic Knee Arthroplasty</a></li>
+            <li><a href="/procedures/robotic-hip-arthroplasty">Robotic Hip Arthroplasty</a></li>
+            <li><a href="/procedures/revision-knee-replacement">Revision Knee Replacement</a></li>
+            <li><a href="/procedures/revision-hip-replacement">Revision Hip Replacement</a></li>
+            <li><a href="/procedures/rotator-cuff-repair">Arthroscopic Rotator Cuff Repair</a></li>
+            <li><a href="/procedures/reverse-shoulder-arthroplasty">Reverse Shoulder Arthroplasty</a></li>
+            <li><a href="/procedures/acl-pcl-reconstruction">ACL/PCL Ligament Reconstruction</a></li>
+            <li><a href="/procedures/cartilage-restoration">Cartilage Scaffold Grafting</a></li>
+          </ul>
+        </section>
+
+        {/* SECTION: GOVERNANCE */}
+        <section class="sitemap-node">
+          <h3><Shield size={20} class="text-secondary"/> Governance & Hubs</h3>
+          <ul class="sitemap-links">
+            <li><a href="/about">Institutional Charter</a></li>
+            <li><a href="/doctors">Surgical Board & Clinical Faculty</a></li>
+            <li><a href="/locations">Clinical Hubs (Locations)</a></li>
+            <li><a href="/symptoms">Symptom Diagnostic Matrix</a></li>
+            <li><a href="/privacy">Data Privacy Protocol</a></li>
+            <li><a href="/terms">Terms of Clinical Practice</a></li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .sitemap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-xxl);
+  }
+  .sitemap-node h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.25rem;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 0.75rem;
+  }
+  .sitemap-links {
+    list-style: none;
+    padding: 0;
+  }
+  .sitemap-links li {
+    margin-bottom: 0.75rem;
+  }
+  .sitemap-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .sitemap-links a:hover {
+    color: var(--secondary);
+  }
+  .sitemap-links a::before {
+    content: '→';
+    font-size: 0.8rem;
+    opacity: 0.5;
+  }
+</style>

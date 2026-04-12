@@ -1,8 +1,9 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { Shield, ChevronRight, ArrowRight, CheckCircle, Target, Microscope, Video, Layers, Cpu, Crosshair } from 'lucide-react';
+import { Shield, ChevronRight, ArrowRight, CheckCircle, Target, Microscope, Video, Layers, Cpu, Crosshair, ShieldCheck, Activity } from 'lucide-react';
 import { programData } from '../../services/programData';
 import { divisions } from '../../services/divisionData';
+import './ProgramTemplate.css';
 
 export async function getStaticPaths() {
   return Object.keys(programData).map((slug) => ({
@@ -14,111 +15,173 @@ export async function getStaticPaths() {
 const { data } = Astro.props;
 const { slug } = Astro.params;
 
-const parentDiv = divisions[data.canonicalParent.division];
+// ══ SAFETY GUARD: REDIRECT IF DATA IS MISSING ══
+if (!data) {
+  return Astro.redirect('/404');
+}
+
+const parentDiv = divisions[data.canonicalParent?.division] || divisions['lower-extremity'];
 ---
 
 <Layout title={data.title} description={data.doctrine}>
   <div class="clinical-program-page">
-    {/* ══ HIERARCHY STRIP ══ */}
-    <section class="institutional-hierarchy-strip bg-dark-alt border-b border-light/10">
-       <div class="container hierarchy-flex">
-          <div class="h-parent">
-             <span class="h-label">Division</span>
-             <a href={`/clinical-divisions/${data.canonicalParent.division}`}>{parentDiv.h1.split(' | ')[0]}</a>
-             <span class="h-separator">/</span>
-             <span class="h-label">Institutional Program</span>
-             <span class="h-active">{data.h1}</span>
-          </div>
-       </div>
-    </section>
-
-    {/* ══ HERO ══ */}
-    <section class="program-hero animate-reveal py-xxl bg-dark">
+    {/* ══ CINEMATIC HERO ══ */}
+    <section class="program-hero animate-reveal">
+      <img src={data.heroImage} alt={data.h1} class="hero-bg-visual" />
+      <div class="hero-overlay"></div>
+      <div class="editorial-watermark">PRECISION</div>
+      
       <div class="container">
+        {/* ══ HIERARCHY STRIP (INTEGRATED) ══ */}
+        <div class="institutional-hierarchy-strip mb-xl">
+           <div class="h-parent">
+              <span class="h-label">Division</span>
+              <a href={`/clinical-divisions/${data.canonicalParent?.division}`}>{parentDiv.h1?.split(' | ')[0] || 'Division'}</a>
+              <span class="h-separator">/</span>
+              <span class="h-label">Institutional Program</span>
+              <span class="h-active">{data.h1}</span>
+           </div>
+        </div>
+
         <div class="program-hero-grid">
           <div class="hero-text">
             <div class="institutional-marker mb-md"><Shield size={14}/> Institutional Program Hub</div>
-            <h1 class="text-white mb-lg">{data.h1}</h1>
+            <h1 class="mb-lg">{data.h1}</h1>
             <p class="body-text text-xl mb-xl">{data.doctrine}</p>
             
-            <div class="program-objective bento-card bg-dark-alt p-xl">
-               <h3 class="mb-md"><Target size={20} class="text-secondary"/> Clinical Objective</h3>
-               <p>{data.clinicalObjective}</p>
-            </div>
+            {data.institutionalStats && (
+              <div class="hero-stats-row">
+                <div class="p-stat-pill">
+                  <span class="p-stat-lab">Program Volume</span>
+                  <span class="p-stat-val">{data.institutionalStats.volume}</span>
+                </div>
+                <div class="p-stat-pill">
+                  <span class="p-stat-lab">Surgical Precision</span>
+                  <span class="p-stat-val">{data.institutionalStats.precision}</span>
+                </div>
+                <div class="p-stat-pill">
+                  <span class="p-stat-lab">Core Integration</span>
+                  <span class="p-stat-val">{data.institutionalStats.integration}</span>
+                </div>
+              </div>
+            )}
+            
+            <a href="tel:+917842932051" class="btn btn-primary lg mt-xl">
+               Consult Program Coordinator <ArrowRight size={16}/>
+            </a>
           </div>
           
-          <div class="hero-meta bento-card p-xl bg-dark-alt">
-             <h3 class="mb-lg">Leadership Matrix</h3>
-             <div class="leadership-stack">
-                <div class="l-group">
-                   <span class="l-label">Primary Leads</span>
-                   {data.leadership.primary?.map(lead => (
+          <div class="hero-meta bento-card dark-glass">
+             <h3 class="mb-lg">Program Leadership</h3>
+             <div class="leadership-grid">
+                <div class="l-unit">
+                   <span class="l-label">Primary Faculty</span>
+                   {data.leadership?.primary?.map(lead => (
                      <div class="l-person">
                         <strong>{lead.name}</strong>
                         <span>{lead.role}</span>
                      </div>
                    ))}
                 </div>
-                <div class="l-group mt-lg">
-                   <span class="l-label">Board Support</span>
-                   {data.leadership.boardSupport?.map(lead => (
-                     <div class="l-person">
-                        <strong>{lead.name}</strong>
-                        <span>{lead.role}</span>
-                     </div>
-                   ))}
-                </div>
+                {data.leadership?.boardSupport && (
+                  <div class="l-unit">
+                     <span class="l-label">Board Governance</span>
+                     {data.leadership.boardSupport?.map(lead => (
+                       <div class="l-person">
+                          <strong>{lead.name}</strong>
+                          <span>{lead.role}</span>
+                       </div>
+                     ))}
+                  </div>
+                )}
              </div>
           </div>
         </div>
       </div>
     </section>
 
-    {/* ══ SELECTION LOGIC ══ */}
+    {/* ══ CONTEXT STRIP ══ */}
+    <section class="outcome-evidence-bar border-y border-light/10">
+       <div class="container bar-flex">
+          <div class="bar-item">
+             <Target size={18} class="text-secondary" />
+             <span><strong>Program Strategy:</strong> {data.clinicalObjective}</span>
+          </div>
+       </div>
+    </section>
+
+    {/* ══ SELECTION PROTOCOL ══ */}
     <section class="section-block container">
        <div class="bento-grid-institutional">
-          <div class="bento-card col-span-2">
-             <h2 class="mb-xl">Institutional Selection Protocol</h2>
+          <div class="bento-card col-span-2 dark-glass">
+             <h2 class="section-title">Institutional Selection Protocol</h2>
              <div class="decision-grid">
                 {data.decisionCriteria?.map(item => (
-                  <div class="decision-item">
-                     <CheckCircle size={18} class="text-secondary" />
-                     <span>{item}</span>
-                  </div>
+                   <div class="decision-item">
+                      <div class="check-icon-box">
+                        <CheckCircle size={18} class="text-secondary" />
+                      </div>
+                      <span>{item}</span>
+                   </div>
                 ))}
              </div>
           </div>
-          <div class="bento-card col-span-1">
-             <h3 class="mb-lg">Technology Mapping</h3>
+          <div class="bento-card col-span-1 dark-glass">
+             <h3 class="mb-lg">Technical Infrastructure</h3>
              <div class="tech-stack-vertical">
                 {data.technology?.map(tech => (
-                  <div class="tech-item-mini">
-                     {tech.icon && <tech.icon size={20} class="text-secondary" />}
-                     <div>
-                        <strong>{tech.name}</strong>
-                        <p>{tech.desc}</p>
-                     </div>
-                  </div>
+                   <div class="tech-item-mini mb-lg">
+                      <div class="tech-icon-circle">
+                        {tech.icon && <tech.icon size={20} class="text-secondary" />}
+                      </div>
+                      <div>
+                         <strong>{tech.name}</strong>
+                         <p class="text-muted">{tech.desc}</p>
+                      </div>
+                   </div>
                 ))}
              </div>
           </div>
        </div>
     </section>
 
-    {/* ══ CLINICAL SPOKES ══ */}
-    <section class="section-block bg-dark-alt py-xxl">
+    {/* ══ TECHNICAL LIBRARY ══ */}
+    <section class="section-block bg-dark-alt">
        <div class="container">
-          <h2 class="text-center mb-xxl">Program Procedure Spokes</h2>
+          <div class="display-header text-center mb-xxl">
+             <span class="editorial-tag">Technical Execution</span>
+             <h2 class="section-title">Program Procedure Spokes</h2>
+             <p class="max-width-600 mx-auto text-muted">Technical documentation for surgical procedures governed by this program protocol.</p>
+          </div>
+          
           <div class="spoke-grid">
              {data.procedures?.map(proc => (
-               <a href={`/procedures/${proc.slug}`} class="spoke-card border-glow">
-                  <div class="spoke-info">
-                     <h3>{proc.name}</h3>
-                     <p>Technical Procedure Spoke</p>
-                  </div>
-                  <ArrowRight size={20} />
-               </a>
+                <a href={`/procedures/${proc.slug}`} class="spoke-card dark-glass">
+                   <div class="spoke-info">
+                      <h3>{proc.name}</h3>
+                      <p>Institutional Technical Spoke</p>
+                   </div>
+                   <div class="arrow-circle">
+                     <ArrowRight size={20} />
+                   </div>
+                </a>
              ))}
+          </div>
+       </div>
+    </section>
+
+    {/* ══ BOTTOM CTA ══ */}
+    <section class="section-block text-center border-t border-light/5">
+       <div class="container">
+          <Shield size={48} class="text-secondary mb-lg mx-auto" strokeWidth={1} />
+          <h2 class="display-xl mb-lg">Referral & Case Governance</h2>
+          <p class="body-text max-width-800 mx-auto mb-xl">
+             All cases within the {data.h1} are reviewed by the Precision Surgical Board to ensure alignment with our multi-fellowship clinical benchmarks.
+          </p>
+          <div class="flex-center gap-md">
+             <a href="tel:+917842932051" class="btn btn-primary lg">
+               Speak with Program Lead <ArrowRight size={16}/>
+             </a>
           </div>
        </div>
     </section>
@@ -126,55 +189,79 @@ const parentDiv = divisions[data.canonicalParent.division];
 </Layout>
 
 <style>
-  .program-hero-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: var(--spacing-xxl);
-    align-items: start;
-  }
-
-  .leadership-stack .l-group .l-label {
+  .l-label {
     display: block;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 2px;
     color: var(--secondary);
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
   }
-
-  .l-person {
-    margin-bottom: 0.5rem;
-  }
-  .l-person strong { display: block; color: var(--white); }
-  .l-person span { font-size: 0.875rem; color: var(--text-muted); }
 
   .decision-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-md);
+    gap: 2rem;
   }
-  .decision-item { display: flex; gap: 1rem; align-items: start; }
-
-  .spoke-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: var(--spacing-lg);
-  }
-
-  .spoke-card {
-    background: var(--dark-lighter);
-    padding: var(--spacing-xl);
-    border: 1px solid rgba(255,255,255,0.05);
+  
+  .decision-item {
     display: flex;
-    justify-content: space-between;
+    gap: 1.25rem;
+    align-items: flex-start;
+    font-size: 1.1rem;
+    color: var(--text-main);
+  }
+
+  .tech-icon-circle {
+    width: 44px;
+    height: 44px;
+    background: rgba(6, 182, 212, 0.1);
+    border-radius: 50%;
+    display: flex;
     align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .tech-item-mini {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+  }
+
+  .arrow-circle {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: all 0.3s ease;
-    text-decoration: none;
   }
-  .spoke-card:hover { 
-    border-color: var(--secondary);
-    transform: translateY(-5px);
+
+  .spoke-card:hover .arrow-circle {
+    background: var(--secondary);
+    color: #000;
   }
-  .spoke-card h3 { color: var(--white); margin: 0; }
-  .spoke-card p { font-size: 0.8rem; color: var(--text-muted); margin: 0; }
+
+  .editorial-tag {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--secondary);
+    margin-bottom: 1rem;
+  }
+
+  .max-width-600 { max-width: 600px; }
+  .max-width-800 { max-width: 800px; }
+  .mx-auto { margin-left: auto; margin-right: auto; }
+  .flex-center { display: flex; justify-content: center; align-items: center; }
+  .gap-md { gap: 1.5rem; }
+
+  @media (max-width: 768px) {
+    .decision-grid { grid-template-columns: 1fr; }
+  }
 </style>

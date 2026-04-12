@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Shield } from 'lucide-react';
+---
+
+<Layout title="Terms of Practice | Institutional Charter">
+  <div class="legal-page py-xxl bg-dark">
+    <div class="container max-w-4xl">
+      <div class="institutional-marker mb-md"><Shield size={14}/> Regulatory Compliance</div>
+      <h1 class="text-white mb-xl">Terms of Clinical Practice</h1>
+      
+      <div class="prose text-text-muted">
+        <p class="mb-lg">The clinical material provided on this platform is intended for institutional identification and protocol transparency. It does not constitute a final surgical directive.</p>
+        
+        <h3 class="text-white mt-xl mb-md">1. Clinical Governance</h3>
+        <p class="mb-lg">All surgical procedures are governed by the Precision Orthopaedics Surgical Board and are subject to patient-specific anatomical suitability.</p>
+
+        <h3 class="text-white mt-xl mb-md">2. Outcome Variance</h3>
+        <p class="mb-lg">While robotic systems provide sub-millimeter precision, biological recovery rates vary according to individual patient factors and rehabilitation adherence.</p>
+
+        <h3 class="text-white mt-xl mb-md">3. Academic Jurisdiction</h3>
+        <p class="mb-lg">Precision Orthopaedics operates under the academic charter of its HOD-led leadership and UK-trained faculty, ensuring global standards are met locally.</p>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .legal-page { min-height: 80vh; }
+  .prose h3 { color: var(--white); }
+  .prose p { line-height: 1.8; margin-bottom: 2rem; font-size: 1.1rem; }
+</style>

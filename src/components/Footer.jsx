@@ -43,11 +43,11 @@ const Footer = () => {
           <div className="directory-column">
             <h4>Care Programs</h4>
             <div className="directory-list">
-               <a href="/clinical-programs/robotic-arthroplasty">Robotic Arthroplasty</a>
+               <a href="/clinical-programs/revision-arthroplasty">Robotic Arthroplasty</a>
                <a href="/clinical-programs/joint-preservation">Joint Preservation</a>
                <a href="/clinical-programs/musculoskeletal-oncology">Musculoskeletal Oncology</a>
                <a href="/clinical-programs/spine-care">Spine & Neural Restoration</a>
-               <a href="/clinical-programs/complex-trauma">Complex Trauma Hub</a>
+               <a href="/clinical-programs/complex-trauma-reconstruction">Complex Trauma Hub</a>
             </div>
           </div>
 
@@ -55,8 +55,8 @@ const Footer = () => {
           <div className="directory-column">
             <h4>Surgical Procedures</h4>
             <div className="directory-list">
-               <a href="/procedures/robotic-knee-replacement">Mako Robotic Knee</a>
-               <a href="/procedures/robotic-hip-replacement">Mako Robotic Hip</a>
+               <a href="/procedures/robotic-knee-arthroplasty">Mako Robotic Knee</a>
+               <a href="/procedures/robotic-hip-arthroplasty">Mako Robotic Hip</a>
                <a href="/procedures/acl-pcl-reconstruction">ACL Reconstruction</a>
                <a href="/procedures/reverse-shoulder-arthroplasty">Reverse Shoulder</a>
                <a href="/procedures/revision-knee-replacement">Revision Arthroplasty</a>

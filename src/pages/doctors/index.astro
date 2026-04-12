@@ -56,11 +56,6 @@ import '../Doctors.css';
       </div>
     </section>
 
-    {/* ══ ROSTER HUB (React) ══ */}
-    <section class="container mb-xl">
-       <RosterFilter client:load doctors={doctors} />
-    </section>
-
     {/* ══ COLLABORATIVE BOARD UPGRADE ══ */}
     <section id="surgical-board" class="board-excellence-section container mb-xl">
       <div class="bento-card border-glow p-xl">
@@ -96,6 +91,11 @@ import '../Doctors.css';
             </div>
          </div>
       </div>
+    </section>
+
+    {/* ══ ROSTER HUB (React) ══ */}
+    <section class="container mb-xl">
+       <RosterFilter client:load doctors={doctors} />
     </section>
   </div>
 </Layout>

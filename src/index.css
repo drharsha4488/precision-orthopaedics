@@ -34,7 +34,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px;
+  scroll-padding-top: 200px;
   background-color: var(--bg-color);
 }
 
@@ -198,9 +198,16 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: capitalize;
 }
 
-/* Fixed Header Spacing Fix */
-main, .locations-page, .error-page-root, .treatment-page, .division-hub-page, .clinical-program-page, .workflow-page, .home-container {
-  padding-top: 160px; /* Ensured zero-overlap for the floating navigation island across all clinical routes */
+/* ══ INSTITUTIONAL SPACING PROTOCOL ══ */
+#clinical-content {
+  padding-top: 180px; /* Ensured zero-overlap for the floating navigation island + authority strip */
+  min-height: 80vh;
+}
+
+@media (max-width: 1240px) {
+  #clinical-content {
+    padding-top: 120px; /* Adjusted for condensed mobile header */
+  }
 }
 
 @media (max-width: 768px) {

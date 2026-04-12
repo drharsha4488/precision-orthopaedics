@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { ShieldCheck } from 'lucide-react';
+---
+
+<Layout title="Data Privacy Protocol | Precision Orthopaedics">
+  <div class="legal-page py-xxl bg-dark">
+    <div class="container max-w-4xl">
+      <div class="institutional-marker mb-md"><ShieldCheck size={14}/> Clinical Data Security</div>
+      <h1 class="text-white mb-xl">Data Privacy Protocol</h1>
+      
+      <div class="prose text-text-muted">
+        <p class="mb-lg">Precision Orthopaedics is committed to the absolute security of patient anatomical data and clinical records. Our protocol adheres to international standards for healthcare data processing.</p>
+        
+        <h3 class="text-white mt-xl mb-md">1. Anatomical Data Collection</h3>
+        <p class="mb-lg">We capture 3D CT and MRI mapping data exclusively for the purpose of surgical planning and robotic navigation. This data is processed through encrypted institutional channels.</p>
+
+        <h3 class="text-white mt-xl mb-md">2. Patient Rights</h3>
+        <p class="mb-lg">Patients retain full ownership of their diagnostic imagery. Requests for anatomical data retrieval or erasure are processed via the Care Coordination Desk.</p>
+
+        <h3 class="text-white mt-xl mb-md">3. Third-Party Attribution</h3>
+        <p class="mb-lg">Diagnostic data may be securely shared with technical partners (e.g., Stryker Mako, Arthrex) solely for the purpose of generating surgical blueprints.</p>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .legal-page { min-height: 80vh; }
+  .prose h3 { color: var(--white); }
+  .prose p { line-height: 1.8; margin-bottom: 2rem; font-size: 1.1rem; }
+</style>

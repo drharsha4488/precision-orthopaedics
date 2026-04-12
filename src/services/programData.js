@@ -34,7 +34,8 @@ export const programData = {
       { name: "Meniscal Root Repair", slug: "meniscal-root-repair" },
       { name: "Cartilage Scaffold Grafting", slug: "cartilage-restoration" }
     ],
-    recoveryTimeline: "Varies (4–12 weeks based on biological integration rates).",
+    heroImage: "/joint_preservation_hero_1775994583309.png",
+    institutionalStats: { volume: "2,500+", precision: "Micro-Alignment", integration: "Biological" },
     canonicalParent: { division: "lower-extremity" }
   },
   "complex-trauma-reconstruction": {
@@ -69,7 +70,8 @@ export const programData = {
       { name: "Complex Pelvic Trauma Care", slug: "pelvic-trauma-care" },
       { name: "Multi-Ligament Knee Stabilization", slug: "multi-ligament-reconstruction" }
     ],
-    recoveryTimeline: "Extended (6–18 months for full structural loading).",
+    heroImage: "/complex_trauma_hero_1775994599554.png",
+    institutionalStats: { volume: "1,200+", precision: "Structural Salvage", integration: "Fixation" },
     canonicalParent: { division: "pelvic-hip-reconstruction" }
   },
   "musculoskeletal-oncology": {
@@ -101,7 +103,8 @@ export const programData = {
       { name: "Bone Tumor Excision", slug: "bone-tumor-excision" },
       { name: "Limb Salvage Reconstruction", slug: "limb-salvage" }
     ],
-    recoveryTimeline: "Individualized based on adjuvant therapy requirements.",
+    heroImage: "/ortho_oncology_hero_1775994614277.png",
+    institutionalStats: { volume: "450+", precision: "Zero-Margin", integration: "Custom Segmental" },
     canonicalParent: { division: "pelvic-hip-reconstruction" }
   },
   "revision-arthroplasty": {
@@ -136,7 +139,8 @@ export const programData = {
       { name: "Revision Hip Arthroplasty", slug: "revision-hip-replacement" },
       { name: "Revision Shoulder Arthroplasty", slug: "revision-shoulder" }
     ],
-    recoveryTimeline: "Graduated (8–24 weeks depending on bone-graft integration).",
+    heroImage: "/revision_arthroplasty_hero_1775994636112.png",
+    institutionalStats: { volume: "1,800+", precision: "Robotic Mapping", integration: "Bone-Loss Compensation" },
     canonicalParent: { division: "lower-extremity" }
   },
   "spine-care": {
@@ -168,7 +172,8 @@ export const programData = {
       { name: "Cervical Disc Replacement", slug: "cervical-disc-replacement" },
       { name: "Scoliosis Correction", slug: "scoliosis-correction" }
     ],
-    recoveryTimeline: "Rapid (1–6 weeks for decompression, 3–6 months for fusion).",
+    heroImage: "/spine_care_hero_1775994652936.png",
+    institutionalStats: { volume: "3,100+", precision: "Neural Restoration", integration: "Motion-Preserving" },
     canonicalParent: { division: "lower-extremity" }
   },
   "diagnostics": {
@@ -200,6 +205,8 @@ export const programData = {
       { name: "Pre-Season Screening", slug: "athlete-screening" }
     ],
     recoveryTimeline: "Immediate (Diagnostic results delivered within 24 hours).",
+    heroImage: "/performance_diagnostics_hero_1775994670949.png",
+    institutionalStats: { volume: "5,000+", precision: "1,000Hz Sampling", integration: "Objective Kinetic" },
     canonicalParent: { division: "sports-medicine" }
   }
 };
