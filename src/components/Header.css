@@ -141,6 +141,20 @@
   color: var(--secondary);
 }
 
+.dropdown-menu .separator {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 0.5rem 1rem;
+}
+
+.dropdown-menu .view-all {
+  font-weight: 700;
+  color: var(--secondary) !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.8rem !important;
+}
+
 .header-actions {
   display: flex;
   align-items: center;

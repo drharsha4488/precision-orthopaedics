@@ -1,0 +1,117 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.jsx';
+import Footer from '../components/Footer.jsx';
+import { MapPin, Phone, Mail, Clock, ShieldCheck, Map, ArrowRight } from 'lucide-react';
+import './Locations.css';
+
+const locations = [
+  {
+    name: "Apollo Hospitals | Financial District",
+    badge: "Primary Clinical Hub",
+    address: "Financial District, Gachibowli, Nanakramguda, Hyderabad, Telangana 500032",
+    coordination: "+91 78429 32051",
+    hospitalDesk: "+91 40 2360 7777",
+    email: "consult@precisionortho.in",
+    hours: "Mon - Sat: 09:00 AM - 05:00 PM",
+    mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1d3806.463663673733!2d78.3377!3d17.4173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDI1JzAyLjMiTiA3OMKwMjAnMTUuNyJF!5e0!3m2!1sen!2sin!4v1620822000000!5m2!1sen!2sin",
+    features: [
+      "Stryker Mako 4.0 Robotic System",
+      "Arthrex Synergy UHD4 4K Hub",
+      "VALD Performance Diagnostic Lab",
+      "Level 1 Trauma Emergency Care",
+      "JCI & NABH Accredited Facility",
+      "24/7 Orthopaedic Emergency Deck"
+    ]
+  }
+];
+---
+
+<Layout title="Clinical Locations | Precision Orthopaedics Hyderabad">
+  <div className="locations-page">
+    <Header client:load />
+
+    <section className="locations-hero text-center">
+      <div className="container">
+        <h1 className="display-xl">Strategic <span className="text-secondary">Clinical Hubs</span></h1>
+        <p className="hero-subtext">
+          Operating out of India's premier multi-speciality ecosystems to ensure absolute surgical safety and 
+          unmatched infrastructure for complex musculoskeletal restoration.
+        </p>
+      </div>
+    </section>
+
+    <section className="locations-content">
+      <div className="container">
+        {locations.map((loc) => (
+          <div className="location-card-lg">
+            <div className="loc-info-panel">
+              <span className="loc-badge">{loc.badge}</span>
+              <h2>{loc.name}</h2>
+              <p className="body-text mb-lg">Institutional Partner for Advanced Robotic & Sports Medicine.</p>
+              
+              <ul className="loc-contact-list mb-lg">
+                <li>
+                  <MapPin className="loc-icon" size={20} />
+                  <span>{loc.address}</span>
+                </li>
+                <li>
+                  <Phone className="loc-icon" size={20} />
+                  <div>
+                    <strong>Precision Coordination: </strong>
+                    <a href={`tel:${loc.coordination.replace(/\s/g, '')}`}>{loc.coordination}</a>
+                  </div>
+                </li>
+                <li>
+                  <Phone className="loc-icon" size={20} />
+                  <div>
+                    <strong>Hospital Desk: </strong>
+                    <a href={`tel:${loc.hospitalDesk.replace(/\s/g, '')}`}>{loc.hospitalDesk}</a>
+                  </div>
+                </li>
+                <li>
+                  <Mail className="loc-icon" size={20} />
+                  <a href={`mailto:${loc.email}`}>{loc.email}</a>
+                </li>
+                <li>
+                  <Clock className="loc-icon" size={20} />
+                  <span>{loc.hours}</span>
+                </li>
+              </ul>
+
+              <div className="loc-features mb-xl">
+                <h3>Institutional Grade Infrastructure</h3>
+                <ul>
+                  {loc.features.map(f => (
+                    <li><ShieldCheck size={16} className="text-secondary" /> {f}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="loc-actions">
+                <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(loc.address)}`} target="_blank" className="btn btn-primary">
+                  <Map size={18} className="mr-sm" /> Get Direction
+                </a>
+                <a href="#appointment" className="btn btn-outline">
+                  Book Consultation <ArrowRight size={18} className="ml-sm" />
+                </a>
+              </div>
+            </div>
+
+            <div className="loc-map-panel">
+              <iframe 
+                src={loc.mapUrl}
+                className="map-iframe"
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+              </iframe>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <Footer />
+  </div>
+</Layout>

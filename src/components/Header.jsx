@@ -24,6 +24,27 @@ const Header = () => {
               <li><a href="/clinical-divisions/sports-medicine" onClick={() => setIsMenuOpen(false)}>High-Performance Sports Medicine</a></li>
             </ul>
           </li>
+          <li className="nav-dropdown">
+            <span className="dropdown-trigger">Clinical Programs <ChevronDown size={14} /></span>
+            <ul className="dropdown-menu">
+              <li><a href="/clinical-programs/robotic-arthroplasty" onClick={() => setIsMenuOpen(false)}>Robotic Arthroplasty</a></li>
+              <li><a href="/clinical-programs/joint-preservation" onClick={() => setIsMenuOpen(false)}>Joint Preservation</a></li>
+              <li><a href="/clinical-programs/spine-care" onClick={() => setIsMenuOpen(false)}>Spine & Neural Restoration</a></li>
+              <li><a href="/clinical-programs/musculoskeletal-oncology" onClick={() => setIsMenuOpen(false)}>Oncology & Bone Tumors</a></li>
+              <li className="separator"></li>
+              <li><a href="/clinical-programs" onClick={() => setIsMenuOpen(false)} className="view-all">View All Programs →</a></li>
+            </ul>
+          </li>
+          <li className="nav-dropdown">
+            <span className="dropdown-trigger">Case Workflows <ChevronDown size={14} /></span>
+            <ul className="dropdown-menu">
+              <li><a href="/workflows/robotic-arthroplasty-planning" onClick={() => setIsMenuOpen(false)}>Robotic Case Planning</a></li>
+              <li><a href="/workflows/return-to-sport-clearance" onClick={() => setIsMenuOpen(false)}>VALD Performance Clearance</a></li>
+              <li><a href="/workflows/joint-preservation-pathway" onClick={() => setIsMenuOpen(false)}>Biological Restoration Path</a></li>
+              <li className="separator"></li>
+              <li><a href="/workflows" onClick={() => setIsMenuOpen(false)} className="view-all">View All Process Hubs →</a></li>
+            </ul>
+          </li>
           <li><a href="/symptoms" className="nav-highlight" onClick={() => setIsMenuOpen(false)}>Symptom Checker</a></li>
           <li><a href="/doctors" onClick={() => setIsMenuOpen(false)}>Surgeons</a></li>
           <li><a href="/locations" onClick={() => setIsMenuOpen(false)}>Facilities</a></li>

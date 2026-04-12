@@ -1,0 +1,105 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.jsx';
+import Footer from '../components/Footer.jsx';
+import { AlertTriangle, Home, MessageSquare, ArrowLeft } from 'lucide-react';
+
+/* Minimal 404 inline styles for maximum diagnostic feel */
+const errorStyle = `
+  .error-page-root {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at center, #1b263b 0%, #0d1b2a 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .error-diagnostic-vessel {
+    max-width: 600px;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(0, 180, 216, 0.2);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    text-align: center;
+    position: relative;
+    z-index: 10;
+  }
+  .error-code {
+    font-size: 8rem;
+    font-weight: 900;
+    line-height: 1;
+    background: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.8;
+  }
+  .error-title {
+    font-size: 1.5rem;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--secondary);
+    margin-bottom: 2rem;
+  }
+  .error-desc {
+    color: #e0e1dd;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+  }
+  .error-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+  .error-bg-graphic {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    opacity: 0.05;
+    pointer-events: none;
+  }
+`;
+---
+
+<Layout title="404: Path Not Found | Precision Orthopaedics">
+  <style set:html={errorStyle}></style>
+  
+  <Header client:load />
+  
+  <div className="error-page-root">
+    <div className="error-bg-graphic">
+      <AlertTriangle size={800} strokeWidth={0.5} color="#00b4d8" />
+    </div>
+
+    <div className="error-diagnostic-vessel">
+      <div className="error-code">404</div>
+      <h1 className="error-title">Anatomic Path Integrity Violation</h1>
+      
+      <p className="error-desc">
+        The requested clinical route is not currently mapped within our institutional knowledge graph. 
+        This may be due to a legacy link relocation or an unindexed surgical directive.
+      </p>
+
+      <div className="error-actions">
+        <a href="/" className="btn btn-primary">
+          <Home size={18} className="mr-sm" /> Institutional Base
+        </a>
+        <a href="/locations" className="btn btn-outline">
+          <MessageSquare size={18} className="mr-sm" /> Clinical Inquiry
+        </a>
+      </div>
+
+      <div className="mt-xl">
+        <button onClick="history.back()" className="btn-text" style="color: #00b4d8; opacity: 0.7; cursor: pointer;">
+           <ArrowLeft size={16} className="mr-sm" /> Return to Previous Diagnostic
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <Footer />
+</Layout>

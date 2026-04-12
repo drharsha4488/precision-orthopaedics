@@ -1725,5 +1725,124 @@ export const procedureData = {
     ],
     candidateSymptoms: ["Knee stiffness in the morning", "Swelling after walking", "Pain that improves with movement"],
     canonicalParent: { division: "lower-extremity", program: "joint-preservation" }
+  },
+  "recovery": {
+    parentDivision: "sports-medicine",
+    parentProgram: "performance",
+    programType: "categorical",
+    programTheme: "Accelerated kinetic restoration for elite athletic recovery.",
+    category: "Sports Performance",
+    title: "Accelerated Rehab Pipeline",
+    subtitle: "High-velocity recovery protocols utilizing VALD kinetic data and biological priming.",
+    seoKeywords: "sports recovery Hyderabad, athlete rehab India, accelerated recovery precision ortho",
+    stats: { volume: "2,000+", accuracy: "Data-Driven", recovery: "Peak-Velocity" },
+    videoTarget: "Dr. Harsha Vardhana Reddy",
+    leadership: {
+      primary: [{ name: "Dr. B. Harsha Vardhana Reddy", role: "Lead – Athletic Recovery" }],
+      boardSupport: [{ name: "Dr. Ravi Teja Rudraraju", role: "Biological Lead" }]
+    },
+    anatomyText: "Our recovery pipeline shifts from time-based healing to criteria-based progression. Utilizing continuous kinetic feedback, we adjust loads in real-time to ensure the neuro-muscular system is restored at the same rate as the structural repair.",
+    eligibility: [
+      "Post-surgical athletes (ACL, Meniscus, Cuff)",
+      "Acute sports strains requiring rapid return",
+      "Chronic overloading syndromes in elite runners"
+    ],
+    comparison: [
+      { feature: "Progression", conventional: "Time-Based (e.g. 6 months)", robotic: "Data-Based (Symmetry Check)" },
+      { feature: "Monitoring", conventional: "Periodic clinical check", robotic: "Continuous Kinetic Profiling" }
+    ],
+    timeline: [
+      { day: "Phase 1", action: "Load Priming", detail: "Protected kinetic loading" },
+      { day: "Phase 4", action: "Velocity Graduation", detail: "Return to sport-specific movements" }
+    ],
+    costRange: "₹25k – ₹75k (Protocol dependent)",
+    costNote: "including 12-week data-monitored recovery stack",
+    infectionSafety: ["Standard Clinical Safety Protocols"],
+    mriWorkflow: [{ step: 1, title: "Kinetic Mapping", desc: "Checking for functional movement drift" }],
+    recoveryChart: { conventional: { label: "Standard", weeks: 24 }, robotic: { label: "Pipeline", weeks: 16 } },
+    faqs: [
+      { q: "Is it safe to recover faster?", a: "Yes, because the speed is governed by objective data. We only progress when your body confirms it is ready." }
+    ],
+    candidateSymptoms: ["Fear of re-injury", "Muscle atrophy after surgery", "Plateau in traditional rehab"],
+    canonicalParent: { division: "sports-medicine", program: "performance" }
+  },
+  "clearance": {
+    parentDivision: "sports-medicine",
+    parentProgram: "performance",
+    programType: "categorical",
+    programTheme: "The definitive kinetic verification for return-to-sport.",
+    category: "Sports Performance",
+    title: "Return-to-Sport Clearance",
+    subtitle: "Objective biomechanical verification for high-impact athletic competition.",
+    seoKeywords: "sports clearance Hyderabad, return to play test India, VALD clearance Hyderabad",
+    stats: { volume: "1,500+", accuracy: "1,000Hz Sensor", recovery: "Finalized" },
+    videoTarget: "Dr. Harsha Vardhana Reddy",
+    leadership: {
+      primary: [{ name: "Dr. B. Harsha Vardhana Reddy", role: "Lead – Athletic Performance" }]
+    },
+    anatomyText: "Clearance is a rigorous 3-hour diagnostic event. We use ForceDecks and DynaMo sensors to profile your explosive power, deceleration control, and limb symmetry. A 'Green Light' is only issued when your data matches elite-level benchmarks.",
+    eligibility: [
+      "End-stage post-surgical rehabilitation",
+      "Professional athletes transferring to new clubs",
+      "High-impact athletes (Football, Basketball, Cricket)"
+    ],
+    comparison: [
+      { feature: "Decision", conventional: "Physician's 'Feel'", robotic: "Dual-Plate Kinetic Data" },
+      { feature: "Accuracy", conventional: "Standard strength test", robotic: "Eccentric Deceleration Profiling" }
+    ],
+    timeline: [
+      { day: "Test Day", action: "Symmetry Stress Test", detail: "High-velocity impact mapping" },
+      { day: "Report", action: "Institutional Sign-off", detail: "Official clearance documentation" }
+    ],
+    costRange: "₹8k – ₹15k",
+    costNote: "including full biomechanical clearance report",
+    infectionSafety: ["N/A - Non-Invasive"],
+    mriWorkflow: [{ step: 1, title: "Stress Symmetry", desc: "Verifying limb-to-limb force balance" }],
+    recoveryChart: { conventional: { label: "Standard", weeks: 100 }, robotic: { label: "Cleared", weeks: 100 } },
+    faqs: [
+      { q: "What if I fail the clearance?", a: "A 'fail' identifies the exact weakness. We provide a 4-week 'Corrective Bridge' to fix only that specific deficit." }
+    ],
+    candidateSymptoms: ["Ready to return but seeking proof", "Insecurity during pivoting", "Final check before competitive season"],
+    canonicalParent: { division: "sports-medicine", program: "performance" }
+  },
+  "agility": {
+    parentDivision: "sports-medicine",
+    parentProgram: "performance",
+    programType: "categorical",
+    programTheme: "Neuro-muscular re-education for multi-planar athletic motion.",
+    category: "Sports Performance",
+    title: "Post-Surgical Agility Optimization",
+    subtitle: "Restoring the kinetic chain for sudden changes of direction and high-velocity pivots.",
+    seoKeywords: "agility training Hyderabad, sports performance India, ACL agility training",
+    stats: { volume: "3,000+", accuracy: "Kinematic", recovery: "Explosive" },
+    videoTarget: "Dr. Harsha Vardhana Reddy",
+    leadership: {
+      primary: [{ name: "Dr. B. Harsha Vardhana Reddy", role: "Lead – Athletic Performance" }]
+    },
+    anatomyText: "Agility is the bridge between strength and competition. We optimize the triple-extension (hip, knee, ankle) and reactive timing using high-speed video and cognitive stimuli to ensure you can move in any direction with absolute stability.",
+    eligibility: [
+      "Mid-to-late stage post-surgical rehab",
+      "Chronic instability when turning",
+      "Athletes needing to regain 'reactive' speed"
+    ],
+    comparison: [
+      { feature: "Focus", conventional: "Linear running", robotic: "Multi-directional Reaction" },
+      { feature: "Control", conventional: "General balance", robotic: "Reactive Core Stabilization" }
+    ],
+    timeline: [
+      { day: "Phase 1", action: "Closed-Loop Agility", detail: "Standardized directional changes" },
+      { day: "Phase 2", action: "Reactive Agility", detail: "Stimulus-driven movement patterns" }
+    ],
+    costRange: "₹15k – ₹40k",
+    costNote: "for a 6-week intensive agility optimization camp",
+    infectionSafety: ["Standard Clinical Protocols"],
+    mriWorkflow: [{ step: 1, title: "Video Map", desc: "3D Joint Angle Analysis during pivoting" }],
+    recoveryChart: { conventional: { label: "Standard", weeks: 12 }, robotic: { label: "Optimized", weeks: 6 } },
+    faqs: [
+      { q: "Do I need special equipment?", a: "Our lab provides all necessary sensors. You only need your athletic gear." }
+    ],
+    candidateSymptoms: ["Slowness when turning", "Instability during side-to-side moves", "Loss of reaction speed"],
+    canonicalParent: { division: "sports-medicine", program: "performance" }
   }
 };
+
