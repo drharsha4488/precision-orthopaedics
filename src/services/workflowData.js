@@ -29,8 +29,7 @@ export const workflowData = {
       { step: "Intra-Op", action: "Haptic-Guided Execution", detail: "Robot ensures the plan is executed within 0.01mm." },
       { step: "Post-Op", action: "Alignment Verification", detail: "Radiographic proof of plan adherence." }
     ],
-    relatedPrograms: ["robotic-arthroplasty", "revision-arthroplasty"],
-    canonicalParent: { division: "lower-extremity" }
+    canonicalParent: { division: "lower-extremity", program: "robotic-arthroplasty" }
   },
   "return-to-sport-clearance": {
     title: "VALD Evidence-Based Return-to-Sport Clearance Protocol | Precision Ortho",
@@ -60,8 +59,7 @@ export const workflowData = {
       { step: "Phase 3", action: "Peak Velocity Stress Test", detail: "Simulated match-play velocity clearance." },
       { step: "Final Clearance", action: "Board Review of Kinetic Data", detail: "Formal sign-off for return-to-play." }
     ],
-    relatedPrograms: ["sports-medicine", "joint-preservation"],
-    canonicalParent: { division: "sports-medicine" }
+    canonicalParent: { division: "sports-medicine", program: "sports-medicine" }
   },
   "joint-preservation-pathway": {
     title: "Biological Joint Preservation Care Pathway | Precision Ortho",
@@ -91,7 +89,6 @@ export const workflowData = {
       { step: "Stage 3", action: "Arthroscopic Restoration", detail: "Minimal-access biological repair." },
       { step: "Stage 4", action: "Biomechanical Loading", detail: "Graduated weight-bearing protocol." }
     ],
-    relatedPrograms: ["joint-preservation", "upper-extremity"],
-    canonicalParent: { division: "lower-extremity" }
+    canonicalParent: { division: "lower-extremity", program: "joint-preservation" }
   }
 };
