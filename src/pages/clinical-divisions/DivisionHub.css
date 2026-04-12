@@ -188,7 +188,7 @@
   line-height: 1.3;
 }
 
-/* ══ 3. PATHWAY LADDER ══ */
+.step-num {
   width: 32px;
   height: 32px;
   background: var(--step-color);

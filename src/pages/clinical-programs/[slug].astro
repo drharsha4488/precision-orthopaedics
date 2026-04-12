@@ -50,7 +50,7 @@ const parentDiv = divisions[data.canonicalParent.division];
              <div class="leadership-stack">
                 <div class="l-group">
                    <span class="l-label">Primary Leads</span>
-                   {data.leadership.primary.map(lead => (
+                   {data.leadership.primary?.map(lead => (
                      <div class="l-person">
                         <strong>{lead.name}</strong>
                         <span>{lead.role}</span>
@@ -59,7 +59,7 @@ const parentDiv = divisions[data.canonicalParent.division];
                 </div>
                 <div class="l-group mt-lg">
                    <span class="l-label">Board Support</span>
-                   {data.leadership.boardSupport.map(lead => (
+                   {data.leadership.boardSupport?.map(lead => (
                      <div class="l-person">
                         <strong>{lead.name}</strong>
                         <span>{lead.role}</span>
@@ -78,7 +78,7 @@ const parentDiv = divisions[data.canonicalParent.division];
           <div class="bento-card col-span-2">
              <h2 class="mb-xl">Institutional Selection Protocol</h2>
              <div class="decision-grid">
-                {data.decisionCriteria.map(item => (
+                {data.decisionCriteria?.map(item => (
                   <div class="decision-item">
                      <CheckCircle size={18} class="text-secondary" />
                      <span>{item}</span>
@@ -89,7 +89,7 @@ const parentDiv = divisions[data.canonicalParent.division];
           <div class="bento-card col-span-1">
              <h3 class="mb-lg">Technology Mapping</h3>
              <div class="tech-stack-vertical">
-                {data.technology.map(tech => (
+                {data.technology?.map(tech => (
                   <div class="tech-item-mini">
                      {tech.icon && <tech.icon size={20} class="text-secondary" />}
                      <div>
@@ -108,7 +108,7 @@ const parentDiv = divisions[data.canonicalParent.division];
        <div class="container">
           <h2 class="text-center mb-xxl">Program Procedure Spokes</h2>
           <div class="spoke-grid">
-             {data.procedures.map(proc => (
+             {data.procedures?.map(proc => (
                <a href={`/procedures/${proc.slug}`} class="spoke-card border-glow">
                   <div class="spoke-info">
                      <h3>{proc.name}</h3>

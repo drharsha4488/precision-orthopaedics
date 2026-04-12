@@ -189,6 +189,9 @@ export const programData = {
     leadership: {
       primary: [
         { name: "Dr. Harsha Vardhana Reddy", role: "Lead – Athletic Performance" }
+      ],
+      boardSupport: [
+        { name: "Precision Surgical Board", role: "Biomechanical Governance Audit" }
       ]
     },
     procedures: [
