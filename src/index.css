@@ -198,8 +198,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Fixed Header Spacing Fix */
-main, .locations-page, .error-page-root, .treatment-page, .division-hub-page {
-  padding-top: 140px; /* Elevated to ensure clearing of the floating navigation island */
+main, .locations-page, .error-page-root, .treatment-page, .division-hub-page, .clinical-program-page, .workflow-page, .home-container {
+  padding-top: 160px; /* Ensured zero-overlap for the floating navigation island across all clinical routes */
 }
 
 @media (max-width: 768px) {
