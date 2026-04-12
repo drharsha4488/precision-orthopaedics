@@ -23,8 +23,9 @@ import {
   ActivitySquare,
   Shield
 } from 'lucide-react';
-import { divisions, commonStats, planningWorkflow } from '../../services/divisionData';
+import { divisions, commonStats } from '../../services/divisionData';
 import SchemaOrg from '../../components/SchemaOrg.astro';
+import AuthorityStrip from '../../components/AuthorityStrip.astro';
 import '../SiloPage.css';
 import './DivisionHub.css';
 
@@ -49,6 +50,7 @@ const { slug } = Astro.params;
         <div class="hero-content">
           <div class="institutional-badge">Precision Clinical Division</div>
           <h1>{data.h1}</h1>
+          <p class="division-identity">{data.divisionIdentityStatement}</p>
           <p class="mission-statement">{data.clinicalPhilosophy}</p>
           
           <div class="hero-actions mt-xl">
@@ -62,19 +64,18 @@ const { slug } = Astro.params;
         <div class="hero-visual-authority">
            <div class="governance-card border-glow">
               <ShieldCheck size={32} class="text-secondary mb-sm" />
-              <h4>Institutional Governance</h4>
+              <h4>Division Protocols</h4>
               <ul class="gov-list">
-                <li>Board-Reviewed Protocols</li>
-                <li>NAQI infection Audits</li>
-                <li>USA-Standard Planning</li>
-                <li>Accelerated Rehab Pipeline</li>
+                {data.divisionProtocols.map(protocol => (
+                  <li>{protocol}</li>
+                ))}
               </ul>
            </div>
         </div>
       </div>
     </section>
 
-    {/* ══ 2. OUTCOME BENCHMARKS STRIP (Full Width) ══ */}
+    {/* ══ 2. OUTCOME BENCHMARKS STRIP ══ */}
     <section class="outcome-benchmarks-strip">
        <div class="container">
           <div class="benchmarks-grid">
@@ -88,7 +89,137 @@ const { slug } = Astro.params;
        </div>
     </section>
 
-    {/* ══ 2.5 ELIGIBILITY & COMPLEXITY SPECTRUM ══ */}
+    {/* ══ 3. DECISION THRESHOLD LOGIC (NEW) ══ */}
+    <section class="container section-block">
+       <div class="decision-threshold-card bento-card dark-glass">
+          <div class="card-header">
+             <Target size={24} class="text-secondary" />
+             <h2>Decision Threshold Logic</h2>
+          </div>
+          <div class="threshold-ladder mt-xl">
+             {data.decisionThresholdLogic.map((logic, idx) => (
+               <div class="threshold-item">
+                  <span class="t-idx">0{idx + 1}</span>
+                  <p>{logic}</p>
+               </div>
+             ))}
+          </div>
+       </div>
+    </section>
+
+    {/* ══ 4. PROGRAM ARCHITECTURE ══ */}
+    <div class="program-architecture">
+      {data.programs.map((program) => (
+        <section class="program-section container section-block">
+           <div class="program-doctrine-card">
+              <div class="program-header">
+                 <div class="header-main">
+                    <span class="program-tag">Program Doctrine</span>
+                    <h2>{program.name}</h2>
+                 </div>
+                 {program.techBinding && (
+                   <div class="tech-badge-micro">
+                      <span class="t-label">TECH PLATFORM</span>
+                      <span class="t-val">{program.techBinding}</span>
+                   </div>
+                 )}
+              </div>
+              <p class="program-philosophy">{program.doctrine}</p>
+              
+              <div class="program-main-grid mt-xl">
+                 <div class="tech-hub">
+                    <h3>Technological Arsenal</h3>
+                    <div class="tech-stack-mini">
+                       {program.techMapping.map(tech => (
+                         <div class="tech-item-mapped shadow-sm">
+                            <tech.icon size={22} class="text-secondary" />
+                            <div>
+                               <strong>{tech.name}</strong>
+                               <p>{tech.desc}</p>
+                            </div>
+                         </div>
+                       ))}
+                    </div>
+                 </div>
+
+                 <div class="procedure-hub">
+                    <h3>Clinical Pathways</h3>
+                    <div class="procedure-list-vertical">
+                       {program.procedures.map(proc => (
+                         <a href={`/procedures/${proc.slug}`} class="procedure-link-row">
+                            <span>{proc.name}</span>
+                            <ChevronRight size={18} class="text-secondary" />
+                         </a>
+                       ))}
+                    </div>
+                 </div>
+              </div>
+              <div class="outcome-evidence-strip mt-xl">
+                 <Shield size={16} class="text-secondary" />
+                 <span><strong>{data.h1} Outcome Evidence:</strong> {data.outcomeEvidence.strategy}</span>
+              </div>
+           </div>
+        </section>
+      ))}
+    </div>
+
+    {/* ══ 5. TREATMENT PATHWAY LADDER ══ */}
+    <section class="container section-block">
+       <div class="pathway-ladder-container bento-card p-xl dark-glass">
+          <div class="pathway-header">
+             <Shapes size={24} class="text-secondary" />
+             <h2>Treatment Pathway Ladder</h2>
+          </div>
+          <div class="pathway-ladder">
+             {data.pathwayLogic.steps.map((step, idx) => (
+               <div class="pathway-step" style={`--step-color: ${step.color}`}>
+                  <div class="step-num">{idx + 1}</div>
+                  <div class="step-label">{step.label}</div>
+                  {idx < data.pathwayLogic.steps.length - 1 && <ArrowRight size={20} class="step-arrow" />}
+               </div>
+             ))}
+          </div>
+          <p class="pathway-subtext mt-lg">{data.selectionLogic}</p>
+       </div>
+    </section>
+
+    {/* ══ 6. PLANNING WORKFLOW & BOARD ══ */}
+    <section class="surgical-board-governance container section-block">
+       <div class="bento-grid-institutional">
+          <div class="bento-card col-span-2 board-card">
+             <div class="card-header">
+                <Globe size={28} class="text-secondary" />
+                <h2>Division Surgical Board</h2>
+             </div>
+             <p class="mb-lg">Every complex restoration is reviewed by the full board to ensure regional best-practice alignment.</p>
+             <div class="board-members-strip">
+                {data.boardMembers && data.boardMembers.map(member => (
+                   <div class="board-member-tag">
+                      <div class="dot active"></div>
+                      <span>{member}</span>
+                   </div>
+                ))}
+             </div>
+          </div>
+          
+          <div class="bento-card planning-card">
+             <h3>Planning Workflow</h3>
+             <div class="planning-stack mt-md">
+                {data.planningWorkflow.map((step) => (
+                  <div class="planning-step-item">
+                     <span class="p-idx">0{step.step}</span>
+                     <div>
+                        <strong>{step.label}</strong>
+                        <p class="text-xs text-muted">{step.desc}</p>
+                     </div>
+                  </div>
+                ))}
+             </div>
+          </div>
+       </div>
+    </section>
+
+    {/* ══ 7. ELIGIBILITY & COMPLEXITY ══ */}
     <section class="eligibility-complexity container section-block">
        <div class="bento-grid-institutional">
           <div class="bento-card bg-dark-alt">
@@ -117,32 +248,11 @@ const { slug } = Astro.params;
                   </div>
                 ))}
              </div>
-             <p class="mt-xl text-muted text-sm">Every complexity tier is overseen by the Precision Surgical Board.</p>
           </div>
        </div>
     </section>
 
-    {/* ══ 3. TREATMENT PATHWAY LOGIC ══ */}
-    <section class="container section-block">
-       <div class="pathway-ladder-container bento-card p-xl dark-glass">
-          <div class="pathway-header">
-             <Shapes size={24} class="text-secondary" />
-             <h2>Treatment Pathway Logic</h2>
-          </div>
-          <div class="pathway-ladder">
-             {data.pathwayLogic.steps.map((step, idx) => (
-               <div class="pathway-step" style={`--step-color: ${step.color}`}>
-                  <div class="step-num">{idx + 1}</div>
-                  <div class="step-label">{step.label}</div>
-                  {idx < data.pathwayLogic.steps.length - 1 && <ArrowRight size={20} class="step-arrow" />}
-               </div>
-             ))}
-          </div>
-          <p class="pathway-subtext mt-lg">{data.selectionLogic}</p>
-       </div>
-    </section>
-
-    {/* ══ 3.5 SPORTS CLEARANCE PROTOCOL (Conditional) ══ */}
+    {/* ══ SPORTS CLEARANCE (Conditional) ══ */}
     {slug === 'sports-medicine' && data.clearanceProtocol && (
       <section class="sports-clearance container section-block">
          <div class="bento-card p-xl border-glow">
@@ -164,98 +274,17 @@ const { slug } = Astro.params;
       </section>
     )}
 
-    {/* ══ 4. PROGRAM ARCHITECTURE (THE 3 TIERS) ══ */}
-    <div class="program-architecture">
-      {data.programs.map((program) => (
-        <section class="program-section container section-block">
-           <div class="program-doctrine-card">
-              <div class="program-header">
-                 <span class="program-tag">Program Doctrine</span>
-                 <h2>{program.name}</h2>
-              </div>
-              <p class="program-philosophy">{program.doctrine}</p>
-              
-              <div class="program-main-grid mt-xl">
-                 {/* Technology Mapping Layer */}
-                 <div class="tech-hub">
-                    <h3>Technological Arsenal</h3>
-                    <div class="tech-stack-mini">
-                       {program.techMapping.map(tech => (
-                         <div class="tech-item-mapped shadow-sm">
-                            <tech.icon size={22} class="text-secondary" />
-                            <div>
-                               <strong>{tech.name}</strong>
-                               <p>{tech.desc}</p>
-                            </div>
-                         </div>
-                       ))}
-                    </div>
-                 </div>
+    <AuthorityStrip />
 
-                 {/* Clinical Spokes (Procedures) */}
-                 <div class="procedure-hub">
-                    <h3>Clinical Pathways</h3>
-                    <div class="procedure-list-vertical">
-                       {program.procedures.map(proc => (
-                         <a href={`/specialities/${proc.slug}`} class="procedure-link-row">
-                            <span>{proc.name}</span>
-                            <ChevronRight size={18} class="text-secondary" />
-                         </a>
-                       ))}
-                    </div>
-                 </div>
-              </div>
-              <div class="outcome-evidence-strip mt-xl">
-                 <Shield size={16} class="text-secondary" />
-                 <span><strong>{data.h1} Outcome Evidence:</strong> {data.outcomeEvidence.strategy}</span>
-              </div>
-           </div>
-        </section>
-      ))}
-    </div>
-
-    {/* ══ 5. SURGICAL BOARD & GOVERNANCE ══ */}
-    <section class="surgical-board-governance container section-block">
-       <div class="bento-grid-institutional">
-          <div class="bento-card col-span-2 board-card">
-             <div class="card-header">
-                <Globe size={28} class="text-secondary" />
-                <h2>Division Surgical Board</h2>
-             </div>
-             <p class="mb-lg">Every complex restoration is reviewed by the full board to ensure regional best-practice alignment.</p>
-             <div class="board-members-strip">
-                {data.boardMembers && data.boardMembers.map(member => (
-                  <div class="board-member-tag">
-                     <div class="dot active"></div>
-                     <span>{member}</span>
-                  </div>
-                ))}
-             </div>
-          </div>
-          
-          <div class="bento-card planning-card">
-             <h3>Planning Workflow</h3>
-             <div class="planning-stack mt-md">
-                {planningWorkflow.map((step, idx) => (
-                  <div class="planning-step-item">
-                     <span class="p-idx">0{idx + 1}</span>
-                     <span>{step}</span>
-                  </div>
-                ))}
-             </div>
-          </div>
-       </div>
-    </section>
-
-    {/* ══ 6. SELECTION LOGIC FOOTER STRIP ══ */}
-    <section class="selection-footer bg-dark-alt py-xl mt-xl">
+    {/* ══ 8. SELECTION FOOTER ══ */}
+    <section class="selection-footer bg-dark-alt py-xl">
        <div class="container text-center">
           <h2 class="mb-md">Choosing the Right Program</h2>
           <p class="body-text max-width-800 margin-auto">{data.selectionLogic}</p>
           <div class="lateral-grid mt-xl">
              {Object.keys(divisions).filter(k => k !== slug).map(key => (
                <a href={`/clinical-divisions/${key}`} class="lateral-card border-glow">
-                  <h3>{divisions[key].h1}</h3>
+                  <h3>{divisions[key].portalLabel}</h3>
                   <ArrowRight size={18} class="text-secondary" />
                </a>
              ))}
@@ -263,7 +292,6 @@ const { slug } = Astro.params;
        </div>
     </section>
 
-    {/* ══ 7. FAQ SCHEMA BLOCK ══ */}
     <section class="division-faq container section-block mb-xl">
        <div class="bento-card p-xl dark-glass">
           <h2 class="mb-xl text-center">Inquiry & Consultation Clearing</h2>

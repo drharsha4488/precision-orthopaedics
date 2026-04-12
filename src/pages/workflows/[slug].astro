@@ -1,0 +1,161 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Shield, ChevronRight, CheckCircle, Target, Clock, Settings, Gauge, Activity, ShieldCheck, Video } from 'lucide-react';
+import { workflowData } from '../../services/workflowData';
+import { divisions } from '../../services/divisionData';
+
+export async function getStaticPaths() {
+  return Object.keys(workflowData).map((slug) => ({
+    params: { slug },
+    props: { data: workflowData[slug] },
+  }));
+}
+
+const { data } = Astro.props;
+const { slug } = Astro.params;
+
+const parentDiv = divisions[data.canonicalParent.division];
+---
+
+<Layout title={data.title} description={data.clinicalObjective}>
+  <div class="workflow-page">
+    {/* ══ HIERARCHY STRIP ══ */}
+    <section class="institutional-hierarchy-strip bg-dark-alt border-b border-light/10">
+       <div class="container hierarchy-flex">
+          <div class="h-parent">
+             <a href={`/clinical-divisions/${data.canonicalParent.division}`}>{parentDiv.h1.split(' | ')[0]}</a>
+             <ChevronRight size={14} />
+             <span>Institutional Workflow</span>
+          </div>
+       </div>
+    </section>
+
+    {/* ══ HERO ══ */}
+    <section class="workflow-hero py-xxl bg-dark">
+       <div class="container text-center max-w-4xl">
+          <div class="institutional-marker mb-md mx-auto"><Shield size={14}/> Institutional Care Protocol</div>
+          <h1 class="text-white mb-lg">{data.h1}</h1>
+          <p class="body-text text-xl mb-xl">{data.clinicalObjective}</p>
+       </div>
+    </section>
+
+    {/* ══ PROTOCOL PIPELINE ══ */}
+    <section class="section-block container">
+       <div class="workflow-grid">
+          <div class="workflow-main">
+             <h2 class="mb-xl">Care Pathway Sequencing</h2>
+             <div class="protocol-timeline">
+                {data.protocolSteps.map((step, idx) => (
+                  <div class="protocol-node">
+                     <div class="node-idx">{idx + 1}</div>
+                     <div class="node-content bento-card p-xl bg-dark-alt">
+                        <span class="node-stage">{step.step}</span>
+                        <h3>{step.action}</h3>
+                        <p>{step.detail}</p>
+                     </div>
+                  </div>
+                ))}
+             </div>
+          </div>
+
+          <aside class="workflow-sidebar">
+             <div class="sidebar-card bento-card p-xl bg-dark-alt mb-lg">
+                <h3 class="mb-lg"><Target size={20} class="text-secondary"/> Protocol Targets</h3>
+                <div class="target-list">
+                   {data.decisionCriteria.map(item => (
+                     <div class="target-item">
+                        <CheckCircle size={16} class="text-secondary" />
+                        <span>{item}</span>
+                     </div>
+                   ))}
+                </div>
+             </div>
+
+             <div class="sidebar-card bento-card p-xl bg-dark-alt mb-lg">
+                <h3 class="mb-lg">Technology Oversight</h3>
+                <div class="tech-stack-vertical">
+                   {data.technology.map(tech => (
+                     <div class="tech-item-mini">
+                        {tech.icon && <tech.icon size={20} class="text-secondary" />}
+                        <div>
+                           <strong>{tech.name}</strong>
+                           <p>{tech.desc}</p>
+                        </div>
+                     </div>
+                   ))}
+                </div>
+             </div>
+
+             <div class="sidebar-card bento-card p-xl bg-dark-alt">
+                <h3 class="mb-lg">Workflow Authorship</h3>
+                {data.leadership.primary.map(lead => (
+                  <div class="l-person mb-md">
+                     <strong>{lead.name}</strong>
+                     <span class="text-sm text-muted">{lead.role}</span>
+                  </div>
+                ))}
+             </div>
+          </aside>
+       </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .workflow-grid {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: var(--spacing-xxl);
+    align-items: start;
+  }
+
+  .protocol-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+
+  .protocol-node {
+    display: flex;
+    gap: var(--spacing-lg);
+    position: relative;
+  }
+  .node-idx {
+    width: 40px;
+    height: 40px;
+    background: var(--secondary);
+    color: var(--dark);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    flex-shrink: 0;
+    z-index: 2;
+  }
+  .protocol-node:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 40px;
+    bottom: -20px;
+    width: 2px;
+    background: rgba(255,255,255,0.1);
+  }
+
+  .node-stage {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+  }
+
+  .target-item { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; font-size: 0.95rem; }
+  
+  .tech-item-mini { display: flex; gap: 1rem; margin-bottom: 1.25rem; }
+  .tech-item-mini strong { display: block; color: var(--white); font-size: 0.9rem; }
+  .tech-item-mini p { font-size: 0.8rem; color: var(--text-muted); margin: 0; }
+  
+  .l-person strong { display: block; color: var(--white); }
+</style>

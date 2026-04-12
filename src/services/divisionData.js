@@ -7,20 +7,25 @@ export const commonStats = [
   { label: "Recovery Pathways", value: "Protocol-Based" }
 ];
 
-export const planningWorkflow = [
-  "Clinical Evaluation & Kinematic Assessment",
-  "High-Fidelity Imaging & Biomechanical Mapping",
-  "Collaborative Surgical Board Review",
-  "Program-Level Precision Execution",
-  "Protocol-Sequenced Rehabilitation"
-];
-
 export const divisions = {
   "lower-extremity": {
     title: "Lower Extremity Reconstruction & Arthroplasty | Precision Ortho",
-    h1: "Lower Extremity Division",
+    h1: "Lower Extremity Reconstruction & Robotic Arthroplasty",
+    portalLabel: "Lower Limb Alignment Surgery",
+    divisionIdentityStatement: "Mechanical axis restoration across biologic preservation, ligament reconstruction, and robotic arthroplasty escalation pathways",
     metaDescription: "Reference-grade program for Joint Preservation, Reconstruction, and Robotic Arthroplasty. Led by Dr. Amith Reddy and the Precision Surgical Board in Hyderabad.",
-    clinicalPhilosophy: "The Lower Extremity division provides a total-spectrum solution for hip and knee restoration. From sub-millimeter robotic replacements to biological joint preservation, our clinical model is built on zero-compromise precision and data-driven outcomes.",
+    clinicalPhilosophy: "Mechanical alignment restoration across preservation, ligament reconstruction, and robotic arthroplasty escalation pathways.",
+    decisionThresholdLogic: [
+      "Preservation when cartilage viable",
+      "Reconstruction when instability dominant",
+      "Replacement when biomechanical collapse irreversible"
+    ],
+    divisionProtocols: [
+      "Mechanical axis restoration planning",
+      "Osteotomy correction pathways",
+      "Ligament stability ladders",
+      "Robotic arthroplasty thresholds"
+    ],
     pathwayLogic: {
       type: "ladder",
       steps: [
@@ -37,11 +42,18 @@ export const divisions = {
       "Accelerated Functional Recovery Pathways"
     ],
     eligibilitySignals: [
-      "Early-stage cartilage thinning or degenerative wear",
-      "Acute or chronic ligament instability (ACL/Knee)",
-      "Limb malalignment (Bow-legs/Knock-knees)",
-      "Late-stage bone-on-bone osteoarthritis",
+      "Varus deformity / Alignment failure",
+      "ACL failure or multi-ligament instability",
+      "Advanced cartilage loss / BMI indicated replacement",
+      "Ligament insufficiency in young patients",
       "Previously failed or loosened joint replacements"
+    ],
+    planningWorkflow: [
+      { step: 1, label: "Clinical Evaluation", desc: "Kinematic and gait assessment." },
+      { step: 2, label: "Alignment & Mechanical Axis Mapping", desc: "CT-based robotic mapping for alignment." },
+      { step: 3, label: "Board Review", desc: "Collaborative surgical strategy." },
+      { step: 4, label: "Program Execution", desc: "Mako 4.0 or reconstruction protocol." },
+      { step: 5, label: "Protocol Rehab", desc: "Sequenced kinetic recovery." }
     ],
     caseComplexity: [
       { level: "Standard", case: "Primary Arthroplasty & Soft Tissue Repair" },
@@ -57,34 +69,37 @@ export const divisions = {
       {
         id: "preservation",
         name: "Joint Preservation & Biologic Restoration Program",
+        techBinding: "BIOCENTRICS",
         doctrine: "Focused on restoring native joint biomechanics through cartilage repair, biologic augmentation, and alignment correction before implant-based reconstruction becomes necessary.",
         techMapping: [
           { name: "Precision Biologic Restoration", icon: Microscope, desc: "BMAC & Exosome augmentation." },
           { name: "Cartilage Scaffolds", icon: Activity, desc: "Advanced biological tissue engineering." }
         ],
         procedures: [
-          { name: "Biological Joint Restoration", slug: "joint-preservation" },
+          { name: "Biological Joint Restoration", slug: "cartilage-restoration" },
           { name: "Partial Knee Resurfacing", slug: "partial-knee-resurfacing" },
-          { name: "Osteotomy & Alignment Correction", slug: "osteotomy" }
+          { name: "High Tibial Osteotomy (HTO)", slug: "high-tibial-osteotomy" }
         ]
       },
       {
         id: "reconstruction",
         name: "Complex Reconstruction Program",
+        techBinding: "PANOSCOPE",
         doctrine: "Designed to stabilize structurally compromised joints using ligament reconstruction, osteotomy planning, and revision pathway optimization.",
         techMapping: [
           { name: "Arthrex Panoscope Platform", icon: Video, desc: "High-definition arthroscopic visualization for complex reconstructions." },
           { name: "Navigation Planning", icon: Crosshair, desc: "Precision alignment correction." }
         ],
         procedures: [
-          { name: "Revision Knee Reconstruction", slug: "revision-surgery" },
-          { name: "Multi-Ligament Knee Stabilization", slug: "ligament-reconstruction" },
-          { name: "Limb Lengthening & Deformity", slug: "deformity-correction" }
+          { name: "Revision Knee Reconstruction", slug: "revision-knee-replacement" },
+          { name: "Multi-Ligament Knee Stabilization", slug: "multi-ligament-reconstruction" },
+          { name: "Acetabular Reconstruction", slug: "acetabular-reconstruction" }
         ]
       },
       {
         id: "arthroplasty",
         name: "Robotic Arthroplasty Program",
+        techBinding: "MAKO",
         doctrine: "Delivers sub-millimeter implant positioning through CT-based robotic planning for predictable long-term joint replacement outcomes.",
         techMapping: [
           { name: "Stryker Mako 4.0", icon: Cpu, desc: "SmartRobotics for Arthroplasty." },
@@ -103,9 +118,22 @@ export const divisions = {
   },
   "pelvic-hip-reconstruction": {
     title: "Pelvic & Hip Reconstruction Hub | Specialized DAA Program",
-    h1: "Pelvic & Hip Reconstruction Division",
+    h1: "Pelvic & Hip Reconstruction Hub",
+    portalLabel: "Pelvic Architecture Restoration",
+    divisionIdentityStatement: "Architectural pelvic stability restoration using DAA access planning and acetabular reconstruction workflows",
     metaDescription: "Institutional lead for muscle-sparing DAA hip replacement and complex pelvic trauma reconstruction. Board-reviewed surgical governance in Hyderabad.",
-    clinicalPhilosophy: "Focusing on the architectural integrity of the pelvis and hip, our program specializes in muscle-sparing approaches (DAA) and complex structural reconstructions that prioritize immediate functional stability.",
+    clinicalPhilosophy: "Architectural pelvic stability restoration using DAA access planning, acetabular reconstruction pathways, and complex trauma sequencing.",
+    decisionThresholdLogic: [
+      "Soft-tissue preservation in early FAI",
+      "DAA access for primary stability",
+      "3D architectural repair for pelvic trauma"
+    ],
+    divisionProtocols: [
+      "DAA access protocols",
+      "Pelvic ring reconstruction planning",
+      "Acetabular defect classification workflows",
+      "Revision hip stability algorithms"
+    ],
     pathwayLogic: {
       type: "ladder",
       steps: [
@@ -122,11 +150,18 @@ export const divisions = {
       "Sub-Millimeter Component Orientation"
     ],
     eligibilitySignals: [
-      "Young patients with Labral tears or impingement (FAI)",
-      "High-energy pelvic or acetabular trauma",
-      "Avascular Necrosis (AVN) requiring restoration",
-      "Severe Hip Osteoarthritis requiring Mako precision",
-      "Dysplasia patients requiring structural reconstruction"
+      "FAI syndrome / Labral tears",
+      "Acetabular fractures / Pelvic trauma",
+      "Avascular Necrosis requires restoration",
+      "Severe osteoarthritis requiring DAA",
+      "Revision hip instability / Malalignment"
+    ],
+    planningWorkflow: [
+      { step: 1, label: "Clinical Evaluation", desc: "Gait analysis and structural assessment." },
+      { step: 2, label: "CT Acetabular Architecture Modeling", desc: "3D mapping of the pelvic vault." },
+      { step: 3, label: "Board Review", desc: "Joint surgical planning session." },
+      { step: 4, label: "Program Execution", desc: "DAA hip or pelvic structural repair." },
+      { step: 5, label: "Protocol Rehab", desc: "Immediate weight-bearing sequencing." }
     ],
     caseComplexity: [
       { level: "Primary", case: "DAA Total Hip Arthroplasty" },
@@ -142,6 +177,7 @@ export const divisions = {
       {
         id: "preservation",
         name: "Hip Preservation Program",
+        techBinding: "BIOCENTRICS",
         doctrine: "Focused on extending the native lifespan of the hip joint through labral repair, impingement correction, and muscle-sparing Anterior Supine access.",
         techMapping: [
           { name: "Hip Arthroscopy Hub", icon: Video, desc: "Advanced labral repair visualization." },
@@ -156,27 +192,29 @@ export const divisions = {
       {
         id: "reconstruction",
         name: "Complex Pelvic Reconstruction Program",
+        techBinding: "PANOSCOPE",
         doctrine: "The regional center of excellence for high-energy acetabular trauma, complex pelvic fractures, and biological structural restoration.",
         techMapping: [
           { name: "3D Trauma Mapping", icon: Microscope, desc: "Stereolithographic fracture modeling." },
           { name: "Structural Grafting", icon: Layers, desc: "Biological bone restoration." }
         ],
         procedures: [
-          { name: "Complex Pelvic Trauma Care", slug: "pelvic-trauma" },
+          { name: "Complex Pelvic Trauma Care", slug: "pelvic-trauma-care" },
           { name: "Acetabular Reconstruction", slug: "acetabular-reconstruction" },
-          { name: "Oncological Pelvic Reconstruction", slug: "pelvic-oncology" }
+          { name: "Oncological Bone Tumor Hub", slug: "bone-tumor-excision" }
         ]
       },
       {
         id: "arthroplasty",
         name: "Robotic Hip Arthroplasty Program",
+        techBinding: "MAKO",
         doctrine: "Integrated robotic positioning to eliminate leg-length discrepancy and minimize dislocation risks for lifelong joint performance.",
         techMapping: [
           { name: "Stryker Mako Hip", icon: Cpu, desc: "Intelligent cup orientation planning." },
           { name: "Haptic Guidance", icon: Target, desc: "Precision acetabular reaming." }
         ],
         procedures: [
-          { name: "Revision Hip Arthroplasty", slug: "revision-hip" },
+          { name: "Revision Hip Arthroplasty", slug: "revision-hip-replacement" },
           { name: "Mako Assisted Total Hip", slug: "robotic-hip-arthroplasty" }
         ]
       }
@@ -188,9 +226,22 @@ export const divisions = {
   },
   "upper-extremity": {
     title: "Shoulder & Elbow Excellence | Advanced Upper Limb Program",
-    h1: "Upper Extremity Division",
+    h1: "Upper Extremity & Biological Reconstruction",
+    portalLabel: "Upper Limb Reconstruction",
+    divisionIdentityStatement: "Soft-tissue preservation and anchor-based reconstruction across instability, cuff failure, and revision shoulder states",
     metaDescription: "Global-standard shoulder and elbow reconstruction using Arthrex 4K visualization. Led by HOD Dr. Deepthi Reddy with institutional oversight.",
-    clinicalPhilosophy: "The Upper Extremity division merges UK-standard consultant leadership with elite USA technology stack to restore functionality in cases ranging from rotator cuff tears to complex revision replacements.",
+    clinicalPhilosophy: "Soft-tissue preservation and anchor-based reconstruction strategies for rotator cuff failure, instability, and complex shoulder arthropathy.",
+    decisionThresholdLogic: [
+      "Preservation when tendon quality allows repair",
+      "Reconstruction when instability is the dominant factor",
+      "Arthroplasty when structural cuff failure is irreversible"
+    ],
+    divisionProtocols: [
+      "Rotator cuff preservation algorithms",
+      "Anchor-based reconstruction planning",
+      "Revision shoulder workflows",
+      "Scapular biomechanics mapping"
+    ],
     pathwayLogic: {
       type: "ladder",
       steps: [
@@ -207,11 +258,18 @@ export const divisions = {
       "Microscopic Precision Tissue Anchor Placement"
     ],
     eligibilitySignals: [
-      "Professional athletes with shoulder instability or labral tears",
-      "Patients with chronic night pain and rotator cuff weakness",
+      "Rotator cuff tear progression / weakness",
+      "Shoulder instability recurrence / Labral pathology",
       "Complex elbow fractures or ligament disruptions",
-      "Severe shoulder arthritis (Glenohumeral Osteoarthritis)",
-      "Failed cuff-tear repairs requiring revision and bio-augmentation"
+      "Reverse shoulder indications / arthritis",
+      "Failed cuff repair / Revision shoulder failure"
+    ],
+    planningWorkflow: [
+      { step: 1, label: "Clinical Evaluation", desc: "Anatomical movement mapping." },
+      { step: 2, label: "Arthrex Panoscope Visualization", desc: "High-fidelity internal joint mapping." },
+      { step: 3, label: "Board Review", desc: "Subspecialty board strategy." },
+      { step: 4, label: "Program Execution", desc: "Anchor-based repair or replacement." },
+      { step: 5, label: "Protocol Rehab", desc: "Biological healing-sequenced recovery." }
     ],
     caseComplexity: [
       { level: "Standard", case: "Arthroscopic Capsule & Labral Repair" },
@@ -227,19 +285,21 @@ export const divisions = {
       {
         id: "preservation",
         name: "Shoulder & Elbow Preservation Program",
+        techBinding: "BIOCENTRICS",
         doctrine: "Utilizing biological anchors and exosome therapy to preserve native joint mechanics in athletes and high-demand individuals.",
         techMapping: [
           { name: "Precision Bio-Anchors", icon: Microscope, desc: "Biological integration implants." },
           { name: "Exosome Therapy", icon: Activity, desc: "Molecular-level tendon healing." }
         ],
         procedures: [
-          { name: "Biological Rotator Cuff Repair", slug: "rotator-cuff-preservation" },
-          { name: "Shoulder Joint Preservation", slug: "shoulder-preservation" }
+          { name: "Biological Rotator Cuff Repair", slug: "rotator-cuff-repair" },
+          { name: "Shoulder Joint Preservation", slug: "rotator-cuff-repair" }
         ]
       },
       {
         id: "reconstruction",
         name: "Ligament & Tendon Reconstruction Program",
+        techBinding: "PANOSCOPE",
         doctrine: "Micro-surgical clarity using native 4K visualization for elite restoration of rotator cuff, labrum, and elbow stability.",
         techMapping: [
           { name: "Arthrex Panoscope Platform", icon: Video, desc: "Native HD arthroscopic visualization." },
@@ -254,13 +314,14 @@ export const divisions = {
       {
         id: "arthroplasty",
         name: "Shoulder Arthroplasty Program",
+        techBinding: "MAKO",
         doctrine: "Specialized reverse and total shoulder replacements designed for longevity in patients with deficient rotator cuffs or advanced arthritis.",
         techMapping: [
           { name: "Planning Navigation", icon: Settings, desc: "Simulated component positioning." },
           { name: "Reverse Shoulder Hub", icon: Cpu, desc: "Advanced implant architecture." }
         ],
         procedures: [
-          { name: "Reverse Total Shoulder", slug: "reverse-shoulder" },
+          { name: "Reverse Total Shoulder", slug: "reverse-total-shoulder" },
           { name: "Anatomical Total Shoulder", slug: "total-shoulder" },
           { name: "Revision Upper Limb Arthroplasty", slug: "revision-shoulder" }
         ]
@@ -273,9 +334,22 @@ export const divisions = {
   },
   "sports-medicine": {
     title: "Sports Medicine & Athletic Performance Hub | Precision Ortho",
-    h1: "Sports Medicine Division",
+    h1: "Sports Medicine & High-Performance Restoration",
+    portalLabel: "Athletic Performance Surgery",
+    divisionIdentityStatement: "Objective return-to-sport clearance through symmetry analytics and ligament reconstruction sequencing",
     metaDescription: "Data-driven sports surgery and athlete performance optimization. Utilizing VALD ForceDecks for objective return-to-sport clearance.",
-    clinicalPhilosophy: "Bridging elite surgery with kinetic data analytics. We don't just repair ligaments; we quantify muscle symmetry to secure an objective clearance for peak performance return.",
+    clinicalPhilosophy: "Objective biomechanical clearance using kinetic symmetry analytics, ligament reconstruction protocols, and VALD-driven return-to-sport validation.",
+    decisionThresholdLogic: [
+      "Prevention when kinetic asymmetries detected",
+      "Reconstruction when pivot instability present",
+      "Clearance when symmetry benchmarks achieved"
+    ],
+    divisionProtocols: [
+      "VALD clearance thresholds",
+      "Return-to-sport symmetry testing",
+      "Kinetic chain profiling",
+      "ForceDeck asymmetry benchmarks"
+    ],
     pathwayLogic: {
       type: "ladder",
       steps: [
@@ -292,11 +366,18 @@ export const divisions = {
       "Objective Biomechanical Clearance Standard"
     ],
     eligibilitySignals: [
-      "Professional and semi-pro athletes with pivot-injury trauma",
-      "Athletes requiring objective performance profiling post-surgery",
-      "Repeat-injury candidates requiring biomechanical analysis",
-      "High-frame-rate biofeedback requirements for neuro-mechanical rehab",
-      "Runners and bowlers requiring load-management optimization"
+      "Pivot-shift instability athletes",
+      "Athletic ACL / PCL tears",
+      "Meniscal root injuries",
+      "Shoulder instability in contact athletes",
+      "Failed return-to-sport clearance candidates"
+    ],
+    planningWorkflow: [
+      { step: 1, label: "Clinical Evaluation", desc: "Kinetic performance assessment." },
+      { step: 2, label: "VALD Kinetic Profiling", desc: "ForceDeck dual-plate mapping." },
+      { step: 3, label: "Board Review", desc: "Performance & surgery strategy review." },
+      { step: 4, label: "Program Execution", desc: "Ligament repair or stabilization." },
+      { step: 5, label: "Protocol Rehab", desc: "Symmetry-driven agility clearance." }
     ],
     caseComplexity: [
       { level: "Primary", case: "ACL Reconstruction & Meniscal Repair" },
@@ -318,6 +399,7 @@ export const divisions = {
       {
         id: "diagnostics",
         name: "Injury Prevention & Diagnostics Program",
+        techBinding: "VALD",
         doctrine: "Utilizing VALD Intelligence stack to identify biomechanical micro-deficits before they manifest as critical injuries.",
         techMapping: [
           { name: "VALD ForceDecks", icon: Gauge, desc: "Dual force plate kinetic analysis." },
@@ -332,6 +414,7 @@ export const divisions = {
       {
         id: "reconstruction",
         name: "Primary Reconstruction Program",
+        techBinding: "PANOSCOPE",
         doctrine: "Elite biological grafting and ligament reconstruction using USA-standard Arthrex visualization for microscopic repair precision.",
         techMapping: [
           { name: "Arthrex Panoscope Platform", icon: Video, desc: "Precision surgical visualization stack." },
@@ -339,13 +422,14 @@ export const divisions = {
         ],
         procedures: [
           { name: "Accelerated ACL Reconstruction", slug: "acl-pcl-reconstruction" },
-          { name: "Meniscal Root Repair", slug: "meniscal-repair" },
+          { name: "Meniscal Root Repair", slug: "meniscal-root-repair" },
           { name: "Latarjet Stabilization", slug: "latarjet-procedure" }
         ]
       },
       {
         id: "performance",
         name: "Return-to-Sport Performance Program",
+        techBinding: "VALD",
         doctrine: "Protocol-sequenced rehabilitation based on objective data benchmarks rather than subjective recovery timelines.",
         techMapping: [
           { name: "NordBord Tracking", icon: BarChart3, desc: "Hamstring profiling & strength." },

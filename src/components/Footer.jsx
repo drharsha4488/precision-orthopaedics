@@ -24,10 +24,10 @@ const Footer = () => {
           <div class="footer-section links">
             <h4>Clinical Divisions</h4>
             <ul>
-              <li><a href="/specialities/robotic-knee-arthroplasty">Lower Limb Arthroplasty</a></li>
-              <li><a href="/specialities/robotic-hip-arthroplasty">Pelvic & Hip Reconstruction</a></li>
-              <li><a href="/specialities/shoulder-reconstruction">Upper Extremity</a></li>
-              <li><a href="/recovery">High-Performance Sports Medicine</a></li>
+              <li><a href="/clinical-divisions/lower-extremity">Lower Limb Alignment</a></li>
+              <li><a href="/clinical-divisions/pelvic-hip-reconstruction">Pelvic Architecture Restoration</a></li>
+              <li><a href="/clinical-divisions/upper-extremity">Upper Limb Reconstruction</a></li>
+              <li><a href="/clinical-divisions/sports-medicine">Athletic Performance Surgery</a></li>
             </ul>
           </div>
 

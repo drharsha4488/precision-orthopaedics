@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { ShieldCheck, ClipboardCheck, Award, Search, Cpu, Users, Target, Activity } from 'lucide-react';
+import AuthorityStrip from '../components/AuthorityStrip.astro';
 import './About.css';
 
 const schemaData = {
@@ -168,6 +169,8 @@ const schemaData = {
         </p>
       </div>
     </section>
+
+    <AuthorityStrip />
 
     {/* ══ 10: AUTHORITY CLOSING ══ */}
     <section class="authority-closure">

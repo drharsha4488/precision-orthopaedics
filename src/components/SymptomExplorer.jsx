@@ -9,10 +9,10 @@ const symptomsData = {
     icon: <Activity />,
     lead: "Dr. Amith Reddy & Dr. Ravi Teja",
     commonIssues: [
-      { id: "knee-locking", title: "Knee Locking or Catching", link: "/specialities/acl-pcl-reconstruction", summary: "A mechanical sensation where the knee gets stuck, often associated with Dr. Ravi Teja's sports medicine expertise." },
-      { id: "knee-night-pain", title: "Persistent Night Pain", link: "/specialities/robotic-knee-arthroplasty", summary: "Deep, aching pain that prevents sleep, indicating robotic candidacy under Dr. Amith Reddy." },
-      { id: "knee-instability", title: "Knee Giving Way", link: "/specialities/acl-pcl-reconstruction", summary: "A feeling of instability during pivoting or walking on uneven surfaces." },
-      { id: "knee-swelling", title: "Chronic Swelling", link: "/specialities/robotic-knee-arthroplasty", summary: "Persistent fluid accumulation that doesn't resolve with rest." }
+      { id: "knee-stiffness", title: "Knee Stiffness & Loss of Motion", link: "/procedures/robotic-knee-arthroplasty", summary: "Restricted bending or straightening, indicating robotic joint restoration candidacy." },
+      { id: "knee-locking", title: "Knee Locking or Catching", link: "/procedures/acl-pcl-reconstruction", summary: "A mechanical sensation where the knee gets stuck, often associated with Dr. Ravi Teja's sports medicine expertise." },
+      { id: "knee-night-pain", title: "Persistent Night Pain", link: "/procedures/robotic-knee-arthroplasty", summary: "Deep, aching pain that prevents sleep, indicating robotic candidacy under Dr. Amith Reddy." },
+      { id: "knee-instability", title: "Knee Giving Way", link: "/procedures/acl-pcl-reconstruction", summary: "A feeling of instability during pivoting or walking on uneven surfaces." }
     ]
   },
   "hip": {
@@ -20,8 +20,9 @@ const symptomsData = {
     icon: <Accessibility />,
     lead: "Dr. Nitish Bhan",
     commonIssues: [
-      { id: "hip-stiffness", title: "Morning Hip Stiffness", link: "/specialities/daa-hip-replacement", summary: "Difficulty with mobility in the morning, a specialty of Dr. Nitish Bhan's DAA approach." },
-      { id: "groin-pain", title: "Deep Groin Pain", link: "/specialities/daa-hip-replacement", summary: "Pain radiating from the groin, common in pelvic and hip degeneration." }
+      { id: "hip-stiffness", title: "Morning Hip Stiffness", link: "/procedures/robotic-hip-arthroplasty", summary: "Difficulty with mobility in the morning, a specialty of Dr. Nitish Bhan's DAA approach." },
+      { id: "groin-pain", title: "Deep Groin Pain", link: "/procedures/robotic-hip-arthroplasty", summary: "Pain radiating from the groin, common in pelvic and hip degeneration." },
+      { id: "hip-clicking", title: "Clicking or Catching", link: "/procedures/labral-repair", summary: "Mechanical symptoms in the hip requiring expert labral assessment." }
     ]
   },
   "shoulder": {
@@ -29,8 +30,9 @@ const symptomsData = {
     icon: <Microscope />,
     lead: "Dr. Deepthi Nandan Reddy",
     commonIssues: [
-      { id: "shoulder-weakness", title: "Overhead Weakness", link: "/specialities/shoulder-replacement", summary: "Inability to lift the arm, requiring Dr. Deepthi's expert upper limb evaluation." },
-      { id: "shoulder-click", title: "Clicking & Grinding", link: "/specialities/latarjet-procedure", summary: "Audible sounds requiring Dr. Harsha's sports-focused return-to-sport evaluation." }
+      { id: "shoulder-weakness", title: "Overhead Weakness", link: "/procedures/reverse-total-shoulder", summary: "Inability to lift the arm, requiring Dr. Deepthi's expert upper limb evaluation." },
+      { id: "shoulder-click", title: "Clicking & Grinding", link: "/procedures/latarjet-procedure", summary: "Audible sounds requiring Dr. Harsha's sports-focused return-to-sport evaluation." },
+      { id: "shoulder-night-pain", title: "Persistent Night Pain", link: "/procedures/rotator-cuff-repair", summary: "Dull ache while sleeping, often linked to rotator cuff pathology." }
     ]
   },
   "spine": {
@@ -38,8 +40,8 @@ const symptomsData = {
     icon: <Stethoscope />,
     lead: "Dr. Prashanth Reddy A",
     commonIssues: [
-      { id: "back-numbness", title: "Leg Numbness (Sciatica)", link: "/specialities/microdiscectomy", summary: "Radiating pain travelling from the back, a focus of Dr. Prashanth's spine unit." },
-      { id: "spine-stiffness", title: "Inability to Bend", link: "/specialities/spinal-fusion", summary: "Severe restricted motion preventing daily tasks like tying laces." }
+      { id: "back-numbness", title: "Leg Numbness (Sciatica)", link: "/procedures/spine-care", summary: "Radiating pain travelling from the back, a focus of Dr. Prashanth's spine unit." },
+      { id: "spine-stiffness", title: "Inability to Bend", link: "/procedures/spine-care", summary: "Severe restricted motion preventing daily tasks like tying laces." }
     ]
   }
 };

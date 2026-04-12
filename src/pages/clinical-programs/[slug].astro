@@ -1,0 +1,178 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Shield, ChevronRight, ArrowRight, CheckCircle, Target, Microscope, Video, Layers, Cpu, Crosshair } from 'lucide-react';
+import { programData } from '../../services/programData';
+import { divisions } from '../../services/divisionData';
+
+export async function getStaticPaths() {
+  return Object.keys(programData).map((slug) => ({
+    params: { slug },
+    props: { data: programData[slug] },
+  }));
+}
+
+const { data } = Astro.props;
+const { slug } = Astro.params;
+
+const parentDiv = divisions[data.canonicalParent.division];
+---
+
+<Layout title={data.title} description={data.doctrine}>
+  <div class="clinical-program-page">
+    {/* ══ HIERARCHY STRIP ══ */}
+    <section class="institutional-hierarchy-strip bg-dark-alt border-b border-light/10">
+       <div class="container hierarchy-flex">
+          <div class="h-parent">
+             <a href={`/clinical-divisions/${data.canonicalParent.division}`}>{parentDiv.h1.split(' | ')[0]}</a>
+             <ChevronRight size={14} />
+             <span>{data.h1}</span>
+          </div>
+       </div>
+    </section>
+
+    {/* ══ HERO ══ */}
+    <section class="program-hero animate-reveal py-xxl bg-dark">
+      <div class="container">
+        <div class="program-hero-grid">
+          <div class="hero-text">
+            <div class="institutional-marker mb-md"><Shield size={14}/> Institutional Program Hub</div>
+            <h1 class="text-white mb-lg">{data.h1}</h1>
+            <p class="body-text text-xl mb-xl">{data.doctrine}</p>
+            
+            <div class="program-objective bento-card bg-dark-alt p-xl">
+               <h3 class="mb-md"><Target size={20} class="text-secondary"/> Clinical Objective</h3>
+               <p>{data.clinicalObjective}</p>
+            </div>
+          </div>
+          
+          <div class="hero-meta bento-card p-xl bg-dark-alt">
+             <h3 class="mb-lg">Leadership Matrix</h3>
+             <div class="leadership-stack">
+                <div class="l-group">
+                   <span class="l-label">Primary Leads</span>
+                   {data.leadership.primary.map(lead => (
+                     <div class="l-person">
+                        <strong>{lead.name}</strong>
+                        <span>{lead.role}</span>
+                     </div>
+                   ))}
+                </div>
+                <div class="l-group mt-lg">
+                   <span class="l-label">Board Support</span>
+                   {data.leadership.boardSupport.map(lead => (
+                     <div class="l-person">
+                        <strong>{lead.name}</strong>
+                        <span>{lead.role}</span>
+                     </div>
+                   ))}
+                </div>
+             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* ══ SELECTION LOGIC ══ */}
+    <section class="section-block container">
+       <div class="bento-grid-institutional">
+          <div class="bento-card col-span-2">
+             <h2 class="mb-xl">Institutional Selection Protocol</h2>
+             <div class="decision-grid">
+                {data.decisionCriteria.map(item => (
+                  <div class="decision-item">
+                     <CheckCircle size={18} class="text-secondary" />
+                     <span>{item}</span>
+                  </div>
+                ))}
+             </div>
+          </div>
+          <div class="bento-card col-span-1">
+             <h3 class="mb-lg">Technology Mapping</h3>
+             <div class="tech-stack-vertical">
+                {data.technology.map(tech => (
+                  <div class="tech-item-mini">
+                     {tech.icon && <tech.icon size={20} class="text-secondary" />}
+                     <div>
+                        <strong>{tech.name}</strong>
+                        <p>{tech.desc}</p>
+                     </div>
+                  </div>
+                ))}
+             </div>
+          </div>
+       </div>
+    </section>
+
+    {/* ══ CLINICAL SPOKES ══ */}
+    <section class="section-block bg-dark-alt py-xxl">
+       <div class="container">
+          <h2 class="text-center mb-xxl">Program Procedure Spokes</h2>
+          <div class="spoke-grid">
+             {data.procedures.map(proc => (
+               <a href={`/procedures/${proc.slug}`} class="spoke-card border-glow">
+                  <div class="spoke-info">
+                     <h3>{proc.name}</h3>
+                     <p>Technical Procedure Spoke</p>
+                  </div>
+                  <ArrowRight size={20} />
+               </a>
+             ))}
+          </div>
+       </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .program-hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: var(--spacing-xxl);
+    align-items: start;
+  }
+
+  .leadership-stack .l-group .l-label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--secondary);
+    margin-bottom: 0.75rem;
+  }
+
+  .l-person {
+    margin-bottom: 0.5rem;
+  }
+  .l-person strong { display: block; color: var(--white); }
+  .l-person span { font-size: 0.875rem; color: var(--text-muted); }
+
+  .decision-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+  }
+  .decision-item { display: flex; gap: 1rem; align-items: start; }
+
+  .spoke-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  .spoke-card {
+    background: var(--dark-lighter);
+    padding: var(--spacing-xl);
+    border: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+  .spoke-card:hover { 
+    border-color: var(--secondary);
+    transform: translateY(-5px);
+  }
+  .spoke-card h3 { color: var(--white); margin: 0; }
+  .spoke-card p { font-size: 0.8rem; color: var(--text-muted); margin: 0; }
+</style>

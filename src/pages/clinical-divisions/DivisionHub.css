@@ -24,11 +24,21 @@
 }
 
 .mission-statement {
-  font-size: 1.35rem;
+  font-size: 1.15rem;
   color: var(--text-muted);
   max-width: 650px;
   line-height: 1.6;
   margin-bottom: 3.5rem;
+}
+
+.division-identity {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--secondary);
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+  max-width: 800px;
+  letter-spacing: -0.5px;
 }
 
 .governance-card {
@@ -143,7 +153,42 @@
   background: rgba(255, 255, 255, 0.05);
 }
 
-.step-num {
+/* ══ 1.5 DECISION THRESHOLD LOGIC (NEW) ══ */
+.decision-threshold-card {
+  padding: 4rem;
+  background: rgba(var(--secondary-rgb), 0.02) !important;
+  border: 1px solid rgba(var(--secondary-rgb), 0.1);
+  margin-bottom: 4rem;
+}
+
+.threshold-ladder {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.threshold-item {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.t-idx {
+  font-size: 0.75rem;
+  font-weight: 900;
+  color: var(--secondary);
+  opacity: 0.4;
+  letter-spacing: 2px;
+}
+
+.threshold-item p {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.3;
+}
+
+/* ══ 3. PATHWAY LADDER ══ */
   width: 32px;
   height: 32px;
   background: var(--step-color);
@@ -185,24 +230,47 @@
   border: 1px solid var(--surface-border);
 }
 
-.program-header {
-  margin-bottom: 1.5rem;
-}
-
-.program-tag {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--secondary);
-  font-weight: 800;
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
 .program-doctrine-card h2 {
   font-size: 2.75rem;
   font-weight: 900;
   letter-spacing: -1px;
+}
+
+.header-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.tech-badge-micro {
+  background: rgba(var(--secondary-rgb), 0.1);
+  border: 1px solid rgba(var(--secondary-rgb), 0.2);
+  padding: 0.75rem 1.25rem;
+  border-radius: 4px;
+  text-align: right;
+  height: fit-content;
+}
+
+.t-label {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  color: var(--secondary);
+  margin-bottom: 0.25rem;
+}
+
+.t-val {
+  display: block;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.program-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2.5rem;
 }
 
 .program-philosophy {
@@ -336,9 +404,25 @@
 
 .planning-step-item {
   display: flex;
-  align-items: center;
-  gap: 1rem;
-  font-size: 0.95rem;
+  align-items: flex-start;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.planning-step-item:last-child {
+  margin-bottom: 0;
+}
+
+.planning-step-item strong {
+  display: block;
+  color: #fff;
+  font-size: 1.05rem;
+  line-height: 1.2;
+}
+
+.planning-step-item p {
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
   color: var(--text-muted);
 }
 
@@ -346,7 +430,8 @@
   font-weight: 900;
   font-size: 0.75rem;
   color: var(--secondary);
-  opacity: 0.6;
+  opacity: 0.4;
+  margin-top: 4px;
 }
 
 /* ══ 6. LATERAL GRIDs ══ */

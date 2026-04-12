@@ -8,5 +8,14 @@ export default defineConfig({
   // Output a static website
   output: 'static',
   // Configure site for SEO sitemap generation
-  site: 'https://precisionortho.com', // Replace with your actual domain
+  site: 'https://precisionortho.com',
+  redirects: {
+    '/specialities/[slug]': '/procedures/[slug]',
+    '/treatments/[slug]': '/procedures/[slug]',
+    '/services/[slug]': '/procedures/[slug]',
+    '/procedures/osteotomy': '/procedures/high-tibial-osteotomy',
+    '/procedures/revision-surgery': '/procedures/revision-knee-replacement',
+    '/procedures/pelvic-trauma': '/procedures/pelvic-trauma-care',
+    '/procedures/joint-preservation': '/procedures/cartilage-restoration'
+  }
 });

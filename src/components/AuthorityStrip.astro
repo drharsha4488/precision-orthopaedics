@@ -1,0 +1,141 @@
+---
+import { ShieldCheck, ClipboardCheck, Activity, Search, Users } from 'lucide-react';
+---
+
+<section class="authority-strip">
+  <div class="luminous-line"></div>
+  <div class="container">
+    <div class="authority-grid">
+      <div class="authority-brand">
+        <h3>Clinical Authority</h3>
+        <p>Institutional Oversight Model</p>
+      </div>
+      
+      <div class="authority-signals">
+        <div class="signal-item">
+          <ShieldCheck size={20} class="text-secondary" />
+          <span>Board-Reviewed Surgical Planning</span>
+        </div>
+        <div class="signal-item">
+          <ClipboardCheck size={20} class="text-secondary" />
+          <span>NAQI Infection Surveillance Compliance</span>
+        </div>
+        <div class="signal-item">
+          <Activity size={20} class="text-secondary" />
+          <span>Protocol-Sequenced Rehabilitation Pathways</span>
+        </div>
+        <div class="signal-item">
+          <Search size={20} class="text-secondary" />
+          <span>US-Standard Imaging-Based Reconstruction Strategy</span>
+        </div>
+      </div>
+
+      <div class="oversight-block">
+        <div class="oversight-icon">
+          <Users size={24} />
+        </div>
+        <div class="oversight-text">
+          <strong>Collaborative Surgical Board Oversight</strong>
+          <p>Multi-consultant clinical review for every complex reconstruction pathway.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .authority-strip {
+    background: #0a0a0a;
+    padding: 3rem 0;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .luminous-line {
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+    opacity: 0.3;
+  }
+
+  .authority-grid {
+    display: grid;
+    grid-template-columns: 200px 1fr 300px;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .authority-brand h3 {
+    color: var(--secondary);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+  }
+
+  .authority-brand p {
+    font-size: 1.1rem;
+    color: #fff;
+    font-weight: 500;
+  }
+
+  .authority-signals {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .signal-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.4;
+  }
+
+  .oversight-block {
+    background: rgba(var(--secondary-rgb), 0.03);
+    border: 1px solid rgba(var(--secondary-rgb), 0.1);
+    padding: 1.5rem;
+    border-radius: 8px;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .oversight-icon {
+    color: var(--secondary);
+    flex-shrink: 0;
+  }
+
+  .oversight-text strong {
+    display: block;
+    color: #fff;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .oversight-text p {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 1024px) {
+    .authority-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .authority-signals {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
