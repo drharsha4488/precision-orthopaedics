@@ -189,7 +189,7 @@ const { slug } = Astro.params;
           <div class="bento-card col-span-2 board-card">
              <div class="card-header">
                 <Globe size={28} class="text-secondary" />
-                <h2>Division Surgical Board</h2>
+                <h2>{data.h1.split(' | ')[0]} Surgical Board</h2>
              </div>
              <p class="mb-lg">Every complex restoration is reviewed by the full board to ensure regional best-practice alignment.</p>
              <div class="board-members-strip">
@@ -238,7 +238,7 @@ const { slug } = Astro.params;
           <div class="bento-card bg-dark-alt">
              <div class="card-header">
                 <ActivitySquare size={28} class="text-secondary" />
-                <h2>Case Complexity Spectrum</h2>
+                <h2>{data.h1.split(' | ')[0]} Complexity Spectrum</h2>
              </div>
              <div class="complexity-stack mt-lg">
                 {data.caseComplexity.map(item => (
@@ -274,7 +274,10 @@ const { slug } = Astro.params;
       </section>
     )}
 
-    <AuthorityStrip />
+    <AuthorityStrip 
+      localAuthority={data.localAuthority} 
+      divisionName={data.h1.split(' | ')[0]} 
+    />
 
     {/* ══ 8. SELECTION FOOTER ══ */}
     <section class="selection-footer bg-dark-alt py-xl">

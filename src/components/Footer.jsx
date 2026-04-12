@@ -21,7 +21,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div class="footer-section links">
+          <div className="footer-section links">
             <h4>Clinical Divisions</h4>
             <ul>
               <li><a href="/clinical-divisions/lower-extremity">Lower Limb Alignment</a></li>

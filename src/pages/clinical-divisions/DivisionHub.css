@@ -3,11 +3,12 @@
   background-color: var(--primary);
   color: var(--white);
   font-family: 'Inter', sans-serif;
+  scroll-padding-top: 120px;
 }
 
 /* ══ 1. INSTITUTIONAL HERO ══ */
 .division-hero {
-  padding: 10rem 0 6rem;
+  padding: 14rem 0 10rem;
   background: radial-gradient(circle at 70% 30%, rgba(6, 182, 212, 0.12) 0%, transparent 50%);
   position: relative;
 }
@@ -155,10 +156,11 @@
 
 /* ══ 1.5 DECISION THRESHOLD LOGIC (NEW) ══ */
 .decision-threshold-card {
-  padding: 4rem;
-  background: rgba(var(--secondary-rgb), 0.02) !important;
-  border: 1px solid rgba(var(--secondary-rgb), 0.1);
+  padding: 6rem;
+  background: linear-gradient(135deg, rgba(var(--secondary-rgb), 0.05), transparent) !important;
+  border: 1px solid rgba(var(--secondary-rgb), 0.15);
   margin-bottom: 4rem;
+  border-radius: var(--radius-lg);
 }
 
 .threshold-ladder {
@@ -364,11 +366,18 @@
   gap: 2rem;
 }
 
+.board-card {
+  background: linear-gradient(to bottom right, rgba(255,255,255,0.03), transparent);
+  border: 1px solid rgba(255,255,255,0.05);
+  padding: 4rem;
+  border-radius: var(--radius-lg);
+}
+
 .board-card .card-header {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .board-members-strip {
@@ -424,6 +433,13 @@
   font-size: 0.85rem;
   margin-top: 0.25rem;
   color: var(--text-muted);
+}
+
+/* ══ SHARED COMPONENT: SECTION BLOCK ══ */
+.section-block {
+  padding: 12rem 0;
+  border-top: 1px solid rgba(255,255,255,0.03);
+  background: linear-gradient(to bottom, rgba(255,255,255,0.01), transparent);
 }
 
 .p-idx {
@@ -496,10 +512,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem;
+  padding: 2.5rem;
   background: rgba(255, 255, 255, 0.03);
   border-radius: var(--radius-md);
   border-left: 4px solid var(--secondary);
+  min-height: 100px;
 }
 
 .c-level {
@@ -574,11 +591,19 @@
 .max-width-800 { max-width: 800px; }
 .margin-auto { margin-left: auto; margin-right: auto; }
 
+@media (max-width: 1200px) {
+  .bento-grid-institutional { grid-template-columns: 1fr; gap: 4rem; }
+  .decision-grid { grid-template-columns: 1fr; }
+  .threshold-ladder { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 992px) {
   .clearance-grid { grid-template-columns: 1fr 1fr; }
-  .benchmarks-grid { flex-wrap: wrap; justify-content: center; }
+  .benchmarks-grid { flex-wrap: wrap; justify-content: center; gap: 3rem; }
   .pathway-ladder { flex-direction: column; gap: 1rem; }
   .pathway-ladder .step-arrow { display: none; }
+  .division-hero h1 { font-size: 3.5rem; }
+}
 }
 
 @media (max-width: 600px) {

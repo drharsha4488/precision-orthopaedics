@@ -1,5 +1,12 @@
 ---
 import { ShieldCheck, ClipboardCheck, Activity, Search, Users } from 'lucide-react';
+
+interface Props {
+  localAuthority?: string;
+  divisionName?: string;
+}
+
+const { localAuthority, divisionName } = Astro.props;
 ---
 
 <section class="authority-strip">
@@ -14,7 +21,7 @@ import { ShieldCheck, ClipboardCheck, Activity, Search, Users } from 'lucide-rea
       <div class="authority-signals">
         <div class="signal-item">
           <ShieldCheck size={20} class="text-secondary" />
-          <span>Board-Reviewed Surgical Planning</span>
+          <span>{localAuthority || "Board-Reviewed Surgical Planning"}</span>
         </div>
         <div class="signal-item">
           <ClipboardCheck size={20} class="text-secondary" />
@@ -35,8 +42,8 @@ import { ShieldCheck, ClipboardCheck, Activity, Search, Users } from 'lucide-rea
           <Users size={24} />
         </div>
         <div class="oversight-text">
-          <strong>Collaborative Surgical Board Oversight</strong>
-          <p>Multi-consultant clinical review for every complex reconstruction pathway.</p>
+          <strong>{divisionName ? `${divisionName} Surgical Board Oversight` : "Collaborative Surgical Board Oversight"}</strong>
+          <p>{divisionName ? `Multi-consultant clinical review for every ${divisionName} pathway.` : "Multi-consultant clinical review for every complex reconstruction pathway."}</p>
         </div>
       </div>
     </div>

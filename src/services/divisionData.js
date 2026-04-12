@@ -16,9 +16,9 @@ export const divisions = {
     metaDescription: "Reference-grade program for Joint Preservation, Reconstruction, and Robotic Arthroplasty. Led by Dr. Amith Reddy and the Precision Surgical Board in Hyderabad.",
     clinicalPhilosophy: "Mechanical alignment restoration across preservation, ligament reconstruction, and robotic arthroplasty escalation pathways.",
     decisionThresholdLogic: [
-      "Preservation when cartilage viable",
-      "Reconstruction when instability dominant",
-      "Replacement when biomechanical collapse irreversible"
+      "Alignment correction for physiologic unloading",
+      "Biological reconstruction for joint stability",
+      "Robotic Arthroplasty for structural end-state"
     ],
     divisionProtocols: [
       "Mechanical axis restoration planning",
@@ -29,12 +29,13 @@ export const divisions = {
     pathwayLogic: {
       type: "ladder",
       steps: [
-        { label: "Preservation whenever possible", color: "var(--secondary)" },
-        { label: "Reconstruction when required", color: "var(--white)" },
-        { label: "Robotic replacement when biomechanically indicated", color: "rgba(255,255,255,0.6)" }
+        { label: "Anatomical Alignment first", color: "var(--secondary)" },
+        { label: "Functional Stabilization next", color: "var(--white)" },
+        { label: "Robotic Reconstruction finally", color: "rgba(255,255,255,0.6)" }
       ]
     },
-    selectionLogic: "The Lower Extremity Program is compartmentalized into three distinct escalation pathways. Our surgeons prioritize biological preservation first, surgical reconstruction second, and robotic replacement only when structural deterioration is irreversible.",
+    localAuthority: "Mechanical Alignment Research Group Oversight",
+    selectionLogic: "The Lower Extremity Department focuses on the restoration of the mechanical axis. We utilize a graduated escalation model that prioritizes realignment osteotomy and ligament stability before progressing to robotic implantology.",
     outcomeBenchmarks: [
       "15,000+ Reconstruction Procedures",
       "Sub-Millimeter Robotic Alignment Accuracy",
@@ -124,9 +125,9 @@ export const divisions = {
     metaDescription: "Institutional lead for muscle-sparing DAA hip replacement and complex pelvic trauma reconstruction. Board-reviewed surgical governance in Hyderabad.",
     clinicalPhilosophy: "Architectural pelvic stability restoration using DAA access planning, acetabular reconstruction pathways, and complex trauma sequencing.",
     decisionThresholdLogic: [
-      "Soft-tissue preservation in early FAI",
-      "DAA access for primary stability",
-      "3D architectural repair for pelvic trauma"
+      "DAA Access for early joint preservation",
+      "Structural reconstruction for acetabular loss",
+      "Revision pathways for failed implant stability"
     ],
     divisionProtocols: [
       "DAA access protocols",
@@ -137,12 +138,13 @@ export const divisions = {
     pathwayLogic: {
       type: "ladder",
       steps: [
-        { label: "Hip Preservation whenever possible", color: "var(--secondary)" },
-        { label: "Pelvic Reconstruction when functionally required", color: "var(--white)" },
-        { label: "Robotic Arthroplasty when indicated", color: "rgba(255,255,255,0.6)" }
+        { label: "Muscle-Sparing DAA Integrity", color: "var(--secondary)" },
+        { label: "Acetabular Structural Restoration", color: "var(--white)" },
+        { label: "Complex Revision Stabilization", color: "rgba(255,255,255,0.6)" }
       ]
     },
-    selectionLogic: "The Pelvic & Hip Program targets deep structural restoration. We utilize Direct Anterior Approach (DAA) for maximum muscle preservation and 3D trauma mapping for complex pelvic injury management.",
+    localAuthority: "Pelvic trauma & Revision Arthroplasty Lab",
+    selectionLogic: "The Pelvic & Hip Department specializes in architectural integrity. Our surgeons utilize muscle-sparing DAA entry for primary cases and advanced 3D structural mapping for complex pelvic failures.",
     outcomeBenchmarks: [
       "2,000+ Successful DAA Procedures",
       "Regional Lead for Complex Pelvic Trauma",
@@ -232,9 +234,9 @@ export const divisions = {
     metaDescription: "Global-standard shoulder and elbow reconstruction using Arthrex 4K visualization. Led by HOD Dr. Deepthi Reddy with institutional oversight.",
     clinicalPhilosophy: "Soft-tissue preservation and anchor-based reconstruction strategies for rotator cuff failure, instability, and complex shoulder arthropathy.",
     decisionThresholdLogic: [
-      "Preservation when tendon quality allows repair",
-      "Reconstruction when instability is the dominant factor",
-      "Arthroplasty when structural cuff failure is irreversible"
+      "4K Micro-Repairs for tendon footprints",
+      "Mechanical stabilization for recurrent laxity",
+      "Reverse Arthroplasty for cuff-deficient state"
     ],
     divisionProtocols: [
       "Rotator cuff preservation algorithms",
@@ -245,12 +247,13 @@ export const divisions = {
     pathwayLogic: {
       type: "ladder",
       steps: [
-        { label: "Shoulder & Elbow Preservation first", color: "var(--secondary)" },
-        { label: "Ligament & Tendon Reconstruction next", color: "var(--white)" },
-        { label: "Arthroplasty as the final restoration", color: "rgba(255,255,255,0.6)" }
+        { label: "Footprint Preservation Standard", color: "var(--secondary)" },
+        { label: "Structural Anchor Reconstruction", color: "var(--white)" },
+        { label: "Reverse Biomechanical Restoration", color: "rgba(255,255,255,0.6)" }
       ]
     },
-    selectionLogic: "We prioritize tendon footprint preservation through biological anchors and 4K visualization. Replacement is only indicated when glenohumeral structural loss prevents functional movement.",
+    localAuthority: "UK-Standard Upper Limb Governance Board",
+    selectionLogic: "The Upper Extremity Department prioritizes the biological footprint. We leverage elite 4K visualization and micro-anchor technology to restore native shoulder and elbow mechanics.",
     outcomeBenchmarks: [
       "15,000+ Upper Limb Restoration Procedures",
       "Native 4K Native 58x Color Fidelity",
@@ -340,9 +343,9 @@ export const divisions = {
     metaDescription: "Data-driven sports surgery and athlete performance optimization. Utilizing VALD ForceDecks for objective return-to-sport clearance.",
     clinicalPhilosophy: "Objective biomechanical clearance using kinetic symmetry analytics, ligament reconstruction protocols, and VALD-driven return-to-sport validation.",
     decisionThresholdLogic: [
-      "Prevention when kinetic asymmetries detected",
-      "Reconstruction when pivot instability present",
-      "Clearance when symmetry benchmarks achieved"
+      "VALD Profiling for injury risk prevention",
+      "Ligament Reconstruction for structural repair",
+      "Kinetic Symmetry validation for return-to-play"
     ],
     divisionProtocols: [
       "VALD clearance thresholds",
@@ -353,12 +356,13 @@ export const divisions = {
     pathwayLogic: {
       type: "ladder",
       steps: [
-        { label: "Performance protection whenever possible", color: "var(--secondary)" },
-        { label: "Structural reconstruction when necessary", color: "var(--white)" },
-        { label: "Return-to-sport optimization before clearance", color: "rgba(255,255,255,0.6)" }
+        { label: "Kinetic Chain Protection", color: "var(--secondary)" },
+        { label: "Structural Bio-Grafting", color: "var(--white)" },
+        { label: "Objective High-Alpha Clearance", color: "rgba(255,255,255,0.6)" }
       ]
     },
-    selectionLogic: "The Sports Medicine Program follows a kinetic-first model. We prioritize injury prevention through VALD diagnostics and return-to-sport optimization before a clinical clearance is granted.",
+    localAuthority: "VALD Analytics & Performance Audit Unit",
+    selectionLogic: "The Sports Medicine Department utilizes a performance-first methodology. We ensure every athlete meets objective kinetic benchmarks before transitioning from surgery back to elite performance.",
     outcomeBenchmarks: [
       "5,000+ Athletic Restoration Procedures",
       "1,000+ Hz Kinetic Data Mapping",
