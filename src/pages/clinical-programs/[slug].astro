@@ -23,11 +23,18 @@ if (!data) {
 const parentDiv = divisions[data.canonicalParent?.division] || divisions['lower-extremity'];
 ---
 
-<Layout title={data.title} description={data.doctrine}>
+<Layout title={data.title} description={data.doctrine} heroImage={data.heroImage}>
   <div class="clinical-program-page">
     {/* ══ CINEMATIC HERO ══ */}
     <section class="program-hero animate-reveal">
-      <img src={data.heroImage} alt={data.h1} class="hero-bg-visual" />
+      <img 
+        src={data.heroImage} 
+        alt={data.h1} 
+        class="hero-bg-visual" 
+        fetchpriority="high"
+        loading="eager"
+        decoding="async"
+      />
       <div class="hero-overlay"></div>
       <div class="editorial-watermark">PRECISION</div>
       

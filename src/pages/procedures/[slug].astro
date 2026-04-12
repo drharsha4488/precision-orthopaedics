@@ -28,10 +28,25 @@ const parentProg = data.programType === 'categorical'
   : (parentDiv.programs?.find(p => p.id === data.parentProgram) || parentDiv.programs[0]);
 ---
 
-<Layout title={data.title} description={data.subtitle}>
+<Layout 
+  title={data.title} 
+  description={data.subtitle}
+  heroImage={data.heroImage || '/robotic_surgery_hero_1775752719796.webp'}
+>
   <SchemaOrg type="treatment" data={data} slug={slug} />
 
   <div class="treatment-page">
+    {/* ══ CINEMATIC BACKGROUND ══ */}
+    <div class="treatment-hero-bg">
+      <img 
+        src={data.heroImage || '/robotic_surgery_hero_1775752719796.webp'} 
+        alt={data.title} 
+        fetchpriority="high"
+        loading="eager"
+        decoding="async"
+      />
+      <div class="hero-bg-overlay"></div>
+    </div>
     {/* ══ INSTITUTIONAL HIERARCHY STRIP ══ */}
     <section class="institutional-hierarchy-strip bg-dark-alt border-b border-light/10">
        <div class="container hierarchy-flex">

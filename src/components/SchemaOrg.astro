@@ -1,6 +1,8 @@
 ---
 const { type, data, slug } = Astro.props;
 
+const DOMAIN = "https://precision-orthopaedics.vercel.app";
+
 let schema = {};
 
 if (type === 'division') {
@@ -8,17 +10,21 @@ if (type === 'division') {
     "@context": "https://schema.org",
     "@type": "MedicalOrganization",
     "name": `Precision Orthopaedics – ${data.h1}`,
+    "url": `${DOMAIN}/clinical-divisions/${slug}`,
+    "logo": `${DOMAIN}/logo.png`,
     "medicalSpecialty": "Orthopedic Surgery",
     "description": data.clinicalPhilosophy,
-    "url": `https://precisionorthopaedics.com/clinical-divisions/${slug}`,
-    "logo": "https://precisionorthopaedics.com/logo.png",
+    "recognizingAuthority": {
+      "@type": "MedicalOrganization",
+      "name": "Precision Surgical Board"
+    },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": data.h1,
-      "itemListElement": data.programs.map((prog, idx) => ({
+      "itemListElement": data.programs?.map((prog, idx) => ({
         "@type": "Offer",
         "itemOffered": {
-          "@type": "MedicalSpecialties",
+          "@type": "MedicalSpecialty",
           "name": prog.name,
           "description": prog.doctrine
         },
@@ -32,15 +38,21 @@ if (type === 'division') {
     "@type": "MedicalProcedure",
     "name": data.title,
     "description": data.subtitle,
+    "url": `${DOMAIN}/procedures/${slug}`,
     "medicalSpecialty": "Orthopedic Surgery",
     "relevantSpecialty": {
       "@type": "MedicalSpecialty",
       "name": data.category
     },
-    "bodyLocation": data.parentDivision.replace('-', ' '),
+    "bodyLocation": data.parentDivision?.replace('-', ' ') || "Joint",
     "procedureType": {
       "@type": "MedicalProcedureType",
       "name": data.parentProgram
+    },
+    "outcome": {
+      "@type": "MedicalEntity",
+      "name": "Precision Recovery Benchmark",
+      "description": `Goal: ${data.stats?.accuracy} mapping accuracy and ${data.stats?.recovery} recovery.`
     }
   };
 }
@@ -54,13 +66,7 @@ const breadcrumbs = {
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://precisionorthopaedics.com/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Clinical Divisions",
-      "item": "https://precisionorthopaedics.com/#divisions"
+      "item": `${DOMAIN}/`
     }
   ]
 };
@@ -68,22 +74,22 @@ const breadcrumbs = {
 if (type === 'division') {
   breadcrumbs.itemListElement.push({
     "@type": "ListItem",
-    "position": 3,
+    "position": 2,
     "name": data.h1,
-    "item": `https://precisionorthopaedics.com/clinical-divisions/${slug}`
+    "item": `${DOMAIN}/clinical-divisions/${slug}`
   });
 } else if (type === 'treatment') {
   breadcrumbs.itemListElement.push({
     "@type": "ListItem",
-    "position": 3,
-    "name": data.category,
-    "item": `https://precisionorthopaedics.com/clinical-divisions/${data.parentDivision}`
+    "position": 2,
+    "name": "Procedures",
+    "item": `${DOMAIN}/procedures`
   });
   breadcrumbs.itemListElement.push({
     "@type": "ListItem",
-    "position": 4,
+    "position": 3,
     "name": data.title,
-    "item": `https://precisionorthopaedics.com/specialities/${slug}`
+    "item": `${DOMAIN}/procedures/${slug}`
   });
 }
 ---

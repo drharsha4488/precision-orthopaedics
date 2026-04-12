@@ -8,9 +8,14 @@ import '../index.css';
 interface Props {
 	title: string;
 	description?: string;
+	heroImage?: string;
 }
 
-const { title, description = "Precision Orthopaedics - Establishing the global standard for Joint Preservation and Robotic Arthroplasty." } = Astro.props;
+const { 
+	title, 
+	description = "Precision Orthopaedics - Establishing the global standard for Joint Preservation and Robotic Arthroplasty.",
+	heroImage 
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -30,10 +35,33 @@ const { title, description = "Precision Orthopaedics - Establishing the global s
 		
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+		{heroImage && (
+			<link 
+				rel="preload" 
+				as="image" 
+				href={heroImage} 
+				fetchpriority="high" 
+			/>
+		)}
+
+		<!-- Critical Path CSS (Inlined for LCP) -->
+		<style is:inline>
+			:root { --primary: #09090B; --secondary: #06b6d4; --white: #FFFFFF; --text-main: #FAFAFA; --radius-pill: 999px; }
+			body { background: var(--primary); margin: 0; font-family: sans-serif; }
+			.header-wrapper { position: fixed; top: 0; left: 0; width: 100%; z-index: 9000; }
+			.global-header { position: relative; padding: 1.5rem 0; display: flex; flex-direction: column; align-items: center; }
+			.nav-island { background: rgba(18, 18, 18, 0.75); backdrop-filter: blur(20px); border-radius: 100px; padding: 0.65rem 1.75rem; display: flex; align-items: center; width: 94%; max-width: 1400px; border: 1px solid rgba(255, 255, 255, 0.1); }
+			.authority-strip { width: 100%; padding: 12px 0; background: rgba(0,0,0,0.4); display: flex; justify-content: center; gap: 3rem; margin-top: 0.75rem; border-y: 1px solid rgba(255,255,255,0.05); }
+			#clinical-content { padding-top: 180px; min-height: 80vh; }
+			.animate-reveal { opacity: 0; transform: translateY(30px); animation: revealUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+			@keyframes revealUp { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
+			@media (max-width: 1240px) { #clinical-content { padding-top: 120px; } }
+		</style>
 	</head>
 	<body>
-		<CustomCursor client:load />
-		<Header client:load />
+		<CustomCursor client:idle />
+		<Header client:idle />
 		
 		<main id="clinical-content">
 			<slot />

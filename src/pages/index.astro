@@ -16,17 +16,24 @@ import './Home.css';
 // We can still use React components inside Astro!
 ---
 
-<Layout title="The Science of Human Restoration" description="Establishing the global standard for Joint Preservation and Robotic Arthroplasty. Led by UK-trained HOD Dr. Deepthi Reddy.">
+<Layout 
+  title="The Science of Human Restoration" 
+  description="Establishing the global standard for Joint Preservation and Robotic Arthroplasty. Led by UK-trained HOD Dr. Deepthi Reddy."
+  heroImage="/robotic_surgery_hero_1775752719796.webp"
+>
   <div class="home-container">
-    <GlowOrbs client:load />
-    <PerspectiveGrid client:load />
+    <GlowOrbs client:idle />
+    <PerspectiveGrid client:idle />
     
     {/* ══ CINEMATIC HERO ══ */}
     <section class="hero-cinematic">
       <img 
-        src="/robotic_surgery_hero_1775752719796.png" 
+        src="/robotic_surgery_hero_1775752719796.webp" 
         class="hero-bg-visual" 
         alt="Precision Robotic Surgery Environment" 
+        fetchpriority="high"
+        loading="eager"
+        decoding="async"
       />
       <div class="hero-overlay"></div>
       
@@ -38,10 +45,10 @@ import './Home.css';
       </div>
 
       <div class="hero-ambient-rotation">
-         <img src="/anatomical_knee_schematic_1775754592483.png" class="specialty-visual" alt="Knee Anatomy" />
-         <img src="/anatomical_hip_schematic_1775754608460.png" class="specialty-visual" alt="Hip Implant" />
-         <img src="/anatomical_shoulder_schematic_1775754624021.png" class="specialty-visual" alt="Shoulder Reconstruction" />
-         <img src="/robotic-precision-arc.png" class="specialty-visual" alt="Robotic Planning" />
+         <img src="/anatomical_knee_schematic_1775754592483.webp" class="specialty-visual" alt="Knee Anatomy" />
+         <img src="/anatomical_hip_schematic_1775754608460.webp" class="specialty-visual" alt="Hip Implant" />
+         <img src="/anatomical_shoulder_schematic_1775754624021.webp" class="specialty-visual" alt="Shoulder Reconstruction" />
+         <img src="/robotic-precision-arc.webp" class="specialty-visual" alt="Robotic Planning" />
       </div>
 
       <div class="signature-arc-container">
@@ -116,7 +123,7 @@ import './Home.css';
         category="Signature Technology"
         title="Stryker Mako 4.0® SmartRobotics"
         description="Sub-millimeter 3D mapping and haptic boundary protection for the most accurate joint replacements in India."
-        image="/precision_mri_visual_1775752750316.png"
+        image="/precision_mri_visual_1775752750316.webp"
         highlight={true}
         supports={["Robotic Arthroplasty Program", "Lower Extremity Reconstruction", "Hip Replacement Pathways"]}
       />
@@ -128,7 +135,7 @@ import './Home.css';
         description="High-definition arthroscopic visualization system enabling precision ligament reconstruction, cartilage restoration, and minimally invasive joint stabilization."
         buttonText="Explore Upper Limb"
         buttonLink="/procedures/rotator-cuff-repair"
-        image="/arthrex_panoscope_or_view_1775916323556.png"
+        image="/arthrex_panoscope_or_view_1775916323556.webp"
         supports={["Upper Extremity Reconstruction", "Sports Medicine Reconstruction", "Joint Preservation"]}
       />
 
@@ -147,7 +154,7 @@ import './Home.css';
         category="Biologic Restoration"
         title="Precision Biologic Restoration Program"
         description="Joint preservation protocols using BMAC and PRP augmentation designed to restore native biomechanics before implant-based reconstruction."
-        image="/biologic_restoration_lab_1775916303727.png"
+        image="/biologic_restoration_lab_1775916303727.webp"
         supports={["Cartilage Preservation", "Early Osteoarthritis Management", "Joint Restoration Pathways"]}
       />
     </TechStackSection>
@@ -162,7 +169,7 @@ import './Home.css';
         description="Reconstruction & Joint Preservation"
         scope="Robotic Knee Replacement · Biological Preservation · Revision Arthroplasty"
         doctors={["Dr. Amith Reddy", "Dr. Ravi Teja"]}
-        image="/anatomical_knee_schematic_1775754592483.png"
+        image="/anatomical_knee_schematic_1775754592483.webp"
         href="/clinical-divisions/lower-extremity"
         iconName="activity"
         highlight={true}
@@ -173,7 +180,7 @@ import './Home.css';
         description="DAA Arthroplasty & Complex Trauma"
         scope="Anterior Supine Hip · Pelvic Trauma · Revision Hip"
         doctors={["Dr. Nitish Bhan", "Dr. Prashanth Reddy"]}
-        image="/anatomical_hip_schematic_1775754608460.png"
+        image="/anatomical_hip_schematic_1775754608460.webp"
         href="/clinical-divisions/pelvic-hip-reconstruction"
         iconName="layers"
       />
@@ -183,7 +190,7 @@ import './Home.css';
         description="Arthrex 4K Hub & VALD Athletics"
         scope="Shoulder Arthroplasty · Rotator Cuff · Elbow Restoration"
         doctors={["Dr. Deepthi Nandan Reddy (HOD)", "Dr. Harsha Vardhana"]}
-        image="/anatomical_shoulder_schematic_1775754624021.png"
+        image="/anatomical_shoulder_schematic_1775754624021.webp"
         href="/clinical-divisions/upper-extremity"
         iconName="zap"
       />
@@ -193,7 +200,7 @@ import './Home.css';
         description="VALD Intelligence & Return-to-Play"
         scope="ForceDecks Analysis · ACL Recovery · Athlete Optimization"
         doctors={["Dr. Harsha Vardhana", "Dr. Ravi Teja"]}
-        image="/sports_performance_lab_1775752734674.png"
+        image="/sports_performance_lab_1775752734674.webp"
         href="/clinical-divisions/sports-medicine"
         iconName="target"
       />
