@@ -127,7 +127,7 @@ const Header = () => {
                   <div>
                     <div className="menu-section-label">Upper Limb</div>
                     <a href="/procedures/rotator-cuff-repair" className="menu-item" onClick={closeMenus}>Rotator Cuff Repair</a>
-                    <a href="/procedures/reverse-shoulder-arthroplasty" className="menu-item" onClick={closeMenus}>Reverse Shoulder</a>
+                    <a href="/procedures/reverse-total-shoulder" className="menu-item" onClick={closeMenus}>Reverse Shoulder</a>
                   </div>
                 </div>
                 <a href="/procedures" className="menu-footer-link" onClick={closeMenus}>Technical Reconstruction Library →</a>
