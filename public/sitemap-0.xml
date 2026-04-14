@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Institutional Core -->
+  <url><loc>https://www.precisionortho.care/</loc><priority>1.0</priority></url>
+  <url><loc>https://www.precisionortho.care/about</loc><priority>0.8</priority></url>
+  <url><loc>https://www.precisionortho.care/locations</loc><priority>0.8</priority></url>
+  <url><loc>https://www.precisionortho.care/symptoms</loc><priority>0.8</priority></url>
+  <url><loc>https://www.precisionortho.care/sitemap</loc><priority>0.5</priority></url>
+  <url><loc>https://www.precisionortho.care/doctors</loc><priority>0.9</priority></url>
+  <url><loc>https://www.precisionortho.care/procedures</loc><priority>0.9</priority></url>
+  <url><loc>https://www.precisionortho.care/clinical-programs</loc><priority>0.8</priority></url>
+
+  <!-- Clinical Divisions -->
+  <url><loc>https://www.precisionortho.care/clinical-divisions/lower-extremity</loc><priority>0.8</priority></url>
+  <url><loc>https://www.precisionortho.care/clinical-divisions/pelvic-hip-reconstruction</loc><priority>0.8</priority></url>
+  <url><loc>https://www.precisionortho.care/clinical-divisions/upper-extremity</loc><priority>0.8</priority></url>
+  <url><loc>https://www.precisionortho.care/clinical-divisions/sports-medicine</loc><priority>0.8</priority></url>
+
+  <!-- Institutional Programs -->
+  <url><loc>https://www.precisionortho.care/clinical-programs/joint-preservation</loc><priority>0.8</priority></url>
+  <url><loc>https://www.precisionortho.care/clinical-programs/complex-trauma-reconstruction</loc><priority>0.8</priority></url>
+  <url><loc>https://www.precisionortho.care/clinical-programs/musculoskeletal-oncology</loc><priority>0.8</priority></url>
+  <url><loc>https://www.precisionortho.care/clinical-programs/revision-arthroplasty</loc><priority>0.8</priority></url>
+  <url><loc>https://www.precisionortho.care/clinical-programs/spine-care</loc><priority>0.8</priority></url>
+  <url><loc>https://www.precisionortho.care/clinical-programs/diagnostics</loc><priority>0.8</priority></url>
+
+  <!-- Surgical Procedures -->
+  <url><loc>https://www.precisionortho.care/procedures/rotator-cuff-repair</loc><priority>0.7</priority></url>
+  <url><loc>https://www.precisionortho.care/procedures/reverse-total-shoulder</loc><priority>0.7</priority></url>
+  <url><loc>https://www.precisionortho.care/procedures/robotic-knee-arthroplasty</loc><priority>0.7</priority></url>
+  <url><loc>https://www.precisionortho.care/procedures/acl-pcl-reconstruction</loc><priority>0.7</priority></url>
+  <url><loc>https://www.precisionortho.care/procedures/latarjet-procedure</loc><priority>0.7</priority></url>
+  <url><loc>https://www.precisionortho.care/procedures/robotic-hip-arthroplasty</loc><priority>0.7</priority></url>
+  <url><loc>https://www.precisionortho.care/procedures/high-tibial-osteotomy</loc><priority>0.7</priority></url>
+  <url><loc>https://www.precisionortho.care/procedures/partial-knee-resurfacing</loc><priority>0.7</priority></url>
+  <url><loc>https://www.precisionortho.care/procedures/hip-impingement</loc><priority>0.7</priority></url>
+  <url><loc>https://www.precisionortho.care/procedures/labral-repair</loc><priority>0.7</priority></url>
+  <url><loc>https://www.precisionortho.care/procedures/meniscal-root-repair</loc><priority>0.7</priority></url>
+  <url><loc>https://www.precisionortho.care/procedures/acetabular-reconstruction</loc><priority>0.7</priority></url>
+  <url><loc>https://www.precisionortho.care/procedures/revision-knee-replacement</loc><priority>0.7</priority></url>
+  <url><loc>https://www.precisionortho.care/procedures/revision-hip-replacement</loc><priority>0.7</priority></url>
+  <url><loc>https://www.precisionortho.care/procedures/pelvic-trauma-care</loc><priority>0.7</priority></url>
+  <url><loc>https://www.precisionortho.care/procedures/multi-ligament-reconstruction</loc><priority>0.7</priority></url>
+  <url><loc>https://www.precisionortho.care/procedures/revision-shoulder</loc><priority>0.7</priority></url>
+  <url><loc>https://www.precisionortho.care/procedures/bone-tumor-excision</loc><priority>0.7</priority></url>
+  <url><loc>https://www.precisionortho.care/procedures/limb-salvage</loc><priority>0.7</priority></url>
+  <url><loc>https://www.precisionortho.care/procedures/cartilage-restoration</loc><priority>0.7</priority></url>
+  <url><loc>https://www.precisionortho.care/procedures/spine-care</loc><priority>0.7</priority></url>
+  <url><loc>https://www.precisionortho.care/procedures/microdiscectomy</loc><priority>0.7</priority></url>
+  <url><loc>https://www.precisionortho.care/procedures/spinal-fusion</loc><priority>0.7</priority></url>
+  <url><loc>https://www.precisionortho.care/procedures/cervical-disc-replacement</loc><priority>0.7</priority></url>
+  <url><loc>https://www.precisionortho.care/procedures/scoliosis-correction</loc><priority>0.7</priority></url>
+  <url><loc>https://www.precisionortho.care/procedures/shoulder-reconstruction</loc><priority>0.7</priority></url>
+  <url><loc>https://www.precisionortho.care/procedures/elbow-surgery</loc><priority>0.7</priority></url>
+  <url><loc>https://www.precisionortho.care/procedures/total-shoulder</loc><priority>0.7</priority></url>
+  <url><loc>https://www.precisionortho.care/procedures/hand-microsurgery</loc><priority>0.7</priority></url>
+  <url><loc>https://www.precisionortho.care/procedures/tendon-reconstruction</loc><priority>0.7</priority></url>
+  <url><loc>https://www.precisionortho.care/procedures/ankle-replacement</loc><priority>0.7</priority></url>
+  <url><loc>https://www.precisionortho.care/procedures/achilles-repair</loc><priority>0.7</priority></url>
+  <url><loc>https://www.precisionortho.care/procedures/vald-performance</loc><priority>0.7</priority></url>
+  <url><loc>https://www.precisionortho.care/procedures/kinetic-profile</loc><priority>0.7</priority></url>
+  <url><loc>https://www.precisionortho.care/procedures/athlete-screening</loc><priority>0.7</priority></url>
+  <url><loc>https://www.precisionortho.care/procedures/pediatric-limb-deformity</loc><priority>0.7</priority></url>
+  <url><loc>https://www.precisionortho.care/procedures/pediatric-scoliosis</loc><priority>0.7</priority></url>
+</urlset>

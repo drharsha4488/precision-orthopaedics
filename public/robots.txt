@@ -3,4 +3,5 @@ Allow: /
 
 Sitemap: https://www.precisionortho.care/sitemap-index.xml
 Sitemap: https://www.precisionortho.care/sitemap.xml
+Sitemap: https://www.precisionortho.care/sitemap-0.xml
 
