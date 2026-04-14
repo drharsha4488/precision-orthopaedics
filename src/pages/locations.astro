@@ -29,11 +29,11 @@ const locations = [
 
 <Layout title="Clinical Locations | Precision Orthopaedics Hyderabad">
   <div class="locations-page">
-    
+    <Header client:load />
 
-    <section class="locations-hero text-center py-20">
-      <div class="container">
-        <h1 class="display-xl">Strategic <span class="text-secondary">Clinical Hubs</span></h1>
+    <section class="locations-hero animate-reveal">
+      <div class="container text-center">
+        <h1 class="display-xl text-gradient-cyan">Strategic <span class="text-secondary text-white">Clinical Hubs</span></h1>
         <p class="hero-subtext">
           Operating out of India's premier multi-speciality ecosystems to ensure absolute surgical safety and 
           unmatched infrastructure for complex musculoskeletal restoration.
@@ -41,71 +41,78 @@ const locations = [
       </div>
     </section>
 
-    <section class="locations-content py-20">
+    <section class="locations-content">
       <div class="container">
         {locations.map((loc) => (
-          <div class="location-card-lg grid md:grid-cols-2 gap-8 shadow-sm">
-            <div class="loc-info-panel p-8">
-              <span class="loc-badge">{loc.badge}</span>
-              <h2 class="mb-4">{loc.name}</h2>
-              <p class="body-text mb-8">Institutional Partner for Advanced Robotic & Sports Medicine.</p>
-              
-              <ul class="loc-contact-list mb-8">
-                <li>
-                  <MapPin class="loc-icon" size={20} />
-                  <span>{loc.address}</span>
-                </li>
-                <li>
-                  <Phone class="loc-icon" size={20} />
-                  <div>
-                    <strong>Precision Coordination: </strong>
-                    <a href={`tel:${loc.coordination.replace(/\s/g, '')}`}>{loc.coordination}</a>
-                  </div>
-                </li>
-                <li>
-                  <Phone class="loc-icon" size={20} />
-                  <div>
-                    <strong>Hospital Desk: </strong>
-                    <a href={`tel:${loc.hospitalDesk.replace(/\s/g, '')}`}>{loc.hospitalDesk}</a>
-                  </div>
-                </li>
-                <li>
-                  <Mail class="loc-icon" size={20} />
-                  <a href={`mailto:${loc.email}`}>{loc.email}</a>
-                </li>
-                <li>
-                  <Clock class="loc-icon" size={20} />
-                  <span>{loc.hours}</span>
-                </li>
-              </ul>
-
-              <div class="loc-features mb-8">
-                <h3>Institutional Grade Infrastructure</h3>
-                <ul>
-                  {loc.features.map(f => (
-                    <li><ShieldCheck size={16} class="text-secondary" /> {f}</li>
-                  ))}
-                </ul>
-              </div>
-
-              <div class="loc-actions">
-                <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(loc.address)}`} target="_blank" class="btn btn-primary">
-                  <Map size={18} class="mr-sm" /> Get Direction
-                </a>
-                <a href="#appointment" class="btn btn-outline">
-                  Book Consultation <ArrowRight size={18} class="ml-sm" />
-                </a>
-              </div>
-            </div>
-
-            <div class="loc-map-panel">
+          <div class="location-card-lg">
+            <div class="loc-map-wrapper border-glow-cyan">
               <iframe 
                 src={loc.mapUrl}
                 class="map-iframe"
-                style="border:0;" 
-                allowfullscreen="" 
                 loading="lazy">
               </iframe>
+            </div>
+
+            <div class="loc-info-glass glass-premium animate-reveal">
+              <span class="loc-badge">
+                <ShieldCheck size={14} /> {loc.badge}
+              </span>
+              <h2>{loc.name}</h2>
+              <p class="loc-description">
+                Institutional Partner for Advanced Robotic & Sports Medicine.
+              </p>
+              
+              <ul class="loc-contact-list">
+                <li>
+                  <MapPin class="loc-icon" size={20} />
+                  <div>
+                    <span class="loc-label">Address</span>
+                    <span class="loc-value">{loc.address}</span>
+                  </div>
+                </li>
+                <li>
+                  <Phone class="loc-icon" size={20} />
+                  <div>
+                    <span class="loc-label">Precision Coordination</span>
+                    <a href={`tel:${loc.coordination.replace(/\s/g, '')}`} class="loc-value">{loc.coordination}</a>
+                  </div>
+                </li>
+                <li>
+                  <Phone class="loc-icon" size={20} />
+                  <div>
+                    <span class="loc-label">Hospital Desk</span>
+                    <a href={`tel:${loc.hospitalDesk.replace(/\s/g, '')}`} class="loc-value">{loc.hospitalDesk}</a>
+                  </div>
+                </li>
+                <li>
+                  <Clock class="loc-icon" size={20} />
+                  <div>
+                    <span class="loc-label">Clinical Hours</span>
+                    <span class="loc-value">{loc.hours}</span>
+                  </div>
+                </li>
+              </ul>
+
+              <div class="loc-infrastructure">
+                <h3>Institutional Grade Infrastructure</h3>
+                <div class="infra-grid">
+                  {loc.features.map(f => (
+                    <div class="infra-item">
+                      <ShieldCheck size={14} class="text-secondary" />
+                      <span>{f}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div class="loc-actions">
+                <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(loc.address)}`} target="_blank" class="btn btn-primary w-100">
+                  <Map size={18} /> Get Directions
+                </a>
+                <a href="#appointment" class="btn btn-outline w-100">
+                  Consultation <ArrowRight size={18} />
+                </a>
+              </div>
             </div>
           </div>
         ))}

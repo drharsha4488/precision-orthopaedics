@@ -1,179 +1,210 @@
 .locations-page {
   background-color: var(--bg-color);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
 }
 
 .locations-hero {
-  background: var(--primary);
-  color: var(--white);
-  padding: 5rem 0 4rem;
-  border-bottom: 5px solid var(--secondary);
+  padding: 8rem 0 4rem;
+  position: relative;
+  z-index: 10;
 }
 
 .hero-subtext {
   max-width: 800px;
-  margin: 1rem auto 0;
-  font-size: 1.2rem;
-  color: #E0E1DD;
-  line-height: 1.6;
+  margin: 1.5rem auto 0;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 1.8;
 }
 
 .locations-content {
-  padding: 5rem 1rem;
+  padding: 2rem 0 8rem;
+  position: relative;
+  z-index: 10;
 }
 
+/* Immersive Map Layout */
 .location-card-lg {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  background: var(--primary-light);
-  border: 1px solid var(--surface-border);
+  grid-template-columns: 1fr;
+  position: relative;
+  margin-bottom: 6rem;
+  border-radius: var(--radius-lg);
+  overflow: visible;
+}
+
+.loc-map-wrapper {
+  height: 600px;
+  width: 100%;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-md);
-  margin-bottom: 4rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--surface-border);
+  position: relative;
+  box-shadow: var(--shadow-deep);
 }
 
-.location-card-lg:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
+.map-iframe {
+  width: 100%;
+  height: 100%;
+  filter: grayscale(1) invert(0.9) contrast(1.2); /* Premium Dark Map Look */
+  border: 0;
 }
 
-.location-card-lg:last-child {
-  margin-bottom: 0;
-}
-
-.loc-info-panel {
+/* Floating Glass Panel */
+.loc-info-glass {
+  position: absolute;
+  top: 50%;
+  left: 2rem;
+  transform: translateY(-50%);
+  width: 500px;
+  z-index: 20;
   padding: 3rem;
-  display: flex;
-  flex-direction: column;
+  border-radius: var(--radius-md);
 }
 
 .loc-badge {
-  display: inline-block;
-  background: rgba(0, 119, 182, 0.1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(6, 182, 212, 0.1);
   color: var(--secondary);
+  font-family: var(--font-display);
   font-weight: 700;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
-  padding: 0.5rem 1rem;
-  border-radius: 50px;
-  margin-bottom: 1rem;
-  align-self: flex-start;
+  letter-spacing: 0.1em;
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  margin-bottom: 1.5rem;
 }
 
-.loc-info-panel h2 {
-  font-size: 2.2rem;
-  color: var(--primary);
-  line-height: 1.2;
+.loc-info-glass h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  color: var(--text-main);
+}
+
+.loc-description {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  border-left: 2px solid var(--secondary);
+  padding-left: 1rem;
 }
 
 .loc-contact-list {
-  list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .loc-contact-list li {
   display: flex;
   align-items: flex-start;
   gap: 1rem;
-  font-size: 1.05rem;
-  color: var(--text-main);
-  line-height: 1.5;
 }
 
 .loc-icon {
   color: var(--secondary);
-  flex-shrink: 0;
-  margin-top: 2px;
+  filter: drop-shadow(0 0 5px rgba(6, 182, 212, 0.3));
 }
 
-.loc-contact-list a {
-  color: var(--primary);
+.loc-label {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.loc-value {
+  color: var(--text-main);
+  font-weight: 500;
   text-decoration: none;
-  font-weight: 600;
-  transition: color 0.2s ease;
+  transition: color 0.3s ease;
 }
 
-.loc-contact-list a:hover {
+.loc-value:hover {
   color: var(--secondary);
 }
 
-.highlight-text {
-  font-weight: 600;
-  color: var(--danger);
+/* Infrastructure Showcase */
+.loc-infrastructure {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--surface-border);
 }
 
-.loc-features {
-  background: #f8f9fa;
-  padding: 1.5rem;
-  border-radius: var(--radius-md);
-  border-left: 4px solid var(--secondary);
+.loc-infrastructure h3 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
 }
 
-.loc-features h3 {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
-  color: var(--primary);
-}
-
-.loc-features ul {
-  list-style: none;
+.infra-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
-.loc-features li {
+.infra-item {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.95rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.infra-item:hover {
+  border-color: rgba(6, 182, 212, 0.2);
+  background: rgba(6, 182, 212, 0.05);
+  color: var(--text-main);
 }
 
 .loc-actions {
   display: flex;
   gap: 1rem;
-  margin-top: auto;
-  padding-top: 2rem;
+  margin-top: 2.5rem;
 }
 
-.loc-map-panel {
-  min-height: 400px;
-  background: #EBEBEB;
-  position: relative;
+@media (max-width: 1200px) {
+  .loc-info-glass {
+    width: 450px;
+    left: 1rem;
+  }
 }
 
-.map-iframe {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  width: 100%; height: 100%;
-}
-
-.mt-lg {
-  margin-top: 2rem;
+@media (max-width: 992px) {
+  .loc-map-wrapper {
+    height: 400px;
+    margin-bottom: 2rem;
+  }
+  
+  .loc-info-glass {
+    position: static;
+    transform: none;
+    width: 100%;
+    margin-top: -3rem; /* Overlap effect for mobile */
+  }
+  
+  .loc-actions {
+    flex-direction: column;
+  }
 }
 
 .text-secondary {
   color: var(--secondary);
-}
-
-@media (max-width: 992px) {
-  .location-card-lg {
-    grid-template-columns: 1fr;
-  }
-  .loc-map-panel {
-    height: 400px;
-  }
-  .loc-features ul {
-    grid-template-columns: 1fr;
-  }
-  .loc-actions {
-    flex-direction: column;
-  }
-  .loc-info-panel h2 {
-    font-size: 1.8rem;
-  }
 }
