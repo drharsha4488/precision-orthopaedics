@@ -25,18 +25,20 @@
   z-index: 10;
 }
 
-/* Immersive Map Layout */
+/* Strategic Split Layout (Side-by-Side) */
 .location-card-lg {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 450px 1fr; /* Info beside Map */
+  gap: 2rem;
   position: relative;
   margin-bottom: 6rem;
   border-radius: var(--radius-lg);
   overflow: visible;
+  align-items: stretch;
 }
 
 .loc-map-wrapper {
-  height: 600px;
+  height: 700px; /* Taller map for institutional scale */
   width: 100%;
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -52,16 +54,14 @@
   border: 0;
 }
 
-/* Floating Glass Panel */
+/* Glass Panel (Side Positioned) */
 .loc-info-glass {
-  position: absolute;
-  top: 50%;
-  left: 2rem;
-  transform: translateY(-50%);
-  width: 500px;
+  width: 100%;
   z-index: 20;
   padding: 3rem;
   border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
 }
 
 .loc-badge {
@@ -79,10 +79,11 @@
   border-radius: var(--radius-pill);
   border: 1px solid rgba(6, 182, 212, 0.2);
   margin-bottom: 1.5rem;
+  align-self: flex-start;
 }
 
 .loc-info-glass h2 {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   margin-bottom: 1rem;
   line-height: 1.1;
   color: var(--text-main);
@@ -90,7 +91,7 @@
 
 .loc-description {
   color: var(--text-muted);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   margin-bottom: 2rem;
   border-left: 2px solid var(--secondary);
   padding-left: 1rem;
@@ -112,6 +113,7 @@
 .loc-icon {
   color: var(--secondary);
   filter: drop-shadow(0 0 5px rgba(6, 182, 212, 0.3));
+  flex-shrink: 0;
 }
 
 .loc-label {
@@ -127,6 +129,7 @@
   color: var(--text-main);
   font-weight: 500;
   text-decoration: none;
+  font-size: 0.95rem;
   transition: color 0.3s ease;
 }
 
@@ -136,72 +139,69 @@
 
 /* Infrastructure Showcase */
 .loc-infrastructure {
-  margin-top: 3rem;
+  margin-top: auto; /* Push to bottom of glass card */
   padding-top: 2rem;
   border-top: 1px solid var(--surface-border);
 }
 
 .loc-infrastructure h3 {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--text-muted);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
 .infra-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  grid-template-columns: 1fr; /* Single column for better sidebar fit */
+  gap: 0.75rem;
 }
 
 .infra-item {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
   font-size: 0.8rem;
   color: var(--text-muted);
-  background: rgba(255, 255, 255, 0.03);
-  padding: 0.5rem 0.75rem;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 0.6rem;
   border-radius: var(--radius-sm);
   border: 1px solid transparent;
   transition: all 0.3s ease;
 }
 
 .infra-item:hover {
-  border-color: rgba(6, 182, 212, 0.2);
-  background: rgba(6, 182, 212, 0.05);
+  border-color: rgba(6, 182, 212, 0.15);
+  background: rgba(6, 182, 212, 0.03);
   color: var(--text-main);
 }
 
 .loc-actions {
   display: flex;
   gap: 1rem;
-  margin-top: 2.5rem;
+  margin-top: 2rem;
 }
 
 @media (max-width: 1200px) {
-  .loc-info-glass {
-    width: 450px;
-    left: 1rem;
+  .location-card-lg {
+    grid-template-columns: 400px 1fr;
   }
 }
 
 @media (max-width: 992px) {
+  .location-card-lg {
+    grid-template-columns: 1fr;
+  }
+  
   .loc-map-wrapper {
     height: 400px;
-    margin-bottom: 2rem;
+    order: 1;
   }
   
   .loc-info-glass {
-    position: static;
-    transform: none;
-    width: 100%;
-    margin-top: -3rem; /* Overlap effect for mobile */
-  }
-  
-  .loc-actions {
-    flex-direction: column;
+    padding: 2rem;
+    order: 2;
   }
 }
 
