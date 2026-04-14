@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://precisionortho.com/sitemap-index.xml
+Sitemap: https://precisionortho.com/sitemap.xml
+

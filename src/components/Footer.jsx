@@ -58,7 +58,7 @@ const Footer = () => {
                <a href="/procedures/robotic-knee-arthroplasty">Mako Robotic Knee</a>
                <a href="/procedures/robotic-hip-arthroplasty">Mako Robotic Hip</a>
                <a href="/procedures/acl-pcl-reconstruction">ACL Reconstruction</a>
-               <a href="/procedures/reverse-shoulder-arthroplasty">Reverse Shoulder</a>
+               <a href="/procedures/reverse-total-shoulder">Reverse Shoulder</a>
                <a href="/procedures/revision-knee-replacement">Revision Arthroplasty</a>
                <a href="/procedures" className="view-more">Procedural Library →</a>
             </div>
