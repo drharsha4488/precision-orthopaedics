@@ -9,7 +9,7 @@ export default defineConfig({
   // Output a static website
   output: 'static',
   // Configure site for SEO sitemap generation
-  site: 'https://precisionortho.com',
+  site: 'https://www.precisionortho.care',
   redirects: {
     '/specialities/[slug]': '/procedures/[slug]',
     '/treatments/[slug]': '/procedures/[slug]',

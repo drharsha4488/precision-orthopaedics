@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://precisionortho.com/sitemap-index.xml
-Sitemap: https://precisionortho.com/sitemap.xml
+Sitemap: https://www.precisionortho.care/sitemap-index.xml
+Sitemap: https://www.precisionortho.care/sitemap.xml
 
