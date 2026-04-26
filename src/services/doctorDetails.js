@@ -12,14 +12,14 @@ export const doctorDetails = {
     bio: "Dr. Deepthi Nandan Reddy is the Head of the Department and a clinical powerhouse with over three decades of international experience. As one of the most decorated upper limb surgeons globally and a former NHS Consultant, he sets the international standard for complex Shoulder and Elbow reconstructions. He was awarded the prestigious Mayo Clinic Travelling Fellowship, marking him as a leader in structural joint repairs.",
     experience: "30+ Years",
     procedures: "15,000+",
-    conditions: ["Shoulder Pain", "Elbow Injury", "Revision Surgery"],
+    conditions: ["Shoulder Pain", "Elbow Injury", "Sports Injury", "Revision Surgery"],
     fellowships: "Mayo Clinic Travelling Fellowship (USA), FRCS (UK).",
     qualifications: "FRCS (UK), CCT (UK), MSc Ortho Engineering, MS Ortho, MBBS.",
     specialties: [
       "Advanced Latarjet Procedures (Shoulder)",
       "Complex Multiligament Elbow Reconstructions",
       "Revision Joint Replacement Mastery",
-      "Structural Hand & Wrist Reconstruction"
+      "Sports Medicine & High-Performance Restoration"
     ]
   },
   "amith-reddy": {
