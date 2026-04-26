@@ -14,7 +14,7 @@ const locations = [
     hospitalDesk: "+91 40 2360 7777",
     email: "consult@precisionortho.in",
     hours: "Mon - Sat: 09:00 AM - 05:00 PM",
-    mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d475.8618042255977!2d78.35489664531642!3d17.416853094342486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb95006e7405cd%3A0xdd985c73b9df1b92!2sApollo%20Hospital%2C%20Nankramguda!5e0!3m2!1sen!2sin!4v1775980847152!5m2!1sen!2sin",
+    mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.9008116688906!2d78.35206347686763!3d17.416547101961047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb937f88ad76bd%3A0x98a5b3a523197e51!2sDr.%20Deepthi%20Nandan%20Reddy%20-%20Best%20Orthopedic%20Surgeon%20in%20Hyderabad%20%7C%20Apollo%20Hospitals%20Financial%20District!5e0!3m2!1sen!2sin!4v1777213343113!5m2!1sen!2sin",
     features: [
       "Stryker Mako 4.0 Robotic System",
       "Arthrex Synergy UHD4 4K Hub",
@@ -98,7 +98,7 @@ const locations = [
               </div>
 
               <div class="loc-actions">
-                <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(loc.address)}`} target="_blank" class="btn btn-primary w-100">
+                <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${loc.name} ${loc.address}`)}`} target="_blank" class="btn btn-primary w-100">
                   <Map size={18} /> Get Directions
                 </a>
                 <a href="#appointment" class="btn btn-outline w-100">
