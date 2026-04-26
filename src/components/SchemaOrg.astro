@@ -1,7 +1,7 @@
 ---
 const { type, data, slug } = Astro.props;
 
-const DOMAIN = "https://precision-orthopaedics.vercel.app";
+const DOMAIN = "https://www.precisionortho.care";
 
 let schema = {};
 
@@ -53,6 +53,69 @@ if (type === 'division') {
       "@type": "MedicalEntity",
       "name": "Precision Recovery Benchmark",
       "description": `Goal: ${data.stats?.accuracy} mapping accuracy and ${data.stats?.recovery} recovery.`
+    }
+  };
+} else if (type === 'clinic') {
+  schema = {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "name": data.name,
+    "url": `${DOMAIN}/locations`,
+    "logo": `${DOMAIN}/logo.png`,
+    "telephone": data.coordination,
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": data.address,
+      "addressLocality": "Hyderabad",
+      "addressRegion": "Telangana",
+      "postalCode": "500032",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "17.416547",
+      "longitude": "78.352063"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "09:00",
+      "closes": "17:00"
+    },
+    "medicalSpecialty": ["OrthopedicSurgery", "SportsMedicine"]
+  };
+} else if (type === 'physician') {
+  schema = {
+    "@context": "https://schema.org",
+    "@type": "Physician",
+    "name": data.name,
+    "image": `${DOMAIN}${data.image}`,
+    "medicalSpecialty": data.specialty,
+    "telephone": data.appointmentLink ? undefined : "+917842932051",
+    "url": `${DOMAIN}/doctor/${slug}`,
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Financial District, Gachibowli",
+      "addressLocality": "Hyderabad",
+      "addressRegion": "Telangana",
+      "postalCode": "500032",
+      "addressCountry": "IN"
+    }
+  };
+} else if (type === 'organization') {
+  schema = {
+    "@context": "https://schema.org",
+    "@type": "MedicalOrganization",
+    "name": "Precision Orthopaedics",
+    "url": DOMAIN,
+    "logo": `${DOMAIN}/logo.png`,
+    "description": "Engineering Excellence in Musculoskeletal Restoration. UK-trained HOD leadership and robotic surgical board oversight.",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+91-78429-32051",
+      "contactType": "Precison Coordination Hub",
+      "areaServed": "IN",
+      "availableLanguage": ["English", "Hindi", "Telugu"]
     }
   };
 }

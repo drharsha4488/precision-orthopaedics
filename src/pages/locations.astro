@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.jsx';
+import SchemaOrg from '../components/SchemaOrg.astro';
 import { MapPin, Phone, Mail, Clock, ShieldCheck, Map, ArrowRight } from 'lucide-react';
 import './Locations.css';
 
@@ -28,6 +29,7 @@ const locations = [
 ---
 
 <Layout title="Clinical Locations | Precision Orthopaedics Hyderabad">
+  <SchemaOrg type="clinic" data={locations[0]} slug="apollo-hospital-financial-district" />
   <div class="locations-page">
     <Header client:load />
 

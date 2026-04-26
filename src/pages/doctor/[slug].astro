@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import { Award, Briefcase, GraduationCap, MapPin, CheckCircle, Calendar, ChevronLeft, Globe, Activity, MessageSquare } from 'lucide-react';
 import { doctorDetails } from '../../services/doctorDetails';
+import SchemaOrg from '../../components/SchemaOrg.astro';
 import '../DoctorProfile.css';
 
 export async function getStaticPaths() {
@@ -13,36 +14,13 @@ export async function getStaticPaths() {
 
 const { doctor } = Astro.props;
 const { slug } = Astro.params;
-
-const schemaData = {
-  "@context": "https://schema.org",
-  "@type": "Physician",
-  "name": doctor.name,
-  "medicalSpecialty": "Orthopaedic Surgery",
-  "description": doctor.bio,
-  "knowsAbout": doctor.specialties,
-  "image": `https://precisionortho.com${doctor.image}`,
-  "affiliation": {
-    "@type": "Hospital",
-    "name": "Apollo Hospitals Financial District",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Nanakramguda",
-      "addressLocality": "Hyderabad",
-      "addressRegion": "Telangana",
-      "postalCode": "500032",
-      "addressCountry": "IN"
-    }
-  },
-  "telephone": "+91 78429 32051"
-};
 ---
 
 <Layout 
   title={`${doctor.name} | ${doctor.title}`} 
   description={doctor.bio.substring(0, 160)}
 >
-  <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+  <SchemaOrg type="physician" data={doctor} slug={slug} />
 
   <div class="profile-page">
     <div class="container profile-layout">

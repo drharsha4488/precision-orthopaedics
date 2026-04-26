@@ -2,22 +2,15 @@
 import Layout from '../layouts/Layout.astro';
 import { ShieldCheck, ClipboardCheck, Award, Search, Cpu, Users, Target, Activity } from 'lucide-react';
 import AuthorityStrip from '../components/AuthorityStrip.astro';
+import SchemaOrg from '../components/SchemaOrg.astro';
 import './About.css';
-
-const schemaData = {
-  "@context": "https://schema.org",
-  "@type": "MedicalOrganization",
-  "name": "Precision Orthopaedics",
-  "description": "Engineering Excellence in Musculoskeletal Restoration. UK-trained HOD leadership and robotic surgical board oversight.",
-  "logo": "https://precisionortho.in/logo.png"
-};
 ---
 
 <Layout 
   title="About Precision Ortho | Engineering Excellence in Musculoskeletal Restoration" 
   description="Learn about the institutional model of Precision Orthopaedics. Global fellowship-trained leadership, robotic surgical board oversight, and program-based care."
 >
-  <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+  <SchemaOrg type="organization" />
 
   <div class="about-page">
     {/* ══ 01: INSTITUTIONAL HERO ══ */}
