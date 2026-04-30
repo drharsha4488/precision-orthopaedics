@@ -18,9 +18,16 @@ if (!rawData) {
   throw new Error(`Specialist data not found for slug: ${slug}`);
 }
 
-let seoData = rawData;
-while (seoData && seoData.aliasOf) {
-  seoData = { ...specialistData[seoData.aliasOf], ...seoData };
+let seoData = { ...rawData };
+let currentSlug = slug;
+const visited = new Set([currentSlug]);
+
+while (specialistData[currentSlug]?.aliasOf) {
+  const nextSlug = specialistData[currentSlug].aliasOf;
+  if (visited.has(nextSlug)) break;
+  visited.add(nextSlug);
+  seoData = { ...specialistData[nextSlug], ...seoData };
+  currentSlug = nextSlug;
 }
 const doctor = doctors.find(d => d.slug === seoData.targetDoctorSlug);
 
