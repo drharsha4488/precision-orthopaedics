@@ -1,0 +1,37 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { FileText, ArrowRight } from 'lucide-react';
+
+const allArticles = await getCollection('articles');
+const sortedArticles = allArticles.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<Layout 
+  title="Orthopaedic Articles & Research" 
+  description="Clinical articles, research insights, and patient education from the Precision Surgical Board."
+>
+  <div class="articles-index pt-[180px] pb-xl container">
+    <div class="text-center mb-xl">
+      <span class="category-badge mb-sm inline-block"><FileText size={14}/> Clinical Knowledge Base</span>
+      <h1>Orthopaedic Articles</h1>
+      <p class="subtitle max-w-[800px] mx-auto mt-sm text-light/70">Expert insights, treatment guides, and the latest in robotic arthroplasty and joint preservation from our surgical board.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+      {sortedArticles.map(article => (
+        <a href={`/articles/${article.id}`} class="bento-card group hover:-translate-y-1 transition-all">
+          <div class="mb-sm text-sm text-secondary font-medium">
+            {article.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </div>
+          <h3 class="group-hover:text-secondary transition-colors line-clamp-2">{article.data.title}</h3>
+          <p class="text-light/70 mt-sm line-clamp-3 text-sm">{article.data.description}</p>
+          <div class="mt-md flex items-center justify-between text-sm">
+            <span class="font-medium">{article.data.author}</span>
+            <ArrowRight size={16} class="text-secondary opacity-0 group-hover:opacity-100 transition-opacity transform -translate-x-2 group-hover:translate-x-0" />
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</Layout>

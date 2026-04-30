@@ -17,8 +17,19 @@ export async function getStaticPaths() {
   }));
 }
 
-const { data } = Astro.props;
+let { data } = Astro.props;
 const { slug } = Astro.params;
+
+// Resolve programmatic SEO Aliases
+const isAlias = !!data.aliasOf;
+while (data && data.aliasOf) {
+  data = procedureData[data.aliasOf];
+}
+
+// Generate dynamic keyword-rich title for aliases (e.g. 'knee-arthroscopy' -> 'Knee Arthroscopy')
+const displayTitle = isAlias 
+  ? slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+  : data.title;
 
 // Inherit Institutional Logic
 const parentDiv = divisions[data.parentDivision] || divisions['lower-extremity'];
@@ -29,7 +40,7 @@ const parentProg = data.programType === 'categorical'
 ---
 
 <Layout 
-  title={data.title} 
+  title={displayTitle} 
   description={data.subtitle}
   heroImage={data.heroImage || '/robotic_surgery_hero_1775752719796.webp'}
 >
@@ -58,7 +69,7 @@ const parentProg = data.programType === 'categorical'
              <a href={`/clinical-programs/${data.parentProgram}`}>{parentProg?.name || parentProg?.h1?.split(' | ')[0]}</a>
              <span class="h-separator">/</span>
              <span class="h-label">Technical Procedure</span>
-             <span class="h-active">{data.title}</span>
+             <span class="h-active">{displayTitle}</span>
           </div>
           <div class="h-ladder">
              {parentDiv?.pathwayLogic?.steps?.map((step, idx) => (
@@ -87,7 +98,7 @@ const parentProg = data.programType === 'categorical'
         <div class="hero-text">
           <div class="institutional-marker"><Shield size={14}/> Precision Surgical Board Governance</div>
           <span class="category-badge">{data.category}</span>
-          <h1>{data.title}</h1>
+          <h1>{displayTitle}</h1>
           <p class="subtitle">{data.subtitle}</p>
           <div class="hero-stats">
             <div class="stat-pill"><Activity size={16}/> {data.stats.volume} Procedures</div>

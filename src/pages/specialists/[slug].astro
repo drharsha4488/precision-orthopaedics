@@ -1,0 +1,111 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { specialistData } from '../../services/specialistData';
+import { doctors } from '../../services/data';
+import { Star, ShieldCheck, Award, ArrowRight, MapPin, CheckCircle } from 'lucide-react';
+import '../../index.css';
+
+export async function getStaticPaths() {
+  return Object.keys(specialistData).map((slug) => ({
+    params: { slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const rawData = specialistData[slug];
+
+if (!rawData) {
+  throw new Error(`Specialist data not found for slug: ${slug}`);
+}
+
+let seoData = rawData;
+while (seoData && seoData.aliasOf) {
+  seoData = { ...specialistData[seoData.aliasOf], ...seoData };
+}
+const doctor = doctors.find(d => d.slug === seoData.targetDoctorSlug);
+
+if (!doctor) {
+  throw new Error(`Doctor not found for slug: ${seoData.targetDoctorSlug}`);
+}
+---
+
+<Layout 
+  title={seoData.h1} 
+  description={seoData.subtitle}
+>
+  <div class="specialist-seo-page pt-[180px] pb-24">
+    <div class="container max-w-[1000px] mx-auto">
+      
+      {/* Hero Section */}
+      <div class="bg-dark-alt border border-light/10 rounded-3xl overflow-hidden relative mb-12 shadow-2xl">
+        <div class="absolute inset-0 bg-gradient-to-r from-dark via-dark/90 to-transparent z-10"></div>
+        <img src={doctor.image} alt={doctor.name} class="absolute right-0 top-0 h-full w-1/2 object-cover object-top opacity-50" />
+        
+        <div class="relative z-20 p-8 md:p-16 w-full md:w-2/3">
+          <div class="flex items-center gap-2 mb-4">
+            <Star size={16} class="text-secondary fill-secondary" />
+            <Star size={16} class="text-secondary fill-secondary" />
+            <Star size={16} class="text-secondary fill-secondary" />
+            <Star size={16} class="text-secondary fill-secondary" />
+            <Star size={16} class="text-secondary fill-secondary" />
+            <span class="text-xs text-light/70 uppercase tracking-widest ml-2">Top Rated Specialist</span>
+          </div>
+          
+          <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">{seoData.h1}</h1>
+          <p class="text-xl text-secondary font-medium mb-6">{seoData.subtitle}</p>
+          
+          <div class="flex items-center gap-4 text-light/80 mb-8">
+            <div class="flex items-center gap-2"><MapPin size={18} /> Apollo Hospitals, Financial District</div>
+          </div>
+
+          <a href={doctor.appointmentLink} target="_blank" rel="noopener noreferrer" class="btn btn-primary inline-flex items-center gap-2">
+            Book Priority Consultation <ArrowRight size={16} />
+          </a>
+        </div>
+      </div>
+
+      {/* Profile & Validation Grid */}
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div class="bento-card bg-dark">
+          <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+            <Award size={24} class="text-secondary" /> Meet {doctor.name}
+          </h2>
+          <div class="space-y-4">
+            <div>
+              <strong class="text-white block">Clinical Role</strong>
+              <span class="text-light/70">{doctor.title} - {doctor.role}</span>
+            </div>
+            <div>
+              <strong class="text-white block">Experience & Volume</strong>
+              <span class="text-light/70">{doctor.experience} | {doctor.procedures} Procedures</span>
+            </div>
+            <div>
+              <strong class="text-white block">Credentials</strong>
+              <span class="text-light/70">{doctor.credentials}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bento-card bg-dark-alt">
+          <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+            <ShieldCheck size={24} class="text-secondary" /> Why Choose {doctor.name.split(' ')[1]}?
+          </h2>
+          <div class="space-y-4">
+            {seoData.validationPoints.map(point => (
+              <div class="flex items-start gap-3">
+                <CheckCircle size={20} class="text-secondary shrink-0 mt-0.5" />
+                <span class="text-light/90">{point}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* SEO Content Block */}
+      <div class="prose prose-invert prose-lg max-w-none text-light/70 text-center">
+        <p>When searching for the <strong>{seoData.h1.toLowerCase()}</strong>, patients require a surgeon with exceptional credentials, unmatched surgical volume, and a commitment to precision. At Precision Orthopaedics, our board-led approach ensures that every patient receives world-class care utilizing the latest in robotic and arthroscopic technology.</p>
+      </div>
+
+    </div>
+  </div>
+</Layout>

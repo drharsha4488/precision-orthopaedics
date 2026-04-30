@@ -120,6 +120,23 @@ if (type === 'division') {
   };
 }
 
+// Add FAQPage Schema for rich snippets (AIO Optimization)
+let faqSchema = null;
+if (type === 'treatment' && data.faqs && data.faqs.length > 0) {
+  faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": data.faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
+      }
+    }))
+  };
+}
+
 // Add BreadcrumbList
 const breadcrumbs = {
   "@context": "https://schema.org",
@@ -159,3 +176,4 @@ if (type === 'division') {
 
 <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 <script type="application/ld+json" set:html={JSON.stringify(breadcrumbs)} />
+{faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}

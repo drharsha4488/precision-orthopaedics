@@ -130,7 +130,13 @@ export const directories = [
     treatments: [
       { name: "Total Knee Arthroplasty (MAKO/Robotic)", slug: "robotic-knee-arthroplasty" },
       { name: "Mako Robotic Hip Arthroplasty (DAA)", slug: "robotic-hip-arthroplasty" },
+      { name: "Total Knee Replacement", slug: "total-knee-replacement" },
+      { name: "Robotic Joint Replacement Surgery", slug: "robotic-joint-replacement-surgery" },
+      { name: "Uni-Condylar Knee Replacement", slug: "uni-condylar-knee-replacement" },
+      { name: "Minimally Invasive Knee Surgery", slug: "minimally-invasive-knee-surgery" },
+      { name: "Complex Revision & Post-Infective Surgery of Knee", slug: "complex-revision-and-post-infective-surgery-of-knee" },
       { name: "Advanced Shoulder Reconstruction", slug: "shoulder-reconstruction" },
+      { name: "Total Shoulder Replacement", slug: "total-shoulder" },
       { name: "Small Joint & Finger Replacements", slug: "small-joint-replacement" }
     ]
   },
@@ -139,6 +145,11 @@ export const directories = [
     icon: Activity,
     treatments: [
       { name: "Accelerated ACL/PCL Ligament Reconstruction", slug: "acl-pcl-reconstruction" },
+      { name: "Sports Medicine, Arthroscopy & Joint Preservation", slug: "sports-medicine-arthroscopy-and-joint-preservation" },
+      { name: "Knee Arthroscopy", slug: "knee-arthroscopy" },
+      { name: "Shoulder Arthroscopy", slug: "shoulder-arthroscopy" },
+      { name: "Hip Arthroscopy", slug: "hip-arthroscopy" },
+      { name: "Elbow Arthroscopy", slug: "elbow-arthroscopy" },
       { name: "Meniscal Repair & Cartilage Vaulting", slug: "meniscal-repair" },
       { name: "Latarjet Shoulder Stabilization", slug: "latarjet-procedure" }
     ]
@@ -147,32 +158,50 @@ export const directories = [
     category: "Extremity Microsurgery",
     icon: Crosshair,
     treatments: [
-      { name: "Hand: Carpal Tunnel & Trigger Finger", slug: "hand-microsurgery" },
+      { name: "Hand Surgery", slug: "hand-surgery" },
+      { name: "Hand: Carpal Tunnel Release", slug: "carpal-tunnel-release" },
+      { name: "Hand: Trigger Finger Decompression", slug: "trigger-finger-decompression" },
       { name: "Hand: Severe Tendon Reconstruction", slug: "tendon-reconstruction" },
+      { name: "Foot and Ankle Surgery", slug: "foot-and-ankle-surgery" },
       { name: "Foot/Ankle: Complete Ankle Replacement", slug: "ankle-replacement" },
-      { name: "Foot/Ankle: Achilles Rupture Repair", slug: "achilles-repair" }
+      { name: "Foot/Ankle: Achilles Rupture Repair", slug: "achilles-tendon-repair" },
+      { name: "Foot/Ankle: Bunion / Hallux Valgus Surgery", slug: "bunion-hallux-valgus-surgery" }
+    ]
+  },
+  {
+    category: "Spine & Orthopaedic Trauma",
+    icon: ShieldAlert,
+    treatments: [
+      { name: "Spine Surgery", slug: "spine-surgery" },
+      { name: "Trauma & Accident Care", slug: "trauma-and-accident-care" },
+      { name: "Microdiscectomy & Decompression", slug: "microdiscectomy" },
+      { name: "Spinal Fusion Surgery", slug: "spinal-fusion" }
     ]
   },
   {
     category: "Pediatric Orthopaedics",
     icon: Baby,
     treatments: [
+      { name: "Paediatric Orthopaedics", slug: "paediatric-orthopaedics" },
       { name: "Congenital Limb Deformity Correction", slug: "pediatric-limb-deformity" },
       { name: "Pediatric Scoliosis Monitoring & Care", slug: "pediatric-scoliosis" }
     ]
   },
   {
-    category: "Orthopaedic Oncology",
+    category: "Orthopaedic Oncology & Deformity",
     icon: ShieldAlert,
     treatments: [
+      { name: "Orthopaedic Oncology & Pelvic Reconstruction", slug: "orthopaedic-oncology-and-pelvic-reconstruction" },
       { name: "Benign & Malignant Bone Tumor Excision", slug: "bone-tumor-excision" },
-      { name: "Limb Salvage Surgeries", slug: "limb-salvage" }
+      { name: "Limb Salvage Surgeries", slug: "limb-salvage" },
+      { name: "Ilizarov Surgery & Deformity Correction", slug: "ilizarov-surgery-and-deformity-correction" }
     ]
   },
   {
     category: "Rheumatology & Advanced Diagnostics",
     icon: Thermometer,
     treatments: [
+      { name: "Orthopaedics for Elderly", slug: "orthopaedics-for-elderly" },
       { name: "DEXA Scans & Bone Densitometry", slug: "dexa-scans" },
       { name: "Nerve Conduction Velocity (NCV) Testing", slug: "ncv-testing" },
       { name: "Non-Operative Arthritis Therapies", slug: "arthritis-management" }
