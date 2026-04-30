@@ -62,7 +62,7 @@
   left: 0;
 }
 
-.nav-label {
+.nav-label, .nav-item > a {
   background: none;
   border: none;
   color: var(--text-main);
@@ -73,11 +73,15 @@
   font-family: var(--font-display);
   font-weight: 500;
   font-size: 0.85rem;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
   padding: 0;
+  text-decoration: none;
 }
 
-.nav-label:hover { color: var(--secondary); }
+.nav-label:hover, .nav-item > a:hover { 
+  color: var(--secondary); 
+  transform: translateY(-1px);
+}
 
 /* DYNAMIC MEGA MENU BASE */
 .mega-menu {
