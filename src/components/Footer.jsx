@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, MapPin, Mail, ArrowRight, ShieldCheck, Shield, ChevronRight } from 'lucide-react';
+import { ShieldCheck } from 'lucide-react';
 import './Footer.css';
 
 const Footer = () => {

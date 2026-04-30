@@ -610,7 +610,6 @@
   .pathway-ladder .step-arrow { display: none; }
   .division-hero h1 { font-size: 3.5rem; }
 }
-}
 
 @media (max-width: 600px) {
   .clearance-grid { grid-template-columns: 1fr; }
