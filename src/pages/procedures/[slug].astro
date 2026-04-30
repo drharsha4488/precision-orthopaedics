@@ -62,14 +62,20 @@ const parentProg = data.programType === 'categorical'
     <section class="institutional-hierarchy-strip bg-dark-alt border-b border-light/10">
        <div class="container hierarchy-flex">
           <div class="h-parent">
-             <span class="h-label">Division</span>
-             <a href={`/clinical-divisions/${data.parentDivision}`}>{parentDiv?.h1?.split(' | ')[0] || 'Division'}</a>
+             <div class="h-group">
+                <span class="h-label">Division</span>
+                <a href={`/clinical-divisions/${data.parentDivision}`}>{parentDiv?.h1?.split(' | ')[0] || 'Division'}</a>
+             </div>
              <span class="h-separator">/</span>
-             <span class="h-label">Institutional Program</span>
-             <a href={`/clinical-programs/${data.parentProgram}`}>{parentProg?.name || parentProg?.h1?.split(' | ')[0]}</a>
+             <div class="h-group">
+                <span class="h-label">Institutional Program</span>
+                <a href={`/clinical-programs/${data.parentProgram}`}>{parentProg?.name || parentProg?.h1?.split(' | ')[0]}</a>
+             </div>
              <span class="h-separator">/</span>
-             <span class="h-label">Technical Procedure</span>
-             <span class="h-active">{displayTitle}</span>
+             <div class="h-group">
+                <span class="h-label">Technical Procedure</span>
+                <span class="h-active">{displayTitle}</span>
+             </div>
           </div>
           <div class="h-ladder">
              {parentDiv?.pathwayLogic?.steps?.map((step, idx) => (

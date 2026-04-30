@@ -931,72 +931,84 @@
 
 /* 1. Hierarchy Strip */
 .institutional-hierarchy-strip {
-  padding: 1.25rem 0;
+  padding: 1.5rem 0;
   background: rgba(255, 255, 255, 0.02);
   border-bottom: 1px solid var(--surface-border);
+  position: relative;
+  z-index: 10;
 }
 
 .hierarchy-flex {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap; /* Allow wrapping for long titles */
-  gap: 1.5rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
 .h-parent {
   display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--text-muted);
-  flex: 1; /* Take up available space */
-  min-width: 300px;
+  align-items: flex-start;
+  gap: 1.5rem;
+  flex: 1;
+  min-width: 320px;
+  flex-wrap: wrap;
 }
 
-.h-parent a {
-  color: var(--text-muted);
-  text-decoration: none;
-  transition: all 0.2s ease;
-  position: relative;
-}
-
-.h-parent a:hover { color: var(--secondary); }
-
-.h-separator {
-  color: var(--secondary);
-  opacity: 0.8;
-  font-weight: 300;
-  font-style: normal;
+.h-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
 }
 
 .h-label {
   color: var(--secondary);
   font-size: 10px;
-  opacity: 0.6;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
   font-weight: 800;
-  margin-right: 0.25rem;
+  opacity: 0.7;
 }
 
-.h-active { color: var(--white); }
+.h-parent a, .h-active {
+  color: var(--white);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  line-height: 1.4;
+  display: block;
+  max-width: 400px;
+}
+
+.h-parent a:hover {
+  color: var(--secondary);
+}
+
+.h-separator {
+  align-self: center;
+  color: var(--surface-border);
+  font-weight: 300;
+  font-size: 1.5rem;
+  opacity: 0.5;
+  margin-top: 0.5rem;
+}
 
 .h-ladder {
   display: flex;
   gap: 1.5rem;
   flex-wrap: wrap;
   justify-content: flex-end;
+  align-items: center;
+  padding-top: 0.5rem;
 }
 
 .h-step {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.65rem;
   opacity: 0.4;
   transition: all 0.3s ease;
-  white-space: nowrap;
 }
 
 .h-step.active {
@@ -1004,16 +1016,17 @@
 }
 
 .h-idx {
-  width: 18px;
-  height: 18px;
+  width: 22px;
+  height: 22px;
   background: var(--step-color);
   color: #000;
   border-radius: 50%;
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   font-weight: 900;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .h-lab {
