@@ -32,11 +32,11 @@ const RadiologySlider = () => {
   return (
     <div className="radiology-slider" ref={containerRef}>
       <div className="slider-image after-image">
-        <img src="/xray_after.png" alt="Post-operative robotic knee replacement X-ray" />
+        <img loading="lazy" decoding="async" width="1024" height="1024" src="/xray_after.webp" alt="Post-operative robotic knee replacement X-ray" />
         <span className="slider-label after-label">AFTER — Mako Robotic</span>
       </div>
       <div className="slider-image before-image" style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}>
-        <img src="/xray_before.png" alt="Pre-operative osteoarthritis X-ray" />
+        <img loading="lazy" decoding="async" width="1024" height="1024" src="/xray_before.webp" alt="Pre-operative osteoarthritis X-ray" />
         <span className="slider-label before-label">BEFORE — Grade IV OA</span>
       </div>
       <div

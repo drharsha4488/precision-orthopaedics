@@ -30,7 +30,7 @@ const Footer = () => {
 
           {/* Column 2: Clinical Divisions */}
           <div className="directory-column">
-            <h4>Clinical Divisions</h4>
+            <h3>Clinical Divisions</h3>
             <div className="directory-list">
               <a href="/clinical-divisions/lower-extremity">Lower Limb Alignment</a>
               <a href="/clinical-divisions/pelvic-hip-reconstruction">Pelvic Architecture</a>
@@ -41,7 +41,7 @@ const Footer = () => {
 
           {/* Column 3: Institutional Programs */}
           <div className="directory-column">
-            <h4>Care Programs</h4>
+            <h3>Care Programs</h3>
             <div className="directory-list">
                <a href="/clinical-programs/revision-arthroplasty">Robotic Arthroplasty</a>
                <a href="/clinical-programs/joint-preservation">Joint Preservation</a>
@@ -53,7 +53,7 @@ const Footer = () => {
 
           {/* Column 4: Technical Procedures */}
           <div className="directory-column">
-            <h4>Surgical Procedures</h4>
+            <h3>Surgical Procedures</h3>
             <div className="directory-list">
                <a href="/procedures/robotic-knee-arthroplasty">Mako Robotic Knee</a>
                <a href="/procedures/robotic-hip-arthroplasty">Mako Robotic Hip</a>
@@ -66,7 +66,7 @@ const Footer = () => {
 
           {/* Column 5: Coordination Matrix */}
           <div className="directory-column">
-            <h4>Coordination</h4>
+            <h3>Coordination</h3>
             <div className="contact-matrix">
               <a href="tel:+917842932051" className="matrix-item">
                 <span className="label">Care Coordination Desk</span>

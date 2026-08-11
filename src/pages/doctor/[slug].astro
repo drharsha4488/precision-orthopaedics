@@ -31,7 +31,7 @@ const { slug } = Astro.params;
         <div class="profile-avatar-card">
           <div class="unit-tag">{doctor.unitName}</div>
           <div class="avatar-large">
-             <img src={doctor.image} alt={doctor.name} />
+             <img loading="lazy" decoding="async" width="1024" height="1024" src={doctor.image} alt={doctor.name} />
           </div>
           <h2>{doctor.name}</h2>
           <p class="profile-subtitle">{doctor.role}</p>

@@ -18,7 +18,7 @@ export const doctors = [
     experience: "30+ Years",
     procedures: "15,000+",
     location: "Apollo Hospitals – Financial District",
-    image: "/doctors/doc_deepthi.png",
+    image: "/doctors/doc_deepthi.webp",
     appointmentLink: "https://www.apollo247.com/doctors/dr-deepthi-nandan-reddy-eccd06f7-a7c4-4f40-a212-63a2d62450c7?source=Listing_Page"
   },
   {
@@ -38,7 +38,7 @@ export const doctors = [
     experience: "19+ Years",
     procedures: "10,000+",
     location: "Apollo Hospitals – Financial District",
-    image: "/doctors/doc_amith.png",
+    image: "/doctors/doc_amith.webp",
     appointmentLink: "https://www.apollo247.com/doctors/dr-amith-reddy-2e52461a-23f3-4eb6-bc09-8d3e6c93bdeb?source=Listing_Page"
   },
   {
@@ -58,7 +58,7 @@ export const doctors = [
     experience: "18+ Years",
     procedures: "8,000+",
     location: "Apollo Hospitals – Financial District",
-    image: "/doctors/doc_nitish.png",
+    image: "/doctors/doc_nitish.webp",
     appointmentLink: "https://www.apollo247.com/doctors/dr-nitish-bhan-13ebe5f0-8b45-4996-b5bb-dd75bf0b2701?source=Listing_Page"
   },
   {
@@ -78,7 +78,7 @@ export const doctors = [
     experience: "12+ Years",
     procedures: "5,000+",
     location: "Apollo Hospitals – Financial District",
-    image: "/doctors/doc_ravi.png",
+    image: "/doctors/doc_ravi.webp",
     appointmentLink: "https://www.apollo247.com/doctors/dr-ravi-teja-rudraraju-247ed099-b1e4-4fb0-89e6-93212cc819eb?source=Listing_Page"
   },
   {
@@ -98,7 +98,7 @@ export const doctors = [
     experience: "10+ Years",
     procedures: "3,000+",
     location: "Apollo Hospitals – Financial District",
-    image: "/doctors/doc_harsha.png",
+    image: "/doctors/doc_harsha.webp",
     appointmentLink: "https://www.apollo247.com/doctors/dr-b-harsha-vardhana-reddy-51807eec-1507-467c-91fb-4c6b2cb599ff?source=Listing_Page"
   },
   {
@@ -118,7 +118,7 @@ export const doctors = [
     experience: "13+ Years",
     procedures: "4,000+",
     location: "Apollo Hospitals – Financial District",
-    image: "/doctors/doc_prashanth.png",
+    image: "/doctors/doc_prashanth.webp",
     appointmentLink: "https://www.apollo247.com/doctors/dr-prashanth-reddy-a-3d44af2a-78a0-4980-a3ce-f504d0b818d3?source=Listing_Page"
   }
 ];

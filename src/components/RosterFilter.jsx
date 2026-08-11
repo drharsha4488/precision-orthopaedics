@@ -120,7 +120,7 @@ const RosterFilter = ({ doctors }) => {
               <div className="card-inner">
                 {/* Image Section */}
                 <div className="doctor-visual">
-                  <img src={doc.image} alt={doc.name} className="surgeon-portrait" />
+                  <img loading="lazy" decoding="async" width="1024" height="1024" src={doc.image} alt={doc.name} className="surgeon-portrait" />
                   <div className="overlay-stats">
                     <span className="stat-pill"><Activity size={12}/> {doc.specificVolume}</span>
                   </div>

@@ -26,7 +26,7 @@ const Icon = IconMap[iconName];
 
 <a href={href} class={`division-card ${highlight ? 'highlight' : ''}`}>
   <div class="division-bg">
-    {image && <img src={image} alt="" loading="lazy" />}
+    {image && <img decoding="async" width="1024" height="1024" src={image} alt="" loading="lazy" />}
   </div>
 
   <div class="division-content">
@@ -157,7 +157,7 @@ const Icon = IconMap[iconName];
 
   .doctor-pill-label {
     display: block;
-    font-size: 10px;
+    font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--text-muted);

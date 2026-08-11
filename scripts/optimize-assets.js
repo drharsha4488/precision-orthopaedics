@@ -1,7 +1,10 @@
 /**
  * PRECISION ORTHOPAEDICS - ASSET OPTIMIZATION UTILITY
- * 
- * This script converts large PNG assets to WebP to resolve the 20s LCP bottleneck.
+ *
+ * Reads PNG masters from assets-src/ and writes WebP into public/. The masters
+ * stay out of public/ so they are never deployed — only the WebP the site
+ * actually references ships.
+ *
  * Requirements: npm install sharp
  * Run: node scripts/optimize-assets.js
  */
@@ -10,20 +13,22 @@ import sharp from 'sharp';
 import fs from 'fs';
 import path from 'path';
 
-const PUBLIC_DIR = './public';
-const TARGET_FORMAT = 'webp';
+const SOURCE_DIR = './assets-src';
+const OUTPUT_DIR = './public';
 
 async function processDirectory(directory) {
   const entries = fs.readdirSync(directory, { withFileTypes: true });
 
   for (const entry of entries) {
     const fullPath = path.join(directory, entry.name);
-    
+
     if (entry.isDirectory()) {
       await processDirectory(fullPath);
     } else if (entry.name.endsWith('.png')) {
-      const outputPath = path.join(directory, entry.name.replace('.png', '.webp'));
-      
+      const outDir = path.join(OUTPUT_DIR, path.relative(SOURCE_DIR, directory));
+      const outputPath = path.join(outDir, entry.name.replace('.png', '.webp'));
+      fs.mkdirSync(outDir, { recursive: true });
+
       // Skip if already optimized and newer than source
       if (fs.existsSync(outputPath)) continue;
 
@@ -45,9 +50,14 @@ async function processDirectory(directory) {
 }
 
 async function optimizeImages() {
+  if (!fs.existsSync(SOURCE_DIR)) {
+    console.error(`No ${SOURCE_DIR} directory — nothing to optimize.`);
+    process.exitCode = 1;
+    return;
+  }
   console.log('🚀 Starting Recursive Institutional Asset Optimization...');
-  await processDirectory(PUBLIC_DIR);
-  console.log('🎊 Optimization Complete. Update your code to point to .webp files for maximum PageSpeed.');
+  await processDirectory(SOURCE_DIR);
+  console.log(`🎊 Optimization Complete. WebP written to ${OUTPUT_DIR}/.`);
 }
 
 optimizeImages();

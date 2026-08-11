@@ -1,4 +1,5 @@
 ---
+import { titleFromSlug } from '../../services/slugTitle.js';
 import Layout from '../../layouts/Layout.astro';
 import { Activity, Beaker, CheckCircle, Clock, Crosshair, ArrowRight, ActivitySquare, UserCheck, BarChart3, Upload, Syringe, MessageCircle, ChevronRight, Video, HelpCircle, IndianRupee, Cpu, ShieldCheck, PlayCircle, Shield, Target } from 'lucide-react';
 import { procedureData } from '../../services/procedureData';
@@ -28,7 +29,7 @@ while (data && data.aliasOf) {
 
 // Generate dynamic keyword-rich title for aliases (e.g. 'knee-arthroscopy' -> 'Knee Arthroscopy')
 const displayTitle = isAlias 
-  ? slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+  ? titleFromSlug(slug)
   : data.title;
 
 // Inherit Institutional Logic
@@ -49,7 +50,7 @@ const parentProg = data.programType === 'categorical'
   <div class="treatment-page">
     {/* ══ CINEMATIC BACKGROUND ══ */}
     <div class="treatment-hero-bg">
-      <img 
+      <img width="1024" height="1024" 
         src={data.heroImage || '/robotic_surgery_hero_1775752719796.webp'} 
         alt={data.title} 
         fetchpriority="high"

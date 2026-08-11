@@ -148,7 +148,6 @@ export const divisions = {
     outcomeBenchmarks: [
       "2,000+ Successful DAA Procedures",
       "Regional Lead for Complex Pelvic Trauma",
-      "99% Stability Recovery Rate",
       "Sub-Millimeter Component Orientation"
     ],
     eligibilitySignals: [
@@ -366,7 +365,6 @@ export const divisions = {
     outcomeBenchmarks: [
       "5,000+ Athletic Restoration Procedures",
       "1,000+ Hz Kinetic Data Mapping",
-      "95%+ Return-to-Pre-Injury Sport Level",
       "Objective Biomechanical Clearance Standard"
     ],
     eligibilitySignals: [

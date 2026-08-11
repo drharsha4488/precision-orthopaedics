@@ -1,4 +1,5 @@
 ---
+import { titleFromSlug } from '../../services/slugTitle.js';
 import Layout from '../../layouts/Layout.astro';
 import { conditionData } from '../../services/conditionData';
 import { Activity, ShieldCheck, ArrowRight, ActivitySquare, AlertCircle } from 'lucide-react';
@@ -18,7 +19,7 @@ while (data && data.aliasOf) {
 }
 
 const displayTitle = isAlias 
-  ? slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') + ' Treatment'
+  ? titleFromSlug(slug) + ' Treatment'
   : data.title;
 ---
 

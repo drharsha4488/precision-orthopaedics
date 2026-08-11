@@ -83,7 +83,7 @@
 }
 
 .p-stat-val { font-weight: 800; font-size: 1.1rem; color: var(--white); }
-.p-stat-lab { font-size: 0.7rem; text-transform: uppercase; color: var(--secondary); letter-spacing: 1px; }
+.p-stat-lab { font-size: 0.75rem; text-transform: uppercase; color: var(--secondary); letter-spacing: 1px; }
 
 /* ══ BENTO UPGRADE ══ */
 .dark-glass {
@@ -96,7 +96,7 @@
 .bento-card {
   padding: 3rem;
   border-radius: var(--radius-lg);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .bento-card:hover {
@@ -141,7 +141,7 @@
   background: rgba(255, 255, 255, 0.03);
   border-radius: var(--radius-lg);
   text-decoration: none;
-  transition: all 0.4s ease;
+  transition: color 0.4s ease, background-color 0.4s ease, border-color 0.4s ease, transform 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
   border: 1px solid rgba(255, 255, 255, 0.03);
 }
 

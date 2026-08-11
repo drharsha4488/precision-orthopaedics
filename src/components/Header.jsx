@@ -22,7 +22,7 @@ const Header = () => {
   return (
     <div className="header-wrapper">
       <header className="global-header">
-        <div className="nav-island">
+        <nav className="nav-island" aria-label="Primary">
           {/* Logo */}
           <a href="/" className="brand-logo" onClick={closeMenus}>
             <span className="logo-text">Precision <span>Ortho</span></span>
@@ -211,7 +211,7 @@ const Header = () => {
           >
             {isMobileOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
-        </div>
+        </nav>
 
         {/* AUTHORITY STRIP */}
         <div className="authority-strip">

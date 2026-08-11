@@ -138,7 +138,7 @@ export const procedureData = {
     ],
     costRange: "₹2.8L – ₹4.5L",
     costNote: "including Stryker Triathlon implants and 3-day recovery stay",
-    infectionSafety: ["Class 100 Laminar Airflow (<0.05% infection rate)"],
+    infectionSafety: ["Class 100 Laminar Airflow theatre"],
     mriWorkflow: [{ step: 1, title: "Upload MRI/X-Ray", desc: "Board-level evaluation within 24 hrs" }],
     recoveryChart: { conventional: { label: "Conventional", weeks: 12 }, robotic: { label: "Mako Robotic", weeks: 5 } },
     faqs: [
@@ -187,7 +187,7 @@ export const procedureData = {
     mriWorkflow: [{ step: 1, title: "Upload MRI", desc: "ACL grading and graft planning" }],
     recoveryChart: { conventional: { label: "Conventional Open", weeks: 12 }, robotic: { label: "Arthroscopic", weeks: 7 } },
     faqs: [
-      { q: "Can I play sports again?", a: "Yes. With proper rehabilitation, over 90% of athletes return to their pre-injury sport level within 9 months." }
+      { q: "Can I play sports again?", a: "Return to sport is the goal of the programme. Clearance is decided on objective strength and symmetry testing rather than a fixed date, and your surgeon will discuss what is realistic for your injury." }
     ],
     candidateSymptoms: ["Knee 'giving way'", "Audible 'pop'", "Rapid swelling"],
     canonicalParent: { division: "sports-medicine", program: "reconstruction" }
@@ -221,7 +221,7 @@ export const procedureData = {
     ],
     comparison: [
       { feature: "Stabilization Strategy", conventional: "Soft-tissue repair only", robotic: "Triple-Lock Bone Transfer" },
-      { feature: "Re-dislocation Rate", conventional: "15-20% in athletes", robotic: "<3% with Latarjet" }
+      { feature: "Stabilisation Mechanism", conventional: "Soft-tissue tension alone", robotic: "Bone block + sling restraint" }
     ],
     timeline: [
       { day: "Day 0", action: "Precision Bone-Block Transfer", detail: "Open or arthroscopic-assisted fixation" },
@@ -822,7 +822,7 @@ export const procedureData = {
     mriWorkflow: [{ step: 1, title: "Oncological MRI/CT", desc: "Detailed margin and neuro-vascular mapping" }],
     recoveryChart: { conventional: { label: "Standard", weeks: 20 }, robotic: { label: "Oncological", weeks: 14 } },
     faqs: [
-      { q: "Will I lose my limb?", a: "Our philosophy is 'Limb Salvage First'. Over 95% of patients are candidates for structural reconstruction rather than amputation." }
+      { q: "Will I lose my limb?", a: "Our philosophy is 'Limb Salvage First'. Structural reconstruction is considered before amputation wherever the tumour anatomy allows, and your options are reviewed by the tumour board." }
     ],
     candidateSymptoms: ["Night pain in a specific bone", "A visible or palpable hard mass", "Unexplained fracture after minor injury"],
     canonicalParent: { division: "pelvic-hip-reconstruction", program: "musculoskeletal-oncology" }

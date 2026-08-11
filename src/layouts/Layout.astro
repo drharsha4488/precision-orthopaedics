@@ -2,7 +2,7 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import CustomCursor from '../components/CustomCursor';
-import IntegrityShield from '../components/IntegrityShield';
+import ConsentBanner from '../components/ConsentBanner';
 import '../index.css';
 
 interface Props {
@@ -11,52 +11,81 @@ interface Props {
 	heroImage?: string;
 }
 
-const { 
-	title, 
+const {
+	title,
 	description = "Precision Orthopaedics - Establishing the global standard for Joint Preservation and Robotic Arthroplasty.",
-	heroImage 
+	heroImage
 } = Astro.props;
+
+const BRAND = 'Precision Orthopaedics';
+// Some pages already carry the brand in their title; don't append it twice.
+const pageTitle = title.includes(BRAND) ? title : `${title} | ${BRAND}`;
+const socialImage = new URL(
+	heroImage ?? '/robotic_surgery_hero_1775752719796.webp',
+	Astro.site ?? Astro.url
+).href;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-MWX3KTBPHK"></script>
-		<script is:inline>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
-
-			gtag('config', 'G-MWX3KTBPHK');
-		</script>
-
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<link rel="canonical" href={Astro.url.href} />
 		<meta name="robots" content="index, follow" />
 		<link rel="alternate" type="text/plain" title="LLM Manifest" href="/llms.txt" />
-		<title>{title} | Precision Orthopaedics</title>
+		<title>{pageTitle}</title>
 		<meta name="description" content={description} />
-		
+
 		<!-- Open Graph / SEO -->
 		<meta property="og:type" content="website" />
-		<meta property="og:title" content={title} />
+		<meta property="og:site_name" content={BRAND} />
+		<meta property="og:title" content={pageTitle} />
 		<meta property="og:description" content={description} />
-		
+		<meta property="og:url" content={Astro.url.href} />
+		<meta property="og:image" content={socialImage} />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={pageTitle} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={socialImage} />
+
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&family=Inter:wght@400;500;600&display=swap"
+		/>
 
 		{heroImage && (
-			<link 
-				rel="preload" 
-				as="image" 
-				href={heroImage} 
-				fetchpriority="high" 
+			<link
+				rel="preload"
+				as="image"
+				href={heroImage}
+				fetchpriority="high"
 			/>
 		)}
+
+		<!-- GA4 with Consent Mode v2: nothing is stored until the visitor accepts. -->
+		<script is:inline>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('consent', 'default', {
+				ad_storage: 'denied',
+				ad_user_data: 'denied',
+				ad_personalization: 'denied',
+				analytics_storage: 'denied'
+			});
+			try {
+				if (localStorage.getItem('po-analytics-consent') === 'granted') {
+					gtag('consent', 'update', { analytics_storage: 'granted' });
+				}
+			} catch (e) { /* storage blocked; stay denied */ }
+			gtag('js', new Date());
+			gtag('config', 'G-MWX3KTBPHK');
+		</script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-MWX3KTBPHK"></script>
 
 		<!-- Critical Path CSS (Inlined for LCP) -->
 		<style is:inline>
@@ -65,7 +94,7 @@ const {
 			.header-wrapper { position: fixed; top: 0; left: 0; width: 100%; z-index: 9000; }
 			.global-header { position: relative; padding: 1.5rem 0; display: flex; flex-direction: column; align-items: center; }
 			.nav-island { background: rgba(18, 18, 18, 0.75); backdrop-filter: blur(20px); border-radius: 100px; padding: 0.65rem 1.75rem; display: flex; align-items: center; width: 94%; max-width: 1400px; border: 1px solid rgba(255, 255, 255, 0.1); }
-			.authority-strip { width: 100%; padding: 12px 0; background: rgba(0,0,0,0.4); display: flex; justify-content: center; gap: 3rem; margin-top: 0.75rem; border-y: 1px solid rgba(255,255,255,0.05); }
+			.authority-strip { width: 100%; padding: 12px 0; background: rgba(0,0,0,0.4); display: flex; justify-content: center; gap: 3rem; margin-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); }
 			#clinical-content { padding-top: 180px; min-height: 80vh; }
 			.animate-reveal { opacity: 0; transform: translateY(30px); animation: revealUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 			@keyframes revealUp { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
@@ -73,15 +102,16 @@ const {
 		</style>
 	</head>
 	<body>
+		<a href="#clinical-content" class="skip-link">Skip to content</a>
 		<CustomCursor client:idle />
 		<Header client:idle />
-		
-		<main id="clinical-content">
+
+		<main id="clinical-content" tabindex="-1">
 			<slot />
 		</main>
 		
-		<IntegrityShield client:visible />
 		<Footer client:visible />
+		<ConsentBanner client:idle />
 
 		<script>
 			import { inject } from '@vercel/analytics';
@@ -115,5 +145,9 @@ const {
 <style is:global>
 	:root {
 		scroll-behavior: smooth;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		:root { scroll-behavior: auto; }
 	}
 </style>
