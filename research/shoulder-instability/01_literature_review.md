@@ -5,6 +5,20 @@
 > **Status:** working draft for the background and discussion sections of the paper.
 > Every reference marked ⚠️ in the evidence table must be checked against PubMed
 > (exact authors, year, numbers) before it goes into the manuscript.
+>
+> **Update, 7 Oct 2026.** The study is now re-scoped to **BRUMA (Mason-Allen) Bankart ± remplissage vs
+> knotless Bankart** (see `02_study_protocol_and_data_plan.md`). This brief remains the background on bone
+> loss and procedure choice. The PubMed-verified evidence for the new question (every reference has a PMID
+> and DOI) is in [`literature/`](literature/):
+> - [`01_bruma_novelty.md`](literature/01_bruma_novelty.md): the BRUMA papers, Mason-Allen biomechanics, and
+>   what is and is not published
+> - [`02_remplissage_bone_loss_evidence.md`](literature/02_remplissage_bone_loss_evidence.md): Bankart vs
+>   Bankart + remplissage vs Latarjet benchmarks by bone loss and track status, and sample-size inputs
+> - [`03_technique_comparison_and_methods.md`](literature/03_technique_comparison_and_methods.md): knotless
+>   vs knotted and all-suture anchors, recurrence risk factors, and how comparable papers were designed
+>
+> **Correction:** the WOSI MCID of "≈220 points" used in this draft could not be traced to a source. Use
+> the verified 12.8–18 points on the 0–100 percentage scale (literature/02).
 
 ---
 

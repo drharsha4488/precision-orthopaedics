@@ -63,6 +63,7 @@ hs_bone_bridge_mm_obs2,reliability,Bone bridge observer 2,decimal,mm,"Second obs
 surgery_date,surgery,Date of surgery,date,YYYY-MM-DD,,op note,A,N
 procedure_group,surgery,Procedure group,category,BANKART|BANKART_REMP|LATARJET,Exposure,op note,A,N
 approach,surgery,Approach,category,ARTHROSCOPIC|OPEN,,op note,A,N
+bankart_technique,surgery,Bankart repair technique,category,KNOTLESS|BRUMA|NA,Surgeon's technique list (knotless vs bruma.xlsx); NA for Latarjet,surgeon list,A,N
 n_glenoid_anchors,surgery,Number of glenoid anchors,integer,0-8,,op note,B,N
 anchor_type,surgery,Anchor type,category,KNOTTED|KNOTLESS|MIXED|NA,,op note,C,N
 anchor_material,surgery,Anchor material,category,ALL_SUTURE|BIOCOMPOSITE|PEEK|METAL|NA,,op note,C,N
@@ -132,6 +133,9 @@ er2_contralateral,outcomes_final,ER2 contralateral shoulder,integer,0-130 deg,Fo
 prom_final_date,outcomes_final,Date of final PROM,date,YYYY-MM-DD,,,A,N
 prom_final_mode,outcomes_final,Final PROM mode,category,CLINIC|PHONE|VIDEO|ONLINE,,,B,N
 samilson_prieto_final,outcomes_final,Samilson-Prieto grade final,category,0|1|2|3,,final X-ray,B,N
+ois_final,outcomes_final,Oxford Instability Score (latest after surgery),integer,0-48 (higher=better),"Dawson 1999, current 0-48 scoring. Surgeon's sheet holds 12-60 with 5 per item best (checked against ortho-emr scored forms: higher=better there too), converted as value - 12. ortho-emr form score preferred when present",PROM,B,N
+ois_final_date,outcomes_final,Date of Oxford Instability Score,date,YYYY-MM-DD,Blank when taken from the surgeon's sheet (collection date not recorded),PROM,C,N
+ois_final_source,outcomes_final,Source of Oxford Instability Score,category,EMR_FORM|SURGEON_SHEET,,,C,N
 satisfied,outcomes_final,Would have surgery again,category,Y|N,,PROM,C,N
 last_followup_date,followup,Last follow-up date,date,YYYY-MM-DD,Latest contact with valid recurrence status,chart/recall,A,N
 followup_months,followup,Follow-up duration,decimal,months,surgery to last FU,derived,A,Y
