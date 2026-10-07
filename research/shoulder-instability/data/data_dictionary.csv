@@ -4,6 +4,7 @@ site,admin,Centre,text,,Hospital/centre code,assigned,C,N
 surgeon_id,admin,Surgeon code,text,"S1,S2...",Pseudonymous surgeon code,op note,B,N
 data_entry_by,admin,Data entered by,text,initials,,,C,N
 data_entry_date,admin,Data entry date,date,YYYY-MM-DD,,,C,N
+analysis_set,admin,Analysis set,category,MAIN|LATARJET_REF|NOT_OPERATED|FOLLOWUP_UNDER_24MO|OTHER_REPAIR|TECHNIQUE_UNKNOWN,"MAIN = isolated anterior Bankart (knotless or BRUMA, ± remplissage) operated by the 2-year cut-off; set by the cohort build",derived,A,Y
 age_at_surgery,demographics,Age at surgery,integer,14-80 years,Completed years on surgery date,chart,A,N
 sex,demographics,Sex,category,M|F,,chart,B,N
 bmi,demographics,BMI,decimal,12-50 kg/m2,,chart,C,N
