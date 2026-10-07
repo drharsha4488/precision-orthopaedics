@@ -120,7 +120,7 @@ All tests were two-sided with α = .05. Analyses were performed in R version [PL
 
 ## References
 
-<!-- References 1-42 come from literature/01-03; the rest were added from PubMed by PMID. Numbers in the text were taken from abstracts; verify each
+<!-- Most references come from literature/01-03; ten were added later from PubMed by PMID. Numbers in the text were taken from abstracts; verify each
 against the full text before submission. -->
 
 1. Zacchilli MA, Owens BD. Epidemiology of shoulder dislocations presenting to emergency departments in the United States. *J Bone Joint Surg Am*. 2010;92(3):542-549. doi:10.2106/JBJS.I.00450 [PMID 20194311]
