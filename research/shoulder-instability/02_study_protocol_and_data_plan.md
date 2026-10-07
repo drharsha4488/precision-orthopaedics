@@ -71,7 +71,13 @@ Evidence summary and references: [`literature/`](literature/). Short version:
 - Missing follow-up is completed **prospectively** by clinic recall or structured phone, WhatsApp or video
   contact. PROMs are self-administered, and their date and mode are recorded.
 - Reporting follows **STROBE**. **IEC approval** is needed before recall contact, and patients consent to
-  it. A waiver can cover the chart-review part only. Register the study retrospectively on CTRI.
+  it. A waiver can cover the chart-review part only.
+- **Order of approvals:** IEC approval (from a DHR-registered committee) → **CTRI registration** →
+  research data extraction and recall. CTRI has not accepted retrospective registration since 1 April 2018,
+  including for studies that use retrospective records. The cohort list already assembled from practice
+  records is disclosed to the IEC. Routine clinical follow-up questionnaires continue as standard care;
+  their answers are used for research only after approval. Patients under 18 at recall need parental
+  consent and their own assent.
 - Level of evidence: III.
 
 ## 4. Eligibility
@@ -213,7 +219,7 @@ comparison**. This limitation is stated explicitly.
 ## 11. Timeline
 | Week | Task |
 |---|---|
-| 1 | IEC submission; CTRI registration; finalise this protocol |
+| 1 | IEC submission (package drafted); CTRI registration after IEC approval, before any recall or extraction for research |
 | 1–3 | Pull pre-op 3D-CT for the 155 main-study patients; reliability subset |
 | 1–6 | Recall: priority 1 and 2 first (WOSI, OIS, recurrence, sport) |
 | 6–7 | Clinic visits for Rowe, ER2 and X-ray |
