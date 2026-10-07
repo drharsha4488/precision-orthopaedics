@@ -1,7 +1,7 @@
 # Study Protocol & Data Plan (Phase 2)
 
 **Working title:** *Mason-Allen (BRUMA) Bankart Repair with Routine Hill-Sachs Remplissage versus Knotless
-Bankart Repair for Recurrent Anterior Shoulder Instability: A Comparative Cohort Study Stratified by 3D-CT
+Bankart Repair for Anterior Shoulder Instability: A Comparative Cohort Study Stratified by 3D-CT
 Glenoid Bone Loss and Glenoid-Track Status*
 
 > **Re-scoped (7 Oct 2026).** The first version compared Bankart vs Bankart + remplissage vs Latarjet. The
@@ -60,7 +60,7 @@ Evidence summary and references: [`literature/`](literature/). Short version:
 4. Return to sport (any and same level) and time to return.
 5. Complications and reoperations.
 6. **Key subgroup:** recurrence and WOSI in **glenoid bone loss 13.5–25%** and in **off-track /
-   peripheral-track** lesions, where a bone block would usually be chosen. This is where "no bone block
+   near-track** lesions, where a bone block would usually be chosen. This is where "no bone block
    needed" must hold.
 7. Anchor number and configuration, as recorded (2 Bankart anchors + 1 remplissage + 1 SLAP is the usual
    pattern).
@@ -105,20 +105,20 @@ The 2018–19 overlap is taken only from the surgeon's list. The remplissage ind
 - **BRUMA era:** remplissage for **every** Hill-Sachs lesion (surgeon's rule).
 - **Knotless era:** selective, e.g. a shallow Hill-Sachs was left alone.
 
-This difference is stated in Methods and handled in the analysis (§9).
+This difference is stated in Methods and handled in the analysis (§9). BRUMA patients without remplissage are expected to have had no Hill-Sachs lesion; the 2 with one recorded are flagged for chart check.
 
 **Classification rules applied to the records:**
 - **Implant rule:** 2 Bankart anchors, a 3rd for remplissage, a 4th for SLAP. A recorded "Bankart" whose
   implant record shows an extra anchor, with no SLAP or other repair to explain it, was a remplissage.
 - **Surgeon confirmation:** every 2023 BRUMA Bankart had a remplissage.
 
-**Current counts** (393 shoulder instability patients in the practice records; main study = operated by
+**Current counts** (389 shoulder instability patients in the practice records; main study = operated by
 7 Oct 2024, isolated anterior instability):
 
 | | Bankart only | Bankart + remplissage | Total |
 |---|---|---|---|
-| Knotless | 54 | 13 | **67** |
-| BRUMA | 16 | 72 | **88** |
+| Knotless | 51 | 13 | **64** |
+| BRUMA | 16 | 71 | **87** |
 | Latarjet (bone-block reference) | | | 11 |
 
 ## 6. Outcomes
@@ -131,16 +131,17 @@ This difference is stated in Methods and handled in the analysis (§9).
 | Secondary | Rowe, ASES, SANE, VAS | Final |
 | Secondary | ER2 and ER2 deficit vs the opposite side | Goniometer |
 | Secondary | Return to sport, complications, reoperations | |
+| Secondary | `subsequent_bone_block` | Bone block (Latarjet or other) after the index operation: the "bone block avoided" endpoint |
 
-**Composite clinical failure** = recurrence, or revision for instability, or apprehension that limits
-activity.
+**Composite clinical failure** = recurrence, or revision for instability, or positive apprehension at final follow-up
+(on examination, or patient-reported "might give way" or "avoid that position").
 
 ## 7. Imaging protocol (3D-CT)
 Two independent observers, blinded to group and outcome where possible:
 1. **Glenoid:** en-face 3D-CT with the humeral head subtracted; best-fit circle diameter D and anterior
    defect d. `GBL% = d/D × 100`.
 2. **Hill-Sachs:** width and bone bridge; `HSI = width + bridge`; depth.
-3. **Glenoid track:** `GT = 0.83 × D − d`. Off-track if HSI > GT. `DTD = GT − HSI`. **Peripheral track =
+3. **Glenoid track:** `GT = 0.83 × D − d`. Off-track if HSI > GT. `DTD = GT − HSI`. **Near track =
    on-track with DTD < 8 mm** (Li 2021).
 4. **Reliability:** both observers measure 30 random cases, and observer 1 repeats them after 2 weeks or
    more. Report ICC(2,1).
@@ -161,8 +162,8 @@ Step 6  Lock        re-run the build and checker; freeze the version
 Step 7  Analysis    §9
 ```
 
-Recall order: (1) main study, no contact since surgery (124); (2) main study, some contact (31);
-(3) Latarjet reference (11); then the rest. 17 main-study patients have no phone number on any record and
+Recall order: (1) main study, no contact since surgery (74); (2) main study, some contact (77);
+(3) Latarjet reference (11); then the rest. 16 main-study patients have no phone number on any record and
 need the hospital file.
 
 ## 9. Statistical analysis plan
@@ -176,12 +177,12 @@ need the hospital file.
     rather than many covariates in the model.
   - Both groups are also reported at a **fixed 2-year horizon**, because the knotless group has longer
     follow-up and late failures accumulate.
-- **Remplissage confounding.** Remplissage is part of the BRUMA strategy (82% of BRUMA vs 19% of
+- **Remplissage confounding.** Remplissage is part of the BRUMA strategy (82% of BRUMA vs 20% of
   knotless). Report:
   1. the whole-strategy comparison (primary)
   2. stratified results, Bankart-only and Bankart + remplissage separately
   3. a model including remplissage and Hill-Sachs status
-- **Era and learning curve.** Run a sensitivity analysis restricted to 2018–2020, when both techniques were
+- **Era and learning curve.** Run a sensitivity analysis restricted to the overlap period (20 Oct 2018 – 26 Nov 2019), when both techniques were
   in use, and one excluding each technique's first 10 cases.
 - **WOSI.** ANCOVA adjusted for pre-op WOSI where available, plus the proportion reaching the MCID.
 - **Subgroups.** Recurrence by bone loss band (< 13.5%, 13.5–20%, > 20%) × track status, with 95% CIs,
@@ -192,7 +193,7 @@ need the hospital file.
 - Two-sided α = 0.05; R.
 
 ### Power
-| Question | Needed per group | Available (67 / 88) |
+| Question | Needed per group | Available (64 / 87) |
 |---|---|---|
 | WOSI difference at MCID (SD about 20–25) | 39–60 | Enough, if about 75% are reached at recall |
 | Recurrence 18% vs 4% | about 78 | Borderline |
@@ -202,7 +203,7 @@ So recurrence is reported with 95% CIs and an adjusted hazard ratio, and **WOSI 
 comparison**. This limitation is stated explicitly.
 
 ## 10. Planned tables & figures
-1. **Fig 1:** STROBE flow, from all instability patients (393) through exclusions and loss to follow-up to
+1. **Fig 1:** STROBE flow, from all instability patients (389) through exclusions and loss to follow-up to
    those analysed.
 2. **Table 1:** Baseline by technique, including bone loss, track status and remplissage.
 3. **Table 2:** Recurrence, revision and composite failure: crude, at 2 years, adjusted HR.
@@ -220,7 +221,7 @@ comparison**. This limitation is stated explicitly.
 | Week | Task |
 |---|---|
 | 1 | IEC submission (package drafted); CTRI registration after IEC approval, before any recall or extraction for research |
-| 1–3 | Pull pre-op 3D-CT for the 155 main-study patients; reliability subset |
+| 1–3 | Pull pre-op 3D-CT for the 151 main-study patients; reliability subset |
 | 1–6 | Recall: priority 1 and 2 first (WOSI, OIS, recurrence, sport) |
 | 6–7 | Clinic visits for Rowe, ER2 and X-ray |
 | 8 | Data lock; analysis |
@@ -236,7 +237,7 @@ comparison**. This limitation is stated explicitly.
 | 5 | Date range | **Aug 2014 – 7 Oct 2024** for the main study |
 | 6 | Technique source | Surgeon's list; otherwise by date |
 | 7 | Remplissage indication | Every Hill-Sachs in the BRUMA era; selective in the knotless era |
-| 8 | Peripheral-track definition | **DTD < 8 mm** |
+| 8 | Near-track definition | **DTD < 8 mm** |
 | 9 | Oxford Instability Score | Reported on the current 0–48 scale. The surgeon's sheet stored 12–60 with higher = better (cross-checked against scored forms) and was converted as value − 12 |
 | 10 | First-time dislocators, revisions | First-timers included and flagged; revisions analysed separately |
 

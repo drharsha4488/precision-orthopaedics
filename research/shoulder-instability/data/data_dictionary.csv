@@ -51,7 +51,7 @@ hsi_mm,imaging,Hill-Sachs interval,decimal,mm,hs_width + bone bridge,derived,B,Y
 glenoid_track_mm,imaging,Glenoid track,decimal,mm,0.83*D - d,derived,B,Y
 track_status,imaging,Track status,category,ON|OFF,OFF if HSI > GT,derived,B,Y
 dtd_mm,imaging,Distance to dislocation,decimal,mm,GT - HSI,derived,B,Y
-track_subtype,imaging,Track subtype,category,CENTRAL|PERIPHERAL|OFF,Peripheral = on-track with DTD < 8 mm (protocol choice),derived,B,Y
+track_subtype,imaging,Track subtype,category,CENTRAL|PERIPHERAL|OFF,PERIPHERAL code = near-track (Li 2021): on-track with DTD < 8 mm,derived,B,Y
 labral_lesion_type,imaging,Labral lesion type,category,BANKART|ALPSA|PERTHES|GLAD|BONY_BANKART|OTHER,Imaging or arthroscopy,imaging/op note,C,N
 slap_extension,imaging,SLAP extension,category,Y|N,,op note,C,N
 hagl,imaging,HAGL lesion,category,Y|N,,imaging/op note,C,N
@@ -96,12 +96,13 @@ months_to_recurrence,recurrence,Time to first recurrence,decimal,months,From sur
 recurrence_mechanism,recurrence,Mechanism of recurrence,category,SPORT|TRAUMA_HIGH|TRAUMA_LOW|ATRAUMATIC|SEIZURE|NA,,chart/recall,C,N
 revision_instability,recurrence,Revision surgery for instability,category,Y|N,,chart,A,N
 revision_procedure,recurrence,Revision procedure,text,,,chart,C,N
+subsequent_bone_block,recurrence,Bone block after index operation,category,Y|N,Latarjet or other bone block on the same shoulder after the index stabilisation (bone-block-avoidance endpoint),chart/recall,A,N
 apprehension_pos_final,recurrence,Positive apprehension at final FU,category,Y|N,,exam,B,N
 rts_any,sport_outcome,Returned to sport,category,Y|N|NA,NA if no sport preop,recall,B,N
 rts_same_level,sport_outcome,Returned to same/higher level,category,Y|N|NA,,recall,B,N
 rts_months,sport_outcome,Time to return to sport,decimal,months,,recall,C,N
 rtw_months,sport_outcome,Time to return to work,decimal,months,,recall,C,N
-wosi_preop,outcomes_preop,WOSI total (Preoperative),integer,0-2100 (lower=better),Western Ontario Shoulder Instability Index,PROM,B,N
+wosi_preop,outcomes_preop,WOSI total (Preoperative),integer,"0-100 (% of normal, higher=better)",WOSI; raw total 0-2100 converted to % of normal = 100 x (2100 - raw) / 2100 (as ortho-emr scores it),PROM,B,N
 rowe_preop,outcomes_preop,Rowe score (Preoperative),integer,0-100,,exam+PROM,B,N
 ases_preop,outcomes_preop,ASES (Preoperative),decimal,0-100,,PROM,B,N
 sane_preop,outcomes_preop,SANE (Preoperative),integer,0-100,,PROM,C,N
@@ -110,17 +111,17 @@ ff_preop,outcomes_preop,Forward flexion (Preoperative),integer,0-180 deg,Goniome
 er1_preop,outcomes_preop,ER at side (Preoperative),integer,-20-110 deg,,exam,B,N
 er2_preop,outcomes_preop,ER in 90 deg abduction (Preoperative),integer,0-130 deg,Key remplissage outcome,exam,B,N
 ir_preop,outcomes_preop,Internal rotation level (Preoperative),text,"e.g. T12,L3,SACRUM",Vertebral level reached,exam,C,N
-wosi_12m,outcomes_12m,WOSI total (12 months),integer,0-2100 (lower=better),Western Ontario Shoulder Instability Index,PROM,C,N
+wosi_12m,outcomes_12m,WOSI total (12 months),integer,"0-100 (% of normal, higher=better)",WOSI; raw total 0-2100 converted to % of normal = 100 x (2100 - raw) / 2100 (as ortho-emr scores it),PROM,C,N
 rowe_12m,outcomes_12m,Rowe score (12 months),integer,0-100,,exam+PROM,C,N
 ases_12m,outcomes_12m,ASES (12 months),decimal,0-100,,PROM,C,N
 sane_12m,outcomes_12m,SANE (12 months),integer,0-100,,PROM,C,N
 vas_pain_12m,outcomes_12m,VAS pain (12 months),decimal,0-10,,PROM,C,N
-wosi_24m,outcomes_24m,WOSI total (24 months),integer,0-2100 (lower=better),Western Ontario Shoulder Instability Index,PROM,C,N
+wosi_24m,outcomes_24m,WOSI total (24 months),integer,"0-100 (% of normal, higher=better)",WOSI; raw total 0-2100 converted to % of normal = 100 x (2100 - raw) / 2100 (as ortho-emr scores it),PROM,C,N
 rowe_24m,outcomes_24m,Rowe score (24 months),integer,0-100,,exam+PROM,C,N
 ases_24m,outcomes_24m,ASES (24 months),decimal,0-100,,PROM,C,N
 sane_24m,outcomes_24m,SANE (24 months),integer,0-100,,PROM,C,N
 vas_pain_24m,outcomes_24m,VAS pain (24 months),decimal,0-10,,PROM,C,N
-wosi_final,outcomes_final,WOSI total (Final follow-up),integer,0-2100 (lower=better),Western Ontario Shoulder Instability Index,PROM,A,N
+wosi_final,outcomes_final,WOSI total (Final follow-up),integer,"0-100 (% of normal, higher=better)",WOSI; raw total 0-2100 converted to % of normal = 100 x (2100 - raw) / 2100 (as ortho-emr scores it),PROM,A,N
 rowe_final,outcomes_final,Rowe score (Final follow-up),integer,0-100,,exam+PROM,A,N
 ases_final,outcomes_final,ASES (Final follow-up),decimal,0-100,,PROM,B,N
 sane_final,outcomes_final,SANE (Final follow-up),integer,0-100,,PROM,C,N
