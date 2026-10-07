@@ -4,10 +4,9 @@
 by Bipolar Bone Loss and Glenoid-Track Status in Recurrent Anterior Shoulder Instability:
 A Comparative Cohort Study*
 
-> The default design below is a **retrospective comparative cohort study with
-> prospective follow-up recall**, built from our own operated patients. If you would
-> rather write a **systematic review / meta-analysis**, see §11. The data plan changes
-> but the variable definitions stay the same.
+> **Decided (7 Oct 2026):** own-patient **retrospective comparative cohort with
+> prospective follow-up recall**. Latarjet = **open** technique only. Pre-operative
+> bone loss measured on **3D-CT**. Target: **international** peer-reviewed journal.
 
 ---
 
@@ -46,7 +45,7 @@ A Comparative Cohort Study*
 - Recurrent (≥ 2 episodes) traumatic anterior instability, *or* a first-time dislocation
   in a high-risk patient where the surgeon chose to operate (flag this as a covariate)
 - Primary stabilisation with one of ABR, ABR+R, or Latarjet (open or arthroscopic)
-- Pre-operative CT (preferably 3D) or MRI that allows GBL and HSL measurement
+- Pre-operative **3D-CT** that allows GBL and HSL measurement (cases with MRI only: record and analyse as a sensitivity subgroup)
 - Minimum 24-month follow-up, *or* recurrence before 24 months (failures are kept)
 
 **Exclusion**
@@ -63,7 +62,7 @@ A Comparative Cohort Study*
 |---|---|
 | `BANKART` | Arthroscopic Bankart repair alone (± capsular plication, ± rotator-interval closure) |
 | `BANKART_REMP` | Arthroscopic Bankart + Hill-Sachs remplissage |
-| `LATARJET` | Latarjet (classic or congruent-arc), open or arthroscopic |
+| `LATARJET` | **Open** Latarjet (classic or congruent-arc) |
 
 ## 5. Outcomes
 | Type | Variable | Definition |
@@ -85,10 +84,9 @@ positive apprehension that limits activity.
 All measurements follow a single written protocol by **two independent observers**
 (one surgeon and one fellow/radiologist), blinded to group and outcome where possible.
 
-1. **Glenoid:** en-face 3D-CT sagittal view with the humeral head subtracted (or the
-   MRI sagittal oblique). Fit an inferior best-fit circle and record **D** (mm) and
+1. **Glenoid:** en-face 3D-CT sagittal view with the humeral head subtracted. Fit an inferior best-fit circle and record **D** (mm) and
    anterior defect width **d** (mm). `GBL% = d / D × 100`.
-2. **Hill-Sachs:** 3D-CT posterior view of the humeral head (or MRI axial). Record
+2. **Hill-Sachs:** 3D-CT posterior view of the humeral head. Record
    **HS width** and **bone bridge** (cuff footprint to HSL lateral edge).
    `HSI = HS width + bone bridge`. Record **HS depth** as well.
 3. **Glenoid track:** `GT = 0.83 × D − d`. **Off-track** if HSI > GT.
@@ -199,12 +197,24 @@ If own-patient data are insufficient, the same framework becomes a PRISMA 2020 S
 | 10 | Data lock, analysis |
 | 11–13 | Manuscript writing (IMRaD), target journal selection |
 
-## 13. Decisions still needed from you
-1. Own cohort (default) **or** SR/MA?
-2. Date range and centre(s); approximate number of cases per procedure.
-3. Include first-time dislocators? Include revisions as a separate cohort?
-4. Latarjet: open, arthroscopic, or both?
-5. Peripheral-track definition (DTD < 8 mm vs < 25% of GT).
-6. Which imaging is routinely available (3D-CT for all, or MRI for some)?
-7. Target journal (e.g. JSES, AJSM/OJSM, Arthroscopy, *Indian Journal of Orthopaedics*,
-   JOOT/*Journal of Orthopaedics*). This changes word limits and reporting requirements.
+## 13. Decisions
+| # | Question | Answer |
+|---|---|---|
+| 1 | Own cohort or SR/MA | **Own patients** |
+| 2 | Latarjet technique | **Open** |
+| 3 | Imaging | **3D-CT** |
+| 4 | Journal | **International.** Shortlist: *AJSM* / *OJSM*, *JSES* / *JSES International*, *Arthroscopy*, *KSSTA*, *Bone & Joint Open*. Pick by sample size and follow-up once counts are known |
+| 5 | Date range, number of cases per group | **Pending**, from the OT register / HIS |
+| 6 | First-time dislocators, revisions | **Pending.** Default: first-timers included and flagged; revisions as a separate cohort |
+| 7 | Peripheral-track definition | **Pending.** Default: DTD < 8 mm |
+
+### International-journal requirements to plan for now
+- IEC approval number and (ideally) prospective/retrospective registration (CTRI).
+- STROBE checklist; level of evidence statement (likely Level III).
+- Minimum 2-year follow-up for instability outcomes; reliability (ICC) for imaging measurements.
+- WOSI in a validated language version (English / validated Indian-language translation).
+- Data availability statement; ICMJE conflict-of-interest forms.
+
+## 14. Data source
+The clinical dataset is built from hospital records: OT register, discharge summaries,
+op notes, PACS (3D-CT), and OPD follow-up files.
