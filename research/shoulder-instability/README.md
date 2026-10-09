@@ -10,7 +10,7 @@ loss. Work moves through it in order:
 | 2. Protocol & data plan | [`02_study_protocol_and_data_plan.md`](02_study_protocol_and_data_plan.md) | Re-scoped draft; decisions in §12 |
 | 3. Data collection | [`data/data_dictionary.csv`](data/data_dictionary.csv) | Cohort built from the practice records: 389 instability patients; main study knotless 64 vs BRUMA 87 |
 | 4. Fill incomplete records | `scripts/check_completeness.py` → recall list | Recall list ready (151 main-study patients first); 3D-CT measurement next |
-| 5. Analysis | n/a | Not started |
+| 5. Analysis | analysis script (kept with the private data) | Built and tested on synthetic data; runs at data lock |
 | 6. Manuscript | [`manuscript/01_introduction_methods.md`](manuscript/01_introduction_methods.md) | Introduction + Methods drafted; surgeon placeholders open |
 
 ## Where the data lives
