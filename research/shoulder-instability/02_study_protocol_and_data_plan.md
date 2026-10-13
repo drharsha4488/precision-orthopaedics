@@ -103,7 +103,7 @@ Evidence summary and references: [`literature/`](literature/). Short version:
 
 The 2018–19 overlap is taken only from the surgeon's list. The remplissage indication differs by era:
 - **BRUMA era:** remplissage for **every** Hill-Sachs lesion (surgeon's rule).
-- **Knotless era:** selective, e.g. a shallow Hill-Sachs was left alone.
+- **Knotless era:** selective, for an engaging Hill-Sachs lesion; shallow, nonengaging lesions were left alone.
 
 This difference is stated in Methods and handled in the analysis (§9). BRUMA patients without remplissage are expected to have had no Hill-Sachs lesion; the 2 with one recorded are flagged for chart check.
 
@@ -236,7 +236,7 @@ comparison**. This limitation is stated explicitly.
 | 4 | Journal | **International.** *OJSM* (published the BRUMA series), *AJSM*, *Arthroscopy*, *JSES*, *KSSTA* |
 | 5 | Date range | **Aug 2014 – 7 Oct 2024** for the main study |
 | 6 | Technique source | Surgeon's list; otherwise by date |
-| 7 | Remplissage indication | Every Hill-Sachs in the BRUMA era; selective in the knotless era |
+| 7 | Remplissage indication | Every Hill-Sachs in the BRUMA era; engaging Hill-Sachs only in the knotless era |
 | 8 | Near-track definition | **DTD < 8 mm** |
 | 9 | Oxford Instability Score | Reported on the current 0–48 scale. The surgeon's sheet stored 12–60 with higher = better (cross-checked against scored forms) and was converted as value − 12 |
 | 10 | First-time dislocators, revisions | First-timers included and flagged; revisions analysed separately |
