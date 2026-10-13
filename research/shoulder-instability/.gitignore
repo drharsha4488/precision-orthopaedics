@@ -1,0 +1,5 @@
+# Never commit patient data. Only the dictionary and blank template are tracked.
+data/*
+!data/data_dictionary.csv
+!data/data_collection_template.csv
+__pycache__/

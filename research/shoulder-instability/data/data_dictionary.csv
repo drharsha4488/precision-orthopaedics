@@ -1,0 +1,145 @@
+variable,section,label,type,allowed_values_or_units,definition_how_to_measure,source,tier,derived
+study_id,admin,Study ID,text,SI-001 ...,Pseudonymous ID; key to MRN kept in separate locked file,assigned,A,N
+site,admin,Centre,text,,Hospital/centre code,assigned,C,N
+surgeon_id,admin,Surgeon code,text,"S1,S2...",Pseudonymous surgeon code,op note,B,N
+data_entry_by,admin,Data entered by,text,initials,,,C,N
+data_entry_date,admin,Data entry date,date,YYYY-MM-DD,,,C,N
+analysis_set,admin,Analysis set,category,MAIN|LATARJET_REF|NOT_OPERATED|FOLLOWUP_UNDER_24MO|OTHER_REPAIR|TECHNIQUE_UNKNOWN,"MAIN = isolated anterior Bankart (knotless or BRUMA, ± remplissage) operated by the 2-year cut-off; set by the cohort build",derived,A,Y
+age_at_surgery,demographics,Age at surgery,integer,14-80 years,Completed years on surgery date,chart,A,N
+sex,demographics,Sex,category,M|F,,chart,B,N
+bmi,demographics,BMI,decimal,12-50 kg/m2,,chart,C,N
+dominant_side,demographics,Dominant arm,category,R|L|AMBI,,chart,B,N
+operated_side,demographics,Operated side,category,R|L,,op note,A,N
+occupation_category,demographics,Occupation,category,STUDENT|SEDENTARY|MANUAL|MILITARY_POLICE|ATHLETE_PRO|OTHER,,chart,C,N
+smoker,demographics,Smoker,category,Y|N|EX,,chart,C,N
+epilepsy,demographics,Epilepsy/seizure disorder,category,Y|N,Exclusion/flag,chart,B,N
+sport_name,sport,Main sport,text,,"e.g. cricket, kabaddi, football, gym",chart/recall,B,N
+sport_level,sport,Pre-injury sport level,category,NONE|RECREATIONAL|COMPETITIVE|PROFESSIONAL,Competitive = organised competition (ISIS),chart/recall,B,N
+contact_or_overhead_sport,sport,Contact or forced-overhead sport,category,Y|N,ISIS definition,chart/recall,B,N
+collision_sport,sport,Collision sport,category,Y|N,"Rugby, kabaddi, wrestling, football etc.",chart/recall,C,N
+age_first_dislocation,history,Age at first dislocation,integer,years,,chart,B,N
+mechanism_first_episode,history,Mechanism of first episode,category,TRAUMATIC_SPORT|TRAUMATIC_FALL|TRAUMATIC_RTA|SEIZURE|OTHER,,chart,B,N
+n_dislocations_preop,history,Number of dislocations before surgery,integer,0-99,Count; 99 = 'too many to count',chart,B,N
+n_subluxations_preop,history,Number of subluxations before surgery,integer,0-99,,chart,C,N
+first_time_dislocator,history,Operated after first episode,category,Y|N,,chart,B,N
+months_first_episode_to_surgery,history,Interval first episode to surgery,decimal,months,,chart,B,N
+prior_surgery_same_shoulder,history,Previous surgery same shoulder,category,Y|N,Y = revision cohort,chart,A,N
+hyperlaxity_er_gt85,history,ER at side >85 deg,category,Y|N,Passive ER1 >85 deg (ISIS hyperlaxity),exam,B,N
+gagey_positive,history,Gagey hyperabduction test >105 deg,category,Y|N,Inferior laxity,exam,C,N
+beighton_score,history,Beighton score,integer,0-9,,exam,C,N
+xr_hill_sachs_ap_er,xray,Hill-Sachs visible on AP in ER,category,Y|N,ISIS item,preop X-ray,B,N
+xr_glenoid_contour_loss,xray,Loss of inferior glenoid sclerotic contour on AP,category,Y|N,ISIS item,preop X-ray,B,N
+samilson_prieto_preop,xray,Samilson-Prieto grade preop,category,0|1|2|3,0 none;1 osteophyte <3mm;2 3-7mm;3 >7mm,preop X-ray,B,N
+isis_age,isis,Age <20 (2) else 0,integer,0|2,Auto-derived from source fields if blank,derived,B,Y
+isis_competitive,isis,Competitive sport (2) else 0,integer,0|2,Auto-derived from source fields if blank,derived,B,Y
+isis_contact_overhead,isis,Contact/forced overhead (1),integer,0|1,Auto-derived from source fields if blank,derived,B,Y
+isis_hyperlaxity,isis,Hyperlaxity (1),integer,0|1,Auto-derived from source fields if blank,derived,B,Y
+isis_hill_sachs,isis,Hill-Sachs on AP ER (2),integer,0|2,Auto-derived from source fields if blank,derived,B,Y
+isis_glenoid,isis,Glenoid contour loss (2),integer,0|2,Auto-derived from source fields if blank,derived,B,Y
+isis_total,isis,ISIS total,integer,0-10,Sum of items (Balg & Boileau 2007),derived,B,Y
+preop_imaging_modality,imaging,Modality used for bone-loss measurement,category,CT3D|CT2D|MRI|MRA,,imaging,A,N
+glenoid_diameter_D_mm,imaging,Best-fit circle diameter D,decimal,mm (15-40),"En-face sagittal, inferior best-fit circle",imaging obs1,B,N
+glenoid_defect_d_mm,imaging,Anterior glenoid defect width d,decimal,mm (0-20),Distance from anterior rim to circle edge,imaging obs1,B,N
+glenoid_bone_loss_pct,imaging,Glenoid bone loss %,decimal,0-60 %,d/D x100,derived,B,Y
+gbl_band,imaging,GBL band,category,LT13.5|13.5-20|GT20,,derived,B,Y
+bony_bankart,imaging,Bony Bankart fragment,category,Y|N,,imaging,B,N
+bony_fragment_pct,imaging,Fragment size % of D,decimal,%,,imaging,C,N
+hs_present,imaging,Hill-Sachs lesion present,category,Y|N,,imaging,B,N
+hs_width_mm,imaging,Hill-Sachs width,decimal,mm,,imaging obs1,B,N
+hs_bone_bridge_mm,imaging,Bone bridge (cuff footprint to HSL),decimal,mm,,imaging obs1,B,N
+hs_depth_mm,imaging,Hill-Sachs depth,decimal,mm,,imaging obs1,C,N
+hsi_mm,imaging,Hill-Sachs interval,decimal,mm,hs_width + bone bridge,derived,B,Y
+glenoid_track_mm,imaging,Glenoid track,decimal,mm,0.83*D - d,derived,B,Y
+track_status,imaging,Track status,category,ON|OFF,OFF if HSI > GT,derived,B,Y
+dtd_mm,imaging,Distance to dislocation,decimal,mm,GT - HSI,derived,B,Y
+track_subtype,imaging,Track subtype,category,CENTRAL|PERIPHERAL|OFF,PERIPHERAL code = near-track (Li 2021): on-track with DTD < 8 mm,derived,B,Y
+labral_lesion_type,imaging,Labral lesion type,category,BANKART|ALPSA|PERTHES|GLAD|BONY_BANKART|OTHER,Imaging or arthroscopy,imaging/op note,C,N
+slap_extension,imaging,SLAP extension,category,Y|N,,op note,C,N
+hagl,imaging,HAGL lesion,category,Y|N,,imaging/op note,C,N
+cuff_tear,imaging,Rotator cuff tear,category,NONE|PARTIAL|FULL,,imaging/op note,C,N
+glenoid_diameter_D_mm_obs2,reliability,D observer 2,decimal,mm,"Second observer, reliability subset (30 cases)",imaging obs2,C,N
+glenoid_defect_d_mm_obs2,reliability,d observer 2,decimal,mm,"Second observer, reliability subset (30 cases)",imaging obs2,C,N
+hs_width_mm_obs2,reliability,HS width observer 2,decimal,mm,"Second observer, reliability subset (30 cases)",imaging obs2,C,N
+hs_bone_bridge_mm_obs2,reliability,Bone bridge observer 2,decimal,mm,"Second observer, reliability subset (30 cases)",imaging obs2,C,N
+surgery_date,surgery,Date of surgery,date,YYYY-MM-DD,,op note,A,N
+procedure_group,surgery,Procedure group,category,BANKART|BANKART_REMP|LATARJET,Exposure,op note,A,N
+approach,surgery,Approach,category,ARTHROSCOPIC|OPEN,,op note,A,N
+bankart_technique,surgery,Bankart repair technique,category,KNOTLESS|BRUMA|NA,Surgeon's technique list (knotless vs bruma.xlsx); NA for Latarjet,surgeon list,A,N
+n_glenoid_anchors,surgery,Number of glenoid anchors,integer,0-8,,op note,B,N
+anchor_type,surgery,Anchor type,category,KNOTTED|KNOTLESS|MIXED|NA,,op note,C,N
+anchor_material,surgery,Anchor material,category,ALL_SUTURE|BIOCOMPOSITE|PEEK|METAL|NA,,op note,C,N
+n_remplissage_anchors,surgery,Remplissage anchors,integer,0-4,,op note,B,N
+remplissage_technique,surgery,Remplissage technique,category,DOUBLE_PULLEY|MATTRESS|KNOTLESS|NA,,op note,C,N
+capsular_plication,surgery,Capsular plication / shift,category,Y|N,,op note,C,N
+rotator_interval_closure,surgery,Rotator interval closure,category,Y|N,,op note,C,N
+latarjet_technique,surgery,Latarjet technique,category,CLASSIC|CONGRUENT_ARC|NA,,op note,B,N
+latarjet_fixation,surgery,Graft fixation,category,2_SCREWS|1_SCREW|BUTTONS|NA,,op note,C,N
+latarjet_capsule_repair,surgery,Capsular repair to CA ligament,category,Y|N|NA,,op note,C,N
+operative_time_min,surgery,Operative time,integer,minutes,Skin to skin,anaesthesia record,C,N
+concomitant_procedures,surgery,Other procedures,text,,Free text,op note,C,N
+graft_position_axial,postop_imaging,Latarjet graft position (axial),category,FLUSH|MEDIAL|LATERAL_OVERHANG|NA,Postop CT,postop CT,C,N
+graft_overhang_mm,postop_imaging,Graft medial(-)/lateral(+) offset,decimal,mm,,postop CT,C,N
+graft_height,postop_imaging,Graft height vs equator,category,BELOW|AT|ABOVE|NA,,postop CT,C,N
+graft_union,postop_imaging,Graft union,category,UNION|FIBROUS|NONUNION|NA,,postop CT/X-ray,B,N
+graft_osteolysis,postop_imaging,Graft osteolysis,category,NONE|PARTIAL|TOTAL|NA,,postop CT/X-ray,C,N
+complication_any,complications,Any complication,category,Y|N,,chart,A,N
+complication_type,complications,Complication type(s),text,INFECTION|NERVE_MC|NERVE_AX|HEMATOMA|STIFFNESS|HARDWARE|FRACTURE|NONUNION|DVT|OTHER,Semicolon separated,chart,B,N
+complication_grade,complications,Clavien-Dindo grade,category,I|II|IIIa|IIIb|IV|V|NA,,chart,C,N
+reoperation_any,complications,Any reoperation,category,Y|N,,chart,A,N
+reoperation_reason,complications,Reoperation reason,text,,,chart,B,N
+reoperation_date,complications,Reoperation date,date,YYYY-MM-DD,,chart,B,N
+redislocation,recurrence,Redislocation,category,Y|N,Needed reduction or imaging-documented,chart/recall,A,N
+redislocation_date,recurrence,Date of first redislocation,date,YYYY-MM-DD,,chart/recall,B,N
+subluxation,recurrence,Subluxation episodes,category,Y|N,Patient-reported,chart/recall,A,N
+subluxation_date,recurrence,Date of first subluxation,date,YYYY-MM-DD,,chart/recall,B,N
+recurrence_any,recurrence,Any recurrence (PRIMARY),category,Y|N,redislocation OR subluxation,derived,A,Y
+months_to_recurrence,recurrence,Time to first recurrence,decimal,months,From surgery,derived,B,Y
+recurrence_mechanism,recurrence,Mechanism of recurrence,category,SPORT|TRAUMA_HIGH|TRAUMA_LOW|ATRAUMATIC|SEIZURE|NA,,chart/recall,C,N
+revision_instability,recurrence,Revision surgery for instability,category,Y|N,,chart,A,N
+revision_procedure,recurrence,Revision procedure,text,,,chart,C,N
+subsequent_bone_block,recurrence,Bone block after index operation,category,Y|N,Latarjet or other bone block on the same shoulder after the index stabilisation (bone-block-avoidance endpoint),chart/recall,A,N
+apprehension_pos_final,recurrence,Positive apprehension at final FU,category,Y|N,,exam,B,N
+rts_any,sport_outcome,Returned to sport,category,Y|N|NA,NA if no sport preop,recall,B,N
+rts_same_level,sport_outcome,Returned to same/higher level,category,Y|N|NA,,recall,B,N
+rts_months,sport_outcome,Time to return to sport,decimal,months,,recall,C,N
+rtw_months,sport_outcome,Time to return to work,decimal,months,,recall,C,N
+wosi_preop,outcomes_preop,WOSI total (Preoperative),integer,"0-100 (% of normal, higher=better)",WOSI; raw total 0-2100 converted to % of normal = 100 x (2100 - raw) / 2100 (as ortho-emr scores it),PROM,B,N
+rowe_preop,outcomes_preop,Rowe score (Preoperative),integer,0-100,,exam+PROM,B,N
+ases_preop,outcomes_preop,ASES (Preoperative),decimal,0-100,,PROM,B,N
+sane_preop,outcomes_preop,SANE (Preoperative),integer,0-100,,PROM,C,N
+vas_pain_preop,outcomes_preop,VAS pain (Preoperative),decimal,0-10,,PROM,B,N
+ff_preop,outcomes_preop,Forward flexion (Preoperative),integer,0-180 deg,Goniometer,exam,B,N
+er1_preop,outcomes_preop,ER at side (Preoperative),integer,-20-110 deg,,exam,B,N
+er2_preop,outcomes_preop,ER in 90 deg abduction (Preoperative),integer,0-130 deg,Key remplissage outcome,exam,B,N
+ir_preop,outcomes_preop,Internal rotation level (Preoperative),text,"e.g. T12,L3,SACRUM",Vertebral level reached,exam,C,N
+wosi_12m,outcomes_12m,WOSI total (12 months),integer,"0-100 (% of normal, higher=better)",WOSI; raw total 0-2100 converted to % of normal = 100 x (2100 - raw) / 2100 (as ortho-emr scores it),PROM,C,N
+rowe_12m,outcomes_12m,Rowe score (12 months),integer,0-100,,exam+PROM,C,N
+ases_12m,outcomes_12m,ASES (12 months),decimal,0-100,,PROM,C,N
+sane_12m,outcomes_12m,SANE (12 months),integer,0-100,,PROM,C,N
+vas_pain_12m,outcomes_12m,VAS pain (12 months),decimal,0-10,,PROM,C,N
+wosi_24m,outcomes_24m,WOSI total (24 months),integer,"0-100 (% of normal, higher=better)",WOSI; raw total 0-2100 converted to % of normal = 100 x (2100 - raw) / 2100 (as ortho-emr scores it),PROM,C,N
+rowe_24m,outcomes_24m,Rowe score (24 months),integer,0-100,,exam+PROM,C,N
+ases_24m,outcomes_24m,ASES (24 months),decimal,0-100,,PROM,C,N
+sane_24m,outcomes_24m,SANE (24 months),integer,0-100,,PROM,C,N
+vas_pain_24m,outcomes_24m,VAS pain (24 months),decimal,0-10,,PROM,C,N
+wosi_final,outcomes_final,WOSI total (Final follow-up),integer,"0-100 (% of normal, higher=better)",WOSI; raw total 0-2100 converted to % of normal = 100 x (2100 - raw) / 2100 (as ortho-emr scores it),PROM,A,N
+rowe_final,outcomes_final,Rowe score (Final follow-up),integer,0-100,,exam+PROM,A,N
+ases_final,outcomes_final,ASES (Final follow-up),decimal,0-100,,PROM,B,N
+sane_final,outcomes_final,SANE (Final follow-up),integer,0-100,,PROM,C,N
+vas_pain_final,outcomes_final,VAS pain (Final follow-up),decimal,0-10,,PROM,B,N
+ff_final,outcomes_final,Forward flexion (Final follow-up),integer,0-180 deg,Goniometer,exam,B,N
+er1_final,outcomes_final,ER at side (Final follow-up),integer,-20-110 deg,,exam,B,N
+er2_final,outcomes_final,ER in 90 deg abduction (Final follow-up),integer,0-130 deg,Key remplissage outcome,exam,B,N
+ir_final,outcomes_final,Internal rotation level (Final follow-up),text,"e.g. T12,L3,SACRUM",Vertebral level reached,exam,C,N
+er2_contralateral,outcomes_final,ER2 contralateral shoulder,integer,0-130 deg,For side-to-side deficit,exam,B,N
+prom_final_date,outcomes_final,Date of final PROM,date,YYYY-MM-DD,,,A,N
+prom_final_mode,outcomes_final,Final PROM mode,category,CLINIC|PHONE|VIDEO|ONLINE,,,B,N
+samilson_prieto_final,outcomes_final,Samilson-Prieto grade final,category,0|1|2|3,,final X-ray,B,N
+ois_final,outcomes_final,Oxford Instability Score (latest after surgery),integer,0-48 (higher=better),"Dawson 1999, current 0-48 scoring. Surgeon's sheet holds 12-60 with 5 per item best (checked against ortho-emr scored forms: higher=better there too), converted as value - 12. ortho-emr form score preferred when present",PROM,B,N
+ois_final_date,outcomes_final,Date of Oxford Instability Score,date,YYYY-MM-DD,Blank when taken from the surgeon's sheet (collection date not recorded),PROM,C,N
+ois_final_source,outcomes_final,Source of Oxford Instability Score,category,EMR_FORM|SURGEON_SHEET,,,C,N
+satisfied,outcomes_final,Would have surgery again,category,Y|N,,PROM,C,N
+last_followup_date,followup,Last follow-up date,date,YYYY-MM-DD,Latest contact with valid recurrence status,chart/recall,A,N
+followup_months,followup,Follow-up duration,decimal,months,surgery to last FU,derived,A,Y
+lost_to_followup,followup,Lost to follow-up,category,Y|N,Could not be contacted for final data,,A,N
+data_notes,followup,Notes / queries,text,,Free text for unresolved queries,,C,N
