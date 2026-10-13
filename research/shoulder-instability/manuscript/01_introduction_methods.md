@@ -73,7 +73,7 @@ The usual construct was 2 anchors for the Bankart repair, 1 for remplissage, and
 
 ### Postoperative Rehabilitation
 
-The arm was supported in a sling for 4 weeks. Pendulum exercises and assisted passive forward flexion to 90° and passive external rotation to 20° began on the first postoperative day. From the first day, patients used the operated arm for light activities in front of the body, such as eating, brushing teeth, and typing; the sling was worn when walking and could be loosened with the arm resting on the thigh when seated. Sutures were removed at 1 week. After 4 weeks the sling was discontinued and progressive range-of-motion exercises began, followed by scapular stabilization and rotator cuff strengthening, including the infraspinatus. [PLACEHOLDER: timing and criteria for return to contact and overhead sport] [CONFIRM: the same protocol was used after knotless repair and after BRUMA, with or without remplissage]..
+The arm was supported in a sling for 4 weeks. Pendulum exercises and assisted passive forward flexion to 90° and passive external rotation to 20° began on the first postoperative day. From the first day, patients used the operated arm for light activities in front of the body, such as eating, brushing teeth, and typing; the sling was worn when walking and could be loosened with the arm resting on the thigh when seated. Sutures were removed at 1 week. After 4 weeks the sling was discontinued and progressive range-of-motion exercises began, followed by scapular stabilization and rotator cuff strengthening, including the infraspinatus. Return to contact and overhead sport was allowed at 6 months. The same protocol was used after knotless and BRUMA repair, with or without remplissage..
 
 ### Imaging Assessment
 
